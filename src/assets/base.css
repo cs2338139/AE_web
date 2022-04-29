@@ -2,3 +2,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+.test{
+    @apply w-28 h-28 bg-slate-500
+}
+    .wrap {
+        @apply relative mx-0 my-auto max-w-7xl bg-red-50
+      }
+}
+
+
+
+
+
+
+
