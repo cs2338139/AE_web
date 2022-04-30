@@ -1,0 +1,16 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply m-0 p-0;
+  }
+}
+
+@layer components {
+  .wrap {
+    @apply relative my-0 mx-auto max-w-7xl bg-red-500;
+  }
+}
