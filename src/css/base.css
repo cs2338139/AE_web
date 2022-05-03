@@ -7,10 +7,45 @@
   body {
     @apply m-0 p-0;
   }
+
+  nav {
+    @apply fixed w-full h-32;
+    @apply border-View border-green-900;
+  }
 }
 
 @layer components {
+  .border-View {
+    /* @apply border border-solid box-border border-red-700; */
+  }
+
+  .flex-nav {
+    @apply flex justify-between items-center;
+    @apply relative my-0 mx-auto max-w-8xl;
+    @apply border-View;
+  }
+
   .wrap {
-    @apply relative my-0 mx-auto max-w-7xl bg-red-500;
+    @apply relative my-0 mx-auto max-w-8xl min-h-screen;
+    @apply border-View;
+  }
+
+  .Menu {
+    @apply inline-flex w-2/4;
+    @apply border-View;
+  }
+
+  .Menu li {
+    @apply font-semibold text-3xl;
+    @apply border-View;
+  }
+}
+
+@layer utilities {
+  .max-w-8xl {
+    max-width: 1440px;
+  }
+  .w-8x1 {
+    width: 1440px;
   }
 }
