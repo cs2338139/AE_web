@@ -9,14 +9,14 @@
   }
 
   nav {
-    @apply fixed w-full h-24 z-10;
-    @apply dev-border-View border-green-900;
+    @apply fixed w-full h-32 z-10;
+    @apply border-b border-black;
   }
 }
 
 @layer components {
   .dev-border-View {
-    @apply border border-solid box-border border-red-700;
+    /* @apply border border-solid box-border border-red-700; */
   }
 
   .wrap {
@@ -25,29 +25,34 @@
   }
 
   .Menu {
-    @apply inline-flex justify-between;
+    @apply inline-flex;
     @apply dev-border-View;
   }
 
   .Menu li {
-    @apply font-semibold text-xl;
+    @apply font-normal text-xl text-center max-h-7;
     @apply dev-border-View;
   }
 
-  .Menu li a{
-    @apply  hover:font-normal;
+  .Menu li a {
+    @apply hover:text-slate-400;
   }
 
   .MenuList {
-    @apply border-solid border-2 border-black rounded-md mt-5 py-1;
+    @apply mt-10 mx-0 p-0 text-center;
   }
 
   .MenuList li {
-    @apply text-base my-2 mx-0.5;
+    @apply font-light text-xl my-6 mx-0;
   }
 
   .align-y-mid {
     @apply top-1/2 -translate-y-1/2;
+  }
+
+  .Menu-span-border-bottom
+  {
+    @apply border-b-1-5 pb-6 border-black;
   }
 }
 
@@ -57,5 +62,8 @@
   }
   .w-8x1 {
     width: 1440px;
+  }
+  .border-b-1-5 {
+    border-bottom-width: 1.5px;
   }
 }
