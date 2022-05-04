@@ -9,35 +9,45 @@
   }
 
   nav {
-    @apply fixed w-full h-32;
-    @apply border-View border-green-900;
+    @apply fixed w-full h-24 z-10;
+    @apply dev-border-View border-green-900;
   }
 }
 
 @layer components {
-  .border-View {
+  .dev-border-View {
     /* @apply border border-solid box-border border-red-700; */
   }
 
-  .flex-nav {
-    @apply flex justify-between items-center;
-    @apply relative my-0 mx-auto max-w-8xl;
-    @apply border-View;
-  }
-
   .wrap {
-    @apply relative my-0 mx-auto max-w-8xl min-h-screen;
-    @apply border-View;
+    @apply relative my-0 mx-auto max-w-8xl;
+    @apply dev-border-View;
   }
 
   .Menu {
-    @apply inline-flex w-2/4;
-    @apply border-View;
+    @apply inline-flex justify-between;
+    @apply dev-border-View;
   }
 
   .Menu li {
-    @apply font-semibold text-3xl;
-    @apply border-View;
+    @apply font-semibold text-lg;
+    @apply dev-border-View;
+  }
+
+  .Menu li a{
+    @apply  hover:font-normal;
+  }
+
+  .MenuList {
+    @apply border-solid border-2 border-black rounded-md mt-5 py-1;
+  }
+
+  .MenuList li {
+    @apply text-base my-2 mx-0.5;
+  }
+
+  .align-y-mid {
+    @apply top-1/2 -translate-y-1/2;
   }
 }
 
