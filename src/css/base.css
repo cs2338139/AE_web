@@ -16,7 +16,7 @@
 
 @layer components {
   .dev-border-View {
-    /* @apply border border-solid box-border border-red-700; */
+    @apply border border-solid box-border border-red-700;
   }
 
   .wrap {
@@ -30,7 +30,7 @@
   }
 
   .Menu li {
-    @apply font-semibold text-lg;
+    @apply font-semibold text-xl;
     @apply dev-border-View;
   }
 
