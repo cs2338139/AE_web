@@ -1,4 +1,3 @@
-/* ./src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,74 +7,12 @@
     @apply m-0 p-0;
   }
 
-  nav {
-    @apply fixed w-full h-32 z-10;
-    /* @apply border-b border-black; */
-  }
 }
 
 @layer components {
-  .dev-border-View {
-    @apply border border-solid box-border border-red-700;
-  }
 
-  .wrap {
-    @apply relative my-0 mx-auto max-w-8xl;
-    @apply dev-border-View;
-  }
-
-  .Menu {
-    @apply inline-flex align-middle w-17/20;
-    @apply dev-border-View;
-  }
-
-  .Menu li {
-    @apply font-normal text-xl text-center max-h-7;
-    @apply dev-border-View;
-  }
-
-  .Menu li a {
-    @apply hover:text-slate-400;
-  }
-
-  .Menu li span {
-    @apply px-3;
-  }
-
-  .MenuList {
-    @apply mt-10 mx-0 p-0 text-center;
-  }
-
-  .MenuList li {
-    @apply font-light text-xl my-6 mx-0;
-  }
-
-
-
-  .align-y-mid {
-    @apply top-1/2 -translate-y-1/2;
-  }
-
-  .Menu-span-border-bottom {
-    @apply border-b-1-5 pb-5 border-black;
-  }
 }
 
 @layer utilities {
-  .max-w-8xl {
-    max-width: 1440px;
-  }
-  .w-8x1 {
-    width: 1440px;
-  }
-  .border-b-0-5 {
-    border-bottom-width: 0.5px;
-  }
-  .border-b-1-5 {
-    border-bottom-width: 1.5px;
-  }
-  .w-17\/20
-  {
-    width: 85%
-  }
+
 }

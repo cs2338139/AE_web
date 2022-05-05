@@ -207,6 +207,8 @@ module.exports = {
     borderWidth: {
       DEFAULT: "1px",
       0: "0px",
+      50: ".5px",
+      15: "1.5px",
       2: "2px",
       4: "4px",
       8: "8px",
@@ -648,6 +650,7 @@ module.exports = {
       "5xl": "64rem",
       "6xl": "72rem",
       "7xl": "80rem",
+      "8xl": "90rem",
       full: "100%",
       min: "min-content",
       max: "max-content",
@@ -923,6 +926,7 @@ module.exports = {
       "8/12": "66.666667%",
       "9/12": "75%",
       "10/12": "83.333333%",
+      "22/25": "88%",
       "11/12": "91.666667%",
       full: "100%",
       screen: "100vw",
@@ -964,5 +968,10 @@ module.exports = {
     "active",
     "disabled",
   ],
+  variants: {
+    extend: {
+      // display: ["group-hover"],
+    },
+  },
   plugins: [],
 };

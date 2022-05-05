@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
+<script setup></script>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" href="public/favicon-32x32.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>夢境漫遊</title>
-  <link rel="stylesheet" href="src/css/base.css">
-</head>
-
-<body>
-
-  <!-- nav -->
-  <div id="Nav-Bar"></div>
-
-
-  <!-- TEST -->
-  <!-- <nav class="group">
+<template>
+  <nav class="group">
     <div class="nav-bg h-32 block group-hover:hidden">
       <div class="wrap h-32 flex justify-between items-center">
         <a href="./index.html" class="inline-block align-middle">
@@ -182,16 +167,66 @@
         </ul>
       </div>
     </div>
-  </nav> -->
+  </nav>
+</template>
 
+<style>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  <!-- content -->
-  <div class="wrap min-h-screen">
+@layer base {
+  nav {
+    @apply fixed w-full h-32 z-10;
+  }
+}
 
-  </div>
+@layer components {
+  .dev-border-View {
+    /* @apply border border-solid box-border border-red-700; */
+  }
 
+  .nav-bg {
+    @apply w-full border-b-50 border-gray-300 bg-white top-0 absolute;
+  }
 
-  <script type="module" src="/src/main.js"></script>
-</body>
+  .wrap {
+    @apply relative my-0 mx-auto max-w-8xl;
+    @apply dev-border-View;
+  }
 
-</html>
+  .Menu {
+    @apply inline-flex align-middle w-22/25 justify-between;
+    @apply dev-border-View;
+  }
+
+  .Menu li {
+    @apply font-normal text-xl text-center max-h-7;
+    @apply dev-border-View;
+  }
+
+  .Menu li a {
+    @apply hover:text-slate-400;
+  }
+
+  .Menu li span {
+    @apply px-3;
+  }
+
+  .MenuList {
+    @apply mt-10 mx-0 p-0 text-center absolute top-14;
+  }
+
+  .MenuList li {
+    @apply font-light text-xl my-6 mx-0;
+  }
+
+  .align-y-mid {
+    @apply top-1/2 -translate-y-1/2;
+  }
+
+  .Menu-span-border-bottom {
+    @apply border-b-15 pb-5 border-black;
+  }
+}
+</style>
