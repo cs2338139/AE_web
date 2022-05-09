@@ -4,6 +4,8 @@ import MenuListItem from "./src/MenuListItem.vue";
 import NavMenuList from "./src/NavMenuList.vue";
 import NavMenuItem from "./src/NavMenuItem.vue";
 import NavMenu from "./src/NavMenu.vue";
+const homeImage = new URL('../../../Image/UI/Home.png', import.meta.url).href;
+
 </script>
 
 <template>
@@ -11,7 +13,7 @@ import NavMenu from "./src/NavMenu.vue";
 
     <NavMenu _class="h-32 block group-hover:hidden">
       <template #logo>
-        <Logo href="./index.html" img="src/Image/UI/Home.png" width="width:140px" />
+        <Logo href="./index.html" :img="homeImage" width="width:140px" />
       </template>
 
       <NavMenuItem href="">關於策展</NavMenuItem>
@@ -26,7 +28,7 @@ import NavMenu from "./src/NavMenu.vue";
 
     <NavMenu _class="h-72 hidden group-hover:block">
       <template #logo>
-        <Logo href="./index.html" img="src/Image/UI/Home.png" width="width:140px" />
+        <Logo href="./index.html" :img="homeImage" width="width:140px" />
       </template>
 
       <NavMenuList>
