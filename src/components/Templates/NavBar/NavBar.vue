@@ -56,7 +56,6 @@ import NavMenu from "./src/NavMenu.vue";
         <template #menuName>推廣活動</template>
         <MenuListItem href="">工作坊</MenuListItem>
         <MenuListItem href="">專題演講</MenuListItem>
-        <MenuListItem href="">工作營</MenuListItem>
       </NavMenuList>
 
       <NavMenuList>

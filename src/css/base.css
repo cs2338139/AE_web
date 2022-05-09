@@ -9,15 +9,20 @@
 }
 
 @layer components {
-  .dev-border-View {
-    /* @apply border border-solid box-border border-red-700; */
+  .dev-border-view {
+    @apply border border-solid box-border border-red-700;
   }
 
   .wrap {
     @apply relative my-0 mx-auto max-w-8xl;
-    @apply dev-border-View;
+    /* @apply dev-border-view; */
   }
 }
 
 @layer utilities {
+
+  .w-1\/15
+  {
+    width: 6.6666667%;
+  }
 }
