@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink, RouterView } from "vue-router";
 defineProps({
   href: String,
   target: String
@@ -7,11 +8,11 @@ defineProps({
 
 <template>
   <li class="font-light text-xl my-6 mx-0">
-    <a  :href="href" :target="target" class="hover:text-slate-400">
+    <RouterLink :to="href" :target="target" class="hover:text-slate-400">
       <span class="px-3">
-          <slot></slot>
+        <slot></slot>
       </span>
-    </a>
+    </RouterLink>
   </li>
 </template>
 

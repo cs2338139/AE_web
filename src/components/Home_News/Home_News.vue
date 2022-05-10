@@ -1,5 +1,6 @@
 <script setup>
 import NewsListItem from "./src/NewsListItem.vue";
+import { RouterLink, RouterView } from "vue-router";
 
 </script>
 
@@ -14,9 +15,9 @@ import NewsListItem from "./src/NewsListItem.vue";
             <NewsListItem href="" target="">2022/03/31 為兒童閱讀-歡慶423世界閱讀日</NewsListItem>
         </ul>
         <div class="font-bold absolute bottom-0 right-0">
-            <a href="" class="hover:text-slate-400">
+            <RouterLink to="/news" class="hover:text-slate-400">
                 <span> more＞</span>
-            </a>
+            </RouterLink>
         </div>
     </div>
 </template>

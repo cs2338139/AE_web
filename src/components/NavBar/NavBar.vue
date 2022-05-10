@@ -4,12 +4,12 @@ import MenuListItem from "./src/MenuListItem.vue";
 import NavMenuList from "./src/NavMenuList.vue";
 import NavMenuItem from "./src/NavMenuItem.vue";
 import NavMenu from "./src/NavMenu.vue";
-const homeImage = new URL('../../../Image/UI/Home.png', import.meta.url).href;
+const homeImage = new URL('../../assets/Image/UI/Home.png', import.meta.url).href;
 
 </script>
 
 <template>
-  <nav class="group fixed w-full h-32 z-10">
+  <nav class="group fixed top-0 w-full h-32 z-10">
 
     <NavMenu _class="h-32 block group-hover:hidden">
       <template #logo>
@@ -28,7 +28,7 @@ const homeImage = new URL('../../../Image/UI/Home.png', import.meta.url).href;
 
     <NavMenu _class="h-72 hidden group-hover:block">
       <template #logo>
-        <Logo href="./index.html" :img="homeImage" width="width:140px" />
+        <Logo href="/" :img="homeImage" width="width:140px" />
       </template>
 
       <NavMenuList>
@@ -46,13 +46,9 @@ const homeImage = new URL('../../../Image/UI/Home.png', import.meta.url).href;
         <MenuListItem href="">線上展覽手冊</MenuListItem>
       </NavMenuList>
 
-      <NavMenuItem href="">最新消息</NavMenuItem>
+      <NavMenuItem href="/news">最新消息</NavMenuItem>
 
-      <NavMenuList>
-        <template #menuName>參觀資訊</template>
-        <MenuListItem href="">本館資訊</MenuListItem>
-        <MenuListItem href="">交通資訊</MenuListItem>
-      </NavMenuList>
+      <NavMenuItem href="/vistInformationView">參觀資訊</NavMenuItem>
 
       <NavMenuList>
         <template #menuName>推廣活動</template>
@@ -73,12 +69,11 @@ const homeImage = new URL('../../../Image/UI/Home.png', import.meta.url).href;
       </NavMenuList>
 
     </NavMenu>
- </nav>
+  </nav>
 </template>
 
 <style>
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 </style>

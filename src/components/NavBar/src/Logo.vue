@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink, RouterView } from "vue-router";
 defineProps({
   img: String,
   width: String,
@@ -7,9 +8,9 @@ defineProps({
 </script>
 
 <template>
-  <a :href="href" class="inline-block align-middle">
+  <RouterLink :to="href" class="inline-block align-middle">
     <img :src="img" :style="width" />
-  </a>
+  </RouterLink>
 </template>
 
 <style>

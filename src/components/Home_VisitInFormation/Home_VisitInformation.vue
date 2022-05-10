@@ -1,5 +1,5 @@
 <script setup>
-
+import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
@@ -13,9 +13,9 @@
         <div class="text-base font-normal">國定假日照常開館</div>
 
         <div class="font-bold absolute bottom-0 right-0">
-            <a href="" class="hover:text-slate-400">
+            <RouterLink to="/vistInformationView" class="hover:text-slate-400">
                 <span> more＞</span>
-            </a>
+            </RouterLink>
         </div>
     </div>
 </template>
