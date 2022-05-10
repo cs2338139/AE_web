@@ -7,7 +7,7 @@ import FootBar from "./components/FootBar/FootBar.vue";
 <template>
   <NavBar></NavBar>
 
-  <div class="wrap min-h-screen">
+  <div class="wrap min-h-screen mt-44">
     <RouterView />
   </div>
 
