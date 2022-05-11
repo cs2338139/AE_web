@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <span class="mx-5 inline">〉</span>
+    <span class="mx-5 font-bold">〉</span>
     <span>
         <slot></slot>
     </span>
