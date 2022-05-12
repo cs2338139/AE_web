@@ -27,3 +27,4 @@ npm run dev
 ```sh
 npm run build
 ```
+https://www.figma.com/proto/Maeo4HbZ7cbsznJjlHN7WU/AE_Web?node-id=446%3A290&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=7%3A13&hide-ui=1
