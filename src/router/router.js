@@ -1,28 +1,29 @@
-import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import NewsView from "../views/NewsView.vue";
-import VistInformationView from "../views/VistInformationView.vue";
-import NotFound from "../views/NotFound.vue";
+import { createRouter, createWebHashHistory } from "vue-router";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
-      name: "home",
-      component: HomeView,
+      component: () => import("../views/HomeView.vue"),
     },
     {
       path: "/news",
-      name: "news",
-      component: NewsView,
+      component: () => import("../views/NewsView.vue"),
     },
     {
-      path: "/vistInformationView",
-      name: "VistInformationView",
-      component: VistInformationView,
+      path: "/vistInformation",
+      component: () => import("../views/VistInformationView.vue"),
     },
-    { path: "/:pathMatch(.*)*", name: "NotFound", component: NotFound },
+    {
+      path: "/workshop",
+      component: () => import("../views/WorkShopView.vue"),
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "NotFound",
+      component: () => import("../views/NotFound.vue"),
+    },
   ],
 });
 

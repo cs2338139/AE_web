@@ -48,11 +48,11 @@ const homeImage = new URL('../../assets/Image/UI/Home.png', import.meta.url).hre
 
       <NavMenuItem href="/news">最新消息</NavMenuItem>
 
-      <NavMenuItem href="/vistInformationView">參觀資訊</NavMenuItem>
+      <NavMenuItem href="/vistInformation">參觀資訊</NavMenuItem>
 
       <NavMenuList>
         <template #menuName>推廣活動</template>
-        <MenuListItem href="">工作坊</MenuListItem>
+        <MenuListItem href="workshop">工作坊</MenuListItem>
         <MenuListItem href="">專題演講</MenuListItem>
       </NavMenuList>
 
