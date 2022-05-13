@@ -1,33 +1,72 @@
 <script setup>
+import axios from "axios";
 import { RouterLink, RouterView } from "vue-router";
 import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
 import WorkShopItem from "../components/WorkShopItem/WorkShopItem.vue";
-const homeImage = new URL('../../public/Data/WorkShops/Home_ProjectCover01.jpg', import.meta.url).href;
+</script>
+
+<script>
+// const homeImage = new URL("../../public/Data/WorkShops/cover/WorkShop_(0).jpg", import.meta.url).href;
+// console.log(homeImage);
+export default {
+  data() {
+    return {
+      workShopList: [],
+      image: [],
+    };
+  },
+  methods: {
+    LoadJson() {
+      axios
+        .get("public/Data/WorkShops/WorkShopList.json")
+        .then((response) => {
+          this.workShopList = response.data;
+
+          for (var i = 0; i < this.workShopList.length; i++) {
+            var path = "../../public/Data/" + this.workShopList[i].imgKey;
+            this.workShopList[i].img = new URL(path, import.meta.url).href;
+          }
+
+          var mod = 4 - (this.workShopList.length % 4);
+          var template = {
+            title: "none",
+            imgKey: "",
+            date: "",
+            typeName: "",
+            path: "",
+          };
+
+          for (var i = 0; i < mod; i++) {
+            this.workShopList.push(template);
+          }
+        })
+        .catch(function (response) {
+          console.log(response);
+        });
+    },
+  },
+  created() {
+    this.LoadJson();
+  },
+};
 </script>
 
 <template>
-    <Road class="mb-10 dev-border-view">
-        <RoadItem>推廣活動</RoadItem>
-        <RoadItem>工作坊</RoadItem>
-    </Road>
-    <div class="max-w-4xl mx-auto mt-20 mb-12 text-lg font-bold dev-border-view">
-        這次帶來的工作坊從10本繪本發想，分成分程是「繪本與人文」、「科學與創造」兩個主軸。繪本與人文由流寓工作室與果實玩樂生活實驗室兩個教育推廣團隊，
-        以「自然接觸」、「童趣手作」為課程精神，帶領以自然界的材料或觀察，帶領孩子與大人們進行手作課程。「科學與創造」則由光試所與Pixelight以「鏡面反射」、
-        「電路電學」、「虛擬實境」為設計精神，帶領孩子與大人們進行科學與AR、VR的奇妙視覺體驗。
-    </div>
-    <div class="flex flex-wrap justify-between dev-border-view">
-        <WorkShopItem href="/" :img="homeImage"/>
-        <WorkShopItem href="/" :img="homeImage"/>
-        <WorkShopItem href="/" :img="homeImage"/>
-        <WorkShopItem href="/" :img="homeImage"/>
-        <WorkShopItem href="/" :img="homeImage"/>
-        <WorkShopItem href="/" :img="homeImage"/>
-        <WorkShopItem href="/" :img="homeImage"/>
-        <WorkShopItem href="/" :img="homeImage"/>
-        <WorkShopItem href="/" :img="homeImage"/>
-
-    </div>
+  <Road class="mb-10">
+    <RoadItem>推廣活動</RoadItem>
+    <RoadItem>工作坊</RoadItem>
+  </Road>
+  <div class="max-w-4xl mx-auto mt-20 mb-12 text-lg font-bold">
+    這次帶來的工作坊從10本繪本發想，分成分程是「繪本與人文」、「科學與創造」兩個主軸。繪本與人文由流寓工作室與果實玩樂生活實驗室兩個教育推廣團隊，
+    以「自然接觸」、「童趣手作」為課程精神，帶領以自然界的材料或觀察，帶領孩子與大人們進行手作課程。「科學與創造」則由光試所與Pixelight以「鏡面反射」 、 「電路電學」、「虛擬實境」為設計精神，帶領孩子與大人們進行科學與AR、VR的奇妙視覺體驗。
+  </div>
+  <div class="flex justify-between flex-wrap">
+    <WorkShopItem v-for="i in workShopList" href="" :img="i.img" :typeName="i.typeName" :class="{ invisible: i.title === 'none' }">
+      <template #title>{{ i.title }}</template>
+      <template #date>{{ i.date }}</template>
+    </WorkShopItem>
+  </div>
 </template>
 
 <style>
@@ -36,8 +75,8 @@ const homeImage = new URL('../../public/Data/WorkShops/Home_ProjectCover01.jpg',
 @tailwind utilities;
 
 @layer components {
-    .dev-border-view {
-        @apply border border-solid box-border;
-    }
+  .dev-border-view {
+    @apply border border-solid box-border;
+  }
 }
 </style>
