@@ -14,13 +14,13 @@ export default {};
     <RoadItemRouter href="/workshop">工作坊</RoadItemRouter>
     <RoadItem>漫遊城市：泥塑鏤空杯墊製作 </RoadItem>
   </Road>
-  <div>
+  <div class="grid grid-cols-5 grid-rows-5 gap-10 dev-border-view">
 
-    <div class="absolute left-0 w-3/5 h-full border-black bg-zinc-200">
+    <div class="col-start-1 row-start-1 col-end-4 row-end-4 border-black dev-border-view bg-zinc-200">
       <img src="" alt="" />
     </div>
 
-    <div class="absolute right-0 w-2/5 h-full border-blue-500">
+    <div class="col-start-4 row-start-1 col-end-6 row-end-4  border-blue-500 dev-border-view col-start">
       <div class="w-3/4 h-full ml-10">
         <div class="mt-3 mb-16">
           <div class="mb-3 text-4xl font-bold">2022.07.09（六）</div>
@@ -48,7 +48,7 @@ export default {};
       </div>
     </div>
 
-    <div>
+    <div class="col-start-1 row-start-4 col-end-4 row-end-6  dev-border-view">
       <div>漫遊城市：泥塑鏤空杯墊製作</div>
       <b>
         我們的房子是什麼樣子呢！ <br />
