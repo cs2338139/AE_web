@@ -2,8 +2,10 @@
 </script>
 
 <template>
-    <div>404 - Page not found</div>
-    <div>Go back home.</div>
+<div class="wrap">
+        <div>404 - Page not found</div>
+        <div>Go back home.</div>
+</div>
 </template>
 
 <style>

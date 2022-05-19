@@ -18,11 +18,21 @@ const router = createRouter({
     {
       path: "/workshop",
       component: () => import("../views/WorkShopView.vue"),
+      children: [
+        {
+          path: "",
+          component: () => import("../views/WorkShopListView.vue"),
+        },
+        {
+          path: ":workshopID",
+          component: () => import("../views/WorkShopContentView.vue"),
+        },
+      ],
     },
-    {
-      path: "/workshopContent",
-      component: () => import("../views/WorkShopContentView.vue"),
-    },
+    // {
+    //   path: "/workshopContent",
+    //   component: () => import("../views/WorkShopContentView.vue"),
+    // },
     {
       path: "/:pathMatch(.*)*",
       name: "NotFound",

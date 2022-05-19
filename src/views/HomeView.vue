@@ -5,7 +5,7 @@ const Image = new URL('../../src/assets/Image/Home_Slide01.jpg', import.meta.url
 </script>
 
 <template>
-  <div>
+  <div class="wrap">
     <div class="mb-10">
       <img :src="Image" class="w-full" />
     </div>
