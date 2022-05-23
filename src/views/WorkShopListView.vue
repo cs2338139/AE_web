@@ -11,7 +11,6 @@ export default {
   data() {
     return {
       workShopList: [],
-      image: [],
     };
   },
   methods: {

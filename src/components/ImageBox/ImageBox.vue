@@ -1,13 +1,18 @@
 <script setup>
-defineProps({});
+const props = defineProps({
+  workShopID: String,
+  time: Number,
+  auto: Boolean,
+  img: Array,
+});
 </script>
 
 <script>
 export default {
   data() {
     return {
-      slideIndex: 1,
-      timeID:null,
+      slideIndex: 0,
+      timeID: null,
     };
   },
   methods: {
@@ -17,39 +22,41 @@ export default {
       }, 3000);
     },
     plusSlides(n) {
-      this.showSlides((this.slideIndex += n));
+      this.slideIndex += n;
+      this.showSlides();
     },
     currentSlide(n) {
-      this.showSlides((this.slideIndex = n));
+      this.slideIndex = n;
+      this.showSlides();
     },
-    showSlides(n) {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      let dots = document.getElementsByClassName("dot");
+    showSlides() {
+      let dots = this.$refs.dots;
+      let slides = this.$refs.slides;
 
       clearInterval(this.timeID);
-      if(slides.length!=0)this.autoSlides();
+      if (slides.length > 1) {
+        if (this.props.auto === true) this.autoSlides();
 
+        if (this.slideIndex > slides.length - 1) {
+          this.slideIndex = 0;
+        }
+        if (this.slideIndex < 0) {
+          this.slideIndex = slides.length - 1;
+        }
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (let i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
 
-      if (n > slides.length) {
-        this.slideIndex = 1;
+        slides[this.slideIndex].style.display = "block";
+        dots[this.slideIndex].className += " active";
       }
-      if (n < 1) {
-        this.slideIndex = slides.length;
-      }
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-
-      slides[this.slideIndex - 1].style.display = "block";
-      dots[this.slideIndex - 1].className += " active";
     },
   },
   mounted() {
-    this.autoSlides();
+    this.showSlides(0);
   },
 };
 
@@ -67,16 +74,12 @@ export default {
       </button>
 
       <div class="absolute left-0 right-0 text-center border-red-600 bottom-2">
-        <span class="dot" @click="currentSlide(1)"></span>
-        <span class="dot" @click="currentSlide(2)"></span>
-        <span class="dot" @click="currentSlide(3)"></span>
+        <span v-for="(i, index) in img" class="dot" @click="currentSlide(index)" ref="dots"></span>
       </div>
     </div>
 
     <div class="border border-black overflow-hidden h-630px">
-      <img src="public/Data/WorkShops/Image/0/img (1).jpg" class="mySlides block" />
-      <img src="public/Data/WorkShops/Image/0/img (2).jpg" class="mySlides hidden" />
-      <img src="public/Data/WorkShops/Image/0/img (3).jpg" class="mySlides hidden" />
+      <img v-for="i in img" :src="'Data/WorkShops/' + workShopID + '/Image/' + i" class="mySlides" ref="slides" />
     </div>
   </div>
 </template>
