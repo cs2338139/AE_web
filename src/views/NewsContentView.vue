@@ -1,0 +1,62 @@
+<script setup>
+import axios from "axios";
+import Road from "../components/Road/Road.vue";
+import RoadItemRouter from "../components/Road/src/RoadItemRouter.vue";
+</script>
+
+<script>
+export default {
+  data() {
+    return {
+      newsData: null,
+    };
+  },
+  methods: {
+    LoadJson() {
+      axios
+        .get("Data/news/" + this.$route.params.newsID + "/newsContent.json")
+        .then((response) => {
+          this.newsData = response.data;
+        })
+        .catch(function (response) {
+          console.log(response);
+        });
+    },
+  },
+  created() {
+    this.LoadJson();
+  },
+};
+</script>
+
+<template>
+  <template v-if="newsData != null">
+    <div class="wrap">
+      <Road class="mb-10 my-3">
+        <RoadItemRouter href="/news">最新消息</RoadItemRouter>
+      </Road>
+
+      <div class="text-3xl font-bold">{{ newsData.title }}</div>
+      <div class="my-2">刊登日期：{{ newsData.date }}</div>
+      <div class="mt-2 mb-6">公告類別：{{ newsData.typeName }}</div>
+      <template v-for="i in newsData.content">
+        <div :class="{ my: i === '' }" class="contentFont">{{ i }}</div>
+      </template>
+    </div>
+  </template>
+</template>
+
+<style scoped>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .my {
+    @apply my-5;
+  }
+  .contentFont {
+    @apply text-lg;
+  }
+}
+</style>

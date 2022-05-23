@@ -1,9 +1,8 @@
 <script setup>
 import axios from "axios";
-import { RouterLink, RouterView } from "vue-router";
 import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
-import WorkShopItem from "../components/WorkShopItem/WorkShopItem.vue";
+import ActivitiesItem from "../components/ActivitiesItem/ActivitiesItem.vue";
 </script>
 
 <script>
@@ -20,10 +19,10 @@ export default {
         .then((response) => {
           this.workShopList = response.data;
 
-          var mod = 4 - (this.workShopList.length % 4);
+          var mod = 3 - (this.workShopList.length % 3);
+          if (mod === 3) mod = 0;
           var template = {
             title: "none",
-            imgKey: "",
             date: "",
             typeName: "",
             path: "",
@@ -57,10 +56,10 @@ export default {
         </div>
   </div>
     <div class="flex flex-wrap justify-between">
-      <WorkShopItem v-for="(i,index) in workShopList" :href="'/workshop/'+index" :img="'Data/'+i.imgKey" :typeName="i.typeName" :class="{ invisible: i.title === 'none' }">
+      <ActivitiesItem v-for="(i,index) in workShopList" :href="'/workshop/'+index" :img="'Data/WorkShops/'+index+'/cover.jpg'" :typeName="i.typeName" :class="{ invisible: i.title === 'none' }">
         <template #title>{{ i.title }}</template>
         <template #date>{{ i.date }}</template>
-      </WorkShopItem>
+      </ActivitiesItem>
     </div>
   </div>
 </template>

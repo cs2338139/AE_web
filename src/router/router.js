@@ -9,7 +9,17 @@ const router = createRouter({
     },
     {
       path: "/news",
-      component: () => import("../views/NewsView.vue"),
+      component: () => import("../views/ContentView.vue"),
+      children: [
+        {
+          path: "",
+          component: () => import("../views/NewsListView.vue"),
+        },
+        {
+          path: ":newsID",
+          component: () => import("../views/NewsContentView.vue"),
+        },
+      ],
     },
     {
       path: "/vistInformation",
@@ -17,7 +27,7 @@ const router = createRouter({
     },
     {
       path: "/workshop",
-      component: () => import("../views/WorkShopView.vue"),
+      component: () => import("../views/ContentView.vue"),
       children: [
         {
           path: "",
@@ -29,10 +39,20 @@ const router = createRouter({
         },
       ],
     },
-    // {
-    //   path: "/workshopContent",
-    //   component: () => import("../views/WorkShopContentView.vue"),
-    // },
+    {
+      path: "/forum",
+      component: () => import("../views/ContentView.vue"),
+      children: [
+        {
+          path: "",
+          component: () => import("../views/ForumListView.vue"),
+        },
+        {
+          path: ":forumID",
+          component: () => import("../views/ForumContentView.vue"),
+        },
+      ],
+    },
     {
       path: "/:pathMatch(.*)*",
       name: "NotFound",

@@ -52,8 +52,8 @@ const homeImage = new URL('../../assets/Image/UI/Home.png', import.meta.url).hre
 
       <NavMenuList>
         <template #menuName>推廣活動</template>
-        <MenuListItem href="workshop">工作坊</MenuListItem>
-        <MenuListItem href="">專題演講</MenuListItem>
+        <MenuListItem href="/workshop">工作坊</MenuListItem>
+        <MenuListItem href="/forum">專題演講</MenuListItem>
       </NavMenuList>
 
       <NavMenuList>

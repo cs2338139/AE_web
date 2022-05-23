@@ -1,6 +1,7 @@
 <script setup>
 const props = defineProps({
-  workShopID: String,
+  type: String,
+  indexID: String,
   time: Number,
   auto: Boolean,
   img: Array,
@@ -73,18 +74,18 @@ export default {
         <ion-icon name="chevron-forward-circle" />
       </button>
 
-      <div class="absolute left-0 right-0 text-center border-red-600 bottom-2">
+      <div class="absolute left-0 right-0 text-center bottom-2">
         <span v-for="(i, index) in img" class="dot" @click="currentSlide(index)" ref="dots"></span>
       </div>
     </div>
 
-    <div class="border border-black overflow-hidden h-630px">
-      <img v-for="i in img" :src="'Data/WorkShops/' + workShopID + '/Image/' + i" class="mySlides" ref="slides" />
+    <div class="border border-black overflow-hidden">
+      <img v-for="i in img" :src="'Data/' + type + '/' + indexID + '/Image/' + i" class="mySlides w-full" ref="slides" />
     </div>
   </div>
 </template>
 
-<style>
+<style scoped >
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -95,7 +96,7 @@ ion-icon {
 
 @layer components {
   .dirButton {
-    @apply absolute top-0 bottom-0 my-auto text-5xl opacity-50 hover:opacity-100;
+    @apply absolute top-0 bottom-0 my-auto text-5xl opacity-50 hover:opacity-100 ;
   }
 
   .dot {

@@ -49,7 +49,7 @@ export default {
         <div></div>
 
         <div class="col-start-1 col-end-4 row-start-1 row-end-4">
-          <ImageBox :workShopID="$route.params.workshopID" :img="workShopData.imgs" :time="3000" :auto="false" />
+          <ImageBox type="workshops" :indexID="$route.params.workshopID" :img="workShopData.imgs" :time="3000" :auto="false" />
         </div>
 
         <div class="col-start-4 col-end-6 row-start-1 row-end-4 col-start">
@@ -134,7 +134,7 @@ export default {
   </template>
 </template>
 
-<style>
+<style scoped>
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

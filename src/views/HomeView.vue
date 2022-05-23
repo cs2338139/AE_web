@@ -1,6 +1,6 @@
 <script setup>
-import HomeNews from '@/components/Home_News/Home_News.vue'
-import VisitInformation from '@/components/Home_VisitInFormation/Home_VisitInformation.vue'
+import HomeNews from '../components/Home_News/Home_News.vue'
+import VisitInformation from '../components/Home_VisitInFormation/Home_VisitInformation.vue'
 const Image = new URL('../../src/assets/Image/Home_Slide01.jpg', import.meta.url).href;
 </script>
 
