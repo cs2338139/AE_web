@@ -1,1 +1,0 @@
-import{_ as o,o as n,c as t,F as _,a as e}from"./index.463d4532.js";const a={},c=e("div",null,"404 - Page not found",-1),s=e("div",null,"Go back home.",-1);function r(d,l){return n(),t(_,null,[c,s],64)}var i=o(a,[["render",r]]);export{i as default};
