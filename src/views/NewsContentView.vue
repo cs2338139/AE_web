@@ -13,15 +13,18 @@ export default {
   },
   methods: {
     LoadJson() {
-      axios
-        .get("Data/news/" + this.$route.params.newsID + "/newsContent.json")
-        .then((response) => {
-          this.newsData = response.data;
-        })
-        .catch((response) => {
-          console.log(response);
-          this.ToNotFound();
-        });
+      let newsID = this.$route.params.newsID;
+      if (newsID) {
+        axios
+          .get("Data/News/" + newsID + "/NewsContent.json")
+          .then((response) => {
+            this.newsData = response.data;
+          })
+          .catch((response) => {
+            console.log(response);
+            this.ToNotFound();
+          });
+      }
     },
     ToNotFound() {
       this.$router.push({
@@ -32,10 +35,10 @@ export default {
       });
     },
   },
-  created() {
-    this.LoadJson();
+  watch: {
+    $route: "LoadJson",
   },
-  updated() {
+  created() {
     this.LoadJson();
   },
 };

@@ -16,23 +16,25 @@ export default {
   },
   methods: {
     LoadJson() {
-      axios
-        .get("Data/Exhibitions/" + this.$route.params.exhibitionID + "/" + this.$route.params.bookID + "/BookContent.json")
-        .then((response) => {
-          this.bookData = response.data;
-          switch (this.$route.params.exhibitionID) {
-            case "GoodNight":
-              this.exhibitionsName = "晚安房";
-              break;
-            case "Dream":
-              this.exhibitionsName = "夢境房";
-              break;
-          }
-        })
-        .catch((response) => {
-          console.log(response);
-          this.ToNotFound();
-        });
+      let exhibitionID = this.$route.params.exhibitionID;
+      if (exhibitionID)
+        axios
+          .get("Data/Exhibitions/" + exhibitionID + "/" + this.$route.params.bookID + "/BookContent.json")
+          .then((response) => {
+            this.bookData = response.data;
+            switch (exhibitionID) {
+              case "GoodNight":
+                this.exhibitionsName = "晚安房";
+                break;
+              case "Dream":
+                this.exhibitionsName = "夢境房";
+                break;
+            }
+          })
+          .catch((response) => {
+            console.log(response);
+            this.ToNotFound();
+          });
     },
     ToNotFound() {
       this.$router.push({
@@ -43,10 +45,10 @@ export default {
       });
     },
   },
-  created() {
-    this.LoadJson();
+  watch: {
+    $route: "LoadJson",
   },
-  updated() {
+  created() {
     this.LoadJson();
   },
 };
@@ -64,7 +66,7 @@ export default {
         <div></div>
 
         <div class="col-start-1 col-end-4">
-          <ImageBox :type="'Exhibitions/' + $route.params.exhibitionID" :indexID="$route.params.bookID" :img="bookData.imgs" :time="3000" :auto="false" />
+          <ImageBox :path="'Exhibitions/' + $route.params.exhibitionID + '/' + $route.params.bookID" :img="bookData.imgs" :time="3000" :auto="false" />
         </div>
 
         <div class="col-start-4 col-end-6 py-5">

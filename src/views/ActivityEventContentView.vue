@@ -1,7 +1,6 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
-import ExhibitionDreamView from "./ExhibitionDreamView.vue";
-import ExhibitionGoodNightView from "./ExhibitionGoodNightView.vue";
+import ActivityEventForumView from "./ActivityEventForumView.vue";
+import ActivityEventWorkShopView from "./ActivityEventWorkShopView.vue";
 </script>
 
 <script>
@@ -9,18 +8,16 @@ export default {
   data() {
     return {
       current: null,
-      //   DreamComponent: null,
-      //   GoodNightComponent: null,
     };
   },
   methods: {
     SwitchViews() {
-      let exhibitionID = this.$route.params.exhibitionID;
-      if (exhibitionID) {
-        if (exhibitionID === "Dream") {
-          this.current = "DreamComponent";
-        } else if (exhibitionID === "GoodNight") {
-          this.current = "GoodNightComponent";
+      let activityID = this.$route.params.activityID;
+      if (activityID) {
+        if (activityID === "Forums") {
+          this.current = "EventForumComponent";
+        } else if (activityID === "WorkShops") {
+          this.current = "EventWorkShopComponent";
         } else {
           this.ToNotFound();
         }
@@ -36,8 +33,8 @@ export default {
     },
   },
   components: {
-    DreamComponent: ExhibitionDreamView,
-    GoodNightComponent: ExhibitionGoodNightView,
+    EventForumComponent: ActivityEventForumView,
+    EventWorkShopComponent: ActivityEventWorkShopView,
   },
   watch: {
     $route: "SwitchViews",

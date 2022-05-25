@@ -9,14 +9,14 @@ import AboutItem from "../components/AboutItem/AboutItem.vue";
 export default {
   data() {
     return {
-      dir: "Data/about/image/",
+      dir: "Data/About/image/",
       aboutData: null,
     };
   },
   methods: {
     LoadJson() {
       axios
-        .get("Data/about/about.json")
+        .get("Data/About/about.json")
         .then((response) => {
           this.aboutData = response.data;
           console.log(this.aboutData);

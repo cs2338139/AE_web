@@ -15,7 +15,7 @@ import FootBar from "./components/FootBar/FootBar.vue";
 </template>
 
 <style>
-/* @import "./assets/css/base.css"; */
+@import "./assets/css/base.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -9,7 +9,7 @@ import ExhibitionItem from "../components/ExhibitionItem/ExhibitionItem.vue";
 export default {
   data() {
     return {
-      dir: "Data/Exhibitions/Dream/",
+      dir: "Data/Exhibitions/" + this.$route.params.exhibitionID + "/",
       exhibitionData: null,
     };
   },

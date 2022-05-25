@@ -1,7 +1,8 @@
 <script setup>
 const props = defineProps({
-  type: String,
-  indexID: String,
+  // type: String,
+  // indexID: String,
+  path: String,
   time: Number,
   auto: Boolean,
   img: Array,
@@ -36,7 +37,7 @@ export default {
 
       clearInterval(this.timeID);
       if (slides.length > 1) {
-        if (this.props.auto === true) this.autoSlides();
+        if (this.$props.auto === true) this.autoSlides();
 
         if (this.slideIndex > slides.length - 1) {
           this.slideIndex = 0;
@@ -80,12 +81,12 @@ export default {
     </div>
 
     <div class="border border-black overflow-hidden">
-      <img v-for="i in img" :src="'Data/' + type + '/' + indexID + '/Image/' + i" class="mySlides w-full" ref="slides" />
+      <img v-for="i in img" :src="'Data/' + path + '/Image/' + i" class="mySlides w-full" ref="slides" />
     </div>
   </div>
 </template>
 
-<style scoped >
+<style scoped>
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -96,7 +97,7 @@ ion-icon {
 
 @layer components {
   .dirButton {
-    @apply absolute top-0 bottom-0 my-auto text-5xl opacity-50 hover:opacity-100 ;
+    @apply absolute top-0 bottom-0 my-auto text-5xl opacity-50 hover:opacity-100;
   }
 
   .dot {

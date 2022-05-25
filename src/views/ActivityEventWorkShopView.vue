@@ -16,15 +16,18 @@ export default {
   },
   methods: {
     LoadJson() {
-      axios
-        .get("Data/WorkShops/" + this.$route.params.workshopID + "/WorkShopContent.json")
-        .then((response) => {
-          this.workShopData = response.data;
-        })
-        .catch((response) => {
-          console.log(response);
-          this.ToNotFound();
-        });
+      let activityID = this.$route.params.activityID;
+      if (activityID) {
+        axios
+          .get("Data/" + activityID + "/" + this.$route.params.eventID + "/WorkShopContent.json")
+          .then((response) => {
+            this.workShopData = response.data;
+          })
+          .catch((response) => {
+            console.log(response);
+            this.ToNotFound();
+          });
+      }
     },
     openModal() {
       this.$refs.Modal.style.display = "block";
@@ -41,10 +44,10 @@ export default {
       });
     },
   },
-  created() {
-    this.LoadJson();
+  watch: {
+    $route: "LoadJson",
   },
-  updated() {
+  created() {
     this.LoadJson();
   },
 };
@@ -62,7 +65,7 @@ export default {
         <div></div>
 
         <div class="col-start-1 col-end-4 row-start-1 row-end-4">
-          <ImageBox type="workshops" :indexID="$route.params.workshopID" :img="workShopData.imgs" :time="3000" :auto="false" />
+          <ImageBox :path="$route.params.activityID + '/' + $route.params.eventID" :img="workShopData.imgs" :time="3000" :auto="false" />
         </div>
 
         <div class="col-start-4 col-end-6 row-start-1 row-end-4 col-start">

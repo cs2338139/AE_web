@@ -21,40 +21,14 @@ const router = createRouter({
         },
         {
           path: ":bookID",
-          component: () => import("../views/BookContentView.vue"),
+          component: () => import("../views/ExhibitionBookView.vue"),
         },
       ],
     },
-    /*
-    // {
-    //   path: "/InfoDream",
-    // component: () => import("../views/ContentView.vue"),
-    //   children: [
-    //     {
-    //       path: "",
-    //       component: () => import("../views/ExhibitionDreamView.vue"),
-    //     },
-    //     {
-    //       path: ":bookID",
-    //       component: () => import("../views/BookContentView.vue"),
-    //     },
-    //   ],
-    // },
-    // {
-    //   path: "/InfoGoodNight",
-    //   component: () => import("../views/ContentView.vue"),
-    //   children: [
-    //     {
-    //       path: "",
-    //       component: () => import("../views/ExhibitionGoodNightView.vue"),
-    //     },
-    //     {
-    //       path: ":bookID",
-    //       component: () => import("../views/BookContentView.vue"),
-    //     },
-    //   ],
-    // },
-    */
+    {
+      path:"/OnlineTour",
+      component: () => import("../views/OnlineTour.vue"),
+    },
     {
       path: "/news",
       component: () => import("../views/ContentView.vue"),
@@ -74,33 +48,47 @@ const router = createRouter({
       component: () => import("../views/VistInformationView.vue"),
     },
     {
-      path: "/workshop",
+      path: "/activities/:activityID",
       component: () => import("../views/ContentView.vue"),
       children: [
         {
           path: "",
-          component: () => import("../views/WorkShopListView.vue"),
+          component: () => import("../views/ActivityContentView.vue"),
         },
         {
-          path: ":workshopID",
-          component: () => import("../views/WorkShopContentView.vue"),
+          path: ":eventID",
+          component: () => import("../views/ActivityEventContentView.vue"),
         },
       ],
     },
-    {
-      path: "/forum",
-      component: () => import("../views/ContentView.vue"),
-      children: [
-        {
-          path: "",
-          component: () => import("../views/ForumListView.vue"),
-        },
-        {
-          path: ":forumID",
-          component: () => import("../views/ForumContentView.vue"),
-        },
-      ],
-    },
+    // {
+    //   path: "/workshop",
+    //   component: () => import("../views/ContentView.vue"),
+    //   children: [
+    //     {
+    //       path: "",
+    //       component: () => import("../views/WorkShopListView.vue"),
+    //     },
+    //     {
+    //       path: ":workshopID",
+    //       component: () => import("../views/WorkShopContentView.vue"),
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: "/forum",
+    //   component: () => import("../views/ContentView.vue"),
+    //   children: [
+    //     {
+    //       path: "",
+    //       component: () => import("../views/ForumListView.vue"),
+    //     },
+    //     {
+    //       path: ":forumID",
+    //       component: () => import("../views/ForumContentView.vue"),
+    //     },
+    //   ],
+    // },
     {
       path: "/:pathMatch(.*)*",
       name: "NotFound",

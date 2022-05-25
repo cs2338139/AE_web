@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-const props = defineProps({
+defineProps({
   href: String,
 });
 </script>
@@ -9,7 +9,8 @@ const props = defineProps({
 export default {
   methods: {
     router() {
-      this.$router.push({ path: this.props.href });
+      console.log(this.$props);
+      this.$router.push({ path: this.$props.href });
     },
   },
 };

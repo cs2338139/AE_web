@@ -13,10 +13,10 @@ export default {
   methods: {
     PanelSize() {
       let panel = this.$refs.panel;
-      if (this.props.info.length === 1) {
+      if (this.$props.info.length === 1) {
         panel.style.height = "256px";
       } else {
-        let count = this.props.info.length;
+        let count = this.$props.info.length;
         let size = 256 + (count - 1) * 100;
         panel.style.height = size + "px";
       }
@@ -26,7 +26,7 @@ export default {
     this.PanelSize();
   },
   updated() {
-    this.PanelSize();
+    // this.PanelSize();
   },
 };
 </script>

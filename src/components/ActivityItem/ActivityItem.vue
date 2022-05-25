@@ -18,12 +18,12 @@ defineProps({
         <slot name="title">名稱</slot>
       </div>
 
-      <template v-if="typeName != null">
+      <template v-if="$route.params.activityID === 'WorkShops'">
         <div class="inline-block p-1 mt-1 mb-5 text-sm text-white bg-gray-400" v-if="typeName === 'science'">科學與創造</div>
         <div class="inline-block p-1 mt-1 mb-5 text-sm text-white bg-gray-400" v-if="typeName === 'literature'">繪本與人文</div>
       </template>
 
-      <template v-else>
+      <template v-if="$route.params.activityID === 'Forums'">
         <div class="mt-1 mb-5 font-medium">
           演講者：<slot name="teacher">演講者</slot>
         </div>
