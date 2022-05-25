@@ -18,12 +18,24 @@ export default {
         .then((response) => {
           this.newsData = response.data;
         })
-        .catch(function (response) {
+        .catch((response) => {
           console.log(response);
+          this.ToNotFound();
         });
+    },
+    ToNotFound() {
+      this.$router.push({
+        name: "NotFound",
+        params: { pathMatch: this.$route.path.substring(1).split("/") },
+        query: this.$route.query,
+        hash: this.$route.hash,
+      });
     },
   },
   created() {
+    this.LoadJson();
+  },
+  updated() {
     this.LoadJson();
   },
 };
@@ -32,7 +44,7 @@ export default {
 <template>
   <template v-if="newsData != null">
     <div class="wrap">
-      <Road class="mb-10 my-3">
+      <Road class="mb-10">
         <RoadItemRouter href="/news">最新消息</RoadItemRouter>
       </Road>
 

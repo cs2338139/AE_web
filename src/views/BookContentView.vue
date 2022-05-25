@@ -1,0 +1,101 @@
+<script setup>
+import axios from "axios";
+import Road from "../components/Road/Road.vue";
+import RoadItem from "../components/Road/src/RoadItem.vue";
+import RoadItemRouter from "../components/Road/src/RoadItemRouter.vue";
+import ImageBox from "../components/ImageBox/ImageBox.vue";
+</script>
+
+<script>
+export default {
+  data() {
+    return {
+      exhibitionsName: null,
+      bookData: null,
+    };
+  },
+  methods: {
+    LoadJson() {
+      axios
+        .get("Data/Exhibitions/" + this.$route.params.exhibitionID + "/" + this.$route.params.bookID + "/BookContent.json")
+        .then((response) => {
+          this.bookData = response.data;
+          switch (this.$route.params.exhibitionID) {
+            case "GoodNight":
+              this.exhibitionsName = "晚安房";
+              break;
+            case "Dream":
+              this.exhibitionsName = "夢境房";
+              break;
+          }
+        })
+        .catch((response) => {
+          console.log(response);
+          this.ToNotFound();
+        });
+    },
+    ToNotFound() {
+      this.$router.push({
+        name: "NotFound",
+        params: { pathMatch: this.$route.path.substring(1).split("/") },
+        query: this.$route.query,
+        hash: this.$route.hash,
+      });
+    },
+  },
+  created() {
+    this.LoadJson();
+  },
+  updated() {
+    this.LoadJson();
+  },
+};
+</script>
+
+<template>
+  <template v-if="bookData != null">
+    <div class="wrap">
+      <Road class="mb-10">
+        <RoadItem>展覽介紹</RoadItem>
+        <RoadItemRouter :href="'/exhibitions/' + $route.params.exhibitionID">{{ exhibitionsName }}</RoadItemRouter>
+        <RoadItem>{{ bookData.title }}</RoadItem>
+      </Road>
+      <div class="grid grid-cols-5 gap-x-16">
+        <div></div>
+
+        <div class="col-start-1 col-end-4">
+          <ImageBox :type="'Exhibitions/' + $route.params.exhibitionID" :indexID="$route.params.bookID" :img="bookData.imgs" :time="3000" :auto="false" />
+        </div>
+
+        <div class="col-start-4 col-end-6 py-5">
+          <div class="mb-5 text-3xl font-bold">繪本：{{ bookData.title }}</div>
+          <div class="mb-2 text-xl font-bold">作者介紹：{{ bookData.author }}</div>
+          <template v-for="i in bookData.info">
+            <div :class="{ my: i === '' }" class="contentFont">{{ i }}</div>
+          </template>
+        </div>
+      </div>
+    </div>
+  </template>
+</template>
+
+<style scoped>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .my {
+    @apply my-5;
+  }
+  .contentFont {
+    @apply text-lg;
+  }
+}
+
+@layer utilities {
+  .h-960px {
+    height: 960px;
+  }
+}
+</style>

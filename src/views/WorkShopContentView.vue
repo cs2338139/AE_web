@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink, RouterView } from "vue-router";
 import axios from "axios";
 import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
@@ -20,8 +21,9 @@ export default {
         .then((response) => {
           this.workShopData = response.data;
         })
-        .catch(function (response) {
+        .catch((response) => {
           console.log(response);
+          this.ToNotFound();
         });
     },
     openModal() {
@@ -30,8 +32,19 @@ export default {
     closeModal() {
       this.$refs.Modal.style.display = "none";
     },
+    ToNotFound() {
+      this.$router.push({
+        name: "NotFound",
+        params: { pathMatch: this.$route.path.substring(1).split("/") },
+        query: this.$route.query,
+        hash: this.$route.hash,
+      });
+    },
   },
   created() {
+    this.LoadJson();
+  },
+  updated() {
     this.LoadJson();
   },
 };

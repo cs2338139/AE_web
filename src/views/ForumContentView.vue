@@ -20,12 +20,24 @@ export default {
         .then((response) => {
           this.forumData = response.data;
         })
-        .catch(function (response) {
+        .catch((response) => {
           console.log(response);
+          this.ToNotFound();
         });
+    },
+    ToNotFound() {
+      this.$router.push({
+        name: "NotFound",
+        params: { pathMatch: this.$route.path.substring(1).split("/") },
+        query: this.$route.query,
+        hash: this.$route.hash,
+      });
     },
   },
   created() {
+    this.LoadJson();
+  },
+  updated() {
     this.LoadJson();
   },
 };
@@ -87,7 +99,6 @@ export default {
         </div>
       </div>
     </div>
-
   </template>
 </template>
 
@@ -98,7 +109,7 @@ export default {
 
 @layer utilities {
   .h-1080px {
-    height:1080px;
+    height: 1080px;
   }
 
   .bg-black-05 {

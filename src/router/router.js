@@ -8,6 +8,54 @@ const router = createRouter({
       component: () => import("../views/HomeView.vue"),
     },
     {
+      path: "/Information",
+      component: () => import("../views/AboutView.vue"),
+    },
+    {
+      path: "/exhibitions/:exhibitionID",
+      component: () => import("../views/ContentView.vue"),
+      children: [
+        {
+          path: "",
+          component: () => import("../views/ExhibitionContentView.vue"),
+        },
+        {
+          path: ":bookID",
+          component: () => import("../views/BookContentView.vue"),
+        },
+      ],
+    },
+    /*
+    // {
+    //   path: "/InfoDream",
+    // component: () => import("../views/ContentView.vue"),
+    //   children: [
+    //     {
+    //       path: "",
+    //       component: () => import("../views/ExhibitionDreamView.vue"),
+    //     },
+    //     {
+    //       path: ":bookID",
+    //       component: () => import("../views/BookContentView.vue"),
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: "/InfoGoodNight",
+    //   component: () => import("../views/ContentView.vue"),
+    //   children: [
+    //     {
+    //       path: "",
+    //       component: () => import("../views/ExhibitionGoodNightView.vue"),
+    //     },
+    //     {
+    //       path: ":bookID",
+    //       component: () => import("../views/BookContentView.vue"),
+    //     },
+    //   ],
+    // },
+    */
+    {
       path: "/news",
       component: () => import("../views/ContentView.vue"),
       children: [

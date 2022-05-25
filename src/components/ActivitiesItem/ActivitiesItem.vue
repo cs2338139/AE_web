@@ -37,9 +37,4 @@ defineProps({
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .dev-border-view {
-    @apply border border-solid box-border;
-  }
-}
 </style>

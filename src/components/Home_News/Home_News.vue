@@ -16,7 +16,8 @@ export default {
       axios
         .get("Data/News/NewsList.json")
         .then((response) => {
-          this.newsList = response.data;
+          this.$newsList = response.data;
+          this.newsList = this.$newsList;
         })
         .catch(function (response) {
           console.log(response);
@@ -24,7 +25,11 @@ export default {
     },
   },
   created() {
-    this.LoadJson();
+    if (this.$newList === null) {
+      this.LoadJson();
+    } else {
+      this._newsList = this.$newsList;
+    }
   },
 };
 </script>
@@ -33,7 +38,7 @@ export default {
   <div class="relative w-full h-full">
     <div class="mb-5 font-bold text-2xl">最新消息</div>
     <ul class="mb-5">
-      <NewsListItem v-for="(i, index) in newsList.slice().reverse()" :href="'/news/' + (newsList.length - 1 - index)">
+      <NewsListItem v-for="(i, index) in newsList.slice(newsList.length - 6, newsList.length).reverse()" :href="'/news/' + (newsList.length - 1 - index)">
         <template #date>{{ i.date }}</template>
         <template #title>{{ i.title }}</template>
       </NewsListItem>
