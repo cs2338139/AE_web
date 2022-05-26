@@ -37,7 +37,7 @@ export default {
     <div class="wrap">
       <Road class="mb-10">
         <RoadItem>展覽介紹</RoadItem>
-        <RoadItem>晚安房</RoadItem>
+        <RoadItem>晚安屋</RoadItem>
       </Road>
 
       <img :src="dir + exhibitionData.image" class="w-full mb-10" />

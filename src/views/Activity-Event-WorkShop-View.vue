@@ -20,7 +20,7 @@ export default {
       let eventID = this.$route.params.eventID;
       if (activityID && eventID) {
         axios
-          .get("Data/" + activityID + "/" + eventID + "/WorkShopContent.json")
+          .get("Data/Activities/" + activityID + "/" + eventID + "/WorkShopContent.json")
           .then((response) => {
             this.workShopData = response.data;
           })
@@ -32,9 +32,11 @@ export default {
     },
     openModal() {
       this.$refs.Modal.style.display = "block";
+      document.body.style.overflow = "hidden";
     },
     closeModal() {
       this.$refs.Modal.style.display = "none";
+      document.body.style.overflow = "scroll";
     },
     ToNotFound() {
       this.$router.push({
@@ -51,6 +53,9 @@ export default {
   created() {
     this.LoadJson();
   },
+  unmounted(){
+    document.body.style.overflow = "scroll";
+  }
 };
 </script>
 
@@ -66,7 +71,7 @@ export default {
         <div></div>
 
         <div class="col-start-1 col-end-4 row-start-1 row-end-4">
-          <ImageBox :path="this.$route.params.activityID + '/' + this.$route.params.eventID" :img="workShopData.imgs" :time="3000" :auto="false" />
+          <ImageBox :path="'Activities/' + this.$route.params.activityID + '/' + this.$route.params.eventID" :img="workShopData.imgs" :time="3000" :auto="false" />
         </div>
 
         <div class="col-start-4 col-end-6 row-start-1 row-end-4 col-start">
@@ -109,8 +114,8 @@ export default {
       </div>
     </div>
 
-    <div ref="Modal" class="fixed bottom-0 left-0 z-50 w-full h-screen bg-black-05 hidden">
-      <div class="absolute top-0 bottom-0 left-0 right-0 w-2/5 p-14 m-auto bg-white h-4/5">
+    <div ref="Modal" class="fixed bottom-0 left-0 z-50 hidden w-full h-screen bg-black-05">
+      <div class="absolute top-0 bottom-0 left-0 right-0 w-2/5 m-auto bg-white p-14 h-4/5">
         <button @click="closeModal" class="absolute right-5 top-5">
           <ion-icon name="close-outline" />
         </button>

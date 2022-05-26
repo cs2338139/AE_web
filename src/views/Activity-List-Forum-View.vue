@@ -15,7 +15,7 @@ export default {
   methods: {
     LoadJson() {
       axios
-        .get("Data/" + this.$route.params.activityID + "/ForumList.json")
+        .get("Data/Activities/" + this.$route.params.activityID + "/ForumList.json")
         .then((response) => {
           this.ForumList = response.data;
 
@@ -54,7 +54,7 @@ export default {
       <div class="text-lg font-bold">可曾想過，孩子的夢，會有哪些？做夢和探索世界的能力，是孩子迎向未來和未知的勇氣。 透過與策展人面對面座談，藉由經驗分享一同探討繪本對兒童的影響，進而打開無限想像力和好奇心，啟發藝術興趣。</div>
     </div>
     <div class="flex flex-wrap justify-between">
-      <ActivityItem v-for="(i, index) in ForumList" :href="'/activities/' + $route.params.activityID + '/' + index" :img="'Data/' + $route.params.activityID + '/' + index + '/cover.jpg'" :class="{ invisible: i.title === 'none' }">
+      <ActivityItem v-for="(i, index) in ForumList" :href="'/activities/' + $route.params.activityID + '/' + index" :img="'Data/Activities/' + $route.params.activityID + '/' + index + '/cover.jpg'" :class="{ invisible: i.title === 'none' }">
         <template #title>{{ i.title }}</template>
         <template #date>{{ i.date }}</template>
         <template #teacher>{{ i.teacher }}</template>

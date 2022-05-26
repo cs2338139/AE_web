@@ -17,7 +17,7 @@ const router = createRouter({
       children: [
         {
           path: "",
-          component: () => import("../views/Exhibition-Content-View.vue"),
+          component: () => import("../views/Exhibition-List-Content-View.vue"),
         },
         {
           path: ":bookID",
@@ -26,7 +26,7 @@ const router = createRouter({
       ],
     },
     {
-      path:"/OnlineTour",
+      path: "/OnlineTour",
       component: () => import("../views/OnlineTour-View.vue"),
     },
     {
@@ -61,34 +61,20 @@ const router = createRouter({
         },
       ],
     },
-    // {
-    //   path: "/workshop",
-    //   component: () => import("../views/ContentView.vue"),
-    //   children: [
-    //     {
-    //       path: "",
-    //       component: () => import("../views/WorkShopListView.vue"),
-    //     },
-    //     {
-    //       path: ":workshopID",
-    //       component: () => import("../views/WorkShopContentView.vue"),
-    //     },
-    //   ],
-    // },
-    // {
-    //   path: "/forum",
-    //   component: () => import("../views/ContentView.vue"),
-    //   children: [
-    //     {
-    //       path: "",
-    //       component: () => import("../views/ForumListView.vue"),
-    //     },
-    //     {
-    //       path: ":forumID",
-    //       component: () => import("../views/ForumContentView.vue"),
-    //     },
-    //   ],
-    // },
+    {
+      path: "/albums/:albumID",
+      component: () => import("../views/Content-View.vue"),
+      children: [
+        {
+          path: "",
+          component: () => import("../views/Album-List-Content-View.vue"),
+        },
+        {
+          path: ":albumEventID",
+          component: () => import("../views/Album-Event-View.vue"),
+        },
+      ],
+    },
     {
       path: "/:pathMatch(.*)*",
       name: "NotFound",

@@ -20,7 +20,7 @@ export default {
       let eventID = this.$route.params.eventID;
       if (activityID && eventID) {
         axios
-          .get("Data/" + activityID + "/" + eventID + "/ChildrenArtContent.json")
+          .get("Data/Activities/" + activityID + "/" + eventID + "/ChildrenArtContent.json")
           .then((response) => {
             this.childrenArtData = response.data;
           })
@@ -66,7 +66,7 @@ export default {
         <div></div>
 
         <div class="col-start-1 col-end-4 row-start-1 row-end-4">
-          <ImageBox :path="this.$route.params.activityID + '/' + this.$route.params.eventID" :img="childrenArtData.imgs" :time="3000" :auto="false" />
+          <ImageBox :path="'Activities/' + this.$route.params.activityID + '/' + this.$route.params.eventID" :img="childrenArtData.imgs" :time="3000" :auto="false" />
         </div>
 
         <div class="col-start-4 col-end-6 row-start-1 row-end-4 col-start">

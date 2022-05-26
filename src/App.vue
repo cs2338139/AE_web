@@ -20,6 +20,10 @@ import FootBar from "./components/FootBar/FootBar.vue";
 @tailwind components;
 @tailwind utilities;
 
+html{
+  /* overflow-y: hidden; */
+}
+
 @layer base {
   body {
     @apply m-0 p-0;

@@ -25,7 +25,7 @@ export default {
             this.bookData = response.data;
             switch (exhibitionID) {
               case "GoodNight":
-                this.exhibitionsName = "晚安房";
+                this.exhibitionsName = "晚安屋";
                 break;
               case "Dream":
                 this.exhibitionsName = "夢境房";

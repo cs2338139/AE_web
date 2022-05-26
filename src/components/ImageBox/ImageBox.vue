@@ -1,11 +1,14 @@
 <script setup>
 const props = defineProps({
-  // type: String,
-  // indexID: String,
   path: String,
   time: Number,
   auto: Boolean,
   img: Array,
+  dot: {
+    type: Boolean,
+    default: true,
+  },
+  emitIndex: Number,
 });
 </script>
 
@@ -67,20 +70,21 @@ export default {
 
 <template>
   <div class="relative">
-    <div class="absolute w-full h-full border-2">
+    <div class="absolute w-full h-full">
       <button @click="plusSlides(-1)" class="left-3 dirButton">
         <ion-icon name="chevron-back-circle" />
       </button>
+
       <button @click="plusSlides(1)" class="right-3 dirButton">
         <ion-icon name="chevron-forward-circle" />
       </button>
 
-      <div class="absolute left-0 right-0 text-center bottom-2">
+      <div class="absolute left-0 right-0 text-center bottom-2" v-show="dot">
         <span v-for="(i, index) in img" class="dot" @click="currentSlide(index)" ref="dots"></span>
       </div>
     </div>
 
-    <div class="border border-black overflow-hidden">
+    <div class="overflow-hidden">
       <img v-for="i in img" :src="'Data/' + path + '/Image/' + i" class="mySlides w-full" ref="slides" />
     </div>
   </div>
@@ -97,7 +101,7 @@ ion-icon {
 
 @layer components {
   .dirButton {
-    @apply absolute top-0 bottom-0 my-auto text-5xl opacity-50 hover:opacity-100;
+    @apply absolute top-1/2 -translate-y-1/2 text-5xl opacity-50 hover:opacity-100;
   }
 
   .dot {

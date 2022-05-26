@@ -33,8 +33,8 @@ const homeImage = new URL("../../assets/Image/UI/Home.png", import.meta.url).hre
 
       <NavMenuList>
         <template #menuName>展覽介紹</template>
-        <MenuListItem href="/exhibitions/GoodNight">晚安房</MenuListItem>
-        <MenuListItem href="/exhibitions/Dream">夢境房</MenuListItem>
+        <MenuListItem href="/Exhibitions/GoodNight">晚安屋</MenuListItem>
+        <MenuListItem href="/Exhibitions/Dream">夢境房</MenuListItem>
       </NavMenuList>
 
       <NavMenuList menuListOffset="-translate-x-9">
@@ -50,16 +50,16 @@ const homeImage = new URL("../../assets/Image/UI/Home.png", import.meta.url).hre
 
       <NavMenuList menuListOffset="-translate-x-6">
         <template #menuName>推廣活動</template>
-        <MenuListItem href="/activities/WorkShops">工作坊</MenuListItem>
-        <MenuListItem href="/activities/Forums">專題演講</MenuListItem>
-        <MenuListItem href="/activities/Meetings">研習營</MenuListItem>
-        <MenuListItem href="/activities/ChildrenArts">兒童美學活動</MenuListItem>
+        <MenuListItem href="/Activities/WorkShops">工作坊</MenuListItem>
+        <MenuListItem href="/Activities/Forums">專題演講</MenuListItem>
+        <MenuListItem href="/Activities/Meetings">研習營</MenuListItem>
+        <MenuListItem href="/Activities/ChildrenArts">兒童美學活動</MenuListItem>
       </NavMenuList>
 
       <NavMenuList>
         <template #menuName>活動花絮</template>
-        <MenuListItem href="">活動紀錄</MenuListItem>
-        <MenuListItem href="">展前花絮</MenuListItem>
+        <MenuListItem href="/Albums/Records">活動紀錄</MenuListItem>
+        <MenuListItem href="/Albums/PreExhibitions">展前花絮</MenuListItem>
       </NavMenuList>
 
       <NavMenuList menuListOffset="translate-x-7">

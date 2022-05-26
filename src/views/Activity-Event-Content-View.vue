@@ -1,8 +1,9 @@
 <script setup>
-import ActivityEventForumView from "./Activity-Event-Forum-View.vue";
-import ActivityEventWorkShopView from "./Activity-Event-WorkShop-View.vue";
-import ActivityEventChildrenArtView from "./Activity-Event-ChildrenArt-View.vue";
-import ActivityEventMeetingView from "./Activity-Event-Meeting-View.vue";
+// import ActivityEventForumView from "./Activity-Event-Forum-View.vue";
+// import ActivityEventWorkShopView from "./Activity-Event-WorkShop-View.vue";
+// import ActivityEventChildrenArtView from "./Activity-Event-ChildrenArt-View.vue";
+// import ActivityEventMeetingView from "./Activity-Event-Meeting-View.vue";
+import { defineAsyncComponent } from "vue";
 </script>
 
 <script>
@@ -12,19 +13,25 @@ export default {
       current: null,
     };
   },
+  components: {
+    ActivityEventForumView: defineAsyncComponent(() => import("./Activity-Event-Forum-View.vue")),
+    ActivityEventWorkShopView: defineAsyncComponent(() => import("./Activity-Event-WorkShop-View.vue")),
+    ActivityEventChildrenArtView: defineAsyncComponent(() => import("./Activity-Event-ChildrenArt-View.vue")),
+    ActivityEventMeetingView: defineAsyncComponent(() => import("./Activity-Event-Meeting-View.vue")),
+  },
   methods: {
     SwitchViews() {
       let activityID = this.$route.params.activityID;
       if (activityID) {
         if (activityID === "Forums") {
-          this.current = ActivityEventForumView;
+          this.current = "ActivityEventForumView";
         } else if (activityID === "WorkShops") {
-          this.current = ActivityEventWorkShopView;
+          this.current = "ActivityEventWorkShopView";
         } else if (activityID === "ChildrenArts") {
-          this.current = ActivityEventChildrenArtView;
+          this.current = "ActivityEventChildrenArtView";
         } else if (activityID === "Meetings") {
-          this.current = ActivityEventMeetingView;
-        }else {
+          this.current = "ActivityEventMeetingView";
+        } else {
           this.ToNotFound();
         }
       }
