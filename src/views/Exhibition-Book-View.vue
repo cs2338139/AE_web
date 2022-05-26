@@ -17,9 +17,10 @@ export default {
   methods: {
     LoadJson() {
       let exhibitionID = this.$route.params.exhibitionID;
-      if (exhibitionID)
+      let bookID = this.$route.params.bookID;
+      if (exhibitionID && bookID) {
         axios
-          .get("Data/Exhibitions/" + exhibitionID + "/" + this.$route.params.bookID + "/BookContent.json")
+          .get("Data/Exhibitions/" + exhibitionID + "/" + bookID + "/BookContent.json")
           .then((response) => {
             this.bookData = response.data;
             switch (exhibitionID) {
@@ -35,6 +36,7 @@ export default {
             console.log(response);
             this.ToNotFound();
           });
+      }
     },
     ToNotFound() {
       this.$router.push({

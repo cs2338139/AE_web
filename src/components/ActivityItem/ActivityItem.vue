@@ -24,9 +24,17 @@ defineProps({
       </template>
 
       <template v-if="$route.params.activityID === 'Forums'">
-        <div class="mt-1 mb-5 font-medium">
-          演講者：<slot name="teacher">演講者</slot>
-        </div>
+        <div class="mt-1 mb-5 font-medium">演講者：<slot name="teacher">演講者</slot></div>
+      </template>
+
+      <template v-if="$route.params.activityID === 'ChildrenArts'">
+        <div class="inline-block p-1 mt-1 mb-5 text-sm text-white bg-gray-400" v-if="typeName === 'science'">科學與創造</div>
+        <div class="inline-block p-1 mt-1 mb-5 text-sm text-white bg-gray-400" v-if="typeName === 'literature'">繪本與人文</div>
+      </template>
+
+      <template v-if="$route.params.activityID === 'Meetings'">
+        <div class="inline-block p-1 mt-1 mb-5 text-sm text-white bg-gray-400" v-if="typeName === 'science'">科學與創造</div>
+        <div class="inline-block p-1 mt-1 mb-5 text-sm text-white bg-gray-400" v-if="typeName === 'literature'">繪本與人文</div>
       </template>
     </div>
   </RouterLink>
@@ -36,5 +44,4 @@ defineProps({
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 </style>

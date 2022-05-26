@@ -5,59 +5,59 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      component: () => import("../views/HomeView.vue"),
+      component: () => import("../views/Home-View.vue"),
     },
     {
       path: "/Information",
-      component: () => import("../views/AboutView.vue"),
+      component: () => import("../views/About-View.vue"),
     },
     {
       path: "/exhibitions/:exhibitionID",
-      component: () => import("../views/ContentView.vue"),
+      component: () => import("../views/Content-View.vue"),
       children: [
         {
           path: "",
-          component: () => import("../views/ExhibitionContentView.vue"),
+          component: () => import("../views/Exhibition-Content-View.vue"),
         },
         {
           path: ":bookID",
-          component: () => import("../views/ExhibitionBookView.vue"),
+          component: () => import("../views/Exhibition-Book-View.vue"),
         },
       ],
     },
     {
       path:"/OnlineTour",
-      component: () => import("../views/OnlineTour.vue"),
+      component: () => import("../views/OnlineTour-View.vue"),
     },
     {
       path: "/news",
-      component: () => import("../views/ContentView.vue"),
+      component: () => import("../views/Content-View.vue"),
       children: [
         {
           path: "",
-          component: () => import("../views/NewsListView.vue"),
+          component: () => import("../views/News-List-View.vue"),
         },
         {
           path: ":newsID",
-          component: () => import("../views/NewsContentView.vue"),
+          component: () => import("../views/News-Content-View.vue"),
         },
       ],
     },
     {
       path: "/vistInformation",
-      component: () => import("../views/VistInformationView.vue"),
+      component: () => import("../views/VistInformation-View.vue"),
     },
     {
       path: "/activities/:activityID",
-      component: () => import("../views/ContentView.vue"),
+      component: () => import("../views/Content-View.vue"),
       children: [
         {
           path: "",
-          component: () => import("../views/ActivityContentView.vue"),
+          component: () => import("../views/Activity-List-Content-View.vue"),
         },
         {
           path: ":eventID",
-          component: () => import("../views/ActivityEventContentView.vue"),
+          component: () => import("../views/Activity-Event-Content-View.vue"),
         },
       ],
     },
@@ -92,7 +92,7 @@ const router = createRouter({
     {
       path: "/:pathMatch(.*)*",
       name: "NotFound",
-      component: () => import("../views/NotFound.vue"),
+      component: () => import("../views/NotFound-View.vue"),
     },
   ],
 });

@@ -11,17 +11,18 @@ import ImageBox from "../components/ImageBox/ImageBox.vue";
 export default {
   data() {
     return {
-      workShopData: null,
+      childrenArtData: null,
     };
   },
   methods: {
     LoadJson() {
       let activityID = this.$route.params.activityID;
-      if (activityID) {
+      let eventID = this.$route.params.eventID;
+      if (activityID && eventID) {
         axios
-          .get("Data/" + activityID + "/" + this.$route.params.eventID + "/WorkShopContent.json")
+          .get("Data/" + activityID + "/" + eventID + "/ChildrenArtContent.json")
           .then((response) => {
-            this.workShopData = response.data;
+            this.childrenArtData = response.data;
           })
           .catch((response) => {
             console.log(response);
@@ -54,37 +55,37 @@ export default {
 </script>
 
 <template>
-  <template v-if="workShopData != null">
+  <template v-if="childrenArtData != null">
     <div class="wrap">
       <Road class="mb-10">
         <RoadItem>推廣活動</RoadItem>
-        <RoadItemRouter href="/workshop">工作坊</RoadItemRouter>
-        <RoadItem>{{ workShopData.title }}</RoadItem>
+        <RoadItemRouter href="/activities/ChildrenArts">兒童美學活動</RoadItemRouter>
+        <RoadItem>{{ childrenArtData.title }}</RoadItem>
       </Road>
       <div class="grid grid-cols-5 gap-x-16 gap-y-10 h-960px">
         <div></div>
 
         <div class="col-start-1 col-end-4 row-start-1 row-end-4">
-          <ImageBox :path="$route.params.activityID + '/' + $route.params.eventID" :img="workShopData.imgs" :time="3000" :auto="false" />
+          <ImageBox :path="this.$route.params.activityID + '/' + this.$route.params.eventID" :img="childrenArtData.imgs" :time="3000" :auto="false" />
         </div>
 
         <div class="col-start-4 col-end-6 row-start-1 row-end-4 col-start">
           <div class="w-4/5 h-full">
             <div class="mt-3 mb-16">
-              <div class="mb-3 text-4xl font-bold">{{ workShopData.date }}</div>
-              <div class="text-3xl font-normal">{{ workShopData.time }}</div>
+              <div class="mb-3 text-4xl font-bold">{{ childrenArtData.date }}</div>
+              <div class="text-3xl font-normal">{{ childrenArtData.time }}</div>
             </div>
 
             <ul class="text-lg list-disc list-outside">
-              <li>參加人數：{{ workShopData.people }}</li>
-              <li>活動地點：{{ workShopData.place }}</li>
+              <li>參加人數：{{ childrenArtData.people }}</li>
+              <li>活動地點：{{ childrenArtData.place }}</li>
             </ul>
 
             <hr class="my-20 border-black" />
 
             <div class="mb-16">
               <div class="my-2 text-2xl font-bold">連結</div>
-              <a :href="workShopData.link" target="_blank" class="my-2 text-xl font-bold text-zinc-500"><div>報名表單｜點我報名</div></a>
+              <a :href="childrenArtData.link" target="_blank" class="my-2 text-xl font-bold text-zinc-500"><div>報名表單｜點我報名</div></a>
               <button @click="openModal" class="my-2 text-xl font-bold text-zinc-500"><div>報名須知｜點我了解</div></button>
             </div>
 
@@ -97,13 +98,13 @@ export default {
         </div>
 
         <div class="col-start-1 col-end-4 row-start-4 row-end-6">
-          <div class="text-3xl font-bold">{{ workShopData.title }}</div>
+          <div class="text-3xl font-bold">{{ childrenArtData.title }}</div>
           <br />
-          <template v-for="i in workShopData.info">
+          <template v-for="i in childrenArtData.info">
             <div class="text-lg">{{ i }}</div>
           </template>
           <hr class="my-8 border-zinc-400" />
-          <div class="text-lg">授課講師 | {{ workShopData.teacher }}</div>
+          <div class="text-lg">授課講師 | {{ childrenArtData.teacher }}</div>
         </div>
       </div>
     </div>

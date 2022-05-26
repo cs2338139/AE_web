@@ -16,9 +16,10 @@ export default {
   methods: {
     LoadJson() {
       let activityID = this.$route.params.activityID;
-      if (activityID) {
+      let eventID = this.$route.params.eventID;
+      if (activityID && eventID) {
         axios
-          .get("Data/" + activityID + "/" + this.$route.params.eventID + "/ForumContent.json")
+          .get("Data/" + activityID + "/" + eventID + "/ForumContent.json")
           .then((response) => {
             this.forumData = response.data;
           })
@@ -51,14 +52,14 @@ export default {
     <div class="wrap">
       <Road class="mb-10">
         <RoadItem>推廣活動</RoadItem>
-        <RoadItemRouter href="/forum">專題演講</RoadItemRouter>
+        <RoadItemRouter href="/activities/Forums">專題演講</RoadItemRouter>
         <RoadItem>{{ forumData.title }}</RoadItem>
       </Road>
       <div class="grid grid-cols-5 gap-x-16 gap-y-10 h-1080px">
         <div></div>
 
         <div class="col-start-1 col-end-4 row-start-1 row-end-4">
-          <ImageBox :path="$route.params.activityID + '/' + $route.params.eventID" :img="forumData.imgs" :time="3000" :auto="false" />
+          <ImageBox :path="this.$route.params.activityID + '/' + this.$route.params.eventID" :img="forumData.imgs" :time="3000" :auto="false" />
         </div>
 
         <div class="col-start-4 col-end-6 row-start-1 row-end-4 col-start">

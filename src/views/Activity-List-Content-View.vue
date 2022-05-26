@@ -1,6 +1,9 @@
 <script setup>
-import ActivityEventForumView from "./ActivityEventForumView.vue";
-import ActivityEventWorkShopView from "./ActivityEventWorkShopView.vue";
+import { RouterLink, RouterView } from "vue-router";
+import ActivityForumView from "./Activity-List-Forum-View.vue";
+import ActivityWorkShopView from "./Activity-List-WorkShop-View.vue";
+import ActivityChildrenArtView from "./Activity-List-ChildrenArt-View.vue";
+import ActivityMeetingView from "./Activity-List-Meeting-View.vue";
 </script>
 
 <script>
@@ -14,10 +17,14 @@ export default {
     SwitchViews() {
       let activityID = this.$route.params.activityID;
       if (activityID) {
-        if (activityID === "Forums") {
-          this.current = "EventForumComponent";
-        } else if (activityID === "WorkShops") {
-          this.current = "EventWorkShopComponent";
+        if (activityID === "WorkShops") {
+          this.current = ActivityWorkShopView;
+        } else if (activityID === "Forums") {
+          this.current = ActivityForumView;
+        } else if (activityID === "ChildrenArts") {
+          this.current = ActivityChildrenArtView;
+        } else if (activityID === "Meetings") {
+          this.current = ActivityMeetingView;
         } else {
           this.ToNotFound();
         }
@@ -31,10 +38,6 @@ export default {
         hash: this.$route.hash,
       });
     },
-  },
-  components: {
-    EventForumComponent: ActivityEventForumView,
-    EventWorkShopComponent: ActivityEventWorkShopView,
   },
   watch: {
     $route: "SwitchViews",

@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import ExhibitionDreamView from "./ExhibitionDreamView.vue";
-import ExhibitionGoodNightView from "./ExhibitionGoodNightView.vue";
+import ExhibitionDreamView from "./Exhibition-Dream-View.vue";
+import ExhibitionGoodNightView from "./Exhibition-GoodNight-View.vue";
 </script>
 
 <script>
@@ -18,9 +18,9 @@ export default {
       let exhibitionID = this.$route.params.exhibitionID;
       if (exhibitionID) {
         if (exhibitionID === "Dream") {
-          this.current = "DreamComponent";
+          this.current = ExhibitionDreamView;
         } else if (exhibitionID === "GoodNight") {
-          this.current = "GoodNightComponent";
+          this.current = ExhibitionGoodNightView;
         } else {
           this.ToNotFound();
         }
@@ -34,10 +34,6 @@ export default {
         hash: this.$route.hash,
       });
     },
-  },
-  components: {
-    DreamComponent: ExhibitionDreamView,
-    GoodNightComponent: ExhibitionGoodNightView,
   },
   watch: {
     $route: "SwitchViews",
