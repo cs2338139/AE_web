@@ -8,7 +8,6 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
-  emitIndex: Number,
 });
 </script>
 
@@ -62,6 +61,10 @@ export default {
   },
   mounted() {
     this.showSlides(0);
+    this.$emitter.on("emitIndex", (msg) => {
+      this.currentSlide(msg);
+      console.log(msg);
+    });
   },
 };
 

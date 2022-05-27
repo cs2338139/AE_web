@@ -13,8 +13,8 @@ export default {
       albumName: null,
       albumEventData: null,
       imgs: [],
+      fixed: 0,
       path: "Albums/" + this.$route.params.albumID + "/" + this.$route.params.albumEventID,
-      emitIndex: 0,
     };
   },
   methods: {
@@ -26,8 +26,8 @@ export default {
           .get("Data/Albums/" + albumID + "/" + albumEventID + "/albumEventContent.json")
           .then((response) => {
             this.albumEventData = response.data;
-
-            for (let i = 0; i < this.albumEventData.imgsCount; i++) {
+            this.fixed = 4 - (this.albumEventData.imgsCount);
+            for (let i = 1; i <= this.albumEventData.imgsCount; i++) {
               this.imgs.push("img (" + i + ").jpg");
             }
 
@@ -57,7 +57,7 @@ export default {
     openModal(index) {
       this.$refs.Modal.style.display = "block";
       document.body.style.overflow = "hidden";
-      this.emitIndex = index;
+      this.$emitter.emit("emitIndex", index);
     },
     closeModal() {
       this.$refs.Modal.style.display = "none";
@@ -70,9 +70,7 @@ export default {
   created() {
     this.LoadJson();
   },
-  mounted() {
-
-  },
+  mounted() {},
   unmounted() {
     document.body.style.overflow = "scroll";
   },
@@ -92,6 +90,8 @@ export default {
         <button v-for="(i, index) in imgs" @click="openModal(index)">
           <img :src="'Data/' + path + '/Image/' + i" class="mb-10 w-80 rounded-xl" />
         </button>
+
+        <div  v-for="i in fixed" class="mb-10 w-80 bg-slate-600 invisible"></div>
       </div>
 
       <div ref="Modal" class="fixed bottom-0 left-0 z-50 hidden w-full h-screen bg-black-05">
@@ -99,7 +99,7 @@ export default {
           <button @click="closeModal" class="absolute right-5 top-5 z-50">
             <ion-icon name="close-outline" />
           </button>
-          <ImageBox :path="path" :img="imgs" :time="3000" :auto="false" :dot="false" ref="imagebox" emitIndex="emitIndex"></ImageBox>
+          <ImageBox :path="path" :img="imgs" :time="3000" :auto="false" :dot="false" :emitIndex="emitIndex"></ImageBox>
         </div>
       </div>
     </div>
