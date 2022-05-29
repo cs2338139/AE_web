@@ -48,7 +48,7 @@ export default {
       <RoadItem>展前花絮</RoadItem>
     </Road>
 
-    <div class="flex flex-wrap justify-between">
+    <div class="flex flex-wrap justify-between xl:justify-around">
       <AlbumItem v-for="(i, index) in preExhibitionList" :href="'/Albums/' + $route.params.albumID + '/' + index" :img="'Data/Albums/' + $route.params.albumID + '/' + index + '/cover.jpg'" :class="{ invisible: i.title === 'none' }">
         <template #title>{{ i.title }}</template>
         <template #tip>{{ i.tip }}</template>

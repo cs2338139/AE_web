@@ -48,7 +48,7 @@ export default {
       <RoadItem>推廣活動</RoadItem>
       <RoadItem>活動紀錄</RoadItem>
     </Road>
-    <div class="flex flex-wrap justify-between">
+    <div class="flex flex-wrap justify-between xl:justify-around">
       <AlbumItem v-for="(i, index) in recordList"
       :href="'/Albums/' + $route.params.albumID + '/' + index"
       :img="'Data/Albums/' + $route.params.albumID + '/' + index + '/cover.jpg'"

@@ -1,13 +1,20 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import NavBar2 from "./components/NavBar-2/NavBar-2.vue";
+import NavBarMobile from "./components/NavBar-Mobile/NavBar-Mobile.vue";
 import FootBar from "./components/FootBar/FootBar.vue";
 </script>
 
-<template>
-  <NavBar-2></NavBar-2>
+<script>
+export default {};
+</script>
 
-  <div class="min-h-screen pt-44 pb-16 -mb-16">
+<template>
+  <NavBarMobile class="hidden xl:block" />
+
+  <NavBar2 class="block xl:hidden" />
+
+  <div class="min-h-screen pb-16 -mb-16 mt-44 sm:mt-24">
     <RouterView />
   </div>
 
@@ -20,8 +27,8 @@ import FootBar from "./components/FootBar/FootBar.vue";
 @tailwind components;
 @tailwind utilities;
 
-html{
-  /* overflow-y: hidden; */
+body {
+  touch-action: manipulation;
 }
 
 @layer base {
@@ -36,16 +43,13 @@ html{
   }
 
   .wrap {
-    @apply relative my-0 mx-auto max-w-8xl;
+    @apply relative my-0  mx-auto max-w-8xl xl:mx-5;
   }
 }
 
 @layer utilities {
-
-  .w-1\/15
-  {
+  .w-1\/15 {
     width: 6.6666667%;
   }
 }
-
 </style>
