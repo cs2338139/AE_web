@@ -1,11 +1,11 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import NavBar from "./components/NavBar/NavBar.vue";
+import NavBar2 from "./components/NavBar-2/NavBar-2.vue";
 import FootBar from "./components/FootBar/FootBar.vue";
 </script>
 
 <template>
-  <NavBar></NavBar>
+  <NavBar-2></NavBar-2>
 
   <div class="min-h-screen pt-44 pb-16 -mb-16">
     <RouterView />

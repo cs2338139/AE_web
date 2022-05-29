@@ -5,11 +5,20 @@ module.exports = {
   darkMode: "media", // or 'class'
   theme: {
     screens: {
-      sm: { min: "640px", max: "767px" },
-      md: { min: "768px", max: "1023px" },
-      lg: { min: "1024px", max: "1279px" },
-      xl: { min: "1280px", max: "1535px" },
-      "2xl": { min: "1536px" },
+      "2xl": { max: "1535px" },
+      /*Extra large devices (large laptops and desktops, 1200px and up) */
+
+      xl: { max: "1279px" },
+      /* Large devices (laptops/desktops) */
+
+      lg: { max: "1023px" },
+      /* Medium devices (landscape tablets) */
+
+      md: { max: "767px" },
+      /* small devices (portrait tablets and large phones) */
+
+      sm: { max: "639px" },
+      /* Extra small devices (phones, 600px) */
     },
     colors: ({ colors }) => ({
       inherit: colors.inherit,
@@ -130,17 +139,13 @@ module.exports = {
     backgroundImage: {
       none: "none",
       "gradient-to-t": "linear-gradient(to top, var(--tw-gradient-stops))",
-      "gradient-to-tr":
-        "linear-gradient(to top right, var(--tw-gradient-stops))",
+      "gradient-to-tr": "linear-gradient(to top right, var(--tw-gradient-stops))",
       "gradient-to-r": "linear-gradient(to right, var(--tw-gradient-stops))",
-      "gradient-to-br":
-        "linear-gradient(to bottom right, var(--tw-gradient-stops))",
+      "gradient-to-br": "linear-gradient(to bottom right, var(--tw-gradient-stops))",
       "gradient-to-b": "linear-gradient(to bottom, var(--tw-gradient-stops))",
-      "gradient-to-bl":
-        "linear-gradient(to bottom left, var(--tw-gradient-stops))",
+      "gradient-to-bl": "linear-gradient(to bottom left, var(--tw-gradient-stops))",
       "gradient-to-l": "linear-gradient(to left, var(--tw-gradient-stops))",
-      "gradient-to-tl":
-        "linear-gradient(to top left, var(--tw-gradient-stops))",
+      "gradient-to-tl": "linear-gradient(to top left, var(--tw-gradient-stops))",
     },
     backgroundOpacity: ({ theme }) => theme("opacity"),
     backgroundPosition: {
@@ -355,40 +360,9 @@ module.exports = {
       DEFAULT: "1",
     },
     fontFamily: {
-      sans: [
-        "ui-sans-serif",
-        "system-ui",
-        "-apple-system",
-        "BlinkMacSystemFont",
-        '"Segoe UI"',
-        "Roboto",
-        '"Helvetica Neue"',
-        "Arial",
-        '"Noto Sans"',
-        "sans-serif",
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-        '"Noto Color Emoji"',
-      ],
-      serif: [
-        "ui-serif",
-        "Georgia",
-        "Cambria",
-        '"Times New Roman"',
-        "Times",
-        "serif",
-      ],
-      mono: [
-        "ui-monospace",
-        "SFMono-Regular",
-        "Menlo",
-        "Monaco",
-        "Consolas",
-        '"Liberation Mono"',
-        '"Courier New"',
-        "monospace",
-      ],
+      sans: ["ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", '"Segoe UI"', "Roboto", '"Helvetica Neue"', "Arial", '"Noto Sans"', "sans-serif", '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
+      serif: ["ui-serif", "Georgia", "Cambria", '"Times New Roman"', "Times", "serif"],
+      mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", '"Liberation Mono"', '"Courier New"', "monospace"],
     },
     fontSize: {
       xs: ["0.75rem", { lineHeight: "1rem" }],
@@ -873,10 +847,8 @@ module.exports = {
     transitionProperty: {
       none: "none",
       all: "all",
-      DEFAULT:
-        "color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter",
-      colors:
-        "color, background-color, border-color, text-decoration-color, fill, stroke",
+      DEFAULT: "color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter",
+      colors: "color, background-color, border-color, text-decoration-color, fill, stroke",
       opacity: "opacity",
       shadow: "box-shadow",
       transform: "transform",
@@ -950,24 +922,7 @@ module.exports = {
       50: "50",
     },
   },
-  variantOrder: [
-    "first",
-    "last",
-    "odd",
-    "even",
-    "visited",
-    "checked",
-    "empty",
-    "read-only",
-    "group-hover",
-    "group-focus",
-    "focus-within",
-    "hover",
-    "focus",
-    "focus-visible",
-    "active",
-    "disabled",
-  ],
+  variantOrder: ["first", "last", "odd", "even", "visited", "checked", "empty", "read-only", "group-hover", "group-focus", "focus-within", "hover", "focus", "focus-visible", "active", "disabled"],
   variants: {
     extend: {
       // display: ["group-hover"],
