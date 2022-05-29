@@ -71,7 +71,7 @@ export default {
         <div></div>
 
         <div class="col-start-1 col-end-4 row-start-1 row-end-4">
-          <ImageBox :path="'Activities/' + this.$route.params.activityID + '/' + this.$route.params.eventID" :img="workShopData.imgs" :time="3000" :auto="false" />
+          <ImageBox :path="'Activities/' + $route.params.activityID + '/' + $route.params.eventID" :img="workShopData.imgs" :time="3000" :auto="false" />
         </div>
 
         <div class="col-start-4 col-end-6 row-start-1 row-end-4 col-start">

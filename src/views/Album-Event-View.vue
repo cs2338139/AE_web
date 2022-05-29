@@ -13,7 +13,7 @@ export default {
       albumName: null,
       albumEventData: null,
       imgs: [],
-      fixed: 0,
+      fixedCount: 0,
       path: "Albums/" + this.$route.params.albumID + "/" + this.$route.params.albumEventID,
     };
   },
@@ -26,7 +26,7 @@ export default {
           .get("Data/Albums/" + albumID + "/" + albumEventID + "/albumEventContent.json")
           .then((response) => {
             this.albumEventData = response.data;
-            this.fixed = 4 - (this.albumEventData.imgsCount);
+            this.fixedCount = 4 - this.albumEventData.imgsCount;
             for (let i = 1; i <= this.albumEventData.imgsCount; i++) {
               this.imgs.push("img (" + i + ").jpg");
             }
@@ -91,7 +91,7 @@ export default {
           <img :src="'Data/' + path + '/Image/' + i" class="mb-10 w-80 rounded-xl" />
         </button>
 
-        <div  v-for="i in fixed" class="mb-10 w-80 bg-slate-600 invisible"></div>
+        <div v-if="fixedCount > 0" v-for="i in fixedCount" class="mb-10 w-80 bg-slate-600 invisible"></div>
       </div>
 
       <div ref="Modal" class="fixed bottom-0 left-0 z-50 hidden w-full h-screen bg-black-05">
