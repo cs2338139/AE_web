@@ -3,8 +3,8 @@ import FootMenuItem from "./src/FootMenuItem.vue";
 </script>
 
 <template>
-  <footer class="w-full h-16 z-10 bg-zinc-800">
-        <ul class="flex justify-around items-center max-w-8xl my-0 mx-auto h-full">
+  <footer class="w-full h-16 md:h-36 z-10 bg-zinc-800">
+        <ul class="flex justify-around items-center max-w-8xl my-0 mx-auto h-full flex-row md:flex-col md:items-start md:px-10 md:py-5">
           <FootMenuItem href="">指導單位：教育部</FootMenuItem>
           <FootMenuItem href="">主辦單位：國立台灣藝術教育館</FootMenuItem>
           <FootMenuItem href="">承辦單位：可睿創意、愛迪斯科技</FootMenuItem>

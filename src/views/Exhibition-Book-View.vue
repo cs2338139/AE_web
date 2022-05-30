@@ -67,11 +67,11 @@ export default {
       <div class="grid grid-cols-5 gap-x-16">
         <div></div>
 
-        <div class="col-start-1 col-end-4">
+        <div class="col-start-1 col-end-4 xl:col-end-6">
           <ImageBox :path="'Exhibitions/' + $route.params.exhibitionID + '/' + $route.params.bookID" :img="bookData.imgs" :time="3000" :auto="false" />
         </div>
 
-        <div class="col-start-4 col-end-6 py-5">
+        <div class="col-start-4 col-end-6 py-5 xl:col-start-1">
           <div class="mb-5 text-3xl font-bold">繪本：{{ bookData.title }}</div>
           <div class="mb-2 text-xl font-bold">作者介紹：{{ bookData.author }}</div>
           <template v-for="i in bookData.info">

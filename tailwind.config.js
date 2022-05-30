@@ -5,7 +5,7 @@ module.exports = {
   darkMode: "media", // or 'class'
   theme: {
     screens: {
-      "2xl": { min: "1440px" },
+      "2xl": { max: "1440px" },
       /*Extra large devices (large laptops and desktops, 1200px and up) */
 
       xl: { max: "1279px" },

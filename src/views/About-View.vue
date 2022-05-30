@@ -38,7 +38,7 @@ export default {
       <Road class="mb-10">
         <RoadItem>關於策展</RoadItem>
       </Road>
-      <img :src="dir + aboutData.image" class="w-full mb-10" />
+      <div class="w-full mb-10 overflow-hidden h-550px"><img :src="dir + aboutData.image" /></div>
       <div class="mb-10 text-2xl font-bold">展覽論述</div>
       <div class="mb-20">
         <template v-for="i in aboutData.info">
@@ -76,6 +76,13 @@ export default {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities{
+  .h-550px
+  {
+    height:550px;
+  }
+}
 
 @layer components {
   .my {

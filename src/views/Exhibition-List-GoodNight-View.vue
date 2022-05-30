@@ -40,7 +40,7 @@ export default {
         <RoadItem>晚安屋</RoadItem>
       </Road>
 
-      <img :src="dir + exhibitionData.image" class="w-full mb-10" />
+      <div class="w-full mb-10 overflow-hidden h-550px"><img :src="dir + exhibitionData.image" /></div>
 
       <ExhibitionItem v-for="(i, index) in exhibitionData.books" :img="dir + index + '/cover.jpg'" position="transform: translate(0px);" :info="i.info" :href="'GoodNight/' + index" class="my-32">
         <template #title>{{ i.title }}</template>
@@ -60,6 +60,12 @@ export default {
   }
   .contentFont {
     @apply text-lg leading-6;
+  }
+}
+
+@layer utilities {
+  .h-550px {
+    height: 550px;
   }
 }
 </style>

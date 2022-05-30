@@ -14,7 +14,7 @@ export default {};
 
   <NavBar2 class="block xl:hidden" />
 
-  <div class="min-h-screen pb-16 -mb-16 mt-44 sm:mt-24">
+  <div class="min-h-screen pb-16 -mb-16 mt-44 xl:mt-24 ">
     <RouterView />
   </div>
 
@@ -38,12 +38,12 @@ body {
 }
 
 @layer components {
-  .dev-border-view {
+  .dev {
     @apply border border-solid box-border border-red-700;
   }
 
   .wrap {
-    @apply relative my-0  mx-auto max-w-8xl xl:mx-5;
+    @apply relative my-0  mx-auto max-w-8xl 2xl:mx-10 xl:mx-20;
   }
 }
 

@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <li class="font-normal text-ms text-white">
+  <li class="font-normal text-white lg:text-sm ">
       <span>
         <slot> </slot>
       </span>

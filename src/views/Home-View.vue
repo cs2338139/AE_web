@@ -44,8 +44,7 @@ export default {
   <template v-if="homeData != null">
     <div class="wrap">
       <div class="mb-10">
-        <!-- <img :src="Image" class="w-full" /> -->
-        <ImageBox path="Home" :img="homeData.imgs" :time="3000" :auto="true" />
+        <ImageBox path="Home" imgStyle="w-full h-550px" :img="homeData.imgs" :time="3000" :auto="true" />
       </div>
 
       <div class="h-60 mb-5">

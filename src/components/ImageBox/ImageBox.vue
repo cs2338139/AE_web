@@ -1,5 +1,6 @@
 <script setup>
 const props = defineProps({
+  imgStyle:String,
   path: String,
   time: Number,
   auto: Boolean,
@@ -72,8 +73,8 @@ export default {
 </script>
 
 <template>
-  <div class="relative">
-    <div class="absolute w-full h-full">
+  <div class="relative  overflow-hidden" :class="imgStyle">
+    <div class="absolute w-full h-full " >
       <button @click="plusSlides(-1)" class="left-3 dirButton">
         <ion-icon name="chevron-back-circle" />
       </button>
@@ -87,7 +88,7 @@ export default {
       </div>
     </div>
 
-    <div class="overflow-hidden">
+    <div>
       <img v-for="i in img" :src="'Data/' + path + '/Image/' + i" class="mySlides w-full" ref="slides" />
     </div>
   </div>
@@ -119,6 +120,11 @@ ion-icon {
 @layer utilities {
   .h-630px {
     height: 630px;
+  }
+
+  .h-550px
+  {
+    height:550px;
   }
 }
 

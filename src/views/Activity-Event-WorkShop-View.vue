@@ -102,7 +102,7 @@ export default {
           </div>
         </div>
 
-        <div class="col-start-1 col-end-4 row-start-4 row-end-6">
+        <div class="col-start-1 col-end-4 row-start-4 xl:row-start-3 row-end-6">
           <div class="text-3xl font-bold">{{ workShopData.title }}</div>
           <br />
           <template v-for="i in workShopData.info">
@@ -115,7 +115,7 @@ export default {
     </div>
 
     <div ref="Modal" class="fixed bottom-0 left-0 z-50 hidden w-full h-screen bg-black-05">
-      <div class="absolute top-0 bottom-0 left-0 right-0 w-2/5 m-auto bg-white p-14 h-4/5">
+      <div class="absolute top-0 bottom-0 left-0 right-0 w-2/5 m-auto bg-white p-14 h-4/5 xl:w-3/5">
         <button @click="closeModal" class="absolute right-5 top-5">
           <ion-icon name="close-outline" />
         </button>
