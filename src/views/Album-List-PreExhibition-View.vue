@@ -19,8 +19,22 @@ export default {
         .then((response) => {
           this.preExhibitionList = response.data;
 
-          var mod = 3 - (this.preExhibitionList.length % 3);
-          if (mod === 3) mod = 0;
+          let colCount = 4;
+
+          if (this.$windowWidth <= this.$sm) {
+            colCount = 1;
+          } else if (this.$windowWidth <= this.$md) {
+            colCount = 2;
+          } else if (this.$windowWidth <= this.$lg) {
+            colCount = 2;
+          } else if (this.$windowWidth <= this.$xl) {
+            colCount = 2;
+          } else if (this.$windowWidth <= this.$2xl) {
+            colCount = 3;
+          }
+
+          var mod = colCount - (this.preExhibitionList.length % colCount);
+          if (mod === colCount) mod = 0;
           var template = {
             title: "none",
             tip: "",
@@ -44,7 +58,7 @@ export default {
 <template>
   <div class="wrap">
     <Road class="mb-10">
-      <RoadItem>推廣活動</RoadItem>
+      <RoadItem>活動花絮</RoadItem>
       <RoadItem>展前花絮</RoadItem>
     </Road>
 

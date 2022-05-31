@@ -86,7 +86,7 @@ export default {
         <RoadItem>{{ albumEventData.title }}</RoadItem>
       </Road>
 
-      <div class="flex flex-wrap justify-between">
+      <div class="flex flex-wrap justify-between lg:justify-around">
         <button v-for="(i, index) in imgs" @click="openModal(index)">
           <img :src="'Data/' + path + '/Image/' + i" class="mb-10 w-80 rounded-xl" />
         </button>

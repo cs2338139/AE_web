@@ -19,8 +19,22 @@ export default {
         .then((response) => {
           this.ForumList = response.data;
 
-          var mod = 3 - (this.ForumList.length % 3);
-          if (mod === 3) mod = 0;
+          let colCount = 3;
+
+          if (this.$windowWidth <= this.$sm) {
+            colCount = 1;
+          } else if (this.$windowWidth <= this.$md) {
+            colCount = 2;
+          } else if (this.$windowWidth <= this.$lg) {
+            colCount = 2;
+          } else if (this.$windowWidth <= this.$xl) {
+            colCount = 2;
+          } else if (this.$windowWidth <= this.$2xl) {
+            colCount = 3;
+          }
+
+          var mod = colCount - (this.ForumList.length % colCount);
+          if (mod === colCount) mod = 0;
           var template = {
             title: "none",
             imgKey: "",

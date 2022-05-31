@@ -10,11 +10,11 @@ export default {};
 </script>
 
 <template>
-  <NavBarMobile class="hidden xl:block" />
+  <NavBarMobile v-if="$windowWidth < $xl" />
 
-  <NavBar2 class="block xl:hidden" />
+  <NavBar2 v-if="$windowWidth >= $xl" />
 
-  <div class="min-h-screen pb-16 -mb-16 mt-44 xl:mt-24 ">
+  <div class="min-h-screen pb-16 -mb-16 pt-44 xl:pt-24 md:pb-32 md:-mb-32">
     <RouterView />
   </div>
 

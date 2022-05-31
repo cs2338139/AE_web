@@ -3,14 +3,14 @@ import axios from "axios";
 import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
 import RoadItemRouter from "../components/Road/src/RoadItemRouter.vue";
-import ImageBox from "../components/ImageBox/ImageBox.vue";
+import EventContentItem from "../components/EventsContentItem/EventContentItem.vue";
 </script>
 
 <script>
 export default {
   data() {
     return {
-      forumData: null,
+      Data: null,
     };
   },
   methods: {
@@ -21,7 +21,7 @@ export default {
         axios
           .get("Data/Activities/" + activityID + "/" + eventID + "/ForumContent.json")
           .then((response) => {
-            this.forumData = response.data;
+            this.Data = response.data;
           })
           .catch((response) => {
             console.log(response);
@@ -48,14 +48,25 @@ export default {
 </script>
 
 <template>
-  <template v-if="forumData != null">
+  <template v-if="Data != null">
     <div class="wrap">
       <Road class="mb-10">
         <RoadItem>推廣活動</RoadItem>
         <RoadItemRouter href="/activities/Forums">專題演講</RoadItemRouter>
-        <RoadItem>{{ forumData.title }}</RoadItem>
+        <RoadItem>{{ Data.title }}</RoadItem>
       </Road>
-      <div class="grid grid-cols-5 gap-x-16 gap-y-10 h-1080px">
+
+      <EventContentItem :img="Data.imgs" :link="Data.link" :info="Data.info" :teacherInfo="Data.teacherInfo">
+        <template #date>{{ Data.date }}</template>
+        <template #time>{{ Data.time }}</template>
+        <template #howto> 報名方式｜　採線上報名。 </template>
+        <template #for> 參與對象｜　對兒童教育有興趣民眾、學校藝文相關教師皆可報名。 </template>
+        <template #place> 上課地點｜　{{ Data.place }}。 </template>
+        <template #title>{{ Data.title }}</template>
+        <template #teacher>演講者｜　{{ Data.teacher }}</template>
+      </EventContentItem>
+
+      <!-- <div class="grid grid-cols-5 gap-x-16 gap-y-10 h-1080px">
         <div></div>
 
         <div class="col-start-1 col-end-4 row-start-1 row-end-4">
@@ -70,11 +81,11 @@ export default {
             </div>
 
             <ul class="text-lg list-disc list-outside max-w-sm">
-              <li class="my-1">上課地點：參與對象：對兒童教育有興趣民眾、學校藝文相關教師皆可報名。</li>
-              <li class="my-1">上課地點：{{ forumData.place }}</li>
+              <li class="my-5">參與對象：對兒童教育有興趣民眾、學校藝文相關教師皆可報名。</li>
+              <li class="my-5">上課地點：{{ forumData.place }}</li>
             </ul>
 
-            <hr class="my-20 border-black" />
+            <hr class="mt-16 mb-20 border-black" />
 
             <div class="mb-16">
               <div class="my-2 text-2xl font-bold">連結</div>
@@ -89,7 +100,7 @@ export default {
           </div>
         </div>
 
-        <div class="col-start-1 col-end-4 row-start-4 row-end-6">
+        <div class="col-start-1 col-end-4 row-start-4 row-end-6 xl:row-start-3 ">
           <div class="text-3xl font-bold">{{ forumData.title }}</div>
           <br />
           <template v-for="i in forumData.info">
@@ -101,7 +112,7 @@ export default {
             <div class="text-lg">{{ i }}</div>
           </template>
         </div>
-      </div>
+      </div> -->
     </div>
   </template>
 </template>
@@ -110,14 +121,4 @@ export default {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer utilities {
-  .h-1080px {
-    height: 1080px;
-  }
-
-  .bg-black-05 {
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-}
 </style>

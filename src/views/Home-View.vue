@@ -44,15 +44,15 @@ export default {
   <template v-if="homeData != null">
     <div class="wrap">
       <div class="mb-10">
-        <ImageBox path="Home" imgStyle="w-full h-550px" :img="homeData.imgs" :time="3000" :auto="true" />
+        <ImageBox path="Home" imgStyle="w-full aspect-homeimage" :img="homeData.imgs" :time="3000" :auto="true" />
       </div>
 
-      <div class="h-60 mb-5">
-        <div class="w-2/3 h-full pr-10 float-left pt-3 border-r border-black">
+      <div class="mb-5 h-60">
+        <div class="float-left w-2/3 h-full pt-3 pr-10 border-r border-black md:border-r-0 md:border-t md:border-b md:w-full md:pr-0 md:mb-5 md:py-2">
           <HomeNews />
         </div>
 
-        <div class="w-1/3 h-full pl-10 float-right pt-3">
+        <div class="float-right w-1/3 h-full pt-3 pl-10 md:float-left md:w-full md:pl-0">
           <VisitInformation />
         </div>
       </div>

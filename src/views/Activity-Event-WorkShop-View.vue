@@ -4,14 +4,15 @@ import axios from "axios";
 import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
 import RoadItemRouter from "../components/Road/src/RoadItemRouter.vue";
-import ImageBox from "../components/ImageBox/ImageBox.vue";
+import EventModal from "../components/EventsContentItem/EventModal.vue";
+import EventContentItem from "../components/EventsContentItem/EventContentItem.vue";
 </script>
 
 <script>
 export default {
   data() {
     return {
-      workShopData: null,
+      Data: null,
     };
   },
   methods: {
@@ -22,7 +23,7 @@ export default {
         axios
           .get("Data/Activities/" + activityID + "/" + eventID + "/WorkShopContent.json")
           .then((response) => {
-            this.workShopData = response.data;
+            this.Data = response.data;
           })
           .catch((response) => {
             console.log(response);
@@ -30,14 +31,14 @@ export default {
           });
       }
     },
-    openModal() {
-      this.$refs.Modal.style.display = "block";
-      document.body.style.overflow = "hidden";
-    },
-    closeModal() {
-      this.$refs.Modal.style.display = "none";
-      document.body.style.overflow = "scroll";
-    },
+    // openModal() {
+    //   this.$refs.Modal.style.display = "block";
+    //   document.body.style.overflow = "hidden";
+    // },
+    // closeModal() {
+    //   this.$refs.Modal.style.display = "none";
+    //   document.body.style.overflow = "scroll";
+    // },
     ToNotFound() {
       this.$router.push({
         name: "NotFound",
@@ -53,21 +54,35 @@ export default {
   created() {
     this.LoadJson();
   },
-  unmounted(){
+  unmounted() {
     document.body.style.overflow = "scroll";
-  }
+  },
 };
 </script>
 
 <template>
-  <template v-if="workShopData != null">
+  <template v-if="Data != null">
     <div class="wrap">
       <Road class="mb-10">
         <RoadItem>推廣活動</RoadItem>
         <RoadItemRouter href="/activities/WorkShops">工作坊</RoadItemRouter>
-        <RoadItem>{{ workShopData.title }}</RoadItem>
+        <RoadItem>{{ Data.title }}</RoadItem>
       </Road>
-      <div class="grid grid-cols-5 gap-x-16 gap-y-10 h-960px">
+
+      <EventContentItem :img="Data.imgs" :link="Data.link" :info="Data.info" :needKnew="true" :teacherInfo="Data.teacherInfo">
+        <template #date>{{ Data.date }}</template>
+        <template #time>{{ Data.time }}</template>
+        <template #howto> 報名方式｜　採線上報名。 </template>
+        <template #place> 活動地點｜　{{ Data.place }} 。</template>
+        <template #for> 參與對象｜　國小以上學生、一般民眾（國小學生需家長陪同）</template>
+        <template #money> 課程費用｜　新臺幣200元整。 </template>
+        <template #people> 參加人數｜　正取{{ Data.people }}人，備取5名，額滿為止。</template>
+
+        <template #title>{{ Data.title }}</template>
+        <template #teacher>授課講師｜　{{ Data.teacher }}</template>
+      </EventContentItem>
+
+      <!-- <div class="grid grid-cols-5 gap-x-16 gap-y-10 h-960px">
         <div></div>
 
         <div class="col-start-1 col-end-4 row-start-1 row-end-4">
@@ -82,11 +97,12 @@ export default {
             </div>
 
             <ul class="text-lg list-disc list-outside">
-              <li>參加人數：{{ workShopData.people }}</li>
-              <li>活動地點：{{ workShopData.place }}</li>
+              <li class="my-2">參與對象：國小以上學生、一般民眾（國小學生需家長陪同）</li>
+              <li class="my-2">參加人數：{{ workShopData.people }}</li>
+              <li class="my-2">活動地點：{{ workShopData.place }}</li>
             </ul>
 
-            <hr class="my-20 border-black" />
+            <hr class="mt-3 mb-20 border-black" />
 
             <div class="mb-16">
               <div class="my-2 text-2xl font-bold">連結</div>
@@ -111,10 +127,11 @@ export default {
           <hr class="my-8 border-zinc-400" />
           <div class="text-lg">授課講師 | {{ workShopData.teacher }}</div>
         </div>
-      </div>
+      </div> -->
     </div>
 
-    <div ref="Modal" class="fixed bottom-0 left-0 z-50 hidden w-full h-screen bg-black-05">
+    <EventModal></EventModal>
+    <!-- <div ref="Modal" class="fixed bottom-0 left-0 z-50 hidden w-full h-screen bg-black-05">
       <div class="absolute top-0 bottom-0 left-0 right-0 w-2/5 m-auto bg-white p-14 h-4/5 xl:w-3/5">
         <button @click="closeModal" class="absolute right-5 top-5">
           <ion-icon name="close-outline" />
@@ -152,7 +169,7 @@ export default {
           </li>
         </ul>
       </div>
-    </div>
+    </div> -->
   </template>
 </template>
 
@@ -160,17 +177,4 @@ export default {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-ion-icon {
-  color: black;
-  font-size: 48px;
-}
-@layer utilities {
-  .h-960px {
-    height: 960px;
-  }
-
-  .bg-black-05 {
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-}
 </style>

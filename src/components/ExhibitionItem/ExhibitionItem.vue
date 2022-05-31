@@ -33,7 +33,7 @@ export default {
 
 <template>
   <div>
-    <div class="relative max-w-2xl px-5 py-10 mx-auto bg-zinc-300 rounded-2xl" :style="position" ref="panel">
+    <div class="relative max-w-2xl px-5 py-10 mx-auto bg-zinc-300 rounded-2xl md:w-2/3 " :style="position" ref="panel">
       <img :src="img" class="absolute top-0 bottom-0 w-1/3 my-auto rounded-lg" />
 
       <div class="absolute top-0 bottom-0 right-0 w-3/5 p-10">
@@ -73,6 +73,11 @@ ion-icon {
 @layer components {
   .mb {
     @apply mb-14;
+  }
+}
+@layer components {
+  .dev {
+    @apply border border-solid box-border border-red-400;
   }
 }
 </style>

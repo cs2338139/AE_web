@@ -121,11 +121,6 @@ ion-icon {
   .h-630px {
     height: 630px;
   }
-
-  .h-550px
-  {
-    height:550px;
-  }
 }
 
 /* .dot {

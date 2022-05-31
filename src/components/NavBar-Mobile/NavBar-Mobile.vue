@@ -84,6 +84,7 @@ export default {
       </NavMenuList>
 
       <NavMenuItemLink href="https://www.arte.gov.tw/" target="_blank">國立臺灣藝術教育館</NavMenuItemLink>
+      <NavMenuItemLink href="https://www.facebook.com/ntaec" target="_blank">臉書連結</NavMenuItemLink>
     </ul>
   </nav>
 </template>

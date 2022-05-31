@@ -125,6 +125,8 @@ module.exports = {
       auto: "auto",
       square: "1 / 1",
       video: "16 / 9",
+      image:"4/3",
+      homeimage:"1377/530"
     },
     backdropBlur: ({ theme }) => theme("blur"),
     backdropBrightness: ({ theme }) => theme("brightness"),
@@ -481,6 +483,7 @@ module.exports = {
       5: "5",
       6: "6",
       7: "7",
+      8: "8",
     },
     gridTemplateColumns: {
       none: "none",

@@ -19,8 +19,22 @@ export default {
         .then((response) => {
           this.workShopList = response.data;
 
-          var mod = 3 - (this.workShopList.length % 3);
-          if (mod === 3) mod = 0;
+          let colCount = 3;
+
+          if (this.$windowWidth <= this.$sm) {
+            colCount = 1;
+          } else if (this.$windowWidth <= this.$md) {
+            colCount = 2;
+          } else if (this.$windowWidth <= this.$lg) {
+            colCount = 2;
+          } else if (this.$windowWidth <= this.$xl) {
+            colCount = 2;
+          } else if (this.$windowWidth <= this.$2xl) {
+            colCount = 3;
+          }
+
+          var mod = colCount - (this.workShopList.length % colCount);
+          if (mod === colCount) mod = 0;
           var template = {
             title: "none",
             date: "",

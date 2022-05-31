@@ -4,14 +4,15 @@ import axios from "axios";
 import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
 import RoadItemRouter from "../components/Road/src/RoadItemRouter.vue";
-import ImageBox from "../components/ImageBox/ImageBox.vue";
+import EventModal from "../components/EventsContentItem/EventModal.vue";
+import EventContentItem from "../components/EventsContentItem/EventContentItem.vue";
 </script>
 
 <script>
 export default {
   data() {
     return {
-      meetingData: null,
+      Data: null,
     };
   },
   methods: {
@@ -22,7 +23,7 @@ export default {
         axios
           .get("Data/Activities/" + activityID + "/" + eventID + "/MeetingContent.json")
           .then((response) => {
-            this.meetingData = response.data;
+            this.Data = response.data;
           })
           .catch((response) => {
             console.log(response);
@@ -55,14 +56,25 @@ export default {
 </script>
 
 <template>
-  <template v-if="meetingData != null">
+  <template v-if="Data != null">
     <div class="wrap">
       <Road class="mb-10">
         <RoadItem>推廣活動</RoadItem>
         <RoadItemRouter href="/activities/Meetings">研習營</RoadItemRouter>
-        <RoadItem>{{ meetingData.title }}</RoadItem>
+        <RoadItem>{{ Data.title }}</RoadItem>
       </Road>
-      <div class="grid grid-cols-5 gap-x-16 gap-y-10 h-960px">
+
+      <EventContentItem :img="Data.imgs" :link="Data.link" :info="Data.info" :needKnew="true" :teacherInfo="Data.teacherInfo">
+        <template #date>{{ Data.date }}</template>
+        <template #time>{{ Data.time }}</template>
+        <template #for> 參與對象｜　兒童相關公益社團、組織、協會。身心障礙與弱勢團體優先受理報名。</template>
+        <template #people> 參加人數｜　{{ Data.people }}</template>
+        <template #place> 活動地點｜　{{ Data.place }} 。</template>
+        <template #title>{{ Data.title }}</template>
+        <template #teacher>授課講師｜　{{ Data.teacher }}</template>
+      </EventContentItem>
+
+      <!-- <div class="grid grid-cols-5 gap-x-16 gap-y-10 h-960px">
         <div></div>
 
         <div class="col-start-1 col-end-4 row-start-1 row-end-4">
@@ -97,7 +109,7 @@ export default {
           </div>
         </div>
 
-        <div class="col-start-1 col-end-4 row-start-4 row-end-6">
+        <div class="col-start-1 col-end-4 row-start-4 row-end-6 xl:row-start-3 ">
           <div class="text-3xl font-bold">{{ meetingData.title }}</div>
           <br />
           <template v-for="i in meetingData.info">
@@ -106,10 +118,12 @@ export default {
           <hr class="my-8 border-zinc-400" />
           <div class="text-lg">授課講師 | {{ meetingData.teacher }}</div>
         </div>
-      </div>
+      </div> -->
     </div>
 
-    <div ref="Modal" class="fixed bottom-0 left-0 z-50 w-full h-screen bg-black-05 hidden">
+    <EventModal></EventModal>
+
+    <!-- <div ref="Modal" class="fixed bottom-0 left-0 z-50 w-full h-screen bg-black-05 hidden">
       <div class="absolute top-0 bottom-0 left-0 right-0 w-2/5 p-14 m-auto bg-white h-4/5">
         <button @click="closeModal" class="absolute right-5 top-5">
           <ion-icon name="close-outline" />
@@ -147,7 +161,7 @@ export default {
           </li>
         </ul>
       </div>
-    </div>
+    </div> -->
   </template>
 </template>
 

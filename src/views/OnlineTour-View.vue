@@ -10,7 +10,7 @@ defineProps({});
     </Road>
 
     <div>
-      <div class="w-full h-720px relative dev-border-view mb-10">
+      <div class="w-full h-720px relative mb-10">
         <iframe src="https://www.youtube.com/embed/6kkuhbDiyOw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="font-bold text-3xl mb-3">夢境漫遊：繪本藝術展 線上導覽影片</div>
