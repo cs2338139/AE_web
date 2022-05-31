@@ -1,0 +1,1 @@
+import{o as s,c as o,a as r,w as n,b as e,r as l,u as _,R as c,F as u}from"./index.4a40af05.js";const d=e("span",{class:"mx-5 font-bold"},"\u3009",-1),i={props:{href:String},setup(t){return(a,p)=>(s(),o(u,null,[d,r(_(c),{to:t.href,class:"hover:text-slate-400"},{default:n(()=>[e("span",null,[l(a.$slots,"default")])]),_:3},8,["to"])],64))}};export{i as _};
