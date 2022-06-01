@@ -40,9 +40,9 @@ export default {
   <div class="wrap">
     <Road class="mb-10">
       <RoadItem>最新消息</RoadItem>
+      <template #title>最新消息</template>
     </Road>
-
-    <div class="my-20">
+    <div class="mb-10">
       <NewsTable>
         <NewsTableItem v-for="(i, index) in newsList.slice().reverse()" :href="'/news/' + (newsList.length - 1 - index)">
           <template #type>{{ i.typeName }}</template>

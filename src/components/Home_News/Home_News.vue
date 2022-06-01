@@ -35,15 +35,15 @@ export default {
 </script>
 
 <template>
-  <div class="relative w-full h-full">
-    <div class="mb-5 font-bold text-2xl">最新消息</div>
+  <div class="relative w-full h-full md:py-3">
+    <div class="mb-5 font-bold text-2xl sm:text-base">最新消息</div>
     <ul class="mb-5">
       <NewsListItem v-for="(i, index) in newsList.slice(newsList.length - 6, newsList.length).reverse()" :href="'/news/' + (newsList.length - 1 - index)">
         <template #date>{{ i.date }}</template>
         <template #title>{{ i.title }}</template>
       </NewsListItem>
     </ul>
-    <div class="font-bold absolute bottom-0 right-0">
+    <div class="font-bold absolute bottom-0 right-0 sm:text-sm">
       <RouterLink to="/news" class="hover:text-slate-400">
         <span> more＞</span>
       </RouterLink>

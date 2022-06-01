@@ -8,13 +8,13 @@ defineProps({
 </script>
 
 <template>
-  <RouterLink :to="href" class="mb-20 w-96 rounded-2xl bg-zinc-200">
-    <div class="w-80 mx-auto mt-5">
+  <RouterLink :to="href" class="mb-20 w-96 md:w-60 rounded-2xl bg-zinc-200 sm:mb-10 sm:w-5/6 ">
+    <div class="w-80 md:w-52 mx-auto mt-5 sm:w-full sm:px-3">
       <img :src="img" class="w-80 text-center" />
-      <div class="mt-2 font-medium">
+      <div class="mt-2 font-medium md:text-sm">
         <slot name="date">日期時間</slot>
       </div>
-      <div class="m-0 text-lg font-bold">
+      <div class="m-0 text-lg font-bold md:text-base">
         <slot name="title">名稱</slot>
       </div>
 

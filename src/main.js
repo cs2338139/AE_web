@@ -10,8 +10,8 @@ app.config.globalProperties.$newList = null;
 app.config.globalProperties.$2xl = 1440;
 app.config.globalProperties.$xl = 1279;
 app.config.globalProperties.$lg = 1023;
-app.config.globalProperties.$767 = 767;
-app.config.globalProperties.$639 = 639;
+app.config.globalProperties.$md = 767;
+app.config.globalProperties.$sm = 639;
 
 app.use(router);
 app.use(VueWindowSizePlugin);

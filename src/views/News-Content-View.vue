@@ -49,14 +49,17 @@ export default {
     <div class="wrap">
       <Road class="mb-10">
         <RoadItemRouter href="/news">最新消息</RoadItemRouter>
+        <template #title>最新消息</template>
       </Road>
 
-      <div class="text-3xl font-bold">{{ newsData.title }}</div>
-      <div class="my-2">刊登日期：{{ newsData.date }}</div>
-      <div class="mt-2 mb-6">公告類別：{{ newsData.typeName }}</div>
-      <template v-for="i in newsData.content">
-        <div :class="{ my: i === '' }" class="contentFont">{{ i }}</div>
-      </template>
+      <div class="text-3xl font-bold sm:text-xl sm:my-5">{{ newsData.title }}</div>
+      <div class="my-2 sm:text-sm">刊登日期：{{ newsData.date }}</div>
+      <div class="mt-2 mb-6 sm:text-sm">公告類別：{{ newsData.typeName }}</div>
+      <div class="mb-10">
+        <template v-for="i in newsData.content">
+          <div :class="{ my: i === '' }" class="contentFont sm:text-sm">{{ i }}</div>
+        </template>
+      </div>
     </div>
   </template>
 </template>

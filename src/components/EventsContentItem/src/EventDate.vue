@@ -12,8 +12,8 @@ export default {
 };
 </script>
 <template>
-    <div class="mb-3 text-4xl font-bold"> <slot name="date"></slot></div>
-    <div class="text-3xl font-normal"><slot name="time"></slot></div>
+  <div class="mb-3 text-4xl font-bold sm:text-xl sm:mb-0"><slot name="date"></slot></div>
+  <div class="text-3xl font-normal sm:text-lg"><slot name="time"></slot></div>
 </template>
 
 <style>

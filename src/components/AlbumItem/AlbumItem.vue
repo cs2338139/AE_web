@@ -8,15 +8,15 @@ defineProps({
 </script>
 
 <template>
-  <RouterLink :to="href" class="mb-20 w-96 rounded-2xl bg-zinc-200">
-    <div class="w-80 mx-auto mt-5">
+  <RouterLink :to="href" class="mb-20 w-96 md:w-60  rounded-2xl bg-zinc-200 sm:w-80">
+    <div class="w-80 mx-auto mt-5 md:w-52 sm:w-60">
       <img :src="img" class="w-80 text-center" />
 
       <template v-if="$route.params.albumID === 'Records'">
-        <div class="mt-2 font-medium">
+        <div class="mt-2 font-medium md:text-sm">
           <slot name="date">日期時間</slot>
         </div>
-        <div class="m-0 text-lg font-bold">
+        <div class="m-0 text-lg font-bold md:text-base">
           <slot name="title">名稱</slot>
         </div>
         <div class="inline-block p-1 mt-1 mb-5 text-sm text-white bg-red-400" v-if="typeName === 'WorkShop'">工作坊</div>

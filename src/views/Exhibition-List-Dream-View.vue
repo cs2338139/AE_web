@@ -38,11 +38,12 @@ export default {
       <Road class="mb-10">
         <RoadItem>展覽介紹</RoadItem>
         <RoadItem>夢境房</RoadItem>
+        <template #title>夢境房</template>
       </Road>
 
-      <div class="w-full mb-10 overflow-hidden h-550px"><img :src="dir + exhibitionData.image"  /></div>
+      <div class="w-full mb-10 overflow-hidden aspect-video dev "><img :src="dir + exhibitionData.image" /></div>
 
-      <ExhibitionItem v-for="(i, index) in exhibitionData.books" :img="dir + index + '/cover.jpg'" position="transform: translate(0px);" :info="i.info" :href="'Dream/' + index" class="my-32">
+      <ExhibitionItem v-for="(i, index) in exhibitionData.books" :img="dir + index + '/cover.jpg'" position="transform: translate(0px);" :info="i.info" :href="'Dream/' + index" class="my-32 sm:my-10">
         <template #title>{{ i.title }}</template>
       </ExhibitionItem>
     </div>
@@ -63,10 +64,14 @@ export default {
   }
 }
 
-@layer utilities{
-  .h-550px
-  {
-    height:550px;
+@layer utilities {
+  .h-550px {
+    height: 550px;
+  }
+}
+@layer components {
+  .dev {
+    @apply border border-solid box-border  border-red-500;
   }
 }
 </style>

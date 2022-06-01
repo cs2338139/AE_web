@@ -60,6 +60,7 @@ export default {
     <Road class="mb-10">
       <RoadItem>活動花絮</RoadItem>
       <RoadItem>展前花絮</RoadItem>
+      <template #title>展前花絮</template>
     </Road>
 
     <div class="flex flex-wrap justify-between xl:justify-around">

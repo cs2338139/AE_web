@@ -18,7 +18,7 @@ export default {
 
 <template>
   <tr class="hover:bg-zinc-100 border-y text-center cursor-pointer" @click="router()">
-    <td class="px-3 py-2 ">
+    <td class="px-3 py-2 sm:px-0">
       <slot name="type"></slot>
     </td>
     <td class="px-3 py-2">

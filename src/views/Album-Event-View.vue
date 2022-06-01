@@ -26,7 +26,24 @@ export default {
           .get("Data/Albums/" + albumID + "/" + albumEventID + "/albumEventContent.json")
           .then((response) => {
             this.albumEventData = response.data;
-            this.fixedCount = 4 - this.albumEventData.imgsCount;
+
+            let colCount = 4;
+
+            if (this.$windowWidth <= this.$sm) {
+              colCount = 2;
+            } else if (this.$windowWidth <= this.$md) {
+              colCount = 3;
+            } else if (this.$windowWidth <= this.$lg) {
+              colCount = 3;
+            } else if (this.$windowWidth <= this.$xl) {
+              colCount = 3;
+            } else if (this.$windowWidth <= this.$2xl) {
+              colCount = 4;
+            }
+
+            this.fixedCount = colCount - (this.albumEventData.imgsCount % colCount);
+            if (this.fixedCount === colCount) this.fixedCount = 0;
+
             for (let i = 1; i <= this.albumEventData.imgsCount; i++) {
               this.imgs.push("img (" + i + ").jpg");
             }
@@ -88,14 +105,14 @@ export default {
 
       <div class="flex flex-wrap justify-between lg:justify-around">
         <button v-for="(i, index) in imgs" @click="openModal(index)">
-          <img :src="'Data/' + path + '/Image/' + i" class="mb-10 w-80 rounded-xl" />
+          <img :src="'Data/' + path + '/Image/' + i" class="mb-10 w-80 lg:w-60 md:w-40 rounded-xl" />
         </button>
 
         <div v-if="fixedCount > 0" v-for="i in fixedCount" class="mb-10 w-80 bg-slate-600 invisible"></div>
       </div>
 
       <div ref="Modal" class="fixed bottom-0 left-0 z-50 hidden w-full h-screen bg-black-05">
-        <div class="absolute top-0 bottom-0 left-0 right-0 max-w-5xl m-auto h-4/5">
+        <div class="absolute top-0 bottom-0 left-0 right-0 max-w-5xl m-auto aspect-image">
           <button @click="closeModal" class="absolute right-5 top-5 z-50">
             <ion-icon name="close-outline" />
           </button>
@@ -115,6 +132,7 @@ ion-icon {
   color: white;
   opacity: 0.5;
   font-size: 48px;
+  @apply sm:text-2xl;
 }
 ion-icon:hover {
   opacity: 1;
@@ -137,6 +155,11 @@ ion-icon:hover {
 @layer utilities {
   .bg-black-05 {
     background-color: rgba(0, 0, 0, 0.9);
+  }
+}
+@layer components {
+  .dev {
+    @apply border border-solid box-border  border-red-500;
   }
 }
 </style>

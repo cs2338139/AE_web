@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps({
-  imgStyle:String,
+  imgStyle: String,
   path: String,
   time: Number,
   auto: Boolean,
@@ -73,8 +73,8 @@ export default {
 </script>
 
 <template>
-  <div class="relative  overflow-hidden" :class="imgStyle">
-    <div class="absolute w-full h-full " >
+  <div class="relative overflow-hidden" :class="imgStyle">
+    <div class="absolute w-full h-full">
       <button @click="plusSlides(-1)" class="left-3 dirButton">
         <ion-icon name="chevron-back-circle" />
       </button>
@@ -105,11 +105,11 @@ ion-icon {
 
 @layer components {
   .dirButton {
-    @apply absolute top-1/2 -translate-y-1/2 text-5xl opacity-50 hover:opacity-100;
+    @apply absolute top-1/2 -translate-y-1/2 text-5xl opacity-50 hover:opacity-100 sm:text-2xl;
   }
 
   .dot {
-    @apply cursor-pointer h-3 w-3 mx-1 bg-zinc-200 rounded-lg inline-block;
+    @apply cursor-pointer h-3 w-3 mx-1 bg-zinc-200 rounded-lg inline-block sm:h-2 sm:w-2;
   }
 
   .active {

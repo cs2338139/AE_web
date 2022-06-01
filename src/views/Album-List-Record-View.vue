@@ -62,6 +62,7 @@ export default {
     <Road class="mb-10">
       <RoadItem>活動花絮</RoadItem>
       <RoadItem>活動紀錄</RoadItem>
+            <template #title>活動紀錄</template>
     </Road>
     <div class="flex flex-wrap justify-between xl:justify-around">
       <AlbumItem v-for="(i, index) in recordList"

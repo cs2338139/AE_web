@@ -63,6 +63,7 @@ export default {
         <RoadItem>展覽介紹</RoadItem>
         <RoadItemRouter :href="'/exhibitions/' + $route.params.exhibitionID">{{ exhibitionsName }}</RoadItemRouter>
         <RoadItem>{{ bookData.title }}</RoadItem>
+
       </Road>
       <div class="grid grid-cols-5 gap-x-16">
         <div></div>
@@ -72,8 +73,8 @@ export default {
         </div>
 
         <div class="col-start-4 col-end-6 py-5 xl:col-start-1">
-          <div class="mb-5 text-3xl font-bold">繪本：{{ bookData.title }}</div>
-          <div class="mb-2 text-xl font-bold">作者介紹：{{ bookData.author }}</div>
+          <div class="mb-5 text-3xl font-bold sm:text-lg">繪本：{{ bookData.title }}</div>
+          <div class="mb-2 text-xl font-bold sm:text-sm">作者介紹：{{ bookData.author }}</div>
           <template v-for="i in bookData.info">
             <div :class="{ my: i === '' }" class="contentFont">{{ i }}</div>
           </template>
@@ -93,7 +94,7 @@ export default {
     @apply my-5;
   }
   .contentFont {
-    @apply text-lg;
+    @apply text-lg sm:text-sm;
   }
 }
 

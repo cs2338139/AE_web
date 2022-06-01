@@ -43,7 +43,7 @@ body {
   }
 
   .wrap {
-    @apply relative my-0  mx-auto max-w-8xl 2xl:mx-10 xl:mx-20;
+    @apply relative my-0  mx-auto max-w-8xl 2xl:mx-10 xl:mx-20 lg:mx-5  sm:mx-4;
   }
 }
 
