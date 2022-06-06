@@ -1,0 +1,17 @@
+{
+    "nuxt.isNuxtApp": false,
+    "files.exclude": {
+        "dist": false,
+        ".history": false,
+        ".vscode": false,
+        "node_modules": false,
+        ".gitignore": false,
+        "package-lock.json": false,
+        "package.json": false,
+        "postcss.config.js": false,
+        "README.md": false,
+        "vite.config.js": false
+    },
+    "workspace.isHidden": false,
+    "npm-scripts.showStartNotification": false
+}
