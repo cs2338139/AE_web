@@ -46,7 +46,8 @@ const homeImage = new URL("../../assets/Image/UI/logo-2.png", import.meta.url).h
         <MenuListItem href="/Videos/Animations">繪本小動畫</MenuListItem>
       </NavMenuList>
 
-      <NavMenuItemLink href="" target="_blank">預約導覽</NavMenuItemLink>
+      <!-- <NavMenuItemLink href="" target="_blank">預約導覽</NavMenuItemLink> -->
+      <NavMenuItem href="/Reserve">預約導覽</NavMenuItem>
 
       <NavMenuList>
         <template #menuName>活動花絮</template>

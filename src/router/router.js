@@ -12,6 +12,10 @@ const router = createRouter({
       component: () => import("../views/About-View.vue"),
     },
     {
+      path: "/Reserve",
+      component: () => import("../views/Reserve-View.vue"),
+    },
+    {
       path: "/exhibitions/:exhibitionID",
       component: () => import("../views/Content-View.vue"),
       children: [
