@@ -41,7 +41,7 @@ export default {
         <template #title>夢境房</template>
       </Road>
 
-      <div class="w-full mb-10 overflow-hidden aspect-video dev "><img :src="dir + exhibitionData.image" /></div>
+      <div class="w-full mb-10 overflow-hidden aspect-video"><img :src="dir + exhibitionData.image" /></div>
 
       <ExhibitionItem v-for="(i, index) in exhibitionData.books" :img="dir + index + '/cover.jpg'" position="transform: translate(0px);" :info="i.info" :href="'Dream/' + index" class="my-32 sm:my-10">
         <template #title>{{ i.title }}</template>

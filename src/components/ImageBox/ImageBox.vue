@@ -123,6 +123,12 @@ ion-icon {
   }
 }
 
+@layer components {
+  .dev {
+    @apply border border-solid box-border  border-red-500;
+  }
+}
+
 /* .dot {
   cursor: pointer;
   height: 10px;

@@ -48,7 +48,7 @@ export default {
       <img :src="img" class="absolute top-0 bottom-0 w-1/3 my-auto rounded-lg" />
 
       <div class="absolute top-0 bottom-0 right-0 w-3/5 p-10 ">
-        <div class="absolute left-0 w-3/4 -translate-y-1/2 sm:-translate-y-2/3 sm:w-full sm:p-2 top-1/2">
+        <div class="absolute left-0 w-3/4 -translate-y-1/2 sm:w-full sm:p-2 top-1/2">
           <div class="mb-3 text-xl font-bold sm:text-sm">
             <slot name="title">閱讀盪鞦韆</slot>
           </div>

@@ -11,6 +11,7 @@ export default {
   data() {
     return {
       homeData: null,
+      imgs: null,
     };
   },
   methods: {
@@ -19,6 +20,17 @@ export default {
         .get("Data/Home/Home.json")
         .then((response) => {
           this.homeData = response.data;
+
+          if (this.$windowWidth > this.$md) {
+            this.imgs = this.homeData.imgs;
+          } else {
+            let temp=[];
+            for (let i = 0; i < this.homeData.phoneimgs.length; i++) {
+              temp.push("phone/" + this.homeData.phoneimgs[i]);
+            }
+            this.imgs = temp;
+          }
+          console.log(this.imgs);
         })
         .catch((response) => {
           console.log(response);
@@ -44,7 +56,7 @@ export default {
   <template v-if="homeData != null">
     <div class="wrap">
       <div class="mb-10">
-        <ImageBox path="Home" imgStyle="w-full aspect-homeimage" :img="homeData.imgs" :time="3000" :auto="true" />
+        <ImageBox path="Home" imgStyle="w-full aspect-homeimage md:aspect-square" :img="imgs" :time="3000" :auto="true" />
       </div>
 
       <div class="mb-5 h-300px md:h-480px">

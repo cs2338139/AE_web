@@ -39,7 +39,7 @@ export default {
         <RoadItem>關於策展</RoadItem>
         <template #title>關於策展</template>
       </Road>
-      <div class="w-full mb-10 overflow-hidden aspect-image dev"><img :src="dir + aboutData.image" /></div>
+      <div class="w-full mb-10 overflow-hidden aspect-image"><img :src="dir + aboutData.image"  class="w-full"/></div>
       <div class="title">展覽論述</div>
       <div class="mb-20 sm:mb-10">
         <template v-for="i in aboutData.info">

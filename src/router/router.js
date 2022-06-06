@@ -62,6 +62,16 @@ const router = createRouter({
       ],
     },
     {
+      path: "/videos/:videoID",
+      component: () => import("../views/Content-View.vue"),
+      children: [
+        {
+          path: "",
+          component: () => import("../views/Video-Content-View.vue"),
+        }
+      ],
+    },
+    {
       path: "/albums/:albumID",
       component: () => import("../views/Content-View.vue"),
       children: [
