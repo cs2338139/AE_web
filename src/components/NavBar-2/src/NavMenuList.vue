@@ -10,7 +10,7 @@ defineProps({
       <slot name="menuName"> </slot>
     </span>
     <div class="absolute hidden h-40 p-0 mx-0 min-w-32 text-center group-hover:block hover:block" :class="menuListOffset">
-      <ul class="p-0 mx-0 mt-5 text-center bg-white border-2 rounded-lg hover:block">
+      <ul class="p-0 mx-0 mt-5 text-center rounded-lg hover:block">
         <slot></slot>
       </ul>
     </div>
