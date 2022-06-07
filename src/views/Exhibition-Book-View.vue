@@ -63,9 +63,8 @@ export default {
         <RoadItem>展覽介紹</RoadItem>
         <RoadItemRouter :href="'/exhibitions/' + $route.params.exhibitionID">{{ exhibitionsName }}</RoadItemRouter>
         <RoadItem>{{ bookData.title }}</RoadItem>
-
       </Road>
-      <div class="grid grid-cols-5 gap-x-16">
+      <div class="grid grid-cols-5 gap-x-16 mb-20">
         <div></div>
 
         <div class="col-start-1 col-end-4 xl:col-end-6">
@@ -101,6 +100,11 @@ export default {
 @layer utilities {
   .h-960px {
     height: 960px;
+  }
+}
+@layer components {
+  .dev {
+    @apply border border-solid box-border  border-red-500;
   }
 }
 </style>

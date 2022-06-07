@@ -75,6 +75,13 @@ export default {
         <MenuListItem href="/Activities/ChildrenArts">兒童美學活動</MenuListItem>
       </NavMenuList>
 
+      <NavMenuList menuListOffset="-translate-x-3">
+        <template #menuName>宣導影片</template>
+        <MenuListItem href="/Videos/PreVideos">前導宣傳片</MenuListItem>
+        <MenuListItem href="/Videos/RecordVideos">訪談紀錄片</MenuListItem>
+        <MenuListItem href="/Videos/Animations">繪本小動畫</MenuListItem>
+      </NavMenuList>
+
       <NavMenuItemLink href="" target="_blank">預約導覽</NavMenuItemLink>
 
       <NavMenuList keyName="Album">

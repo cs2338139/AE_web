@@ -15,5 +15,8 @@ app.config.globalProperties.$sm = 639;
 
 app.use(router);
 app.use(VueWindowSizePlugin);
+router.afterEach((to, from, next) => {
+  window.scrollTo(0, 0);
+});
 
 app.mount("#app");

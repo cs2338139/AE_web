@@ -6,12 +6,13 @@ defineProps({});
 <template>
   <div class="wrap">
     <Road class="mb-10">
+      <RoadItem>線上展覽</RoadItem>
       <RoadItem>策展人線上導覽</RoadItem>
       <template #title>策展人線上導覽</template>
     </Road>
 
     <div>
-      <div class="w-full aspect-video relative mb-10 sm:mb-5 ">
+      <div class="w-full aspect-video relative mb-10 sm:mb-5">
         <iframe src="https://www.youtube.com/embed/6kkuhbDiyOw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="font-bold text-3xl mb-3 sm:text-lg">夢境漫遊：繪本藝術展 線上導覽影片</div>
