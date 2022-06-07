@@ -48,6 +48,11 @@ module.exports = {
       fuchsia: colors.fuchsia,
       pink: colors.pink,
       rose: colors.rose,
+      "text-0-Color":'#2563eb',
+      navColor:'#575F9E',
+      footColor:'#000000',
+      "bg-0-Color":'#FFFFFF',
+      "bg-1-Color":'#828FCD',
     }),
     columns: {
       auto: "auto",

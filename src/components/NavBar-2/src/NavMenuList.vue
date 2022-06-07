@@ -6,11 +6,11 @@ defineProps({
 
 <template>
   <li class="text-xl font-normal text-center max-h-7 group">
-    <span class="px-3 cursor-pointer Menu-span-border-bottom">
+    <span class="px-3 py-1 bg-white rounded-full cursor-pointer Menu-span-border-bottom text-text-0-Color font-bold">
       <slot name="menuName"> </slot>
     </span>
     <div class="absolute hidden h-40 p-0 mx-0 min-w-32 text-center group-hover:block hover:block" :class="menuListOffset">
-      <ul class="p-0 mx-0 mt-5 text-center rounded-lg hover:block">
+      <ul class="p-0 mx-0 mt-5 text-center bg-white border-2 rounded-3xl hover:block">
         <slot></slot>
       </ul>
     </div>

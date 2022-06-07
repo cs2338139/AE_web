@@ -3,7 +3,7 @@ import FootMenuItem from "./src/FootMenuItem.vue";
 </script>
 
 <template>
-  <footer class="z-10 w-full relative h-24 xl:h-36 bg-zinc-800">
+  <footer class="z-10 w-full relative h-24 xl:h-36 bg-footColor">
     <ul class="flex flex-row items-center justify-between h-full mx-auto my-0 max-w-8xl 2xl:justify-around xl:flex-col xl:items-start xl:px-10 xl:py-5 ">
       <div class="flex  flex-col  h-1/2 justify-between">
         <FootMenuItem href="">指導單位：教育部</FootMenuItem>

@@ -6,9 +6,9 @@ defineProps({
 </script>
 
 <template>
-  <li class="font-light text-xl my-6 mx-0">
+  <li class="mx-0 my-2 text-xl font-light ">
     <RouterLink :to="href" class="hover:text-slate-400">
-      <span class="px-3">
+      <span class="px-3 text-blue-600 font-bold">
         <slot></slot>
       </span>
     </RouterLink>
