@@ -4,7 +4,7 @@ import MenuListItem from "./src/MenuListItem.vue";
 import NavMenuList from "./src/NavMenuList.vue";
 import NavMenuItem from "./src/NavMenuItem.vue";
 import NavMenuItemLink from "./src/NavMenuItem-Link.vue";
-const homeImage = new URL("../../assets/Image/UI/logo-2.png", import.meta.url).href;
+const homeImage = new URL("../../assets/Image/UI/Logo.png", import.meta.url).href;
 </script>
 
 <script>
@@ -38,9 +38,9 @@ export default {
 
 <template>
   <nav class="fixed top-0 z-10 w-full">
-    <div class="top-0 flex flex-row items-center justify-between w-full h-20 bg-white border-gray-400 border-b-50">
-      <div>
-        <Logo href="/" :img="homeImage" width="width:80px" />
+    <div class="top-0 flex flex-row items-center justify-between w-full h-20 bg-navColor border-gray-400 border-b-50">
+      <div class="p-2">
+        <Logo href="/" :img="homeImage" width="width:70px" />
       </div>
       <div class="mx-3">
         <button @click="openMenu()">
@@ -48,8 +48,10 @@ export default {
         </button>
       </div>
     </div>
+    <div class="bg-nav-image h-10 -mt-2"></div>
 
-    <ul class="relative top-0 flex flex-col hidden w-full my-0 overflow-y-scroll bg-black-05 content-area" ref="Menu">
+    <ul class="relative top-0 flex flex-col hidden w-full my-0 overflow-y-scroll bg-black-05 content-area -mt-5 -z-50" ref="Menu">
+      <div class="bg-white h-10 "></div>
       <NavMenuItem href="/">首頁</NavMenuItem>
 
       <NavMenuItem href="/Information">關於策展</NavMenuItem>
@@ -103,6 +105,7 @@ export default {
 
 ion-icon {
   font-size: 48px;
+  color: white;
   --ionicon-stroke-width: 12px;
 }
 
@@ -119,6 +122,12 @@ ion-icon {
 
   .bg-black-05 {
     background-color: rgb(0, 0, 0, 0.8);
+  }
+}
+
+@layer components {
+  .dev {
+    @apply border border-solid box-border  border-red-500;
   }
 }
 </style>

@@ -9,8 +9,8 @@ const homeImage = new URL("../../assets/Image/UI/Logo.png", import.meta.url).hre
 </script>
 
 <template>
-  <nav class="fixed top-0 w-full z-10 ">
-    <NavMenu _class="h-32 ">
+  <nav class="fixed top-0 w-full z-10">
+    <NavMenu _class="h-32">
       <template #logo>
         <Logo href="/" :img="homeImage" width="width:120px" />
       </template>
@@ -58,6 +58,7 @@ const homeImage = new URL("../../assets/Image/UI/Logo.png", import.meta.url).hre
       <NavMenuItemLink href="https://www.arte.gov.tw/" target="_blank">國立臺灣藝術教育館</NavMenuItemLink>
       <NavMenuItemLink href="https://www.facebook.com/ntaec" target="_blank" _class="bg-inherit"><ion-icon name="logo-facebook" /></NavMenuItemLink>
     </NavMenu>
+    <div class="bg-nav-image h-10 mt-28"></div>
   </nav>
 </template>
 

@@ -8,7 +8,7 @@ defineProps({
 <template>
     <span class="mx-5 font-bold">〉</span>
     <RouterLink :to="href" class="hover:text-slate-400">
-        <span>
+        <span class=" font-bold">
             <slot></slot>
         </span>
     </RouterLink>

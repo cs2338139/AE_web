@@ -4,7 +4,7 @@
 
 <template>
     <span class="mx-5 font-bold">〉</span>
-    <span>
+    <span class=" font-bold">
         <slot></slot>
     </span>
 </template>

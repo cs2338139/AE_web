@@ -35,17 +35,19 @@ export default {
 </script>
 
 <template>
-  <div class="relative w-full h-full md:py-3">
-    <div class="mb-5 font-bold text-2xl sm:text-base">最新消息</div>
+  <div class="relative w-full h-full md:py-3 text-white">
+    <div class="mb-5">
+      <span class="px-3 py-1 text-xl font-bold bg-white rounded-full sm:text-base text-text-0-Color">最新消息</span>
+    </div>
     <ul class="mb-5">
       <NewsListItem v-for="(i, index) in newsList.slice(newsList.length - 6, newsList.length).reverse()" :href="'/news/' + (newsList.length - 1 - index)">
         <template #date>{{ i.date }}</template>
         <template #title>{{ i.title }}</template>
       </NewsListItem>
     </ul>
-    <div class="font-bold absolute bottom-0 right-0 sm:text-sm">
-      <RouterLink to="/news" class="hover:text-slate-400">
-        <span> more＞</span>
+    <div class="absolute bottom-0 right-0 font-bold hover:scale-110">
+      <RouterLink to="/news">
+        <span class="px-3 py-1 text-base font-bold bg-yellow-400 rounded-full text-text-0-Color sm:text-sm"> more</span>
       </RouterLink>
     </div>
   </div>
@@ -55,4 +57,9 @@ export default {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer components {
+  .dev {
+    @apply border border-solid box-border  border-red-500;
+  }
+}
 </style>

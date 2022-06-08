@@ -24,7 +24,7 @@ export default {
           if (this.$windowWidth > this.$md) {
             this.imgs = this.homeData.imgs;
           } else {
-            let temp=[];
+            let temp = [];
             for (let i = 0; i < this.homeData.phoneimgs.length; i++) {
               temp.push("phone/" + this.homeData.phoneimgs[i]);
             }
@@ -58,14 +58,18 @@ export default {
       <div class="mb-10">
         <ImageBox path="Home" imgStyle="w-full aspect-homeimage md:aspect-square" :img="imgs" :time="3000" :auto="true" />
       </div>
+    </div>
 
-      <div class="mb-5 h-300px md:h-480px">
-        <div class="float-left w-2/3 h-full pt-3 pr-10 border-r border-black md:border-r-0 md:border-t md:border-b md:w-full md:pr-0 md:py-2 md:h-1/2">
-          <HomeNews />
-        </div>
+    <div class="bg-bg-1-Color">
+      <div class="wrap">
+        <div class="pb-5 h-300px md:h-480px">
+          <div class="float-left w-2/3 h-full pt-3 pr-10  border-black md:border-r-0 md:border-t md:border-b md:w-full md:pr-0 md:py-2 md:h-1/2">
+            <HomeNews />
+          </div>
 
-        <div class="float-right w-1/3 h-full pt-3 pl-10 md:float-left md:w-full md:pl-0 md:h-1/2 md:pt-5">
-          <VisitInformation />
+          <div class="float-right w-1/3 h-full pt-3 pl-10 md:float-left md:w-full md:pl-0 md:h-1/2 md:pt-5">
+            <VisitInformation />
+          </div>
         </div>
       </div>
     </div>

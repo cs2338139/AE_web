@@ -17,9 +17,9 @@ export default {
 </script>
 
 <template>
-  <tr class="hover:bg-zinc-100 border-y text-center cursor-pointer" @click="router()">
+  <tr class="text-center cursor-pointer hover:bg-zinc-200 text-text-1-Color" @click="router()">
     <td class="px-3 py-2 sm:px-0">
-      <slot name="type"></slot>
+      <span class="px-3 py-1 font-medium border rounded-full border-text-1-Color sm:px-1"><slot name="type"></slot></span>
     </td>
     <td class="px-3 py-2">
       <slot name="title"></slot>
