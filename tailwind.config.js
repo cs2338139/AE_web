@@ -53,7 +53,7 @@ module.exports = {
       navColor: "#5B629F",
       footColor: "#000000",
       "bg-0-Color": "#efefef",
-      "bg-1-Color": "#8E97D4",
+      "bg-1-Color": "#8F97D3",
     }),
     columns: {
       auto: "auto",
@@ -643,6 +643,7 @@ module.exports = {
       max: "max-content",
       fit: "fit-content",
       prose: "65ch",
+      "1377px":"1377px",
       ...breakpoints(theme("screens")),
     }),
     minHeight: {

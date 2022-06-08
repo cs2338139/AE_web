@@ -39,13 +39,13 @@ export default {
     <div class="mb-5">
       <span class="px-3 py-1 text-xl font-bold bg-white rounded-full sm:text-base text-text-0-Color">最新消息</span>
     </div>
-    <ul class="mb-5">
+    <ul>
       <NewsListItem v-for="(i, index) in newsList.slice(newsList.length - 6, newsList.length).reverse()" :href="'/news/' + (newsList.length - 1 - index)">
         <template #date>{{ i.date }}</template>
         <template #title>{{ i.title }}</template>
       </NewsListItem>
     </ul>
-    <div class="absolute bottom-0 right-0 font-bold hover:scale-110">
+    <div class="absolute bottom-14 right-0 font-bold hover:scale-110 md:bottom-0">
       <RouterLink to="/news">
         <span class="px-3 py-1 text-base font-bold bg-yellow-400 rounded-full text-text-0-Color sm:text-sm"> more</span>
       </RouterLink>

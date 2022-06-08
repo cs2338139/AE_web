@@ -14,7 +14,7 @@ export default {};
 
   <NavBar2 v-if="$windowWidth >= $xl" />
 
-  <div class="min-h-screen pb-24 -mb-24 pt-56 xl:pt-36 xl:pb-36 xl:-mb-36 sm:pb-44 sm:-mb-44 bg-bg-0-Color">
+  <div class="min-h-screen pt-56 -mb-32 lg:pt-36 xl:-mb-36 sm:-mb-32">
     <RouterView />
   </div>
 
@@ -29,21 +29,12 @@ export default {};
 
 body {
   touch-action: manipulation;
+  @apply bg-bg-0-Color;
 }
 
 @layer base {
   body {
     @apply m-0 p-0;
-  }
-}
-
-@layer components {
-  .dev {
-    @apply border border-solid box-border border-red-700;
-  }
-
-  .wrap {
-    @apply relative my-0  mx-auto max-w-8xl 2xl:mx-10 xl:mx-20 lg:mx-5  sm:mx-4;
   }
 }
 

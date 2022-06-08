@@ -11,7 +11,7 @@ import RoadItem from "../components/Road/src/RoadItem.vue";
       <template #title>參觀資訊</template>
     </Road>
 
-    <div class="mb-10 h-nor md:h-lg sm:h-sm text-text-1-Color">
+    <div class="mb-32 h-nor md:h-lg sm:h-sm text-text-1-Color">
       <div class="flex flex-col justify-between float-left w-1/2 h-full xl:pr-16 md:w-full md:pr-0 md:h-1/2 md:pb-10">
         <div>
           <div class="title"><span>本館資訊</span></div>

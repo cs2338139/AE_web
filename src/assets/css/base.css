@@ -9,12 +9,12 @@
 }
 
 @layer components {
-  .dev-border-view {
+  .dev {
     @apply border border-solid box-border border-red-700;
   }
 
   .wrap {
-    @apply relative my-0 mx-auto max-w-8xl;
+    @apply relative my-0 mx-auto max-w-1377px;
     /* @apply dev-border-view; */
   }
 }
