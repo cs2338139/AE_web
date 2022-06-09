@@ -12,7 +12,7 @@ export default {
 };
 </script>
 <template>
-  <ul class="text-lg xl:text-sm">
+  <ul class="text-lg xl:text-sm font-semibold text-zinc-600">
     <li class="my-2"><slot name="howto"></slot></li>
     <li class="my-2"><slot name="place"></slot></li>
     <li class="my-2"><slot name="for"></slot></li>

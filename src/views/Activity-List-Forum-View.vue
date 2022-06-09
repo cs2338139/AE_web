@@ -18,7 +18,15 @@ export default {
         .get("Data/Activities/" + this.$route.params.activityID + "/ForumList.json")
         .then((response) => {
           this.ForumList = response.data;
-
+          for (let i = 0; i < this.ForumList.length; i++) {
+            let name = this.ForumList[i].title.split("：");
+            if (name.length === 2) {
+              this.ForumList[i].title = name[0] + "：";
+              this.ForumList[i].title2 = name[1];
+            } else {
+              this.ForumList[i].title2 = "";
+            }
+          }
           let colCount = 3;
 
           if (this.$windowWidth <= this.$sm) {
@@ -59,22 +67,37 @@ export default {
 </script>
 
 <template>
-  <div class="wrap">
-    <Road class="mb-10">
+  <div class="wrap mb-20">
+    <Road class="mb-5">
       <RoadItem>推廣活動</RoadItem>
       <RoadItem>專題講座</RoadItem>
       <template #title>專題講座</template>
     </Road>
-    <div class="max-w-4xl p-5 mx-auto mt-20 mb-12 bg-gray-100 rounded-3xl sm:mt-10">
-      <div class="text-lg font-bold sm:text-sm">可曾想過，孩子的夢，會有哪些？做夢和探索世界的能力，是孩子迎向未來和未知的勇氣。 透過與策展人面對面座談，藉由經驗分享一同探討繪本對兒童的影響，進而打開無限想像力和好奇心，啟發藝術興趣。</div>
+    <div class="text-center text-3xl font-bold sm:text-xl">「夢境漫遊：繪本藝術」展之繪本美學專題講座</div>
+    <div class="max-w-4xl mx-auto mt-8 mb-24 sm:mt-5">
+      <div class="text-base font-bold sm:text-sm text-center">
+        <div class="mb-3">
+          可曾想過，孩子的夢，會有哪些？<br />做夢和探索世界的能力，<br />是孩子迎向未來和未知的勇氣。<br />
+          透過與策展人面對面座談，藉由經驗分享一同探討繪本對兒童的影響，進而打開無限想像力和好奇心，啟發藝術興趣。
+        </div>
+        <div>
+          一、報名方式｜採線上報名<br />
+          二、上課地點｜本館第3會議室。<br />
+          三、參與對象｜公務人員、教師、學生、一般民眾
+        </div>
+      </div>
     </div>
-    <div class="flex flex-wrap justify-between xl:justify-around">
+    <div class="flex flex-wrap justify-between xl:justify-around max-w-5xl mx-auto">
       <ActivityItem v-for="(i, index) in ForumList" :href="'/activities/' + $route.params.activityID + '/' + index" :img="'Data/Activities/' + $route.params.activityID + '/' + index + '/cover.jpg'" :class="{ invisible: i.title === 'none' }">
         <template #title>{{ i.title }}</template>
+        <template #title2>{{ i.title2 }}</template>
         <template #date>{{ i.date }}</template>
-        <template #teacher>{{ i.teacher }}</template>
       </ActivityItem>
     </div>
+  </div>
+  <div class="absolute w-full bottom-0 -z-10">
+    <div class="bg-bg-0-image h-8"></div>
+    <div class="bg-bg-2-Color h-80"></div>
   </div>
 </template>
 

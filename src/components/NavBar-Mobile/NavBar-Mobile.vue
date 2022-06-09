@@ -48,7 +48,7 @@ export default {
         </button>
       </div>
     </div>
-    <div class="bg-nav-image h-10 -mt-2"></div>
+    <div class="bg-nav-image h-10 -mt-2 "></div>
 
     <ul class="relative top-0 flex flex-col hidden w-full my-0 overflow-y-scroll bg-black-05 content-area -mt-5 -z-50" ref="Menu">
       <div class="bg-white h-10 "></div>

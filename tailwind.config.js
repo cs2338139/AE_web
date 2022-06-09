@@ -53,7 +53,10 @@ module.exports = {
       navColor: "#5B629F",
       footColor: "#000000",
       "bg-0-Color": "#efefef",
-      "bg-1-Color": "#8F97D3",
+      "bg-1-Color": "#8C95D2",
+      "bg-2-Color":"#D6D7ED",
+      "bg-3-Color":"#2B2D7E",
+      "bg-4-Color":"#171944",
     }),
     columns: {
       auto: "auto",
@@ -157,7 +160,9 @@ module.exports = {
       "nav-image": "url('/src/assets/Image/UI/BG_Top.png')",
       "bg-0-image": "url('/src/assets/Image/UI/BG_Mid1.png')",
       "bg-1-image": "url('/src/assets/Image/UI/BG_Mid2.png')",
-      "foot-image": "url('/src/assets/Image/UI/BG_Bottom.png')",
+      "foot-0-image": "url('/src/assets/Image/UI/BG_Bottom.png')",
+      "foot-1-image": "url('/src/assets/Image/UI/BG_Bottom2.png')",
+      "bg-cloud-image": "url('/src/assets/Image/UI/BG_Cloud.png')",
     },
     backgroundOpacity: ({ theme }) => theme("opacity"),
     backgroundPosition: {

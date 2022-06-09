@@ -21,10 +21,10 @@ export default {
 <template>
   <div>
     <a :href="link" target="_blank" class="panel">
-      <div class="text">點我報名</div>
+      <div class="text bg-text-1-Color text-bg-0-Color">點我報名</div>
     </a>
-    <button v-if="needKnew" @click="openModal" class="panel ml-5">
-      <div class="text">報名須知</div>
+    <button v-if="needKnew" @click="openModal" class="ml-5 panel">
+      <div class="text bg-bg-2-Color text-text-1-Color lg:border-2 lg:border-bg-1-Color">報名須知</div>
     </button>
   </div>
 </template>
@@ -36,11 +36,11 @@ export default {
 
 @layer components {
   .panel {
-    @apply text-xl font-bold text-zinc-500 inline-block sm:text-sm;
+    @apply inline-block;
   }
 
   .text {
-    @apply  px-3 py-2 text-white bg-zinc-400 rounded-3xl;
+    @apply px-6 py-1 rounded-3xl font-bold text-xl  sm:text-sm;
   }
 }
 </style>

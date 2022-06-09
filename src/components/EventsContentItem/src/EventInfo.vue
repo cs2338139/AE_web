@@ -14,9 +14,9 @@ export default {
 };
 </script>
 <template>
-  <div class="text-3xl font-bold mb-6 sm:mb-2 sm:text-xl"><slot></slot></div>
+  <div class="text-3xl font-bold mb-6 sm:mb-2 sm:text-xl" ref="title"><slot></slot></div>
   <template v-for="i in info">
-    <div class="text-lg sm:text-sm">{{ i }}</div>
+    <div class="text-lg sm:text-sm text-zinc-700 font-semibold">{{ i }}</div>
   </template>
 </template>
 

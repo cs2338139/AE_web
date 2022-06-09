@@ -16,7 +16,7 @@ import { RouterLink, RouterView } from "vue-router";
       <div class="text-base font-normal sm:text-sm sm:my-1">國定假日照常開館</div>
     </div>
 
-    <div class="font-bold absolute bottom-14 right-0 hover:scale-110 md:bottom-0">
+    <div class="font-bold absolute bottom-20 right-0 hover:scale-110 md:bottom-2">
       <RouterLink to="/vistInformation">
         <span class="px-3 py-1 text-base font-bold bg-yellow-400 rounded-full text-text-0-Color sm:text-sm"> more</span>
       </RouterLink>

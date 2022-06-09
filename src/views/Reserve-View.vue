@@ -34,9 +34,13 @@ export default {};
       </ul>
 
       <div class="mb-20 text-lg sm:text-sm">洽詢電話：(02)2311–0574 轉234 王小姐 / 傳真號碼：(02)2389–4822</div>
-      <RouterLink to="/">
-        <div class="left-0 right-0 py-3 mx-auto text-xl text-center text-white rounded-full w-44 bg-zinc-400 hover:bg-zinc-600 sm:text-lg sm:w-28 ">回首頁</div>
-      </RouterLink>
+
+      <div class="text-center hover:scale-110">
+        <RouterLink to="/">
+          <span class="font-bold bg-text-1-Color text-white px-3 py-2 rounded-full"> 回首頁 </span>
+        </RouterLink>
+      </div>
+
     </div>
   </div>
 </template>

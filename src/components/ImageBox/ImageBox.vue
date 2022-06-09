@@ -74,7 +74,7 @@ export default {
 
 <template>
   <div class="relative overflow-hidden" :class="imgStyle">
-    <div class="absolute w-full h-full">
+    <div class="absolute w-full h-full" v-if="img.length > 1">
       <button @click="plusSlides(-1)" class="left-3 dirButton">
         <ion-icon name="chevron-back-circle" />
       </button>

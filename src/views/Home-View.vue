@@ -30,12 +30,17 @@ export default {
             }
             this.imgs = temp;
           }
-          console.log(this.imgs);
         })
         .catch((response) => {
           console.log(response);
           this.ToNotFound();
         });
+    },
+    GetTargetHeight() {
+      const h = document.body.scrollHeight - (this.$refs.target.getBoundingClientRect().top + window.scrollY);
+      const bg = this.$refs.bg;
+      bg.style.height = h  + "px";
+      console.log(bg.style.height);
     },
     ToNotFound() {
       this.$router.push({
@@ -49,6 +54,11 @@ export default {
   created() {
     this.LoadJson();
   },
+  updated() {
+    setTimeout(() => {
+      this.GetTargetHeight();
+    }, 200);
+  },
 };
 </script>
 
@@ -56,28 +66,25 @@ export default {
   <template v-if="homeData != null">
     <div>
       <div class="wrap">
-        <div class="mb-10">
+        <div class="mb-48 lg:mb-14">
           <ImageBox path="Home" imgStyle="w-full aspect-homeimage md:aspect-square" :img="imgs" :time="3000" :auto="true" />
         </div>
-      </div>
 
-      <div>
-        <div class="bg-bg-1-image h-16"></div>
-        <div class="bg-bg-1-Color">
-          <div class="wrap">
-            <div class="flex flex-row h-300px md:h-480px md:flex-col px-20 md:px-10">
-              <div class="w-2/3 h-full pt-3 pr-10 md:border-white md:border-b md:w-full md:pr-0 md:py-2 md:h-1/2">
-                <HomeNews />
-              </div>
+        <div class="flex flex-row h-300px md:h-480px md:flex-col px-20 md:px-10" ref="target">
+          <div class="w-2/3 h-full pt-3 pr-10 md:border-white md:border-b md:w-full md:pr-0 md:py-2 md:h-1/2">
+            <HomeNews />
+          </div>
 
-              <div class="w-1/3 h-full pt-3 pl-10 md:float-left md:w-full md:pl-0 md:h-1/2 md:pt-5">
-                <VisitInformation />
-              </div>
-            </div>
+          <div class="w-1/3 h-full pt-3 pl-10 md:float-left md:w-full md:pl-0 md:h-1/2 md:pt-5">
+            <VisitInformation />
           </div>
         </div>
-        <div class="bg-bg-1-image h-10 bg-bottom"></div>
       </div>
+    </div>
+
+    <div class="absolute w-full bottom-0 -z-50">
+      <div class="bg-bg-1-image h-8"></div>
+      <div class="bg-bg-1-Color h-96" ref="bg"></div>
     </div>
   </template>
 </template>

@@ -10,15 +10,19 @@ export default {};
 </script>
 
 <template>
-  <NavBarMobile v-if="$windowWidth < $xl" />
+  <div class="relative z-20">
+    <NavBarMobile v-if="$windowWidth < $2xl" />
 
-  <NavBar2 v-if="$windowWidth >= $xl" />
+    <NavBar2 v-if="$windowWidth >= $2xl" />
+  </div>
 
-  <div class="min-h-screen pt-56 -mb-32 lg:pt-36 xl:-mb-36 sm:-mb-32">
+  <div class="relative min-h-screen pt-56 pb-40 xl:pt-36 xl:pb-36 sm:pb-56">
     <RouterView />
   </div>
 
-  <FootBar></FootBar>
+  <div class="relative z-20 -mt-56 xl:-mt-72 sm:-mt-80">
+    <FootBar></FootBar>
+  </div>
 </template>
 
 <style>

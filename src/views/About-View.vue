@@ -41,9 +41,20 @@ export default {
         this.info = this.aboutData.info[0];
       }
     },
+    GetTargetHeight() {
+      let target = this.$refs.target;
+      const h = document.body.scrollHeight - (target.getBoundingClientRect().top + window.scrollY);
+      const bg = this.$refs.bg;
+      bg.style.height = h + "px";
+    },
   },
   created() {
     this.LoadJson();
+  },
+  updated() {
+    setTimeout(() => {
+      this.GetTargetHeight();
+    }, 200);
   },
 };
 </script>
@@ -56,8 +67,8 @@ export default {
         <template #title>關於策展</template>
       </Road>
       <div class="w-full mb-10 overflow-hidden aspect-image"><img :src="dir + aboutData.image" class="w-full" /></div>
-      <div class="">
-        <button class="absolute right-0 px-5 py-1 text-white rounded-full bg-zinc-400 hover:bg-zinc-600 sm:text-xs" @click="ChangeLang()">{{ infoState }}</button>
+      <div>
+        <button class="absolute right-0 px-5 py-1 rounded-full text-bg-0-Color bg-bg-1-Color hover:bg-text-1-Color sm:text-xs xl:right-5" @click="ChangeLang()">{{ infoState }}</button>
         <div class="mb-5 font-bold sm:mb-3">
           <div class="inline mr-5 text-2xl font-bold sm:text-xl sm:mr-2 sm:block">{{ info.title }}</div>
           <div class="inline text-lg font-bold sm:text-xs text-zinc-500 sm:block">{{ info.curator }}</div>
@@ -69,20 +80,29 @@ export default {
           </template>
         </div>
       </div>
+    </div>
 
-      <div class="mb-20">
-        <div class="title">策展人</div>
-        <AboutItem :img="dir + aboutData.curator.image" :href="aboutData.curator.link">
-          <template #name>{{ aboutData.curator.name }}</template>
-          <template #info>{{ aboutData.curator.info }}</template>
-        </AboutItem>
+    <div class="mb-20">
+      <div class="h-10 bg-bg-0-image"></div>
+      <div class="bg-bg-2-Color">
+        <div class="wrap">
+          <div class="title">策展人</div>
+          <AboutItem :img="dir + aboutData.curator.image" :href="aboutData.curator.link">
+            <template #name>{{ aboutData.curator.name }}</template>
+            <template #info>{{ aboutData.curator.info }}</template>
+          </AboutItem>
+          <br /><br />
+        </div>
       </div>
+      <div class="h-10 bg-bottom bg-bg-0-image"></div>
+    </div>
 
+    <div class="wrap">
       <div class="mb-20 sm:mb-10">
         <div class="title">策展團隊</div>
 
-        <div class="max-w-6xl p-5 mx-auto mt-20 mb-12 bg-gray-100 sm:mt-10 rounded-3xl">
-          <div class="text-lg font-bold sm:text-sm">
+        <div class="mx-auto mt-20 mb-12 bgCloud sm:mt-10 flex items-center justify-center">
+          <div class="w-3/5 text-lg font-bold sm:text-sm text text-center">
             {{ aboutData.curatorialTeamTip }}
           </div>
         </div>
@@ -93,11 +113,11 @@ export default {
         </AboutItem>
       </div>
 
-      <div class="mb-20 sm:mb-10">
+      <div class="sm:mb-10" ref="target">
         <div class="title">推廣團隊</div>
 
-        <div class="max-w-6xl p-5 mx-auto mt-20 mb-12 bg-gray-100 sm:mt-10 rounded-3xl">
-          <div class="text-lg font-bold sm:text-sm">
+        <div class="mx-auto mt-20 mb-12 bgCloud sm:mt-10 flex items-center justify-center">
+          <div class="w-3/5 text-lg font-bold sm:text-sm text text-center">
             {{ aboutData.promotionTeamTip }}
           </div>
         </div>
@@ -107,6 +127,10 @@ export default {
           <template #info>{{ i.info }}</template>
         </AboutItem>
       </div>
+    </div>
+    <div class="absolute w-full bottom-0 -z-50">
+      <div class="bg-bg-0-image h-8"></div>
+      <div class="bg-bg-2-Color h-0" ref="bg"></div>
     </div>
   </template>
 </template>
@@ -119,6 +143,11 @@ export default {
 @layer utilities {
   .h-550px {
     height: 550px;
+  }
+}
+@layer components {
+  .dev {
+    @apply border border-solid box-border  border-red-500;
   }
 }
 
@@ -136,6 +165,13 @@ export default {
 @layer components {
   .dev {
     @apply border border-solid box-border  border-red-500;
+  }
+
+  .bgCloud {
+    background-size: 100% 100%;
+    max-width: 1134px;
+    height: 288px;
+    @apply bg-bg-cloud-image;
   }
 }
 </style>

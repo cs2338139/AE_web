@@ -41,7 +41,7 @@ export default {
       </EventDate>
     </div>
 
-    <div class="col-start-4 col-end-6 row-start-2 row-end-3 lg:col-start-1 lg:col-end-1 lg:row-start-6 lg:row-end-7">
+    <div class="col-start-4 col-end-6 row-start-2 row-end-3 lg:col-start-1 lg:col-end-1 lg:row-start-6 lg:row-end-7" ref="place">
       <EventPlace>
         <template #howto>
           <slot name="howto"></slot>
@@ -66,15 +66,15 @@ export default {
       <EventContact></EventContact>
     </div>
 
-    <div class="col-start-1 col-end-4 row-start-4 row-end-6 xl:row-start-4 lg:col-end-1 lg:row-start-5 lg:row-end-6 lg:pt-5 sm:pt-0">
-      <EventInfo :info="info">
+    <div class="mt-8 xl:mt-4 col-start-1 col-end-4 row-start-4 row-end-6 xl:row-start-4 lg:col-end-1 lg:row-start-5 lg:row-end-6 lg:pt-5 sm:pt-0">
+      <EventInfo :info="info" ref="info">
         <slot name="title"></slot>
       </EventInfo>
-      <hr class="my-8 border-zinc-400 lg: border-0 sm:my-3" />
+      <hr class="my-8 border border-zinc-400 lg:border-0 sm:my-3" />
       <EventTeacher :teacherInfo="teacherInfo">
         <slot name="teacher"></slot>
       </EventTeacher>
-      <hr class="my-8 border-zinc-400 hidden lg:block sm:mb-2" />
+      <hr class="hidden my-8 border-zinc-400 lg:block sm:mb-2" />
     </div>
   </div>
 </template>

@@ -45,7 +45,7 @@ export default {
         <template #title>{{ i.title }}</template>
       </NewsListItem>
     </ul>
-    <div class="absolute bottom-14 right-0 font-bold hover:scale-110 md:bottom-0">
+    <div class="absolute bottom-20 right-0 font-bold hover:scale-110 md:bottom-0">
       <RouterLink to="/news">
         <span class="px-3 py-1 text-base font-bold bg-yellow-400 rounded-full text-text-0-Color sm:text-sm"> more</span>
       </RouterLink>

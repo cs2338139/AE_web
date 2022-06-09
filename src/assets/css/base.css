@@ -14,7 +14,7 @@
   }
 
   .wrap {
-    @apply relative my-0 mx-auto max-w-1377px;
+    @apply relative my-0 mx-auto max-w-1377px xl:px-4;
     /* @apply dev-border-view; */
   }
 }

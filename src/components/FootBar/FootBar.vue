@@ -4,8 +4,8 @@ import FootMenuItem from "./src/FootMenuItem.vue";
 
 <template>
   <footer>
-    <div class="bg-foot-image h-32"></div>
-    <div class="z-10 w-full relative h-24 xl:h-36 sm:h-44 bg-footColor">
+    <div class="bg-foot-0-image h-32"></div>
+    <div class="w-full relative h-24 xl:h-40 sm:h-48 bg-footColor">
       <ul class="flex flex-row items-center justify-between h-full mx-auto my-0 max-w-8xl 2xl:justify-around xl:flex-col xl:items-start xl:px-10 xl:py-5">
         <div class="flex flex-col h-1/2 justify-between">
           <FootMenuItem href="">指導單位：教育部</FootMenuItem>
