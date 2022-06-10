@@ -2,6 +2,7 @@
 defineProps({
   link: String,
   needKnew: Boolean,
+  needlink: Boolean,
 });
 </script>
 
@@ -20,7 +21,7 @@ export default {
 </script>
 <template>
   <div>
-    <a :href="link" target="_blank" class="panel">
+    <a :href="link" v-if="needlink" target="_blank" class="panel">
       <div class="text bg-text-1-Color text-bg-0-Color">點我報名</div>
     </a>
     <button v-if="needKnew" @click="openModal" class="ml-5 panel">

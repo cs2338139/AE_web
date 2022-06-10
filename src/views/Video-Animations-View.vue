@@ -37,7 +37,7 @@ defineProps({});
       <hr />
 
       <div class="font-bold mb-14 sm:text-sm">
-        <div>動畫授權：文策院</div>
+        <div>動畫授權：文化內容策進院</div>
       </div>
     </div>
   </div>

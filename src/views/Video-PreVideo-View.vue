@@ -15,12 +15,9 @@ defineProps({});
       <div class="w-full aspect-video relative mb-10 sm:mb-5">
         <iframe src="https://www.youtube.com/embed/6kkuhbDiyOw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-      <div class="font-bold text-3xl mb-3 sm:text-lg">夢境漫遊：繪本藝術展 前導宣傳片</div>
-      <div class="mb-4 font-bold text-xl sm:text-sm">策展人：吳文君</div>
-      <div class="mb-6 text-red-800">由策展人與策展團隊帶領著大家一起在展間漫遊，一起聊聊關於繪本的故事。</div>
+      <div class="font-bold text-3xl mb-10 sm:text-lg">「夢境漫遊：繪本藝術展」前導宣傳片</div>
 
       <div class="font-bold mb-14 sm:text-sm">
-        <div>夢境漫遊：繪本藝術展</div>
         <div>展覽日期：2022.06.28 – 09.25</div>
         <div>展覽地點：國立臺灣藝術教育館 第1、2展覽廳</div>
       </div>

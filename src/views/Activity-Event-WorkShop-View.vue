@@ -33,9 +33,11 @@ export default {
     GetTargetHeight() {
       let target = null;
       if (this.$windowWidth > this.$lg) {
-        target = this.$refs.target.$refs.info.$refs.title;
+        // target = this.$refs.target.$refs.info;
+        target=document.getElementById("info");
       } else {
-        target = this.$refs.target.$refs.place;
+        // target = this.$refs.target.$refs.place;
+        target=document.getElementById("place");
       }
       const h = document.body.scrollHeight - (target.getBoundingClientRect().top + window.scrollY);
       const bg = this.$refs.bg;
@@ -75,8 +77,7 @@ export default {
         <RoadItemRouter href="/activities/WorkShops">工作坊</RoadItemRouter>
         <RoadItem>{{ Data.title }}</RoadItem>
       </Road>
-
-      <EventContentItem :img="Data.imgs" :link="Data.link" :info="Data.info" :needKnew="true" :teacherInfo="Data.teacherInfo" ref="target">
+      <EventContentItem :img="Data.imgs" :link="Data.link" :info="Data.info" :needKnew="true" :needlink="true" :teacherInfo="Data.teacherInfo" ref="target">
         <template #date>{{ Data.date }}</template>
         <template #time>{{ Data.time }}</template>
         <template #howto> 報名方式｜　採線上報名。 </template>

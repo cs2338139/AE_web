@@ -32,9 +32,11 @@ export default {
     GetTargetHeight() {
       let target = null;
       if (this.$windowWidth > this.$lg) {
-        target = this.$refs.target.$refs.info.$refs.title;
+         // target = this.$refs.target.$refs.info;
+        target=document.getElementById("info");
       } else {
-        target = this.$refs.target.$refs.place;
+        // target = this.$refs.target.$refs.place;
+        target=document.getElementById("place");
       }
       const h = document.body.scrollHeight - (target.getBoundingClientRect().top + window.scrollY);
       const bg = this.$refs.bg;
@@ -68,11 +70,11 @@ export default {
     <div class="wrap mb-20">
       <Road class="mb-10">
         <RoadItem>推廣活動</RoadItem>
-        <RoadItemRouter href="/activities/Forums">專題演講</RoadItemRouter>
+        <RoadItemRouter href="/activities/Forums">分享會</RoadItemRouter>
         <RoadItem>{{ Data.title }}</RoadItem>
       </Road>
 
-      <EventContentItem :img="Data.imgs" :link="Data.link" :info="Data.info" :teacherInfo="Data.teacherInfo"  ref="target">
+      <EventContentItem :img="Data.imgs" :link="Data.link" :info="Data.info" :needlink="true"  :teacherInfo="Data.teacherInfo"  ref="target">
         <template #date>{{ Data.date }}</template>
         <template #time>{{ Data.time }}</template>
         <template #howto> 報名方式｜　採線上報名。 </template>

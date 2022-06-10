@@ -12,6 +12,7 @@ defineProps({
   info: Array,
   teacherInfo: Array,
   needKnew: Boolean,
+  needlink: Boolean,
 });
 </script>
 
@@ -41,7 +42,7 @@ export default {
       </EventDate>
     </div>
 
-    <div class="col-start-4 col-end-6 row-start-2 row-end-3 lg:col-start-1 lg:col-end-1 lg:row-start-6 lg:row-end-7" ref="place">
+    <div class="col-start-4 col-end-6 row-start-2 row-end-3 lg:col-start-1 lg:col-end-1 lg:row-start-6 lg:row-end-7" id="place">
       <EventPlace>
         <template #howto>
           <slot name="howto"></slot>
@@ -62,12 +63,14 @@ export default {
     </div>
 
     <div class="col-start-4 col-end-6 row-start-3 row-end-4 lg:col-start-1 lg:col-end-1 lg:row-start-7 lg:row-end-8 lg:pt-5">
-      <div class="mb-10 xl:mb-5 lg:mb-10"><EventLink link="link" :needKnew="needKnew"></EventLink></div>
+      <div class="mb-10 xl:mb-5 lg:mb-10">
+        <EventLink link="link" :needKnew="needKnew" :needlink="needlink" />
+      </div>
       <EventContact></EventContact>
     </div>
 
-    <div class="mt-8 xl:mt-4 col-start-1 col-end-4 row-start-4 row-end-6 xl:row-start-4 lg:col-end-1 lg:row-start-5 lg:row-end-6 lg:pt-5 sm:pt-0">
-      <EventInfo :info="info" ref="info">
+    <div class="mt-8 xl:mt-4 col-start-1 col-end-4 row-start-4 row-end-6 xl:row-start-4 lg:col-end-1 lg:row-start-5 lg:row-end-6 lg:pt-5 sm:pt-0" id="info">
+      <EventInfo :info="info">
         <slot name="title"></slot>
       </EventInfo>
       <hr class="my-8 border border-zinc-400 lg:border-0 sm:my-3" />

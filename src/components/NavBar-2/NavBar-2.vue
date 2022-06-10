@@ -34,7 +34,7 @@ const homeImage = new URL("../../assets/Image/UI/Logo.png", import.meta.url).hre
       <NavMenuList menuListOffset="-translate-x-4">
         <template #menuName>推廣活動+</template>
         <MenuListItem href="/Activities/WorkShops">工作坊</MenuListItem>
-        <MenuListItem href="/Activities/Forums">專題演講</MenuListItem>
+        <MenuListItem href="/Activities/Forums">分享會</MenuListItem>
         <MenuListItem href="/Activities/Meetings">研習營</MenuListItem>
         <MenuListItem href="/Activities/ChildrenArts">兒童美學活動</MenuListItem>
       </NavMenuList>

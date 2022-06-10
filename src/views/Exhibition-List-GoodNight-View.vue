@@ -90,5 +90,12 @@ export default {
   .dev {
     @apply border border-solid box-border  border-red-500;
   }
+
+  .bgCloud {
+    background-size: 100% 100%;
+    max-width: 1134px;
+    height: 288px;
+    @apply bg-bg-cloud-image;
+  }
 }
 </style>

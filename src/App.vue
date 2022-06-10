@@ -16,7 +16,7 @@ export default {};
     <NavBar2 v-if="$windowWidth >= $2xl" />
   </div>
 
-  <div class="relative min-h-screen pt-56 pb-40 xl:pt-36 xl:pb-36 sm:pb-56">
+  <div class="relative min-h-screen pt-56 pb-40 xl:pt-36 xl:pb-60 md:pb-72 sm:pb-80">
     <RouterView />
   </div>
 

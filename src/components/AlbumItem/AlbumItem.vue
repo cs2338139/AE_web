@@ -20,7 +20,7 @@ defineProps({
           <slot name="title">名稱</slot>
         </div>
         <div class="inline-block p-1 mt-1 mb-5 text-sm text-white bg-red-400" v-if="typeName === 'WorkShop'">工作坊</div>
-        <div class="inline-block p-1 mt-1 mb-5 text-sm text-white bg-blue-400" v-if="typeName === 'Forum'">專題演講</div>
+        <div class="inline-block p-1 mt-1 mb-5 text-sm text-white bg-blue-400" v-if="typeName === 'Forum'">分享會</div>
         <div class="inline-block p-1 mt-1 mb-5 text-sm text-white bg-green-400" v-if="typeName === 'ChildrenArt'">兒童美學活動</div>
         <div class="inline-block p-1 mt-1 mb-5 text-sm text-white bg-yellow-400" v-if="typeName === 'Meeting'">研習營</div>
       </template>

@@ -19,7 +19,9 @@ export default {
   },
   created() {},
   mounted() {
+          console.log(this.$refs.Modal);
     this.$emitter.on("OpenModal", () => {
+
       this.openModal();
     });
   },

@@ -70,10 +70,10 @@ export default {
   <div class="wrap mb-20">
     <Road class="mb-5">
       <RoadItem>推廣活動</RoadItem>
-      <RoadItem>專題講座</RoadItem>
-      <template #title>專題講座</template>
+      <RoadItem>分享會</RoadItem>
+      <template #title>分享會</template>
     </Road>
-    <div class="text-center text-3xl font-bold sm:text-xl">「夢境漫遊：繪本藝術」展之繪本美學專題講座</div>
+    <div class="text-center text-3xl font-bold sm:text-xl">「夢境漫遊：繪本藝術」展之繪本美學分享會</div>
     <div class="max-w-4xl mx-auto mt-8 mb-24 sm:mt-5">
       <div class="text-base font-bold sm:text-sm text-center">
         <div class="mb-3">
