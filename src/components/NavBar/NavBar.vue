@@ -59,7 +59,7 @@ const homeImage = new URL("../../assets/Image/UI/Home.png", import.meta.url).hre
       <NavMenuList>
         <template #menuName>活動花絮</template>
         <MenuListItem href="/Albums/Records">活動紀錄</MenuListItem>
-        <MenuListItem href="/Albums/PreExhibitions">展前花絮</MenuListItem>
+        <MenuListItem href="/Albums/PreExhibitions">展覽花絮</MenuListItem>
       </NavMenuList>
 
       <NavMenuList menuListOffset="translate-x-7">

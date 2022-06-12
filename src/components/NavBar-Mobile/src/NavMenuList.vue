@@ -42,7 +42,7 @@ export default {
 
 <template>
   <li>
-    <div @click="EmitCloseMenuList" class="relative flex items-center justify-between w-full h-10 font-bold bg-white border-b hover:text-slate-400">
+    <div @click="EmitCloseMenuList" class="relative flex items-center justify-between w-full h-10 font-bold bg-white border-b">
       <div class="mx-5">
         <slot name="menuName"> </slot>
       </div>

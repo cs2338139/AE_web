@@ -10,6 +10,8 @@ export default {
   data() {
     return {
       preExhibitionList: [],
+      href: [],
+      img: [],
     };
   },
   methods: {
@@ -18,6 +20,27 @@ export default {
         .get("Data/Albums/" + this.$route.params.albumID + "/PreExhibitionList.json")
         .then((response) => {
           this.preExhibitionList = response.data;
+          console.log(this.preExhibitionList);
+          for (let i = 0; i < this.preExhibitionList.length; i++) {
+            if (this.preExhibitionList[i].Enable === false) {
+              this.href[i] = "";
+              this.img[i] = "Data/Other/ComingSoon.jpg";
+            } else {
+              console.log(this.preExhibitionList[i].Enable);
+              this.href[i] = "/Albums/" + this.$route.params.albumID + "/" + i;
+              this.img[i] = "Data/Albums/" + this.$route.params.albumID + "/" + i + "/cover.jpg";
+            }
+          }
+
+          for (let i = 0; i < this.preExhibitionList.length; i++) {
+            let name = this.preExhibitionList[i].title.split("：");
+            if (name.length === 2) {
+              this.preExhibitionList[i].title = name[0] + "：";
+              this.preExhibitionList[i].title2 = name[1];
+            } else {
+              this.preExhibitionList[i].title2 = "";
+            }
+          }
 
           let colCount = 4;
 
@@ -42,6 +65,7 @@ export default {
 
           for (var i = 0; i < mod; i++) {
             this.preExhibitionList.push(template);
+            this.href.push("");
           }
         })
         .catch(function (response) {
@@ -59,14 +83,14 @@ export default {
   <div class="wrap">
     <Road class="mb-10">
       <RoadItem>活動花絮</RoadItem>
-      <RoadItem>展前花絮</RoadItem>
-      <template #title>展前花絮</template>
+      <RoadItem>展覽花絮</RoadItem>
+      <template #title>展覽花絮</template>
     </Road>
 
-    <div class="flex flex-wrap justify-between xl:justify-around">
-      <AlbumItem v-for="(i, index) in preExhibitionList" :href="'/Albums/' + $route.params.albumID + '/' + index" :img="'Data/Albums/' + $route.params.albumID + '/' + index + '/cover.jpg'" :class="{ invisible: i.title === 'none' }">
+    <div class="flex flex-wrap justify-between xl:justify-around max-w-5xl mx-auto">
+      <AlbumItem v-for="(i, index) in preExhibitionList" :href="href[index]" :img="img[index]" :class="{ invisible: i.title === 'none' }">
         <template #title>{{ i.title }}</template>
-        <template #tip>{{ i.tip }}</template>
+        <template #title2>{{ i.title2 }}</template>
       </AlbumItem>
     </div>
   </div>

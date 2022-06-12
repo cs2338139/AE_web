@@ -48,10 +48,10 @@ export default {
         </button>
       </div>
     </div>
-    <div class="bg-nav-image h-10 -mt-2 "></div>
+    <div class="bg-nav-image h-10 -mt-2"></div>
 
     <ul class="relative top-0 flex flex-col hidden w-full my-0 overflow-y-scroll bg-black-05 content-area -mt-5 -z-50" ref="Menu">
-      <div class="bg-white h-10 "></div>
+      <div class="bg-white h-10"></div>
       <NavMenuItem href="/">首頁</NavMenuItem>
 
       <NavMenuItem href="/Information">關於策展</NavMenuItem>
@@ -64,32 +64,32 @@ export default {
 
       <NavMenuList keyName="Online">
         <template #menuName>線上展覽</template>
-        <MenuListItem href="/OnlineTour">策展人線上導覽</MenuListItem>
-        <MenuListItem href="">360 VR環景展場</MenuListItem>
-        <MenuListItem href="">線上展覽手冊</MenuListItem>
+        <MenuListItem :enable="false" href="/OnlineTour">策展人線上導覽</MenuListItem>
+        <MenuListItem :enable="false" href="">360 VR環景展場</MenuListItem>
+        <MenuListItem :enable="false" href="">線上展覽手冊</MenuListItem>
       </NavMenuList>
 
       <NavMenuList keyName="Activity">
         <template #menuName>推廣活動</template>
         <MenuListItem href="/Activities/WorkShops">工作坊</MenuListItem>
         <MenuListItem href="/Activities/Forums">分享會</MenuListItem>
-        <MenuListItem href="/Activities/Meetings">研習營</MenuListItem>
+        <MenuListItem href="/Activities/Meetings/0">研習營</MenuListItem>
         <MenuListItem href="/Activities/ChildrenArts">兒童美學活動</MenuListItem>
       </NavMenuList>
 
       <NavMenuList menuListOffset="-translate-x-3">
         <template #menuName>宣導影片</template>
-        <MenuListItem href="/Videos/PreVideos">前導宣傳片</MenuListItem>
-        <MenuListItem href="/Videos/RecordVideos">訪談紀錄片</MenuListItem>
+        <MenuListItem :enable="false" href="/Videos/PreVideos">前導宣傳片</MenuListItem>
+        <MenuListItem :enable="false" href="/Videos/RecordVideos">訪談紀錄片</MenuListItem>
         <MenuListItem href="/Videos/Animations">繪本小動畫</MenuListItem>
       </NavMenuList>
 
-      <NavMenuItemLink href="" target="_blank">預約導覽</NavMenuItemLink>
+      <NavMenuItem href="/Reserve">預約導覽</NavMenuItem>
 
       <NavMenuList keyName="Album">
         <template #menuName>活動花絮</template>
         <MenuListItem href="/Albums/Records">活動紀錄</MenuListItem>
-        <MenuListItem href="/Albums/PreExhibitions">展前花絮</MenuListItem>
+        <MenuListItem href="/Albums/PreExhibitions">展覽花絮</MenuListItem>
       </NavMenuList>
 
       <NavMenuItemLink href="https://www.arte.gov.tw/" target="_blank">國立臺灣藝術教育館</NavMenuItemLink>

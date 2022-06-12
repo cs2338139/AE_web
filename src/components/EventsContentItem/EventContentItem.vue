@@ -64,7 +64,7 @@ export default {
 
     <div class="col-start-4 col-end-6 row-start-3 row-end-4 lg:col-start-1 lg:col-end-1 lg:row-start-7 lg:row-end-8 lg:pt-5">
       <div class="mb-10 xl:mb-5 lg:mb-10">
-        <EventLink link="link" :needKnew="needKnew" :needlink="needlink" />
+        <EventLink :link="link" :needKnew="needKnew" :needlink="needlink" />
       </div>
       <EventContact></EventContact>
     </div>

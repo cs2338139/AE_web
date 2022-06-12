@@ -29,21 +29,7 @@ defineProps({
         </div>
       </template>
 
-      <!-- <template v-if="$route.params.activityID === 'Forums'">
-        <div class="mt-1 mb-5 font-medium">演講者：<slot name="teacher">演講者</slot></div>
-      </template> -->
-
       <template v-if="$route.params.activityID === 'ChildrenArts'">
-        <div v-if="typeName === 'science'" class="absolute flex items-center justify-center w-1/3 text-lg font-semibold text-black bg-blue-400 border-2 rounded-full -top-10 -right-10 aspect-square border-bg-0-Color">
-          <div class="text-center">科學 <br />與創造</div>
-        </div>
-
-        <div v-if="typeName === 'literature'" class="absolute flex items-center justify-center w-1/3 text-lg font-semibold text-black bg-yellow-400 border-2 rounded-full -top-10 -right-10 aspect-square border-bg-0-Color">
-          <div class="text-center">繪本 <br />與人文</div>
-        </div>
-      </template>
-
-      <template v-if="$route.params.activityID === 'Meetings'">
         <div v-if="typeName === 'science'" class="absolute flex items-center justify-center w-1/3 text-lg font-semibold text-black bg-blue-400 border-2 rounded-full -top-10 -right-10 aspect-square border-bg-0-Color">
           <div class="text-center">科學 <br />與創造</div>
         </div>

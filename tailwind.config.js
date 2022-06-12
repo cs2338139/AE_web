@@ -48,15 +48,15 @@ module.exports = {
       fuchsia: colors.fuchsia,
       pink: colors.pink,
       rose: colors.rose,
-      "text-0-Color": "#2563eb",
+      "text-0-Color": "#004894",
       "text-1-Color": "#5B629F",
+      "text-2-Color": "#2a7dd4",
       navColor: "#5B629F",
       footColor: "#000000",
       "bg-0-Color": "#efefef",
       "bg-1-Color": "#8C95D2",
       "bg-2-Color":"#D6D7ED",
-      "bg-3-Color":"#2B2D7E",
-      "bg-4-Color":"#171944",
+      "bg-3-Color":"#2e3187",
     }),
     columns: {
       auto: "auto",
@@ -163,6 +163,7 @@ module.exports = {
       "foot-0-image": "url('/src/assets/Image/UI/BG_Bottom.png')",
       "foot-1-image": "url('/src/assets/Image/UI/BG_Bottom2.png')",
       "bg-cloud-image": "url('/src/assets/Image/UI/BG_Cloud.png')",
+      "bg-cloud-m-image": "url('/src/assets/Image/UI/BG_Cloud_mobile.png')"
     },
     backgroundOpacity: ({ theme }) => theme("opacity"),
     backgroundPosition: {

@@ -53,7 +53,7 @@ export default {
                 this.albumName = "活動紀錄";
                 break;
               case "PreExhibitions":
-                this.albumName = "展前花絮";
+                this.albumName = "展覽花絮";
                 break;
             }
           })
@@ -105,7 +105,7 @@ export default {
 
       <div class="flex flex-wrap justify-between lg:justify-around">
         <button v-for="(i, index) in imgs" @click="openModal(index)">
-          <img :src="'Data/' + path + '/Image/' + i" class="mb-10 w-80 lg:w-60 md:w-40 rounded-xl" />
+          <img :src="'Data/' + path + '/Image/' + i" class="mb-10 w-80 lg:w-60 md:w-40" />
         </button>
 
         <div v-if="fixedCount > 0" v-for="i in fixedCount" class="mb-10 w-80 bg-slate-600 invisible"></div>

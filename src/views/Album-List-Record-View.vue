@@ -19,30 +19,42 @@ export default {
         .then((response) => {
           this.recordList = response.data;
 
-          let colCount = 4;
+          if (this.recordList.length != 0) {
+            for (let i = 0; i < this.recordList.length; i++) {
+              let name = this.recordList[i].title.split("：");
+              if (name.length === 2) {
+                this.recordList[i].title = name[0] + "：";
+                this.recordList[i].title2 = name[1];
+              } else {
+                this.recordList[i].title2 = "";
+              }
+            }
 
-          if (this.$windowWidth <= this.$sm) {
-            colCount = 1;
-          } else if (this.$windowWidth <= this.$md) {
-            colCount = 2;
-          } else if (this.$windowWidth <= this.$lg) {
-            colCount = 2;
-          } else if (this.$windowWidth <= this.$xl) {
-            colCount = 2;
-          } else if (this.$windowWidth <= this.$2xl) {
-            colCount = 3;
-          }
+            let colCount = 4;
 
-          var mod = colCount - (this.recordList.length % colCount);
-          if (mod === colCount) mod = 0;
-          var template = {
-            title: "none",
-            date: "",
-            typeName: "",
-          };
+            if (this.$windowWidth <= this.$sm) {
+              colCount = 1;
+            } else if (this.$windowWidth <= this.$md) {
+              colCount = 2;
+            } else if (this.$windowWidth <= this.$lg) {
+              colCount = 2;
+            } else if (this.$windowWidth <= this.$xl) {
+              colCount = 2;
+            } else if (this.$windowWidth <= this.$2xl) {
+              colCount = 3;
+            }
 
-          for (var i = 0; i < mod; i++) {
-            this.recordList.push(template);
+            var mod = colCount - (this.recordList.length % colCount);
+            if (mod === colCount) mod = 0;
+            var template = {
+              title: "none",
+              date: "",
+              typeName: "",
+            };
+
+            for (var i = 0; i < mod; i++) {
+              this.recordList.push(template);
+            }
           }
         })
         .catch(function (response) {
@@ -63,12 +75,24 @@ export default {
       <RoadItem>活動紀錄</RoadItem>
       <template #title>活動紀錄</template>
     </Road>
-    <div class="flex flex-wrap justify-between xl:justify-around">
-      <AlbumItem v-for="(i, index) in recordList" :href="'/Albums/' + $route.params.albumID + '/' + index" :img="'Data/Albums/' + $route.params.albumID + '/' + index + '/cover.jpg'" :typeName="i.typeName" :class="{ invisible: i.title === 'none' }">
-        <template #title>{{ i.title }}</template>
-        <template #date>{{ i.date }}</template>
-      </AlbumItem>
-    </div>
+    <template v-if="recordList.length != 0">
+      <div class="flex flex-wrap justify-between xl:justify-around max-w-5xl mx-auto">
+        <AlbumItem
+          v-for="(i, index) in recordList"
+          :href="'/Albums/' + $route.params.albumID + '/' + index"
+          :img="'Data/Albums/' + $route.params.albumID + '/' + index + '/cover.jpg'"
+          :typeName="i.typeName"
+          :class="{ invisible: i.title === 'none' }"
+        >
+          <template #title>{{ i.title }}</template>
+          <template #title2>{{ i.title2 }}</template>
+          <template #date>{{ i.date }}</template>
+        </AlbumItem>
+      </div>
+    </template>
+    <template v-else>
+      <div class="my-40 text-center text-9xl text-text-1-Color font-bold italic xl:text-6xl lg:text-3xl md:text-xl">Coming Soon...</div>
+    </template>
   </div>
 </template>
 

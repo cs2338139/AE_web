@@ -56,13 +56,33 @@ export default {
         <img :src="dir + exhibitionData.image" />
       </div>
       <div ref="target"></div>
-      <ExhibitionItem v-for="(i, index) in exhibitionData.books" :img="dir + index + '/cover.jpg'" position="transform: translate(0px);" :info="i.info" :href="'Dream/' + index" class="my-32 sm:my-10">
+      <!-- <ExhibitionItem v-for="(i, index) in exhibitionData.books" :img="dir + index + '/cover.jpg'" position="transform: translate(0px);" :info="i.info" :href="'Dream/' + index" class="my-32 sm:my-10">
         <template #title>{{ i.title }}</template>
+      </ExhibitionItem> -->
+
+      <ExhibitionItem :img="dir + '0/cover.jpg'" position="transform: translate(0px);" :info="exhibitionData.books[0].info" :href="'Dream/' + 0" class="my-32 sm:my-10">
+        <template #title>{{ exhibitionData.books[0].title }}</template>
+      </ExhibitionItem>
+
+      <ExhibitionItem :img="dir + '1/cover.jpg'" position="transform: translate(0px);" :info="exhibitionData.books[1].info" :href="'Dream/' + 1" class="my-32 sm:my-10">
+        <template #title>{{ exhibitionData.books[1].title }}</template>
+      </ExhibitionItem>
+
+      <ExhibitionItem :img="dir + '2/cover.jpg'" position="transform: translate(0px);" :info="exhibitionData.books[2].info" :href="'Dream/' + 2" class="my-32 sm:my-10">
+        <template #title>{{ exhibitionData.books[2].title }}</template>
+      </ExhibitionItem>
+
+      <ExhibitionItem :img="dir + '3/cover.jpg'" position="transform: translate(0px);" :info="exhibitionData.books[3].info" :href="'Dream/' + 3" class="my-32 sm:my-10">
+        <template #title>{{ exhibitionData.books[3].title }}</template>
+      </ExhibitionItem>
+
+      <ExhibitionItem :img="dir + '4/cover.jpg'" position="transform: translate(0px);" :info="exhibitionData.books[4].info" :href="'Dream/' + 4" class="my-32 sm:my-10">
+        <template #title>{{ exhibitionData.books[4].title }}</template>
       </ExhibitionItem>
     </div>
     <div class="absolute w-full bottom-0 -z-50">
       <div class="bg-foot-1-image h-8"></div>
-      <div class="bg-gradient-to-t from-bg-3-Color via-bg-4-Color to-black" ref="bg"></div>
+      <div class="bg-gradient-to-b from-black to-bg-3-Color" ref="bg"></div>
     </div>
   </template>
 </template>
@@ -90,6 +110,5 @@ export default {
   .dev {
     @apply border border-solid box-border  border-red-500;
   }
-
 }
 </style>

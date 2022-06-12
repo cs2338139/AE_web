@@ -5,30 +5,30 @@ defineProps({});
 <script>
 export default {
   data() {
-    return {};
+    return {
+
+    };
   },
   methods: {
     openModal() {
-      this.$refs.Modal.style.display = "block";
+      document.getElementById("Modal").style.display = "block";
       document.body.style.overflow = "hidden";
     },
     closeModal() {
-      this.$refs.Modal.style.display = "none";
+      document.getElementById("Modal").style.display = "none";
       document.body.style.overflow = "scroll";
     },
   },
   created() {},
   mounted() {
-          console.log(this.$refs.Modal);
     this.$emitter.on("OpenModal", () => {
-
       this.openModal();
     });
   },
 };
 </script>
 <template>
-  <div ref="Modal" class="fixed bottom-0 left-0 z-50 hidden w-full h-screen bg-black-05">
+  <div id="Modal" class="fixed bottom-0 left-0 z-50 hidden w-full h-screen bg-black-05">
     <div class="absolute top-0 bottom-0 left-0 right-0 w-2/5 m-auto bg-white p-14 h-4/5 xl:w-4/5 md:w-4/5 md:p-5">
       <button @click="closeModal" class="absolute right-5 top-5">
         <ion-icon name="close-outline" />

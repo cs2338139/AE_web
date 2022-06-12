@@ -56,13 +56,36 @@ export default {
         <img :src="dir + exhibitionData.image" />
       </div>
       <div ref="target"></div>
-      <ExhibitionItem v-for="(i, index) in exhibitionData.books" :img="dir + index + '/cover.jpg'" position="transform: translate(0px);" :info="i.info" :href="'GoodNight/' + index" class="my-32 sm:my-10">
+      <!-- <ExhibitionItem v-for="(i, index) in exhibitionData.books" :img="dir + index + '/cover.jpg'" position="transform: translate(0px);" :info="i.info" :href="'GoodNight/' + index" class="my-32 sm:my-10">
         <template #title>{{ i.title }}</template>
+      </ExhibitionItem> -->
+      <ExhibitionItem :img="dir + '0/cover.jpg'" position="transform: translate(0px);" :info="exhibitionData.books[0].info" :href="'GoodNight/' + 0" class="my-32 sm:my-10">
+        <template #title>{{ exhibitionData.books[0].title }}</template>
+      </ExhibitionItem>
+
+      <ExhibitionItem :img="dir + '1/cover.jpg'" position="transform: translate(0px);" :info="exhibitionData.books[1].info" :href="'GoodNight/' + 1" class="my-32 sm:my-10">
+        <template #title>{{ exhibitionData.books[1].title }}</template>
+      </ExhibitionItem>
+
+      <ExhibitionItem :img="dir + '2/cover.jpg'" position="transform: translate(0px);" :info="exhibitionData.books[2].info" :href="'GoodNight/' + 2" class="my-32 sm:my-10">
+        <template #title>{{ exhibitionData.books[2].title }}</template>
+      </ExhibitionItem>
+
+      <ExhibitionItem :img="dir + '3/cover.jpg'" position="transform: translate(0px);" :info="exhibitionData.books[3].info" :href="'GoodNight/' + 3" class="my-32 sm:my-10">
+        <template #title>{{ exhibitionData.books[3].title }}</template>
+      </ExhibitionItem>
+
+      <ExhibitionItem :img="dir + '4/cover.jpg'" position="transform: translate(0px);" :info="exhibitionData.books[4].info" :href="'GoodNight/' + 4" class="my-32 sm:my-10">
+        <template #title>{{ exhibitionData.books[4].title }}</template>
+      </ExhibitionItem>
+
+      <ExhibitionItem :img="dir + '5/cover.jpg'" position="transform: translate(0px);" :info="exhibitionData.books[5].info" :href="'GoodNight/' + 5" class="my-32 sm:my-10">
+        <template #title>{{ exhibitionData.books[5].title }}</template>
       </ExhibitionItem>
     </div>
     <div class="absolute w-full bottom-0 -z-50">
       <div class="bg-bg-0-image h-8"></div>
-      <div class="bg-gradient-to-t from-black via-navColor to-bg-2-Color" ref="bg"></div>
+      <div class="bg-gradient-to-b from-bg-2-Color via-navColor to-black" ref="bg"></div>
     </div>
   </template>
 </template>

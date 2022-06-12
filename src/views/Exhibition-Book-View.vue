@@ -20,7 +20,13 @@ export default {
       let bookID = this.$route.params.bookID;
       if (exhibitionID && bookID) {
         axios
-          .get("Data/Exhibitions/" + exhibitionID + "/" + bookID + "/BookContent.json")
+          .get(
+            "Data/Exhibitions/" +
+              exhibitionID +
+              "/" +
+              bookID +
+              "/BookContent.json"
+          )
           .then((response) => {
             this.bookData = response.data;
             switch (exhibitionID) {
@@ -38,6 +44,16 @@ export default {
           });
       }
     },
+    GetTargetHeight() {
+      if (this.bookData.author.length === 2) {
+        const h =
+          document.body.scrollHeight -
+          (this.$refs.target[1].getBoundingClientRect().top + window.scrollY);
+        const bg = this.$refs.bg;
+        bg.style.height = h + "px";
+        console.log(bg.style.height);
+      }
+    },
     ToNotFound() {
       this.$router.push({
         name: "NotFound",
@@ -53,6 +69,11 @@ export default {
   created() {
     this.LoadJson();
   },
+  updated() {
+    setTimeout(() => {
+      this.GetTargetHeight();
+    }, 200);
+  },
 };
 </script>
 
@@ -61,24 +82,51 @@ export default {
     <div class="wrap">
       <Road class="mb-10">
         <RoadItem>展覽介紹</RoadItem>
-        <RoadItemRouter :href="'/exhibitions/' + $route.params.exhibitionID">{{ exhibitionsName }}</RoadItemRouter>
+        <RoadItemRouter :href="'/exhibitions/' + $route.params.exhibitionID">{{
+          exhibitionsName
+        }}</RoadItemRouter>
         <RoadItem>{{ bookData.title }}</RoadItem>
       </Road>
-      <div class="grid grid-cols-5 gap-x-16 mb-20">
+      <div class="grid grid-cols-5 mb-20 gap-x-16">
         <div></div>
 
         <div class="col-start-1 col-end-4 xl:col-end-6">
-          <ImageBox :path="'Exhibitions/' + $route.params.exhibitionID + '/' + $route.params.bookID" :img="bookData.imgs" :time="3000" :auto="false" />
+          <ImageBox
+            :path="
+              'Exhibitions/' +
+              $route.params.exhibitionID +
+              '/' +
+              $route.params.bookID
+            "
+            :img="bookData.imgs"
+            :time="3000"
+            :auto="false"
+          />
         </div>
 
-        <div class="col-start-4 col-end-6 py-5 xl:col-start-1">
-          <div class="mb-5 text-3xl font-bold sm:text-lg">繪本：{{ bookData.title }}</div>
-          <div class="mb-2 text-xl font-bold sm:text-sm">作者介紹：{{ bookData.author }}</div>
-          <template v-for="i in bookData.info">
-            <div :class="{ my: i === '' }" class="contentFont">{{ i }}</div>
-          </template>
+        <div class="col-start-4 col-end-6 xl:col-start-1">
+          <div class="text-3xl font-bold sm:text-lg text-text-1-Color">
+            {{ bookData.title }}
+          </div>
+          <div class="text-xl font-bold sm:text-base text-text-1-Color">
+            {{ bookData.title2 }}
+          </div>
+          <div class="mt-3">
+            <div v-for="j in bookData.author" class="mb-10" ref="target">
+              <div class="mb-3 text-xl font-bold sm:text-sm">
+                {{ j.author }}
+              </div>
+              <template v-for="i in j.info">
+                <div :class="{ my: i === '' }" class="contentFont">{{ i }}</div>
+              </template>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+    <div class="absolute w-full bottom-0 -z-50">
+      <div class="bg-bg-0-image h-8"></div>
+      <div class="bg-bg-2-Color h-56" ref="bg"></div>
     </div>
   </template>
 </template>

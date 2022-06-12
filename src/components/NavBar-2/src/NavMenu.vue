@@ -15,7 +15,7 @@ defineProps({
   </div>
 </template>
 
-<style scoped>
+<style>
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

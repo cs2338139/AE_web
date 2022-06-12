@@ -171,7 +171,7 @@ export default {
     background-size: 100% 100%;
     max-width: 1134px;
     height: 288px;
-    @apply bg-bg-cloud-image;
+    @apply bg-bg-cloud-image sm:bg-bg-cloud-m-image sm:pt-2;
   }
 }
 </style>

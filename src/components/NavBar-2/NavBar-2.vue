@@ -9,7 +9,7 @@ const homeImage = new URL("../../assets/Image/UI/Logo.png", import.meta.url).hre
 </script>
 
 <template>
-  <nav class="fixed top-0 w-full z-10">
+  <nav class="fixed top-0 w-full z-10 text-item">
     <NavMenu _class="h-32">
       <template #logo>
         <Logo href="/" :img="homeImage" width="width:120px" />
@@ -26,23 +26,23 @@ const homeImage = new URL("../../assets/Image/UI/Logo.png", import.meta.url).hre
 
       <NavMenuList menuListOffset="-translate-x-3">
         <template #menuName>線上展覽+</template>
-        <MenuListItem href="/OnlineTour">策展人導覽</MenuListItem>
-        <MenuListItem href="">虛擬實境</MenuListItem>
-        <MenuListItem href="">導覽教育手冊</MenuListItem>
+        <MenuListItem :enable="false" href="/OnlineTour">策展人導覽</MenuListItem>
+        <MenuListItem :enable="false" href="">虛擬實境</MenuListItem>
+        <MenuListItem :enable="false" href="">導覽教育手冊</MenuListItem>
       </NavMenuList>
 
       <NavMenuList menuListOffset="-translate-x-4">
         <template #menuName>推廣活動+</template>
         <MenuListItem href="/Activities/WorkShops">工作坊</MenuListItem>
         <MenuListItem href="/Activities/Forums">分享會</MenuListItem>
-        <MenuListItem href="/Activities/Meetings">研習營</MenuListItem>
+        <MenuListItem href="/Activities/Meetings/0">研習營</MenuListItem>
         <MenuListItem href="/Activities/ChildrenArts">兒童美學活動</MenuListItem>
       </NavMenuList>
 
       <NavMenuList menuListOffset="-translate-x-3">
         <template #menuName>宣導影片</template>
-        <MenuListItem href="/Videos/PreVideos">前導宣傳片</MenuListItem>
-        <MenuListItem href="/Videos/RecordVideos">訪談紀錄片</MenuListItem>
+        <MenuListItem :enable="false" href="/Videos/PreVideos">前導宣傳片</MenuListItem>
+        <MenuListItem :enable="false" href="/Videos/RecordVideos">訪談紀錄片</MenuListItem>
         <MenuListItem href="/Videos/Animations">繪本小動畫</MenuListItem>
       </NavMenuList>
 
@@ -52,7 +52,7 @@ const homeImage = new URL("../../assets/Image/UI/Logo.png", import.meta.url).hre
       <NavMenuList menuListOffset="-translate-x-3">
         <template #menuName>活動花絮</template>
         <MenuListItem href="/Albums/Records">活動紀錄</MenuListItem>
-        <MenuListItem href="/Albums/PreExhibitions">展前花絮</MenuListItem>
+        <MenuListItem href="/Albums/PreExhibitions">展覽花絮</MenuListItem>
       </NavMenuList>
 
       <NavMenuItemLink href="https://www.arte.gov.tw/" target="_blank">國立臺灣藝術教育館</NavMenuItemLink>
@@ -71,5 +71,22 @@ ion-icon {
   color: rgb(255, 255, 255);
   font-size: 48px;
   transform: translate(0, -25%);
+}
+
+@layer component {
+  .text-item {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+</style>
+
+<style>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  nav span {
+  }
 }
 </style>
