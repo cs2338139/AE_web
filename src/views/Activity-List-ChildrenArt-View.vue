@@ -19,6 +19,11 @@ export default {
         .then((response) => {
           this.childrenArtList = response.data;
           for (let i = 0; i < this.childrenArtList.length; i++) {
+            this.childrenArtList[i].index = i;
+            let tempDate = this.childrenArtList[i].date.substring(0, 16).replaceAll(".", "/");
+            tempDate = tempDate.replace("：", ":");
+            this.childrenArtList[i].newDate = new Date(tempDate);
+
             let name = this.childrenArtList[i].title.split("：");
             if (name.length === 2) {
               this.childrenArtList[i].title = name[0] + "：";
@@ -27,6 +32,10 @@ export default {
               this.childrenArtList[i].title2 = "";
             }
           }
+
+          this.childrenArtList.sort(function (a, b) {
+            return a.newDate < b.newDate ? -1 : 1;
+          });
           let colCount = 3;
 
           if (this.$windowWidth <= this.$sm) {
@@ -82,7 +91,13 @@ export default {
       </div>
     </div>
     <div class="flex flex-wrap justify-between xl:justify-around max-w-5xl mx-auto">
-      <ActivityItem v-for="(i, index) in childrenArtList" :href="'/activities/' + $route.params.activityID + '/' + index" :img="'Data/Activities/' + $route.params.activityID + '/' + index + '/cover.jpg'" :typeName="i.typeName" :class="{ invisible: i.title === 'none' }">
+      <ActivityItem
+        v-for="i in childrenArtList"
+        :href="'/activities/' + $route.params.activityID + '/' + i.index"
+        :img="'Data/Activities/' + $route.params.activityID + '/' + i.index + '/cover.jpg'"
+        :typeName="i.typeName"
+        :class="{ invisible: i.title === 'none' }"
+      >
         <template #title>{{ i.title }}</template>
         <template #title2>{{ i.title2 }}</template>
         <template #date>{{ i.date }}</template>
@@ -101,6 +116,5 @@ export default {
 @tailwind utilities;
 
 @layer utilities {
-
 }
 </style>

@@ -62,15 +62,18 @@ export default {
         </div>
         <div class="mb-10 text-3xl font-bold sm:text-xl sm:my-5">{{ newsData.title }}</div>
 
-        <div class="mb-16">
-          <template v-for="i in newsData.content">
+        <div class="mb-16" v-html="newsData.content"></div>
+        <!-- <div class="mb-16">
+
+        </div> -->
+
+        <!-- <template v-for="i in newsData.content">
             <div :class="{ my: i === '' }" class="contentFont sm:text-sm">{{ i }}</div>
-          </template>
-        </div>
+          </template> -->
 
         <div class="text-center hover:scale-110">
           <RouterLink to="/news" class="">
-            <span class="font-bold bg-text-1-Color text-white px-3 py-2 rounded-full "> 回最新消息 </span>
+            <span class="font-bold bg-text-1-Color text-white px-3 py-2 rounded-full"> 回最新消息 </span>
           </RouterLink>
         </div>
       </div>

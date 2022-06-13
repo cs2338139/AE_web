@@ -17,6 +17,12 @@ defineProps({
   MExpect: Array,
   MProcess: Array,
   MTeacher: Array,
+  howTo: String,
+  place: String,
+  target: String,
+  money: String,
+  tip: String,
+  people: String,
 });
 </script>
 
@@ -47,26 +53,7 @@ export default {
     </div>
 
     <div class="col-start-4 col-end-6 row-start-2 row-end-3 lg:col-start-1 lg:col-end-1 lg:row-start-6 lg:row-end-7" id="place">
-      <EventPlace>
-        <template #howto>
-          <slot name="howto"></slot>
-        </template>
-        <template #place>
-          <slot name="place"></slot>
-        </template>
-        <template #for>
-          <slot name="for"></slot>
-        </template>
-        <template #money>
-          <slot name="money"></slot>
-        </template>
-        <template #people>
-          <slot name="people"></slot>
-        </template>
-        <template #tip>
-          <slot name="tip"></slot>
-        </template>
-      </EventPlace>
+      <EventPlace :howTo="howTo" :place="place" :target="target" :money="money" :tip="tip" :people="people"></EventPlace>
     </div>
 
     <div class="col-start-4 col-end-6 row-start-3 row-end-4 lg:col-start-1 lg:col-end-1 lg:row-start-7 lg:row-end-8 lg:pt-5">

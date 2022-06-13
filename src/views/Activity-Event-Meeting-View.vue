@@ -18,7 +18,7 @@ export default {
     LoadJson() {
       let activityID = this.$route.params.activityID;
       let eventID = this.$route.params.eventID;
-      if (activityID==="Meetings" && eventID) {
+      if (activityID === "Meetings" && eventID) {
         axios
           .get("Data/Activities/" + activityID + "/" + eventID + "/MeetingContent.json")
           .then((response) => {
@@ -77,6 +77,10 @@ export default {
         <template #title>研習營</template>
       </Road>
       <EventContentItem
+        howTo="報名方式｜採線上報名。"
+        :place="'活動地點｜' + Data.place + '。'"
+        target="參與對象｜公務員、教師、一般民眾。"
+        :tip="'研習時數｜' + Data.tip"
         :img="Data.imgs"
         :link="Data.link"
         :needKnew="false"
@@ -88,10 +92,6 @@ export default {
       >
         <template #date>{{ Data.date }}</template>
         <template #time>{{ Data.time }}</template>
-        <template #howto> 報名方式｜採線上報名。 </template>
-        <template #place> 活動地點｜{{ Data.place }} 。</template>
-        <template #for> 參與對象｜公務員、教師、一般民眾</template>
-        <template #tip> 研習時數｜{{ Data.tip }} </template>
 
         <template #MTitle>研習營主題｜{{ Data.meeting.title }}</template>
         <template #MTarget>{{ Data.meeting.target }}</template>

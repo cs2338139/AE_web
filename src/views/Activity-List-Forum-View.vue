@@ -19,6 +19,10 @@ export default {
         .then((response) => {
           this.ForumList = response.data;
           for (let i = 0; i < this.ForumList.length; i++) {
+            this.ForumList[i].index = i;
+            let tempDate = this.ForumList[i].date.substring(0, 16).replaceAll(".", "/");
+            tempDate = tempDate.replace("：", ":");
+            this.ForumList[i].newDate = new Date(tempDate);
             let name = this.ForumList[i].title.split("：");
             if (name.length === 2) {
               this.ForumList[i].title = name[0] + "：";
@@ -27,6 +31,11 @@ export default {
               this.ForumList[i].title2 = "";
             }
           }
+
+          this.ForumList.sort(function (a, b) {
+            return a.newDate < b.newDate ? -1 : 1;
+          });
+
           let colCount = 3;
 
           if (this.$windowWidth <= this.$sm) {
@@ -88,7 +97,12 @@ export default {
       </div>
     </div>
     <div class="flex flex-wrap justify-between xl:justify-around max-w-5xl mx-auto">
-      <ActivityItem v-for="(i, index) in ForumList" :href="'/activities/' + $route.params.activityID + '/' + index" :img="'Data/Activities/' + $route.params.activityID + '/' + index + '/cover.jpg'" :class="{ invisible: i.title === 'none' }">
+      <ActivityItem
+        v-for="i in ForumList"
+        :href="'/activities/' + $route.params.activityID + '/' + i.index"
+        :img="'Data/Activities/' + $route.params.activityID + '/' + i.index + '/cover.jpg'"
+        :class="{ invisible: i.title === 'none' }"
+      >
         <template #title>{{ i.title }}</template>
         <template #title2>{{ i.title2 }}</template>
         <template #date>{{ i.date }}</template>

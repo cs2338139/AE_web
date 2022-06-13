@@ -44,7 +44,7 @@ export default {
 <template>
   <div class="relative w-full h-full md:py-3 text-white">
     <div class="mb-5">
-      <span class="px-3 py-1 text-xl font-bold bg-white rounded-full sm:text-base text-text-0-Color">最新消息</span>
+      <span class="px-4 py-1 text-xl font-bold bg-white rounded-full sm:text-base text-text-0-Color">最新消息 News</span>
     </div>
     <ul>
       <NewsListItem v-for="(i, index) in visibleNewsList" :href="'/news/' + (newsList.length - 1 - index)">

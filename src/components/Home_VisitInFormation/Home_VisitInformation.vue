@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from "vue-router";
 <template>
   <div class="relative w-full h-full text-white">
     <div class="mb-5">
-      <span class="px-3 py-1 text-xl font-bold bg-white rounded-full sm:text-base text-text-0-Color">參觀資訊</span>
+      <span class="px-4 py-1 text-xl font-bold bg-white rounded-full sm:text-base text-text-0-Color">參觀資訊 Visit</span>
     </div>
 
     <div>
