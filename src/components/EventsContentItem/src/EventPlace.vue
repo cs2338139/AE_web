@@ -1,5 +1,6 @@
 <script setup>
-defineProps({});
+defineProps({
+});
 </script>
 
 <script>
@@ -17,6 +18,7 @@ export default {
     <li class="my-2"><slot name="place"></slot></li>
     <li class="my-2"><slot name="for"></slot></li>
     <li class="my-2"><slot name="money"></slot></li>
+    <li class="my-2"><slot name="tip"></slot></li>
     <li class="my-2"><slot name="people"></slot></li>
   </ul>
 </template>

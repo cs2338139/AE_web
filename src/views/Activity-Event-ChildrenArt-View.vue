@@ -19,7 +19,7 @@ export default {
     LoadJson() {
       let activityID = this.$route.params.activityID;
       let eventID = this.$route.params.eventID;
-      if (activityID && eventID) {
+      if (activityID === "ChildrenArts" && eventID) {
         axios
           .get("Data/Activities/" + activityID + "/" + eventID + "/ChildrenArtContent.json")
           .then((response) => {
@@ -35,12 +35,12 @@ export default {
       let target = null;
       if (this.$windowWidth > this.$lg) {
         // target = this.$refs.target.$refs.info;
-        target=document.getElementById("info");
+        target = document.getElementById("info");
       } else {
         // target = this.$refs.target.$refs.place;
-        target=document.getElementById("place");
+        target = document.getElementById("place");
       }
-      const h = document.body.scrollHeight - (target.getBoundingClientRect().top + window.scrollY);;
+      const h = document.body.scrollHeight - (target.getBoundingClientRect().top + window.scrollY);
       const bg = this.$refs.bg;
       bg.style.height = h + "px";
     },
@@ -76,14 +76,14 @@ export default {
         <RoadItem>{{ Data.title }}</RoadItem>
       </Road>
 
-      <EventContentItem :img="Data.imgs" :link="Data.link" :info="Data.info" :needKnew="false" :needlink="false" :teacherInfo="Data.teacherInfo"  ref="target">
+      <EventContentItem :img="Data.imgs" :link="Data.link" :info="Data.info" :needKnew="false" :needLink="false" :teacherInfo="Data.teacherInfo" ref="target">
         <template #date>{{ Data.date }}</template>
         <template #time>{{ Data.time }}</template>
-        <template #howto> 報名方式｜　採預約報名。 </template>
-        <template #place> 活動地點｜　{{ Data.place }} 。</template>
-        <template #for> 參與對象｜　兒童相關公益社團、組織、協會。身心障礙與弱勢團體優先受理報名。</template>
-        <template #money> 課程費用｜　新臺幣200元整。 </template>
-        <template #people> 參加人數｜　{{ Data.people }}</template>
+        <template #howto> 報名方式｜本項活動採團體預約報名(8/24-9/21)，每週三預約活動，共計5堂，額滿為止。 </template>
+        <template #place> 活動地點｜{{ Data.place }} 。</template>
+        <template #for> 參與對象｜兒童相關公益社團、組織、協會。身心障礙與弱勢團體優先受理報名。</template>
+        <template #money> 課程費用｜新臺幣200元整。 </template>
+        <template #people> 參加人數｜{{ Data.people }}</template>
 
         <template #title>{{ Data.title }}</template>
         <template #teacher>授課講師｜{{ Data.teacher }}</template>

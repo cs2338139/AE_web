@@ -9,6 +9,7 @@ export default {
   data() {
     return {
       newsList: [],
+      visibleNewsList: [],
     };
   },
   methods: {
@@ -18,6 +19,12 @@ export default {
         .then((response) => {
           this.$newsList = response.data;
           this.newsList = this.$newsList;
+
+          if (this.newsList.length > 6) {
+            this.visibleNewsList = this.newsList.slice(this.newsList.length - 6, this.newsList.length).reverse();
+          } else {
+            this.visibleNewsList = this.newsList.slice().reverse();
+          }
         })
         .catch(function (response) {
           console.log(response);
@@ -40,7 +47,7 @@ export default {
       <span class="px-3 py-1 text-xl font-bold bg-white rounded-full sm:text-base text-text-0-Color">最新消息</span>
     </div>
     <ul>
-      <NewsListItem v-for="(i, index) in newsList.slice(newsList.length - 6, newsList.length).reverse()" :href="'/news/' + (newsList.length - 1 - index)">
+      <NewsListItem v-for="(i, index) in visibleNewsList" :href="'/news/' + (newsList.length - 1 - index)">
         <template #date>{{ i.date }}</template>
         <template #title>{{ i.title }}</template>
       </NewsListItem>

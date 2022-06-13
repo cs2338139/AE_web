@@ -11,6 +11,8 @@ export default {
     return {
       dir: "Data/Exhibitions/" + this.$route.params.exhibitionID + "/",
       exhibitionData: null,
+      infoState: "English",
+      info: [],
     };
   },
   methods: {
@@ -19,7 +21,7 @@ export default {
         .get(this.dir + "ExhibitionList.json")
         .then((response) => {
           this.exhibitionData = response.data;
-          console.log(this.exhibitionData);
+          this.info = this.exhibitionData.info.cn;
         })
         .catch(function (response) {
           console.log(response);
@@ -30,6 +32,15 @@ export default {
       const bg = this.$refs.bg;
       bg.style.height = h + 15 + "px";
       console.log(bg.style.height);
+    },
+    ChangeLang() {
+      if (this.infoState === "English") {
+        this.infoState = "中文";
+        this.info = this.exhibitionData.info.en;
+      } else {
+        this.infoState = "English";
+        this.info = this.exhibitionData.info.cn;
+      }
     },
   },
   created() {
@@ -52,34 +63,46 @@ export default {
         <template #title>晚安屋</template>
       </Road>
 
-      <div class="w-full mb-20 overflow-hidden aspect-video">
+      <div class="w-full mb-20 px-14 overflow-hidden aspect-video lg:px-0">
         <img :src="dir + exhibitionData.image" />
       </div>
+
+      <div class="text-center mb-20">
+        <div class="sm:mb-10 mb-6 sm:px-1">
+          <template v-for="i in info">
+            <div :class="{ my: i === '' }" class="contentFont">{{ i }}</div>
+          </template>
+        </div>
+        <button class="px-5 py-1 rounded-full text-bg-0-Color bg-bg-1-Color hover:bg-text-1-Color" @click="ChangeLang()">{{ infoState }}</button>
+      </div>
+
       <div ref="target"></div>
-      <!-- <ExhibitionItem v-for="(i, index) in exhibitionData.books" :img="dir + index + '/cover.jpg'" position="transform: translate(0px);" :info="i.info" :href="'GoodNight/' + index" class="my-32 sm:my-10">
-        <template #title>{{ i.title }}</template>
-      </ExhibitionItem> -->
-      <ExhibitionItem :img="dir + '0/cover.jpg'" position="transform: translate(0px);" :info="exhibitionData.books[0].info" :href="'GoodNight/' + 0" class="my-32 sm:my-10">
+      <ExhibitionItem
+        :img="dir + '0/cover.jpg'"
+        :info="exhibitionData.books[0].info"
+        :href="'GoodNight/' + 0"
+        class="my-32 sm:my-10 -translate-x-72 xl:-translate-x-52 lg:-translate-x-20 sm:-translate-x-1"
+      >
         <template #title>{{ exhibitionData.books[0].title }}</template>
       </ExhibitionItem>
 
-      <ExhibitionItem :img="dir + '1/cover.jpg'" position="transform: translate(0px);" :info="exhibitionData.books[1].info" :href="'GoodNight/' + 1" class="my-32 sm:my-10">
+      <ExhibitionItem :img="dir + '1/cover.jpg'" :info="exhibitionData.books[1].info" :href="'GoodNight/' + 1" class="my-32 sm:my-10 translate-x-24 sm:translate-x-1">
         <template #title>{{ exhibitionData.books[1].title }}</template>
       </ExhibitionItem>
 
-      <ExhibitionItem :img="dir + '2/cover.jpg'" position="transform: translate(0px);" :info="exhibitionData.books[2].info" :href="'GoodNight/' + 2" class="my-32 sm:my-10">
+      <ExhibitionItem :img="dir + '2/cover.jpg'" :info="exhibitionData.books[2].info" :href="'GoodNight/' + 2" class="my-32 sm:my-10 -translate-x-36 lg:-translate-x-20 sm:-translate-x-1">
         <template #title>{{ exhibitionData.books[2].title }}</template>
       </ExhibitionItem>
 
-      <ExhibitionItem :img="dir + '3/cover.jpg'" position="transform: translate(0px);" :info="exhibitionData.books[3].info" :href="'GoodNight/' + 3" class="my-32 sm:my-10">
+      <ExhibitionItem :img="dir + '3/cover.jpg'" :info="exhibitionData.books[3].info" :href="'GoodNight/' + 3" class="my-32 sm:my-10 translate-x-32 lg:translate-x-20 sm:translate-x-1">
         <template #title>{{ exhibitionData.books[3].title }}</template>
       </ExhibitionItem>
 
-      <ExhibitionItem :img="dir + '4/cover.jpg'" position="transform: translate(0px);" :info="exhibitionData.books[4].info" :href="'GoodNight/' + 4" class="my-32 sm:my-10">
+      <ExhibitionItem :img="dir + '4/cover.jpg'" :info="exhibitionData.books[4].info" :href="'GoodNight/' + 4" class="my-32 sm:my-10 -translate-x-28 md:-translate-x-20 sm:-translate-x-1">
         <template #title>{{ exhibitionData.books[4].title }}</template>
       </ExhibitionItem>
 
-      <ExhibitionItem :img="dir + '5/cover.jpg'" position="transform: translate(0px);" :info="exhibitionData.books[5].info" :href="'GoodNight/' + 5" class="my-32 sm:my-10">
+      <ExhibitionItem :img="dir + '5/cover.jpg'" :info="exhibitionData.books[5].info" :href="'GoodNight/' + 5" class="my-32 sm:my-10 sm:translate-x-1">
         <template #title>{{ exhibitionData.books[5].title }}</template>
       </ExhibitionItem>
     </div>
@@ -100,7 +123,7 @@ export default {
     @apply my-5;
   }
   .contentFont {
-    @apply text-lg leading-6;
+    @apply text-xl font-bold leading-9 sm:text-base sm:my-2;
   }
 }
 

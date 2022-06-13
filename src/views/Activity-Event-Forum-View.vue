@@ -17,7 +17,7 @@ export default {
     LoadJson() {
       let activityID = this.$route.params.activityID;
       let eventID = this.$route.params.eventID;
-      if (activityID && eventID) {
+      if (activityID==="Forum" && eventID) {
         axios
           .get("Data/Activities/" + activityID + "/" + eventID + "/ForumContent.json")
           .then((response) => {
@@ -74,12 +74,12 @@ export default {
         <RoadItem>{{ Data.title }}</RoadItem>
       </Road>
 
-      <EventContentItem :img="Data.imgs" :link="Data.link" :info="Data.info" :needlink="true"  :teacherInfo="Data.teacherInfo"  ref="target">
+      <EventContentItem :img="Data.imgs" :link="Data.link" :info="Data.info" :needLink="true"  :teacherInfo="Data.teacherInfo"  ref="target">
         <template #date>{{ Data.date }}</template>
         <template #time>{{ Data.time }}</template>
-        <template #howto> 報名方式｜　採線上報名。 </template>
-        <template #for> 參與對象｜　對兒童教育有興趣民眾、學校藝文相關教師皆可報名。 </template>
-        <template #place> 上課地點｜　{{ Data.place }}。 </template>
+        <template #howto> 報名方式｜採線上報名。 </template>
+        <template #for> 參與對象｜對兒童教育有興趣民眾、學校藝文相關教師皆可報名。 </template>
+        <template #place> 上課地點｜{{ Data.place }}。 </template>
         <template #title>{{ Data.title }}</template>
         <template #teacher>演講者｜{{ Data.teacher }}</template>
       </EventContentItem>

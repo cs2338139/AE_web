@@ -1,5 +1,23 @@
 {
   "image": "2F.png",
+  "info": {
+    "cn": [
+      "小心！閣樓房間裡有搗蛋鬼出沒，為什麼雲朵裡的水會往上流呢？",
+      "悄悄走入神祕的森林小徑，樹的年輪像時鐘轉動，看！動物精靈！",
+      "樹會發光，還會說故事呢，有狗狗陪伴的每一天，好幸福、好快樂～",
+      "冒險開始、車輪轉動，騎著腳踏車來逛奇幻的動物大街",
+      "一轉眼，來到了一個像海的地方，海洋生物也有夢想嗎？",
+      "讓我們陪伴著牠們一起回家⋯⋯"
+    ],
+    "en": [
+      "Watch out! There is a Ghost in the Attic, why does the water in the clouds flow up?",
+      "Sneak into the mysterious forest path, the tree rings turned like a clock. Look! There’s an animal fairy!",
+      "The trees will shimmer and even tell stories. Every day with the doggy are so happy and felicity.",
+      "Start the adventure, turn the wheels, ride the bike and go through the fantasy animal street. ",
+      "Suddenly, came to a place like the Sea. ",
+      "Do sea creatures also have a dream? Let's go home together with them. "
+    ]
+  },
   "books": [
     {
       "title": "《閣樓房間裡的搗蛋鬼》",

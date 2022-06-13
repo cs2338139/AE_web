@@ -18,45 +18,47 @@ const homeImage = new URL("../../assets/Image/UI/Logo.png", import.meta.url).hre
 
       <NavMenuItem href="/Information">關於策展</NavMenuItem>
 
-      <NavMenuList menuListOffset="-translate-x-2">
-        <template #menuName>展覽介紹+</template>
-        <MenuListItem href="/Exhibitions/GoodNight">晚安屋</MenuListItem>
-        <MenuListItem href="/Exhibitions/Dream">夢境房</MenuListItem>
-      </NavMenuList>
-
       <NavMenuList menuListOffset="-translate-x-3">
-        <template #menuName>線上展覽+</template>
-        <MenuListItem :enable="false" href="/OnlineTour">策展人導覽</MenuListItem>
-        <MenuListItem :enable="false" href="">虛擬實境</MenuListItem>
-        <MenuListItem :enable="false" href="">導覽教育手冊</MenuListItem>
+        <template #menuName>展覽介紹+</template>
+        <MenuListItem href="/Exhibitions/GoodNight">晚安屋<template #en>Goodnight Rooms</template></MenuListItem>
+        <MenuListItem href="/Exhibitions/Dream">夢境房<template #en>Dreamland Room</template></MenuListItem>
       </NavMenuList>
 
       <NavMenuList menuListOffset="-translate-x-4">
-        <template #menuName>推廣活動+</template>
-        <MenuListItem href="/Activities/WorkShops">工作坊</MenuListItem>
-        <MenuListItem href="/Activities/Forums">分享會</MenuListItem>
-        <MenuListItem href="/Activities/Meetings/0">研習營</MenuListItem>
-        <MenuListItem href="/Activities/ChildrenArts">兒童美學活動</MenuListItem>
+        <template #menuName>線上展覽+</template>
+        <MenuListItem :enable="false" href="/OnlineTour">策展人導覽<template #en>Online Curator Tour</template></MenuListItem>
+        <MenuListItem :enable="false" href="">虛擬實境<template #en>Virtual Reality Tours</template></MenuListItem>
+        <MenuListItem :enable="false" href="">導覽教育手冊<template #en>Brochure</template></MenuListItem>
       </NavMenuList>
 
-      <NavMenuList menuListOffset="-translate-x-3">
-        <template #menuName>宣導影片</template>
-        <MenuListItem :enable="false" href="/Videos/PreVideos">前導宣傳片</MenuListItem>
-        <MenuListItem :enable="false" href="/Videos/RecordVideos">訪談紀錄片</MenuListItem>
-        <MenuListItem href="/Videos/Animations">繪本小動畫</MenuListItem>
+      <NavMenuList menuListOffset="-translate-x-7">
+        <template #menuName>推廣活動+</template>
+        <MenuListItem href="/Activities/WorkShops">工作坊<template #en>Workshops</template></MenuListItem>
+        <MenuListItem href="/Activities/Forums">分享會<template #en>Lectures</template></MenuListItem>
+        <MenuListItem href="/Activities/Meetings/0">研習營<template #en>Workshop</template></MenuListItem>
+        <MenuListItem href="/Activities/ChildrenArts">兒童美學活動<template #en>Child Activities Lessons</template></MenuListItem>
+      </NavMenuList>
+
+      <NavMenuList menuListOffset="-translate-x-4">
+        <template #menuName>宣導影片+</template>
+        <MenuListItem :enable="false" href="/Videos/PreVideos">前導宣傳片<template #en>Teaser Trailer</template></MenuListItem>
+        <MenuListItem :enable="false" href="/Videos/RecordVideos">訪談紀錄片<template #en>Documentary</template></MenuListItem>
+        <MenuListItem href="/Videos/Animations">繪本小動畫<template #en>Animated promo</template></MenuListItem>
       </NavMenuList>
 
       <!-- <NavMenuItemLink href="" target="_blank">預約導覽</NavMenuItemLink> -->
       <NavMenuItem href="/Reserve">預約導覽</NavMenuItem>
 
-      <NavMenuList menuListOffset="-translate-x-3">
-        <template #menuName>活動花絮</template>
-        <MenuListItem href="/Albums/Records">活動紀錄</MenuListItem>
-        <MenuListItem href="/Albums/PreExhibitions">展覽花絮</MenuListItem>
+      <NavMenuList menuListOffset="-translate-x-4">
+        <template #menuName>活動花絮+</template>
+        <MenuListItem href="/Albums/Records">活動紀錄<template #en>Exhibition Records</template></MenuListItem>
+        <MenuListItem href="/Albums/PreExhibitions">展覽花絮<template #en>Event Records</template></MenuListItem>
       </NavMenuList>
 
       <NavMenuItemLink href="https://www.arte.gov.tw/" target="_blank">國立臺灣藝術教育館</NavMenuItemLink>
-      <NavMenuItemLink href="https://www.facebook.com/ntaec" target="_blank" _class="bg-inherit"><ion-icon name="logo-facebook" /></NavMenuItemLink>
+      <NavMenuItemLink href="https://www.facebook.com/%E5%A4%A2%E5%A2%83%E6%BC%AB%E9%81%8A%E7%B9%AA%E6%9C%AC%E8%97%9D%E8%A1%93%E5%B1%95-105928812151999" target="_blank" _class="bg-inherit"
+        ><ion-icon name="logo-facebook"
+      /></NavMenuItemLink>
     </NavMenu>
     <div class="bg-nav-image h-10 mt-28"></div>
   </nav>

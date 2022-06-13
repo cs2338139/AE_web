@@ -1,5 +1,23 @@
 {
   "image": "1F.png",
+  "info": {
+    "cn": [
+      "兔子帶著我們穿梭在神祕的洞穴裡，該去哪邊好呢？",
+      "跳著、跳著，跳進了森林旁邊的午夜遊樂園",
+      "跟月亮說晚安，燈暗了，進入甜甜的夢鄉",
+      "加快腳步，搭乘太空船飛到月球，跟外星人交個朋友",
+      "好奇怪！房間竟然顛倒過來了，天花板變成地板，地板變成了天花板⋯⋯",
+      "噓～別出聲，地下洞穴埋藏了強盜的寶藏，寶藏可以用來做什麼呢?"
+    ],
+    "en": [
+      "The rabbit took us shuttle through the mysterious cave, where should we go?",
+      "Jump, Jump, Jump into the Midnight Fair next to the Forest. ",
+      "Say goodnight to the moon, the light’s dark, fell into the sweet dream. ",
+      "Speed up, fly to the moon by spaceship, and make friends with aliens.",
+      "Weird! The room turned upside down, the ceiling became the floor, the floor became the ceiling…",
+      "Shh…there is a robber’s treasure buried in the underground cave. What can the treasure be used for?"
+    ]
+  },
   "books": [
     {
       "title": "《哪邊是哪邊》",

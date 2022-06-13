@@ -21,10 +21,8 @@ export default {
     <td class="px-3 py-2 sm:px-0">
       <span class="px-3 py-1 font-medium border rounded-full border-text-1-Color box-content sm:px-0"><slot name="type"></slot></span>
     </td>
-    <td class="px-3 py-2">
-      <slot name="title"></slot>
-    </td>
-    <td class="px-3 py-2">
+    <td class="px-3 py-2  whitespace-nowrap overflow-hidden text-ellipsis"><slot name="title"></slot></td>
+    <td class="px-3 py-2 sm:px-0">
       <slot name="date"></slot>
     </td>
   </tr>

@@ -29,9 +29,9 @@ export default {
 <template>
   <li class="font-normal text-center max-h-7">
     <RouterLink :to="hrefLink" >
-      <span class="px-4 py-2 bg-white rounded-full font-bold" :class="{ IsDisabled: enable === false },{ IsEnabled: enable === true }">
+      <div class="px-4 py-2 bg-white rounded-full font-bold" :class="{ IsDisabled: enable === false },{ IsEnabled: enable === true }">
         <slot> </slot>
-      </span>
+      </div>
     </RouterLink>
   </li>
 </template>

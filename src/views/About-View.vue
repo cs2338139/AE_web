@@ -66,7 +66,9 @@ export default {
         <RoadItem>關於策展</RoadItem>
         <template #title>關於策展</template>
       </Road>
-      <div class="w-full mb-10 overflow-hidden aspect-image"><img :src="dir + aboutData.image" class="w-full" /></div>
+      <div class="w-full mb-20 overflow-hidden px-20 md:px-10">
+        <img :src="dir + aboutData.image" class="w-full aspect-image" />
+      </div>
       <div>
         <button class="absolute right-0 px-5 py-1 rounded-full text-bg-0-Color bg-bg-1-Color hover:bg-text-1-Color sm:text-xs xl:right-5" @click="ChangeLang()">{{ infoState }}</button>
         <div class="mb-5 font-bold sm:mb-3">

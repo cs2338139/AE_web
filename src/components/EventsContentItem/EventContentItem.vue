@@ -6,13 +6,17 @@ import EventDate from "./src/EventDate.vue";
 import EventPlace from "./src/EventPlace.vue";
 import EventContact from "./src/EventContact.vue";
 import EventLink from "./src/EventLink.vue";
+import EventMeeting from "./src/EventMeeting.vue";
 defineProps({
   img: Array,
   link: String,
   info: Array,
   teacherInfo: Array,
   needKnew: Boolean,
-  needlink: Boolean,
+  needLink: Boolean,
+  MExpect: Array,
+  MProcess: Array,
+  MTeacher: Array,
 });
 </script>
 
@@ -59,17 +63,20 @@ export default {
         <template #people>
           <slot name="people"></slot>
         </template>
+        <template #tip>
+          <slot name="tip"></slot>
+        </template>
       </EventPlace>
     </div>
 
     <div class="col-start-4 col-end-6 row-start-3 row-end-4 lg:col-start-1 lg:col-end-1 lg:row-start-7 lg:row-end-8 lg:pt-5">
       <div class="mb-10 xl:mb-5 lg:mb-10">
-        <EventLink :link="link" :needKnew="needKnew" :needlink="needlink" />
+        <EventLink :link="link" :needKnew="needKnew" :needLink="needLink" />
       </div>
       <EventContact></EventContact>
     </div>
 
-    <div class="mt-8 xl:mt-4 col-start-1 col-end-4 row-start-4 row-end-6 xl:row-start-4 lg:col-end-1 lg:row-start-5 lg:row-end-6 lg:pt-5 sm:pt-0" id="info">
+    <div v-if="info != null" class="mt-8 xl:mt-4 col-start-1 col-end-4 row-start-4 row-end-6 xl:row-start-4 lg:col-end-1 lg:row-start-5 lg:row-end-6 lg:pt-5 sm:pt-0" id="info">
       <EventInfo :info="info">
         <slot name="title"></slot>
       </EventInfo>
@@ -78,6 +85,13 @@ export default {
         <slot name="teacher"></slot>
       </EventTeacher>
       <hr class="hidden my-8 border-zinc-400 lg:block sm:mb-2" />
+    </div>
+
+    <div v-else class="mt-8 xl:mt-4 col-start-1 col-end-4 row-start-4 row-end-6 xl:row-start-4 lg:col-end-1 lg:row-start-5 lg:row-end-6 lg:pt-5 sm:pt-0" id="info">
+      <EventMeeting :MExpect="MExpect" :MProcess="MProcess" :MTeacher="MTeacher">
+        <template #MTitle> <slot name="MTitle"></slot></template>
+        <template #MTarget> <slot name="MTarget"></slot></template>
+      </EventMeeting>
     </div>
   </div>
 </template>

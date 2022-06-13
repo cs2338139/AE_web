@@ -34,11 +34,13 @@ export default {
 <template>
   <li>
     <RouterLink :to="hrefLink" @click="EmitCloseMenu">
-      <div class="w-full border-b h-10 bg-zinc-100 relative font-bold flex items-center justify-between" :class="{ IsDisabled: enable === false }">
-        <div class="mx-10">
+      <div class="relative flex items-center justify-start w-full h-10 font-bold border-b bg-zinc-100" :class="{ IsDisabled: enable === false }">
+        <div class="ml-10 mr-2 ">
           <slot> </slot>
         </div>
-        <div class="mx-5"></div>
+        <div class="text-sm font-bold ">
+          <slot name="en"></slot>
+        </div>
       </div>
     </RouterLink>
   </li>
@@ -52,6 +54,12 @@ export default {
 @layer component {
   .IsDisabled {
     @apply text-slate-400;
+  }
+}
+
+@layer components {
+  .dev {
+    @apply border border-solid box-border  border-red-500;
   }
 }
 </style>

@@ -18,11 +18,12 @@ export default {
     LoadJson() {
       let activityID = this.$route.params.activityID;
       let eventID = this.$route.params.eventID;
-      if (activityID && eventID) {
+      if (activityID==="Meetings" && eventID) {
         axios
           .get("Data/Activities/" + activityID + "/" + eventID + "/MeetingContent.json")
           .then((response) => {
             this.Data = response.data;
+            // console.log(this.Data);
           })
           .catch((response) => {
             console.log(response);
@@ -33,9 +34,9 @@ export default {
     GetTargetHeight() {
       let target = null;
       if (this.$windowWidth > this.$lg) {
-        target=document.getElementById("info");
+        target = document.getElementById("info");
       } else {
-        target=document.getElementById("place");
+        target = document.getElementById("place");
       }
       const h = document.body.scrollHeight - (target.getBoundingClientRect().top + window.scrollY);
       const bg = this.$refs.bg;
@@ -72,20 +73,28 @@ export default {
     <div class="wrap mb-20">
       <Road class="mb-10">
         <RoadItem>推廣活動</RoadItem>
-        <RoadItemRouter href="/activities/WorkShops">工作坊</RoadItemRouter>
-        <RoadItem>{{ Data.title }}</RoadItem>
+        <RoadItem>研習營</RoadItem>
+        <template #title>研習營</template>
       </Road>
-      <EventContentItem :img="Data.imgs" :link="Data.link" :info="Data.info" :needKnew="true" :needlink="true" :teacherInfo="Data.teacherInfo" ref="target">
+      <EventContentItem
+        :img="Data.imgs"
+        :link="Data.link"
+        :needKnew="false"
+        :needLink="true"
+        :MExpect="Data.meeting.expect"
+        :MProcess="Data.meeting.process"
+        :MTeacher="Data.meeting.teacher"
+        ref="target"
+      >
         <template #date>{{ Data.date }}</template>
         <template #time>{{ Data.time }}</template>
-        <template #howto> 報名方式｜　採線上報名。 </template>
-        <template #place> 活動地點｜　{{ Data.place }} 。</template>
-        <template #for> 參與對象｜　國小以上學生、一般民眾（國小學生需家長陪同）</template>
-        <template #money> 課程費用｜　新臺幣200元整。 </template>
-        <template #people> 參加人數｜　正取{{ Data.people }}人，備取5名，額滿為止。</template>
+        <template #howto> 報名方式｜採線上報名。 </template>
+        <template #place> 活動地點｜{{ Data.place }} 。</template>
+        <template #for> 參與對象｜公務員、教師、一般民眾</template>
+        <template #tip> 研習時數｜{{ Data.tip }} </template>
 
-        <template #title>{{ Data.title }}</template>
-        <template #teacher>授課講師｜{{ Data.teacher }}</template>
+        <template #MTitle>研習營主題｜{{ Data.meeting.title }}</template>
+        <template #MTarget>{{ Data.meeting.target }}</template>
       </EventContentItem>
     </div>
 

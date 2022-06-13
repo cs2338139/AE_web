@@ -11,7 +11,7 @@ export default {
   data() {
     return {
       homeData: null,
-      imgs: null,
+      // imgs: null,
     };
   },
   methods: {
@@ -21,15 +21,15 @@ export default {
         .then((response) => {
           this.homeData = response.data;
 
-          if (this.$windowWidth > this.$md) {
-            this.imgs = this.homeData.imgs;
-          } else {
-            let temp = [];
-            for (let i = 0; i < this.homeData.phoneimgs.length; i++) {
-              temp.push("phone/" + this.homeData.phoneimgs[i]);
-            }
-            this.imgs = temp;
-          }
+          // if (this.$windowWidth > this.$md) {
+          //   this.imgs = this.homeData.imgs;
+          // } else {
+          //   let temp = [];
+          //   for (let i = 0; i < this.homeData.phoneimgs.length; i++) {
+          //     temp.push("phone/" + this.homeData.phoneimgs[i]);
+          //   }
+          //   this.imgs = temp;
+          // }
         })
         .catch((response) => {
           console.log(response);
@@ -66,8 +66,8 @@ export default {
   <template v-if="homeData != null">
     <div>
       <div class="wrap">
-        <div class="mb-48 lg:mb-14">
-          <ImageBox path="Home" imgStyle="w-full aspect-homeimage md:aspect-square" :img="imgs" :time="3000" :auto="true" />
+        <div class="mb-24 px-20 lg:mb-14 md:px-10">
+          <ImageBox path="Home" imgStyle="w-full aspect-video" :img="homeData.imgs" :time="3000" :auto="true" />
         </div>
 
         <div class="flex flex-row h-300px md:h-480px md:flex-col px-20 md:px-10" ref="target">

@@ -42,7 +42,7 @@ export default {
       <RoadItem>最新消息</RoadItem>
       <template #title>最新消息</template>
     </Road>
-    <div class="mb-32">
+    <div class="mb-32 w-full">
       <NewsTable>
         <NewsTableItem v-for="(i, index) in newsList.slice().reverse()" :href="'/news/' + (newsList.length - 1 - index)">
           <template #type>{{ i.typeName }}</template>

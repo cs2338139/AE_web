@@ -18,7 +18,7 @@ export default {
     LoadJson() {
       let activityID = this.$route.params.activityID;
       let eventID = this.$route.params.eventID;
-      if (activityID && eventID) {
+      if (activityID==="WorkShops" && eventID) {
         axios
           .get("Data/Activities/" + activityID + "/" + eventID + "/WorkShopContent.json")
           .then((response) => {
@@ -77,14 +77,14 @@ export default {
         <RoadItemRouter href="/activities/WorkShops">工作坊</RoadItemRouter>
         <RoadItem>{{ Data.title }}</RoadItem>
       </Road>
-      <EventContentItem :img="Data.imgs" :link="Data.link" :info="Data.info" :needKnew="true" :needlink="true" :teacherInfo="Data.teacherInfo" ref="target">
+      <EventContentItem :img="Data.imgs" :link="Data.link" :info="Data.info" :needKnew="true" :needLink="true" :teacherInfo="Data.teacherInfo" ref="target">
         <template #date>{{ Data.date }}</template>
         <template #time>{{ Data.time }}</template>
-        <template #howto> 報名方式｜　採線上報名。 </template>
-        <template #place> 活動地點｜　{{ Data.place }} 。</template>
-        <template #for> 參與對象｜　國小以上學生、一般民眾（國小學生需家長陪同）</template>
-        <template #money> 課程費用｜　新臺幣200元整。 </template>
-        <template #people> 參加人數｜　正取{{ Data.people }}人，備取5名，額滿為止。</template>
+        <template #howto> 報名方式｜採線上報名。 </template>
+        <template #place> 活動地點｜{{ Data.place }} 。</template>
+        <template #for> 參與對象｜國小以上學生、一般民眾（國小學生需家長陪同）</template>
+        <template #money> 課程費用｜新臺幣200元整。 </template>
+        <template #people> 參加人數｜正取{{ Data.people }}人，備取5名，額滿為止。</template>
 
         <template #title>{{ Data.title }}</template>
         <template #teacher>授課講師｜{{ Data.teacher }}</template>
