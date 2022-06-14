@@ -75,7 +75,7 @@ export default {
             <HomeNews />
           </div>
 
-          <div class="w-1/3 h-full pt-3 pl-10 md:float-left md:w-full md:pl-0 md:h-1/2 md:pt-5">
+          <div class="w-1/3 h-full font- pt-3 pl-10 md:float-left md:w-full md:pl-0 md:h-1/2 md:pt-5">
             <VisitInformation />
           </div>
         </div>

@@ -9,7 +9,14 @@ const homeImage = new URL("../../assets/Image/UI/Logo.png", import.meta.url).hre
 </script>
 
 <template>
-  <nav class="fixed top-0 w-full z-10 text-item">
+  <nav class="fixed top-0 z-10 w-full text-item">
+    <div class="absolute z-10 w-full">
+      <div class="w-10 image h-11 bg-Star-image right-10 top-10"></div>
+      <div class="w-10 image h-11 bg-Star-image left-14 top-12"></div>
+      <div class="w-10 image h-11 bg-Star-image right-154 top-28"></div>
+      <div class="w-10 rotate-45 image h-11 bg-Star-image left-80 top-32"></div>
+      <div class="h-32 image w-36 bg-Spaceship-image right-24 top-24"></div>
+    </div>
     <NavMenu _class="h-32">
       <template #logo>
         <Logo href="/" :img="homeImage" width="width:120px" />
@@ -56,11 +63,9 @@ const homeImage = new URL("../../assets/Image/UI/Logo.png", import.meta.url).hre
       </NavMenuList>
 
       <NavMenuItemLink href="https://www.arte.gov.tw/" target="_blank">國立臺灣藝術教育館</NavMenuItemLink>
-      <NavMenuItemLink href="https://www.facebook.com/%E5%A4%A2%E5%A2%83%E6%BC%AB%E9%81%8A%E7%B9%AA%E6%9C%AC%E8%97%9D%E8%A1%93%E5%B1%95-105928812151999" target="_blank" _class="bg-inherit"
-        ><ion-icon name="logo-facebook"
-      /></NavMenuItemLink>
+      <NavMenuItemLink href="https://www.facebook.com/%E5%A4%A2%E5%A2%83%E6%BC%AB%E9%81%8A%E7%B9%AA%E6%9C%AC%E8%97%9D%E8%A1%93%E5%B1%95-105928812151999" target="_blank" _class="bg-inherit"><ion-icon name="logo-facebook" /></NavMenuItemLink>
     </NavMenu>
-    <div class="bg-nav-image h-10 mt-28"></div>
+    <div class="h-10 bg-nav-image mt-28"></div>
   </nav>
 </template>
 
@@ -89,6 +94,12 @@ ion-icon {
 @tailwind utilities;
 @layer base {
   nav span {
+  }
+}
+
+@layer components {
+  .image {
+    @apply absolute bg-no-repeat bg-w100%;
   }
 }
 </style>

@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
+  @font-face {
+    font-family: "jf-openhuninn";
+    src: url("/src/assets/font/jf-openhuninn-1.1.woff2") format("woff2");
+  }
   body {
     @apply m-0 p-0;
   }
@@ -20,9 +25,7 @@
 }
 
 @layer utilities {
-
-  .w-1\/15
-  {
+  .w-1\/15 {
     width: 6.6666667%;
   }
 }
