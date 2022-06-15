@@ -4,6 +4,7 @@ import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
 import RoadItemRouter from "../components/Road/src/RoadItemRouter.vue";
 import ImageBox from "../components/ImageBox/ImageBox.vue";
+import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 </script>
 
 <script>
@@ -88,6 +89,7 @@ export default {
     this.LoadJson();
   },
   mounted() {},
+
   unmounted() {
     document.body.style.overflow = "scroll";
   },
@@ -96,6 +98,7 @@ export default {
 
 <template>
   <template v-if="albumEventData != null">
+    <ElementPanel ref="element" />
     <div class="wrap">
       <Road class="mb-10">
         <RoadItem>活動花絮</RoadItem>

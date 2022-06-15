@@ -3,6 +3,7 @@ import axios from "axios";
 import Road from "../components/Road/Road.vue";
 import RoadItemRouter from "../components/Road/src/RoadItemRouter.vue";
 import { RouterLink, RouterView } from "vue-router";
+import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 </script>
 
 <script>
@@ -47,6 +48,7 @@ export default {
 
 <template>
   <template v-if="newsData != null">
+    <ElementPanel ref="element" />
     <div class="wrap">
       <Road class="mb-10">
         <RoadItemRouter href="/news">最新消息</RoadItemRouter>
@@ -55,12 +57,12 @@ export default {
 
       <div class="left-0 right-0 max-w-2xl mx-auto mb-20">
         <div class="mb-3">
-          <div class="inline-block font-bold sm:text-sm mr-8 text-xl">{{ newsData.date }}</div>
-          <div class="inline-block font-bold sm:text-sm text-xl">
+          <div class="inline-block sm:text-sm mr-8 text-xl">{{ newsData.date }}</div>
+          <div class="inline-block sm:text-sm text-xl">
             <span class="px-4 py-1.5 border border-black rounded-full sm:px-1">{{ newsData.typeName }}</span>
           </div>
         </div>
-        <div class="mb-10 text-3xl font-bold sm:text-xl sm:my-5">{{ newsData.title }}</div>
+        <div class="mb-10 text-3xl sm:text-xl sm:my-5">{{ newsData.title }}</div>
 
         <div class="mb-16" v-html="newsData.content"></div>
         <!-- <div class="mb-16">
@@ -73,7 +75,7 @@ export default {
 
         <div class="text-center hover:scale-110">
           <RouterLink to="/news" class="">
-            <span class="font-bold bg-text-1-Color text-white px-3 py-2 rounded-full"> 回最新消息 </span>
+            <span class="bg-text-1-Color text-white px-3 py-2 rounded-full"> 回最新消息 </span>
           </RouterLink>
         </div>
       </div>

@@ -15,7 +15,7 @@ defineProps({});
     </div>
   </template>
   <template v-else>
-    <div class="font-bold sm:text-xl sm:mt-4 sm:my-6"><slot name="title"></slot></div>
+    <div class=" sm:text-xl sm:mt-4 sm:my-6"><slot name="title"></slot></div>
   </template>
 </template>
 

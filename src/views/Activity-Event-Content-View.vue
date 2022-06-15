@@ -22,7 +22,6 @@ export default {
   methods: {
     SwitchViews() {
       let activityID = this.$route.params.activityID;
-      console.log(activityID);
       if (activityID) {
         if (activityID === "Forums") {
           this.current = "ActivityEventForumView";

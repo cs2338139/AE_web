@@ -1,6 +1,7 @@
 <script setup>
 import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
+import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 import { RouterLink, RouterView } from "vue-router";
 </script>
 
@@ -9,13 +10,14 @@ export default {};
 </script>
 
 <template>
+  <ElementPanel ref="element" />
   <div class="wrap">
     <Road class="mb-10">
       <RoadItem>預約導覽</RoadItem>
       <template #title>預約導覽</template>
     </Road>
     <div class="left-0 right-0 max-w-2xl mx-auto mb-20">
-      <div class="mb-10 text-3xl font-bold text-red-500 sm:text-xl">-目前配合防疫措施，不開放預約導覽-</div>
+      <div class="mb-10 text-3xl text-red-500 sm:text-xl">-目前配合防疫措施，不開放預約導覽-</div>
 
       <div class="text-xl sm:text-base">看展資訊</div>
       <ul>
@@ -37,11 +39,11 @@ export default {};
 
       <!-- <div class="mb-6 text-center  hover:scale-110">
         <RouterLink to="">
-          <span class="px-3 py-2 font-bold text-white rounded-full bg-text-1-Color"> 點我預約 </span>
+          <span class="px-3 py-2 text-white rounded-full bg-text-1-Color"> 點我預約 </span>
         </RouterLink>
       </div> -->
       <div class="mb-6 text-center">
-          <button class="px-3 py-2 font-bold text-white rounded-full bg-zinc-400"> 點我預約 </button>
+          <button class="px-3 py-2 text-white rounded-full bg-zinc-400"> 點我預約 </button>
       </div>
     </div>
   </div>

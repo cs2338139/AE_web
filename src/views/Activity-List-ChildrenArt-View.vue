@@ -3,6 +3,7 @@ import axios from "axios";
 import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
 import ActivityItem from "../components/ActivityItem/ActivityItem.vue";
+import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 </script>
 
 <script>
@@ -53,6 +54,7 @@ export default {
           var mod = colCount - (this.childrenArtList.length % colCount);
           if (mod === colCount) mod = 0;
           var template = {
+            index: "0",
             title: "none",
             date: "",
             typeName: "",
@@ -75,15 +77,16 @@ export default {
 </script>
 
 <template>
+  <ElementPanel ref="element" />
   <div class="wrap mb-20">
     <Road class="mb-5">
       <RoadItem>推廣活動</RoadItem>
       <RoadItem>兒童美學活動</RoadItem>
       <template #title>兒童美學活動</template>
     </Road>
-    <div class="text-center text-3xl font-bold sm:text-xl">「夢境漫遊：繪本藝術」展之兒童美學活動</div>
+    <div class="text-center text-3xl  sm:text-xl">「夢境漫遊：繪本藝術」展之兒童美學活動</div>
     <div class="max-w-4xl mx-auto mt-8 mb-24 sm:mt-5">
-      <div class="text-base font-bold sm:text-sm text-center leading-8">
+      <div class="text-base  sm:text-sm text-center leading-8">
         一、報名方式｜採預約報名(8/24-9/21)，每週三預約活動，共計5堂，額滿截止<br />
         二、上課地點｜本館第2展覽廳翻玩色彩區（落地窗旁）<br />
         三、參與對象｜兒童相關公益社團、組織、協會。身心障礙與弱勢團體優先受理報名<br />

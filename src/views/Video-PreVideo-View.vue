@@ -1,6 +1,7 @@
 <script setup>
 import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
+import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 defineProps({});
 </script>
 <script>
@@ -13,7 +14,7 @@ export default {
         (this.$refs.target.getBoundingClientRect().top + window.scrollY);
       const bg = this.$refs.bg;
       bg.style.height = h + "px";
-      console.log(bg.style.height);
+
     },
   },
   mounted() {
@@ -24,6 +25,7 @@ export default {
 };
 </script>
 <template>
+  <ElementPanel ref="element" />
   <div class="wrap">
     <Road class="mb-10">
       <RoadItem>宣導影片</RoadItem>
@@ -42,13 +44,13 @@ export default {
         ></iframe>
       </div>
       <div class="max-w-3xl pt-10 mx-auto mt-16" ref="target">
-        <div class="mb-3 text-3xl font-bold sm:text-lg">
+        <div class="mb-3 text-3xl sm:text-lg">
           「夢境漫遊：繪本藝術展」前導宣傳片
         </div>
 
         <hr class="mb-6 border border-zinc-600" />
 
-        <div class="font-bold mb-14 sm:text-sm">
+        <div class="mb-14 sm:text-sm">
           <div>展覽日期：2022.06.28 – 09.25</div>
           <div>展覽地點：國立臺灣藝術教育館 第1、2展覽廳</div>
         </div>

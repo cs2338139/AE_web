@@ -20,8 +20,8 @@ export default {};
     <RouterView />
   </div>
 
-  <div class="relative z-20 -mt-56 xl:-mt-72 sm:-mt-80">
-    <FootBar></FootBar>
+  <div class="relative z-20 -mt-56 xl:-mt-72 sm:-mt-80"  id="foot">
+    <FootBar ></FootBar>
   </div>
 </template>
 

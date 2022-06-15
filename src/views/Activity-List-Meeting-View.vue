@@ -3,6 +3,7 @@ import axios from "axios";
 import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
 import ActivityItem from "../components/ActivityItem/ActivityItem.vue";
+import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 </script>
 
 <script>
@@ -55,6 +56,7 @@ export default {
           var mod = colCount - (this.meetingList.length % colCount);
           if (mod === colCount) mod = 0;
           var template = {
+            index: "0",
             title: "none",
             date: "",
             typeName: "",
@@ -77,15 +79,16 @@ export default {
 </script>
 
 <template>
+  <ElementPanel ref="element" />
   <div class="wrap">
     <Road class="mb-5">
       <RoadItem>推廣活動</RoadItem>
       <RoadItem>研習營</RoadItem>
       <template #title>研習營</template>
     </Road>
-    <div class="text-center text-3xl font-bold">「夢境漫遊：繪本藝術」展之工作坊</div>
+    <div class="text-center text-3xl ">「夢境漫遊：繪本藝術」展之工作坊</div>
     <div class="max-w-4xl mx-auto mt-8 mb-12 sm:mt-10">
-      <div class="text-lg font-bold sm:text-sm text-center">
+      <div class="text-lg  sm:text-sm text-center">
         這次帶來的工作坊從10本繪本發想，分成分程是「繪本與人文」、「科學與創造」兩個主軸。繪本與人文由流寓工作室與果實玩樂生活實驗室兩個教育推廣團隊，
         以「自然接觸」、「童趣手作」為課程精神，帶領以自然界的材料或觀察，帶領孩子與大人們進行手作課程。「科學與創造」則由光試所與Pixelight以「鏡面反射」 、
         「電路電學」、「虛擬實境」為設計精神，帶領孩子與大人們進行科學與AR、VR的奇妙視覺體驗。

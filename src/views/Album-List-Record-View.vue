@@ -3,6 +3,7 @@ import axios from "axios";
 import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
 import AlbumItem from "../components/AlbumItem/AlbumItem.vue";
+import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 </script>
 
 <script>
@@ -47,7 +48,8 @@ export default {
             var mod = colCount - (this.recordList.length % colCount);
             if (mod === colCount) mod = 0;
             var template = {
-              title: "none",
+              index: "0",
+            title: "none",
               date: "",
               typeName: "",
             };
@@ -69,6 +71,7 @@ export default {
 </script>
 
 <template>
+  <ElementPanel ref="element" />
   <div class="wrap">
     <Road class="mb-10">
       <RoadItem>活動花絮</RoadItem>
@@ -91,7 +94,7 @@ export default {
       </div>
     </template>
     <template v-else>
-      <div class="my-40 text-center text-9xl text-text-1-Color font-bold italic xl:text-6xl lg:text-3xl md:text-xl">Coming Soon...</div>
+      <div class="my-40 text-center text-9xl text-text-1-Color  italic xl:text-6xl lg:text-3xl md:text-xl">Coming Soon...</div>
     </template>
   </div>
 </template>

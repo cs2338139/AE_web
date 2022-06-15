@@ -5,7 +5,7 @@ defineProps({
 </script>
 
 <template>
-  <li class="font-normal text-xl text-center max-h-7">
+  <li class=" text-xl text-center max-h-7">
     <a href="javascript::" class="hover:text-slate-400">
       <span class="Menu-span-border-bottom px-3">
         <slot name="menuName"> </slot>

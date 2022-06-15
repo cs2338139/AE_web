@@ -48,7 +48,7 @@ export default {
   }
 
   .text {
-    @apply px-6 py-1 rounded-3xl font-bold text-xl  sm:text-sm;
+    @apply px-6 py-1 rounded-3xl text-xl  sm:text-sm;
   }
 }
 </style>

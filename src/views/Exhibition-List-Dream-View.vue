@@ -3,6 +3,7 @@ import axios from "axios";
 import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
 import ExhibitionItem from "../components/ExhibitionItem/ExhibitionItem.vue";
+import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 </script>
 
 <script>
@@ -31,7 +32,7 @@ export default {
       const h = document.body.scrollHeight - (this.$refs.target.getBoundingClientRect().top + window.scrollY);
       const bg = this.$refs.bg;
       bg.style.height = h + 15 + "px";
-      console.log(bg.style.height);
+
     },
     ChangeLang() {
       if (this.infoState === "English") {
@@ -47,15 +48,14 @@ export default {
     this.LoadJson();
   },
   updated() {
-    setTimeout(() => {
-      this.GetTargetHeight();
-    }, 200);
+    this.GetTargetHeight();
   },
 };
 </script>
 
 <template>
   <template v-if="exhibitionData != null">
+    <ElementPanel ref="element" />
     <div class="wrap">
       <Road class="mb-10">
         <RoadItem>展覽介紹</RoadItem>
@@ -123,7 +123,7 @@ export default {
     @apply my-5;
   }
   .contentFont {
-    @apply text-xl font-bold leading-9 sm:text-base sm:my-2;
+    @apply text-xl  leading-9 sm:text-base sm:my-2;
   }
 }
 

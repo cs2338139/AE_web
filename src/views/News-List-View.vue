@@ -4,6 +4,7 @@ import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
 import NewsTable from "../components/NewsTable/NewsTable.vue";
 import NewsTableItem from "../components/NewsTable/src/NewsTableItem.vue";
+import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 </script>
 
 <script>
@@ -37,6 +38,7 @@ export default {
 </script>
 
 <template>
+  <ElementPanel ref="element" />
   <div class="wrap">
     <Road class="mb-10">
       <RoadItem>最新消息</RoadItem>

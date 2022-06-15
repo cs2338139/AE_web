@@ -3,6 +3,7 @@ import axios from "axios";
 import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
 import AlbumItem from "../components/AlbumItem/AlbumItem.vue";
+import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 </script>
 
 <script>
@@ -20,13 +21,11 @@ export default {
         .get("Data/Albums/" + this.$route.params.albumID + "/PreExhibitionList.json")
         .then((response) => {
           this.preExhibitionList = response.data;
-          console.log(this.preExhibitionList);
           for (let i = 0; i < this.preExhibitionList.length; i++) {
             if (this.preExhibitionList[i].Enable === false) {
               this.href[i] = "";
               this.img[i] = "Data/Other/ComingSoon.jpg";
             } else {
-              console.log(this.preExhibitionList[i].Enable);
               this.href[i] = "/Albums/" + this.$route.params.albumID + "/" + i;
               this.img[i] = "Data/Albums/" + this.$route.params.albumID + "/" + i + "/cover.jpg";
             }
@@ -59,6 +58,7 @@ export default {
           var mod = colCount - (this.preExhibitionList.length % colCount);
           if (mod === colCount) mod = 0;
           var template = {
+            index: "0",
             title: "none",
             tip: "",
           };
@@ -80,6 +80,7 @@ export default {
 </script>
 
 <template>
+  <ElementPanel ref="element" />
   <div class="wrap">
     <Road class="mb-10">
       <RoadItem>活動花絮</RoadItem>

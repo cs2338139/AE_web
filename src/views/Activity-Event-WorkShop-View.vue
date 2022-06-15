@@ -5,6 +5,7 @@ import RoadItem from "../components/Road/src/RoadItem.vue";
 import RoadItemRouter from "../components/Road/src/RoadItemRouter.vue";
 import EventModal from "../components/EventsContentItem/EventModal.vue";
 import EventContentItem from "../components/EventsContentItem/EventContentItem.vue";
+import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 </script>
 
 <script>
@@ -62,15 +63,14 @@ export default {
     document.body.style.overflow = "scroll";
   },
   updated() {
-    setTimeout(() => {
-      this.GetTargetHeight();
-    }, 200);
+    this.GetTargetHeight();
   },
 };
 </script>
 
 <template>
   <template v-if="Data != null">
+    <ElementPanel ref="element" />
     <div class="wrap mb-20">
       <Road class="mb-10">
         <RoadItem>推廣活動</RoadItem>

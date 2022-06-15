@@ -22,7 +22,7 @@ defineProps({});
 
 @layer base {
   span {
-    @apply font-medium px-3 py-2 bg-text-1-Color rounded-full  text-white sm:px-1;
+    @apply  px-3 py-2 bg-text-1-Color rounded-full  text-white sm:px-1;
   }
 }
 @layer components {

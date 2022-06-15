@@ -44,7 +44,7 @@ export default {
 <template>
   <div class="relative w-full h-full md:py-3 text-white">
     <div class="mb-5">
-      <span class="px-4 py-1 text-xl font-bold bg-white rounded-full sm:text-base text-text-0-Color">最新消息 News</span>
+      <span class="px-4 py-1 text-xl bg-white rounded-full sm:text-base text-text-0-Color">最新消息 News</span>
     </div>
     <ul>
       <NewsListItem v-for="(i, index) in visibleNewsList" :href="'/news/' + (newsList.length - 1 - index)">
@@ -52,9 +52,9 @@ export default {
         <template #title>{{ i.title }}</template>
       </NewsListItem>
     </ul>
-    <div class="absolute bottom-20 right-0 font-bold hover:scale-110 md:bottom-0">
+    <div class="absolute bottom-20 right-0 hover:scale-110 md:bottom-0">
       <RouterLink to="/news">
-        <span class="px-3 py-1 text-base font-bold bg-yellow-400 rounded-full text-text-0-Color sm:text-sm"> more</span>
+        <span class="px-3 py-1 text-base bg-yellow-400 rounded-full text-text-0-Color sm:text-sm"> more</span>
       </RouterLink>
     </div>
   </div>

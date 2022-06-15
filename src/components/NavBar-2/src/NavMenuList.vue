@@ -5,7 +5,7 @@ defineProps({
 </script>
 
 <template>
-  <li class="font-normal text-center max-h-7 group">
+  <li class=" text-center max-h-7 group">
     <div class="px-4 py-2 bg-white rounded-full cursor-pointer Menu-span-border-bottom text-text-0-Color font-bold">
       <slot name="menuName"> </slot>
     </div>

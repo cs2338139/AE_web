@@ -3,6 +3,7 @@ import axios from "axios";
 import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
 import ActivityItem from "../components/ActivityItem/ActivityItem.vue";
+import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 </script>
 
 <script>
@@ -10,8 +11,10 @@ export default {
   data() {
     return {
       workShopList: [],
-      newWorkShopList: [],
     };
+  },
+  components: {
+
   },
   methods: {
     LoadJson() {
@@ -25,7 +28,6 @@ export default {
             let tempDate = this.workShopList[i].date.substring(0, 16).replaceAll(".", "/");
             tempDate = tempDate.replace("：", ":");
             this.workShopList[i].newDate = new Date(tempDate);
-            // console.log(this.workShopList[i].newDate);
 
             let name = this.workShopList[i].title.split("：");
             if (name.length === 2) {
@@ -39,9 +41,6 @@ export default {
           this.workShopList.sort(function (a, b) {
             return a.newDate < b.newDate ? -1 : 1;
           });
-
-          // date.sort();
-          // console.log(date);
 
           let colCount = 3;
 
@@ -60,6 +59,8 @@ export default {
           var mod = colCount - (this.workShopList.length % colCount);
           if (mod === colCount) mod = 0;
           var template = {
+            index: "0",
+            index: "0",
             title: "none",
             date: "",
             typeName: "",
@@ -78,22 +79,27 @@ export default {
   created() {
     this.LoadJson();
   },
+  updated() {
+    console.log(this.$refs);
+    if (this.$refs.element) this.$refs.element[0].GetTargetHeight();
+  },
+
 };
 </script>
 
 <template>
+  <ElementPanel ref="element" />
   <div class="wrap mb-20">
     <Road class="mb-5">
       <RoadItem>推廣活動</RoadItem>
       <RoadItem>工作坊</RoadItem>
       <template #title>工作坊</template>
     </Road>
-    <div class="text-center text-3xl font-bold sm:text-xl">「夢境漫遊：繪本藝術」展之工作坊</div>
+    <div class="text-center text-3xl sm:text-xl">「夢境漫遊：繪本藝術」展之工作坊</div>
     <div class="max-w-4xl mx-auto mt-8 mb-24 sm:mt-5">
-      <div class="text-lg font-bold sm:text-sm text-center leading-6">
+      <div class="text-lg sm:text-sm text-center leading-6">
         <div class="mb-3">
-          這次帶來的工作坊從10本繪本發想，分成分程是「繪本與人文」、「科學與創造」兩個主軸。繪本與人文由流寓工作室與果實玩樂生活實驗室兩個教育推廣團隊，
-          以「自然接觸」、「童趣手作」為課程精神，帶領以自然界的材料或觀察，帶領孩子與大人們進行手作課程。
+          這次帶來的工作坊從10本繪本發想，分成分程是「繪本與人文」、「科學與創造」兩個主軸。繪本與人文由流寓工作室與果實玩樂生活實驗室兩個教育推廣團隊， 以「自然接觸」、「童趣手作」為課程精神，帶領以自然界的材料或觀察，帶領孩子與大人們進行手作課程。
         </div>
         <div>「科學與創造」則由光試所與Pixelight以「鏡面反射」 、 「電路電學」、「虛擬實境」為設計精神，帶領孩子與大人們進行科學與AR、VR的奇妙視覺體驗。</div>
       </div>

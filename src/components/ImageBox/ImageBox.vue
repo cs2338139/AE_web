@@ -64,7 +64,6 @@ export default {
     this.showSlides(0);
     this.$emitter.on("emitIndex", (msg) => {
       this.currentSlide(msg);
-      console.log(msg);
     });
   },
 };

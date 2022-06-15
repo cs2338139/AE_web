@@ -6,7 +6,7 @@ defineProps({
 </script>
 
 <template>
-  <li class="font-normal text-xl text-center max-h-7">
+  <li class=" text-xl text-center max-h-7">
     <RouterLink :to="href" class="hover:text-slate-400">
       <span class="px-3">
         <slot> </slot>

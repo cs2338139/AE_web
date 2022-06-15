@@ -1,7 +1,9 @@
 <script setup>
+import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 </script>
 
 <template>
+  <ElementPanel ref="element" />
 <div class="wrap">
         <div>404 - Page not found</div>
         <div>Go back home.</div>

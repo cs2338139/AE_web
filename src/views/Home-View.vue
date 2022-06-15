@@ -3,6 +3,7 @@ import axios from "axios";
 import HomeNews from "../components/Home_News/Home_News.vue";
 import VisitInformation from "../components/Home_VisitInFormation/Home_VisitInformation.vue";
 import ImageBox from "../components/ImageBox/ImageBox.vue";
+import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 // const Image = new URL("../../src/assets/Image/Home_Slide01.jpg", import.meta.url).href;
 </script>
 
@@ -11,7 +12,6 @@ export default {
   data() {
     return {
       homeData: null,
-      // imgs: null,
     };
   },
   methods: {
@@ -20,16 +20,6 @@ export default {
         .get("Data/Home/Home.json")
         .then((response) => {
           this.homeData = response.data;
-
-          // if (this.$windowWidth > this.$md) {
-          //   this.imgs = this.homeData.imgs;
-          // } else {
-          //   let temp = [];
-          //   for (let i = 0; i < this.homeData.phoneimgs.length; i++) {
-          //     temp.push("phone/" + this.homeData.phoneimgs[i]);
-          //   }
-          //   this.imgs = temp;
-          // }
         })
         .catch((response) => {
           console.log(response);
@@ -39,8 +29,7 @@ export default {
     GetTargetHeight() {
       const h = document.body.scrollHeight - (this.$refs.target.getBoundingClientRect().top + window.scrollY);
       const bg = this.$refs.bg;
-      bg.style.height = h  + "px";
-      console.log(bg.style.height);
+      bg.style.height = h + "px";
     },
     ToNotFound() {
       this.$router.push({
@@ -55,18 +44,17 @@ export default {
     this.LoadJson();
   },
   updated() {
-    setTimeout(() => {
-      this.GetTargetHeight();
-    }, 200);
+    this.GetTargetHeight();
   },
 };
 </script>
 
 <template>
   <template v-if="homeData != null">
+    <ElementPanel ref="element" />
     <div>
       <div class="wrap">
-        <div class="mb-24 px-20 lg:mb-14 md:px-10">
+        <div class="mb-24 px-20 lg:mb-14 md:px-0">
           <ImageBox path="Home" imgStyle="w-full aspect-video" :img="homeData.imgs" :time="3000" :auto="true" />
         </div>
 

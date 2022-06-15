@@ -12,7 +12,7 @@ export default {
 };
 </script>
 <template>
-  <div class="text-zinc-500 font-semibold sm:text-sm">
+  <div class="text-zinc-500  sm:text-sm">
     <!-- <div>聯絡人 | 蔡春陣 | 02-25957656 #331</div>
     <div>教育服務組 | 02-25957656 #307</div>
     <div>edu_info-TFAM@mail.taipei.gov.tw</div> -->

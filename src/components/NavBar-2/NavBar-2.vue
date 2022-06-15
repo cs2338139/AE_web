@@ -12,10 +12,11 @@ const homeImage = new URL("../../assets/Image/UI/Logo.png", import.meta.url).hre
   <nav class="fixed top-0 z-10 w-full text-item">
     <div class="absolute z-10 w-full">
       <div class="w-10 image h-11 bg-Star-image right-10 top-10"></div>
-      <div class="w-10 image h-11 bg-Star-image left-14 top-12"></div>
+      <div class="w-10 image h-11 bg-Star-image left-32 top-8"></div>
       <div class="w-10 image h-11 bg-Star-image right-154 top-28"></div>
       <div class="w-10 rotate-45 image h-11 bg-Star-image left-80 top-32"></div>
       <div class="h-32 image w-36 bg-Spaceship-image right-24 top-24"></div>
+      <div class="h-48 image w-60 bg-Cloud-image left-0 top-16"></div>
     </div>
     <NavMenu _class="h-32">
       <template #logo>

@@ -3,6 +3,7 @@ import axios from "axios";
 import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
 import ActivityItem from "../components/ActivityItem/ActivityItem.vue";
+import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 </script>
 
 <script>
@@ -53,6 +54,7 @@ export default {
           var mod = colCount - (this.ForumList.length % colCount);
           if (mod === colCount) mod = 0;
           var template = {
+            index: "0",
             title: "none",
             imgKey: "",
             date: "",
@@ -76,15 +78,16 @@ export default {
 </script>
 
 <template>
+  <ElementPanel ref="element" />
   <div class="wrap mb-20">
     <Road class="mb-5">
       <RoadItem>推廣活動</RoadItem>
       <RoadItem>分享會</RoadItem>
       <template #title>分享會</template>
     </Road>
-    <div class="text-center text-3xl font-bold sm:text-xl">「夢境漫遊：繪本藝術」展之繪本美學分享會</div>
+    <div class="text-center text-3xl  sm:text-xl">「夢境漫遊：繪本藝術」展之繪本美學分享會</div>
     <div class="max-w-4xl mx-auto mt-8 mb-24 sm:mt-5">
-      <div class="text-base font-bold sm:text-sm text-center">
+      <div class="text-base  sm:text-sm text-center">
         <div class="mb-3">
           可曾想過，孩子的夢，會有哪些？<br />做夢和探索世界的能力，<br />是孩子迎向未來和未知的勇氣。<br />
           透過與策展人面對面座談，藉由經驗分享一同探討繪本對兒童的影響，進而打開無限想像力和好奇心，啟發藝術興趣。

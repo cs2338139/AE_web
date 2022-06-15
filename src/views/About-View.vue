@@ -3,6 +3,7 @@ import axios from "axios";
 import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
 import AboutItem from "../components/AboutItem/AboutItem.vue";
+import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 </script>
 
 <script>
@@ -52,28 +53,27 @@ export default {
     this.LoadJson();
   },
   updated() {
-    setTimeout(() => {
-      this.GetTargetHeight();
-    }, 200);
+    this.GetTargetHeight();
   },
 };
 </script>
 
 <template>
   <template v-if="aboutData != null">
+    <ElementPanel ref="element" />
     <div class="wrap">
       <Road class="mb-10">
         <RoadItem>關於策展</RoadItem>
         <template #title>關於策展</template>
       </Road>
-      <div class="w-full mb-20 overflow-hidden px-20 md:px-10">
+      <div class="w-full mb-20 overflow-hidden px-20 md:px-0">
         <img :src="dir + aboutData.image" class="w-full aspect-image" />
       </div>
       <div>
         <button class="absolute right-0 px-5 py-1 rounded-full text-bg-0-Color bg-bg-1-Color hover:bg-text-1-Color sm:text-xs xl:right-5" @click="ChangeLang()">{{ infoState }}</button>
-        <div class="mb-5 font-bold sm:mb-3">
-          <div class="inline mr-5 text-2xl font-bold sm:text-xl sm:mr-2 sm:block">{{ info.title }}</div>
-          <div class="inline text-lg font-bold sm:text-xs text-zinc-500 sm:block">{{ info.curator }}</div>
+        <div class="mb-5 sm:mb-3">
+          <div class="inline mr-5 text-2xl sm:text-xl sm:mr-2 sm:block">{{ info.title }}</div>
+          <div class="inline text-lg sm:text-xs text-zinc-500 sm:block">{{ info.curator }}</div>
         </div>
 
         <div class="mb-20 sm:mb-10">
@@ -104,7 +104,7 @@ export default {
         <div class="title">策展團隊</div>
 
         <div class="mx-auto mt-20 mb-12 bgCloud sm:mt-10 flex items-center justify-center">
-          <div class="w-3/5 text-lg font-bold sm:text-sm text text-center">
+          <div class="w-3/5 text-lg sm:text-sm text text-center">
             {{ aboutData.curatorialTeamTip }}
           </div>
         </div>
@@ -119,7 +119,7 @@ export default {
         <div class="title">推廣團隊</div>
 
         <div class="mx-auto mt-20 mb-12 bgCloud sm:mt-10 flex items-center justify-center">
-          <div class="w-3/5 text-lg font-bold sm:text-sm text text-center">
+          <div class="w-3/5 text-lg sm:text-sm text text-center">
             {{ aboutData.promotionTeamTip }}
           </div>
         </div>
@@ -161,7 +161,7 @@ export default {
     @apply text-lg leading-6 sm:text-sm;
   }
   .title {
-    @apply mb-5 text-2xl font-bold sm:text-base sm:mb-3;
+    @apply mb-5 text-2xl  sm:text-base sm:mb-3;
   }
 }
 @layer components {

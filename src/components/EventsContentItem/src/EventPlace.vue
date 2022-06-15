@@ -37,7 +37,7 @@ export default {
 };
 </script>
 <template>
-  <ul class="text-lg xl:text-sm font-semibold text-zinc-600">
+  <ul class="text-lg xl:text-sm  text-zinc-600">
     <li class="my-2  flex" v-if="_howTo.length != 0">
       <div class="whitespace-nowrap ">{{ _howTo[0] }}｜</div>
       <div class="">{{ _howTo[1] }}</div>

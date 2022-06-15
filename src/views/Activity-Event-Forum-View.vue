@@ -4,6 +4,7 @@ import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
 import RoadItemRouter from "../components/Road/src/RoadItemRouter.vue";
 import EventContentItem from "../components/EventsContentItem/EventContentItem.vue";
+import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 </script>
 
 <script>
@@ -58,15 +59,14 @@ export default {
     this.LoadJson();
   },
   updated() {
-    setTimeout(() => {
-      this.GetTargetHeight();
-    }, 200);
+    this.GetTargetHeight();
   },
 };
 </script>
 
 <template>
   <template v-if="Data != null">
+    <ElementPanel ref="element" />
     <div class="wrap mb-20">
       <Road class="mb-10">
         <RoadItem>推廣活動</RoadItem>
@@ -78,7 +78,6 @@ export default {
         howTo="報名方式｜採線上報名。"
         :place="'上課地點｜' + Data.place + '。'"
         target="參與對象｜對兒童教育有興趣民眾、學校藝文相關教師皆可報名。"
-
         :img="Data.imgs"
         :link="Data.link"
         :info="Data.info"

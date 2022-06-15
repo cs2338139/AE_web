@@ -22,7 +22,7 @@ export default {
         <div class="flex  md:flex-col md:items-center w-full sm:w-4/5">
           <img :src="img" class="mr-6 md:mr-0 md:mb-2 w-img shadow-img " />
           <div class="sm:w-full sm:p-2 top-1/2 ">
-            <div class="mb-3 text-xl font-bold sm:text-lg md:mb-0 md:text-center ">
+            <div class="mb-3 text-xl sm:text-lg md:mb-0 md:text-center ">
               <slot name="title">閱讀盪鞦韆</slot>
             </div>
             <div class="sm:text-sm text-text-1-Color decoration-navColor md:text-center">{{ info[0] }}</div>
@@ -31,7 +31,7 @@ export default {
 
         <div class="my-1 hover:scale-110 ">
           <RouterLink :to="href" class="">
-            <span class="px-5 py-2 text-sm font-bold text-white rounded-full bg-text-1-Color shadow-button">了解繪本➜</span>
+            <span class="px-5 py-2 text-sm text-white rounded-full bg-text-1-Color shadow-button">了解繪本➜</span>
           </RouterLink>
         </div>
       </div>

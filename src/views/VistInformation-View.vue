@@ -2,9 +2,11 @@
 import { RouterLink, RouterView } from "vue-router";
 import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
+import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 </script>
 
 <template>
+  <ElementPanel ref="element" />
   <div class="wrap">
     <Road class="mb-10">
       <RoadItem>參觀資訊</RoadItem>
@@ -29,7 +31,7 @@ import RoadItem from "../components/Road/src/RoadItem.vue";
             <li>展覽地點：第1、2展覽廳</li>
             <li>票價：免費參觀</li>
             <li>地點：國立臺灣藝術教育館 第1、2展覽廳</li>
-            <li class="text-base font-bold text-red-900">即日起須配戴口罩且額溫未超過37.5度者，始得入館，詳情請見最新消息。</li>
+            <li class="text-base text-red-900">即日起須配戴口罩且額溫未超過37.5度者，始得入館，詳情請見最新消息。</li>
           </ul>
         </div>
 
@@ -41,7 +43,7 @@ import RoadItem from "../components/Road/src/RoadItem.vue";
             <li>入館參觀請遵守參觀秩序，共同維持參觀品質。</li>
             <li>為維護展場參觀品質及安全，入場參觀前請收妥您的自拍設備。</li>
             <li>展覽作品除特殊聲明外，原則上同意在不使用閃光燈及腳架之情況下適度開放拍照。</li>
-            <li>展演活動觀展詳情即時公告於<RouterLink to="/News" class="font-bold underline dec">最新消息 </RouterLink>。</li>
+            <li>展演活動觀展詳情即時公告於<RouterLink to="/News" class="underline dec">最新消息 </RouterLink>。</li>
           </ul>
         </div>
       </div>
@@ -49,12 +51,19 @@ import RoadItem from "../components/Road/src/RoadItem.vue";
       <div class="relative float-right w-1/2 h-full md:w-full md: -scroll-mt-10 md:h-1/2">
         <div class="title"><span>交通方式</span></div>
 
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14460.1568496027!2d121.5120648!3d25.0327433!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd65b56c15052fd6b!2z5ZyL56uL6Ie654Gj6Jed6KGT5pWZ6IKy6aSo!5e0!3m2!1szh-TW!2stw!4v1652287018607!5m2!1szh-TW!2stw" class="w-full mb-5 border border-solid rounded-lg h-1/2 lg:h-2/5 md:h-1/2 sm:h-2/5 border-zinc-600" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"> </iframe>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14460.1568496027!2d121.5120648!3d25.0327433!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd65b56c15052fd6b!2z5ZyL56uL6Ie654Gj6Jed6KGT5pWZ6IKy6aSo!5e0!3m2!1szh-TW!2stw!4v1652287018607!5m2!1szh-TW!2stw"
+          class="w-full mb-5 border border-solid rounded-lg h-1/2 lg:h-2/5 md:h-1/2 sm:h-2/5 border-zinc-600"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        >
+        </iframe>
 
         <div class="absolute bottom-0 flex flex-col justify-between list-decimal list-inside h-2/5 lg:h-1/2 md:h-2/5 sm:h-1/2">
           <div>
             <div class="mb-2">
-              <span class="px-5 py-1 text-lg font-medium  border rounded-full sm:text-base border-text-1-Color">搭公車</span>
+              <span class="px-5 py-1 text-lg border rounded-full sm:text-base border-text-1-Color">搭公車</span>
             </div>
             <ul class="pl-3 list-disc list-inside">
               <li>243、248、262、304、706於「中正二分局站」下車。</li>
@@ -67,7 +76,7 @@ import RoadItem from "../components/Road/src/RoadItem.vue";
 
           <div>
             <div class="mb-2">
-              <span class="px-5 py-1 text-lg font-medium  border rounded-full sm:text-base border-text-1-Color">搭捷運</span>
+              <span class="px-5 py-1 text-lg border rounded-full sm:text-base border-text-1-Color">搭捷運</span>
             </div>
             <ul class="pl-3 list-disc list-inside">
               <li>淡水線中正紀念堂站1、2號出口</li>
@@ -87,10 +96,10 @@ import RoadItem from "../components/Road/src/RoadItem.vue";
 
 @layer base {
   .title span {
-    @apply text-lg font-medium sm:text-base px-3 py-1 bg-text-1-Color rounded-full text-white;
+    @apply text-lg  sm:text-base px-3 py-1 bg-text-1-Color rounded-full text-white;
   }
   li {
-    @apply text-base font-medium xl:my-1 sm:text-sm sm:my-2 leading-7;
+    @apply text-base  xl:my-1 sm:text-sm sm:my-2 leading-7;
   }
 }
 

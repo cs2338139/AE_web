@@ -11,7 +11,7 @@ defineProps({
       <div class="w-40 sm:w-30 sm:mb-5"><img :src="img" class="rounded-full w-full" /></div>
 
       <div class="w-3/4 sm:w-full">
-        <div class="mb-3 text-xl font-bold sm:text-base sm:text-center">
+        <div class="mb-3 text-xl sm:text-base sm:text-center">
           <slot name="name">閱讀盪鞦韆</slot>
         </div>
 
@@ -21,7 +21,7 @@ defineProps({
 
         <template v-if="href != 'none'">
           <br /><br />
-          <a :href="href" target="_blank" class="bottom-0 right-0 absolute font-bold underline sm:text-sm sm:right-1/2 sm:translate-x-1/2">→ 臉書專頁</a>
+          <a :href="href" target="_blank" class="bottom-0 right-0 absolute underline sm:text-sm sm:right-1/2 sm:translate-x-1/2">→ 臉書專頁</a>
         </template>
       </div>
     </div>

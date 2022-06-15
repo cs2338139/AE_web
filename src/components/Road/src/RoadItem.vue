@@ -3,8 +3,8 @@
 </script>
 
 <template>
-    <span class="mx-5 font-bold">〉</span>
-    <span class=" font-bold">
+    <span class="mx-5 ">〉</span>
+    <span class=" ">
         <slot></slot>
     </span>
 </template>
