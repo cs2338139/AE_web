@@ -32,7 +32,6 @@ export default {
       const h = document.body.scrollHeight - (this.$refs.target.getBoundingClientRect().top + window.scrollY);
       const bg = this.$refs.bg;
       bg.style.height = h + 15 + "px";
-
     },
     ChangeLang() {
       if (this.infoState === "English") {
@@ -49,6 +48,7 @@ export default {
   },
   updated() {
     this.GetTargetHeight();
+    if (this.$refs.element) this.$refs.element.ReSet();
   },
 };
 </script>

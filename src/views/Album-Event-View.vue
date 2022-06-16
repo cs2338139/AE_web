@@ -89,7 +89,9 @@ export default {
     this.LoadJson();
   },
   mounted() {},
-
+  updated() {
+    if (this.$refs.element) this.$refs.element.ReSet();
+  },
   unmounted() {
     document.body.style.overflow = "scroll";
   },

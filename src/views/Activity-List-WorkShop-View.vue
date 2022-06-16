@@ -13,9 +13,6 @@ export default {
       workShopList: [],
     };
   },
-  components: {
-
-  },
   methods: {
     LoadJson() {
       axios
@@ -79,11 +76,10 @@ export default {
   created() {
     this.LoadJson();
   },
+  mounted() {},
   updated() {
-    console.log(this.$refs);
-    if (this.$refs.element) this.$refs.element[0].GetTargetHeight();
+    if (this.$refs.element) this.$refs.element.ReSet();
   },
-
 };
 </script>
 

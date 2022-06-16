@@ -75,6 +75,9 @@ export default {
   created() {
     this.LoadJson();
   },
+    updated() {
+    if (this.$refs.element) this.$refs.element.ReSet();
+  },
 };
 </script>
 

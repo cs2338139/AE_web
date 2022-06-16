@@ -9,18 +9,16 @@ export default {
   data() {},
   methods: {
     GetTargetHeight() {
-      const h =
-        document.body.scrollHeight -
-        (this.$refs.target.getBoundingClientRect().top + window.scrollY);
+      const h = document.body.scrollHeight - (this.$refs.target.getBoundingClientRect().top + window.scrollY);
       const bg = this.$refs.bg;
       bg.style.height = h + "px";
-
     },
   },
   mounted() {
-    setTimeout(() => {
-      this.GetTargetHeight();
-    }, 200);
+    this.GetTargetHeight();
+  },
+  updated() {
+    if (this.$refs.element) this.$refs.element.ReSet();
   },
 };
 </script>
@@ -36,22 +34,12 @@ export default {
 
     <div class="max-w-5xl mx-auto">
       <div class="relative w-full mb-20 aspect-video sm:mb-5">
-        <iframe
-          src="https://www.youtube.com/embed/6kkuh11bDiyOw"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+        <iframe src="https://www.youtube.com/embed/6kkuh11bDiyOw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="max-w-3xl pt-10 mx-auto mt-16" ref="target">
-        <div class="mb-3 text-3xl sm:text-lg">
-          夢境漫遊：繪本藝術展 線上導覽影片
-        </div>
+        <div class="mb-3 text-3xl sm:text-lg">夢境漫遊：繪本藝術展 線上導覽影片</div>
         <div class="mb-3 text-xl sm:text-sm">策展人：吳文君</div>
-        <div class="mb-6 ">
-          由策展人與策展團隊帶領著大家一起在展間漫遊，一起聊聊關於繪本的故事。
-        </div>
+        <div class="mb-6">由策展人與策展團隊帶領著大家一起在展間漫遊，一起聊聊關於繪本的故事。</div>
 
         <hr class="mb-6 border border-zinc-600" />
 

@@ -15,9 +15,11 @@ export default {
     },
   },
   mounted() {
-    setTimeout(() => {
-      this.GetTargetHeight();
-    }, 200);
+    this.GetTargetHeight();
+  },
+
+  updated() {
+    if (this.$refs.element) this.$refs.element.ReSet();
   },
 };
 </script>

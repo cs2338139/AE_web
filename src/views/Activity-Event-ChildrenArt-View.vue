@@ -62,6 +62,7 @@ export default {
   },
   updated() {
     this.GetTargetHeight();
+    if (this.$refs.element) this.$refs.element.ReSet();
   },
 };
 </script>

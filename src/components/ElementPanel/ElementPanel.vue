@@ -4,12 +4,12 @@ defineProps({});
 
 <script>
 export default {
+  expose: ["ReSet"],
   data() {
     return {};
   },
   methods: {
-    GetTargetHeight() {
-      console.log("Work///////////////////////////////////////////////////////////////////////////////");
+    ReSet() {
       let target = this.$refs.target;
       let foot = document.getElementById("foot");
       const h = foot.getBoundingClientRect().top + window.scrollY;
@@ -24,8 +24,7 @@ export default {
     },
   },
   mounted() {
-    console.log("mounted/////////////////////////////////////////////////////");
-    this.GetTargetHeight();
+    this.ReSet();
   },
   updated() {},
 };

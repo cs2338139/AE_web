@@ -12,13 +12,13 @@ export default {
       const h = document.body.scrollHeight - (this.$refs.target.getBoundingClientRect().top + window.scrollY);
       const bg = this.$refs.bg;
       bg.style.height = h + "px";
-
     },
   },
   mounted() {
-    setTimeout(() => {
-      this.GetTargetHeight();
-    }, 200);
+    this.GetTargetHeight();
+  },
+  updated() {
+    if (this.$refs.element) this.$refs.element.ReSet();
   },
 };
 </script>
@@ -42,13 +42,7 @@ export default {
   <div class="max-w-5xl mx-auto mt-20 text-center">
     <div class="mb-5 text-4xl sm:text-lg text-bg-3-Color">繪本：一個像海的地方</div>
     <div class="relative w-full aspect-video mb-28 sm:mb-5">
-      <iframe
-        src="https://www.youtube.com/embed/f9BHeGL3xK0"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
+      <iframe src="https://www.youtube.com/embed/f9BHeGL3xK0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 
@@ -58,13 +52,7 @@ export default {
       <div class="max-w-5xl mx-auto text-center">
         <div class="mb-5 text-4xl sm:text-lg text-bg-3-Color">繪本：哪邊是哪邊</div>
         <div class="relative w-full aspect-video sm:mb-5">
-          <iframe
-            src="https://www.youtube.com/embed/nbV87xkNblY"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+          <iframe src="https://www.youtube.com/embed/nbV87xkNblY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -74,17 +62,11 @@ export default {
   <div class="max-w-5xl mx-auto mt-20 mb-40 text-center">
     <div class="mb-5 text-4xl sm:text-lg text-bg-3-Color">繪本：夢遊</div>
     <div class="relative w-full aspect-video mb-28 sm:mb-5">
-      <iframe
-        src="https://www.youtube.com/embed/SjkFgKlbtWA"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
+      <iframe src="https://www.youtube.com/embed/SjkFgKlbtWA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 
-  <div class="text-center text-bg-0-Color sm:text-sm sm:-mb-10"  ref="target">
+  <div class="text-center text-bg-0-Color sm:text-sm sm:-mb-10" ref="target">
     <div>動畫授權：文化內容策進院</div>
   </div>
 

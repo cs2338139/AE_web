@@ -34,6 +34,9 @@ export default {
       this._newsList = this.$newsList;
     }
   },
+  updated() {
+    if (this.$refs.element) this.$refs.element.ReSet();
+  },
 };
 </script>
 

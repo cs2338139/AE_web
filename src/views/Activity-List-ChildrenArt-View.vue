@@ -72,6 +72,7 @@ export default {
   },
   created() {
     this.LoadJson();
+    if (this.$refs.element) this.$refs.element.ReSet();
   },
 };
 </script>
