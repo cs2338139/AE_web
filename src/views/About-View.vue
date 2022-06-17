@@ -61,7 +61,7 @@ export default {
 
 <template>
   <template v-if="aboutData != null">
-    <ElementPanel ref="element" />
+    <ElementPanel keyName="About" ref="element" />
     <div class="wrap">
       <Road class="mb-10">
         <RoadItem>關於策展</RoadItem>

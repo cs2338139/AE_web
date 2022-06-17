@@ -21,7 +21,8 @@ const router = createRouter({
       children: [
         {
           path: "",
-          component: () => import("../views/Exhibition-List-Content-View.vue"),
+          component: () => import("../views/Type-Content-View.vue"),
+
         },
         {
           path: ":bookID",
@@ -57,7 +58,7 @@ const router = createRouter({
       children: [
         {
           path: "",
-          component: () => import("../views/Activity-List-Content-View.vue"),
+          component: () => import("../views/Type-Content-View.vue"),
         },
         {
           path: ":eventID",
@@ -71,7 +72,7 @@ const router = createRouter({
       children: [
         {
           path: "",
-          component: () => import("../views/Video-Content-View.vue"),
+          component: () => import("../views/Type-Content-View.vue"),
         }
       ],
     },
@@ -81,7 +82,7 @@ const router = createRouter({
       children: [
         {
           path: "",
-          component: () => import("../views/Album-List-Content-View.vue"),
+          component: () => import("../views/Type-Content-View.vue"),
         },
         {
           path: ":albumEventID",

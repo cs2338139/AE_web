@@ -63,12 +63,12 @@ export default {
         <template #title>夢境房</template>
       </Road>
 
-      <div class="w-full mb-20 px-14 overflow-hidden aspect-video lg:px-0">
+      <div class="w-full mb-20 overflow-hidden px-14 aspect-video lg:px-0">
         <img :src="dir + exhibitionData.image" />
       </div>
 
-      <div class="text-center mb-20">
-        <div class="sm:mb-10 mb-6 sm:px-1">
+      <div class="mb-20 text-center">
+        <div class="mb-6 sm:mb-10 sm:px-1">
           <template v-for="i in info">
             <div :class="{ my: i === '' }" class="contentFont">{{ i }}</div>
           </template>
@@ -77,37 +77,52 @@ export default {
       </div>
 
       <div ref="target" class="relative">
-        <ExhibitionItem :img="dir + '0/cover.jpg'" :info="exhibitionData.books[0].info" :href="'Dream /' + 0" class="mt-32 -mb-10 sm:mb-0 -translate-x-72 xl:-translate-x-52 lg:-translate-x-20 sm:-translate-x-1">
-          <template #title>{{ exhibitionData.books[0].title }}</template>
-        </ExhibitionItem>
+        <div class="mt-32 -mb-10 sm:mb-0 -translate-x-72 xl:-translate-x-52 lg:-translate-x-20 sm:-translate-x-1">
+          <ExhibitionItem :img="dir + '0/cover.jpg'" :info="exhibitionData.books[0].info" :href="'Dream /' + 0">
+            <div class="w-28 h-28 bg-no-repeat bg-w100% bg-Ghost-image absolute -right-4 top-5"></div>
+            <template #title>{{ exhibitionData.books[0].title }}</template>
+          </ExhibitionItem>
+        </div>
 
         <div class="w-20 h-32 bg-no-repeat sm:bg-h100% bg-w100% bg-arrow-1-image mx-auto sm:h-20 sm:translate-x-14"></div>
 
-        <ExhibitionItem :img="dir + '1/cover.jpg'" :info="exhibitionData.books[1].info" :href="'Dream /' + 1" class="mt-0 mb-2 translate-x-24 sm:translate-x-1">
-          <template #title>{{ exhibitionData.books[1].title }}</template>
-        </ExhibitionItem>
+        <div class="mt-0 mb-2 translate-x-24 sm:translate-x-1">
+          <ExhibitionItem :img="dir + '1/cover.jpg'" :info="exhibitionData.books[1].info" :href="'Dream /' + 1">
+            <div class="w-28 h-28 bg-no-repeat bg-w100% bg-Leaf-1-image absolute -right-4 top-5"></div>
+            <template #title>{{ exhibitionData.books[1].title }}</template>
+          </ExhibitionItem>
+        </div>
 
         <div class="w-36 h-32 bg-no-repeat sm:bg-h100% bg-w100% bg-arrow-2-image mx-auto -translate-x-12 sm:h-20 sm:translate-x-0"></div>
 
-        <ExhibitionItem :img="dir + '2/cover.jpg'" :info="exhibitionData.books[2].info" :href="'Dream /' + 2" class="mt-0 mb-0 -translate-x-36 lg:-translate-x-20 sm:-translate-x-1">
-          <template #title>{{ exhibitionData.books[2].title }}</template>
-        </ExhibitionItem>
+        <div class="mt-0 mb-0 -translate-x-36 lg:-translate-x-20 sm:-translate-x-1">
+          <ExhibitionItem :img="dir + '2/cover.jpg'" :info="exhibitionData.books[2].info" :href="'Dream /' + 2">
+            <div class="w-36 h-20 bg-no-repeat bg-w100% bg-Leaf-2-image absolute -right-4 top-14"></div>
+            <template #title>{{ exhibitionData.books[2].title }}</template>
+          </ExhibitionItem>
+        </div>
 
         <div class="w-24 h-28 bg-no-repeat bg-h100% bg-arrow-3-image mx-auto -translate-x-16 sm:h-20 sm:-translate-x-0 sm:rotate-12"></div>
 
-        <ExhibitionItem :img="dir + '3/cover.jpg'" :info="exhibitionData.books[3].info" :href="'Dream /' + 3" class="mt-2 mb-2 translate-x-32 lg:translate-x-20 sm:translate-x-1">
-          <template #title>{{ exhibitionData.books[3].title }}</template>
-        </ExhibitionItem>
+        <div class="mt-2 mb-2 translate-x-32 lg:translate-x-20 sm:translate-x-1">
+          <ExhibitionItem :img="dir + '3/cover.jpg'" :info="exhibitionData.books[3].info" :href="'Dream /' + 3">
+            <div class="w-40 h-36 bg-no-repeat bg-w100% bg-Truck-image absolute right-0 -top-5"></div>
+            <template #title>{{ exhibitionData.books[3].title }}</template>
+          </ExhibitionItem>
+        </div>
 
         <div class="w-36 h-32 bg-no-repeat sm:bg-h100% bg-w100% bg-arrow-4-image mx-auto sm:h-20 sm:translate-x-14 sm:-rotate-12"></div>
 
-        <ExhibitionItem :img="dir + '4/cover.jpg'" :info="exhibitionData.books[4].info" :href="'Dream /' + 4" class="mt-0 mb-2 -translate-x-28 sm:mb-8 md:-translate-x-20 sm:-translate-x-1">
-          <template #title>{{ exhibitionData.books[4].title }}</template>
-        </ExhibitionItem>
+        <div class="mt-0 mb-2 -translate-x-28 sm:mb-8 md:-translate-x-20 sm:-translate-x-1">
+          <ExhibitionItem :img="dir + '4/cover.jpg'" :info="exhibitionData.books[4].info" :href="'Dream /' + 4">
+            <div class="w-40 h-36 bg-no-repeat bg-w100% bg-Coral-1-image absolute right-2 top-2"></div>
+            <template #title>{{ exhibitionData.books[4].title }}</template>
+          </ExhibitionItem>
+        </div>
       </div>
     </div>
-    <div class="absolute w-full bottom-0 -z-50">
-      <div class="bg-foot-1-image h-8"></div>
+    <div class="absolute bottom-0 w-full -z-50">
+      <div class="h-8 bg-foot-1-image"></div>
       <div class="bg-gradient-to-b from-black to-bg-3-Color" ref="bg"></div>
     </div>
   </template>
@@ -127,11 +142,6 @@ export default {
   }
 }
 
-@layer utilities {
-  .h-550px {
-    height: 550px;
-  }
-}
 @layer components {
   .dev {
     @apply border border-solid box-border  border-red-500;

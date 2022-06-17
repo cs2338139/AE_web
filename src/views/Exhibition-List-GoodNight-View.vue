@@ -32,7 +32,6 @@ export default {
       const h = document.body.scrollHeight - (this.$refs.target.getBoundingClientRect().top + window.scrollY);
       const bg = this.$refs.bg;
       bg.style.height = h + 15 + "px";
-
     },
     ChangeLang() {
       if (this.infoState === "English") {
@@ -78,39 +77,59 @@ export default {
       </div>
 
       <div ref="target" class="relative">
-        <ExhibitionItem :img="dir + '0/cover.jpg'" :info="exhibitionData.books[0].info" :href="'GoodNight/' + 0" class="mt-32 -mb-10 sm:mb-0 -translate-x-72 xl:-translate-x-52 lg:-translate-x-20 sm:-translate-x-1">
-          <template #title>{{ exhibitionData.books[0].title }}</template>
-        </ExhibitionItem>
+        <div class="mt-32 -mb-10 sm:mb-0 -translate-x-72 xl:-translate-x-52 lg:-translate-x-20 sm:-translate-x-1">
+          <ExhibitionItem :img="dir + '0/cover.jpg'" :info="exhibitionData.books[0].info" :href="'GoodNight/' + 0">
+            <div class="w-11 h-14 bg-no-repeat bg-w100% bg-Rabbit-1-image absolute left-2 top-14"></div>
+            <div class="w-32 h-20 bg-no-repeat bg-w100% bg-Rabbit-2-image absolute -right-12 bottom-12"></div>
+            <template #title>{{ exhibitionData.books[0].title }}</template>
+          </ExhibitionItem>
+        </div>
 
         <div class="w-20 h-32 bg-no-repeat sm:bg-h100% bg-w100% bg-arrow-1-image mx-auto sm:h-20 sm:translate-x-14"></div>
 
-        <ExhibitionItem :img="dir + '1/cover.jpg'" :info="exhibitionData.books[1].info" :href="'GoodNight/' + 1" class="mt-0 mb-2 translate-x-24 sm:translate-x-1">
-          <template #title>{{ exhibitionData.books[1].title }}</template>
-        </ExhibitionItem>
+        <div class="mt-0 mb-2 translate-x-24 sm:translate-x-1">
+          <ExhibitionItem :img="dir + '1/cover.jpg'" :info="exhibitionData.books[1].info" :href="'GoodNight/' + 1">
+            <div class="w-24 h-20 bg-no-repeat bg-w100% bg-Spaceship-image absolute right-10 top-5"></div>
+            <template #title>{{ exhibitionData.books[1].title }}</template>
+          </ExhibitionItem>
+        </div>
 
         <div class="w-36 h-32 bg-no-repeat sm:bg-h100% bg-w100% bg-arrow-2-image mx-auto -translate-x-12 sm:h-20 sm:translate-x-0"></div>
 
-        <ExhibitionItem :img="dir + '2/cover.jpg'" :info="exhibitionData.books[2].info" :href="'GoodNight/' + 2" class="mt-0 mb-0 -translate-x-36 lg:-translate-x-20 sm:-translate-x-1">
-          <template #title>{{ exhibitionData.books[2].title }}</template>
-        </ExhibitionItem>
+        <div class="mt-0 mb-0 -translate-x-36 lg:-translate-x-20 sm:-translate-x-1">
+          <ExhibitionItem :img="dir + '2/cover.jpg'" :info="exhibitionData.books[2].info" :href="'GoodNight/' + 2">
+            <div class="w-24 h-24 bg-no-repeat bg-w100% bg-Horse-image absolute left-28 -bottom-8"></div>
+            <template #title>{{ exhibitionData.books[2].title }}</template>
+          </ExhibitionItem>
+        </div>
 
         <div class="w-24 h-28 bg-no-repeat bg-h100% bg-arrow-3-image mx-auto -translate-x-16 sm:h-20 sm:-translate-x-0 sm:rotate-12"></div>
 
-        <ExhibitionItem :img="dir + '3/cover.jpg'" :info="exhibitionData.books[3].info" :href="'GoodNight/' + 3" class="mt-2 mb-2 translate-x-32 lg:translate-x-20 sm:translate-x-1">
-          <template #title>{{ exhibitionData.books[3].title }}</template>
-        </ExhibitionItem>
+        <div class="mt-2 mb-2 translate-x-32 lg:translate-x-20 sm:translate-x-1">
+          <ExhibitionItem :img="dir + '3/cover.jpg'" :info="exhibitionData.books[3].info" :href="'GoodNight/' + 3">
+            <div class="w-32 h-24 bg-no-repeat bg-w100% bg-Robbers-image absolute top-4 right-2 rotate-12"></div>
+            <template #title>{{ exhibitionData.books[3].title }}</template>
+          </ExhibitionItem>
+        </div>
 
         <div class="w-36 h-32 bg-no-repeat sm:bg-h100% bg-w100% bg-arrow-4-image mx-auto sm:h-20 sm:translate-x-14 sm:-rotate-12"></div>
 
-        <ExhibitionItem :img="dir + '4/cover.jpg'" :info="exhibitionData.books[4].info" :href="'GoodNight/' + 4" class="mt-0 mb-2 -translate-x-28 sm:mb-8 md:-translate-x-20 sm:-translate-x-1">
-          <template #title>{{ exhibitionData.books[4].title }}</template>
-        </ExhibitionItem>
+        <div class="mt-0 mb-2 -translate-x-28 sm:mb-8 md:-translate-x-20 sm:-translate-x-1">
+          <ExhibitionItem :img="dir + '4/cover.jpg'" :info="exhibitionData.books[4].info" :href="'GoodNight/' + 4">
+            <div class="w-16 h-20 bg-no-repeat bg-w100% bg-Bear-image absolute top-4 right-2 rotate-12"></div>
+            <div class="w-24 h-24 bg-no-repeat bg-w100% bg-Boy-image rotate-270 absolute -left-12 bottom-3"></div>
+            <template #title>{{ exhibitionData.books[4].title }}</template>
+          </ExhibitionItem>
+        </div>
 
         <div class="w-36 h-32 bg-no-repeat sm:bg-h100% bg-w100% bg-arrow-5-image mx-auto sm:h-20 sm:rotate-45"></div>
 
-        <ExhibitionItem :img="dir + '5/cover.jpg'" :info="exhibitionData.books[5].info" :href="'GoodNight/' + 5" class="mt-0 mb-2 sm:translate-x-1">
-          <template #title>{{ exhibitionData.books[5].title }}</template>
-        </ExhibitionItem>
+        <div class="mt-0 mb-2 sm:translate-x-1">
+          <ExhibitionItem :img="dir + '5/cover.jpg'" :info="exhibitionData.books[5].info" :href="'GoodNight/' + 5">
+            <div class="w-32 h-32 bg-no-repeat bg-w100% bg-arrow-6-image absolute -top-8 right-16 "></div>
+            <template #title>{{ exhibitionData.books[5].title }}</template>
+          </ExhibitionItem>
+        </div>
       </div>
     </div>
     <div class="absolute bottom-0 w-full -z-50">
@@ -134,27 +153,9 @@ export default {
   }
 }
 
-@layer utilities {
-  .h-550px {
-    height: 550px;
-  }
-}
 @layer components {
-  . {
-    @apply border border-solid box-border  border-red-500;
-  }
-
-  .bgCloud {
-    background-size: 100% 100%;
-    max-width: 1134px;
-    height: 288px;
-    @apply bg-bg-cloud-image;
-  }
-}
-
-@layer components {
-  . {
-    @apply border border-solid box-border  border-red-500;
+  .dev {
+    @apply border border-solid box-border  border-blue-500;
   }
 }
 </style>
