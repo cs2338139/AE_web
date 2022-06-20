@@ -15,7 +15,9 @@ export default {
     },
   },
   mounted() {
-    this.GetTargetHeight();
+        setTimeout(() => {
+      this.GetTargetHeight();
+    }, 100);
   },
 
   updated() {

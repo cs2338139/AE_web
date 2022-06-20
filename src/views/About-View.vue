@@ -46,14 +46,20 @@ export default {
       let target = this.$refs.target;
       const h = document.body.scrollHeight - (target.getBoundingClientRect().top + window.scrollY);
       const bg = this.$refs.bg;
+      const horse = this.$refs.horse;
       bg.style.height = h + "px";
+      horse.style.bottom = h - horse.clientHeight / 4 + "px";
     },
   },
   created() {
     this.LoadJson();
   },
+  mounted() {},
   updated() {
-    this.GetTargetHeight();
+    setTimeout(() => {
+      this.GetTargetHeight();
+    }, 100);
+
     if (this.$refs.element) this.$refs.element.ReSet();
   },
 };
@@ -67,17 +73,17 @@ export default {
         <RoadItem>關於策展</RoadItem>
         <template #title>關於策展</template>
       </Road>
-      <div class="w-full mb-20 overflow-hidden px-20 md:px-0">
-        <img :src="dir + aboutData.image" class="w-full aspect-image" />
+      <div class="md:px-0 w-full px-20 mb-20 overflow-hidden">
+        <img :src="dir + aboutData.image" class="aspect-image w-full" />
       </div>
       <div>
-        <button class="absolute right-0 px-5 py-1 rounded-full text-bg-0-Color bg-bg-1-Color hover:bg-text-1-Color sm:text-xs xl:right-5" @click="ChangeLang()">{{ infoState }}</button>
-        <div class="mb-5 sm:mb-3">
-          <div class="inline mr-5 text-2xl sm:text-xl sm:mr-2 sm:block">{{ info.title }}</div>
-          <div class="inline text-lg sm:text-xs text-zinc-500 sm:block">{{ info.curator }}</div>
+        <button class="text-bg-0-Color bg-bg-1-Color hover:bg-text-1-Color sm:text-xs xl:right-5 absolute right-0 px-5 py-1 rounded-full" @click="ChangeLang()">{{ infoState }}</button>
+        <div class="sm:mb-3 mb-5">
+          <div class="sm:text-xl sm:mr-2 sm:block inline mr-5 text-2xl">{{ info.title }}</div>
+          <div class="sm:text-xs text-zinc-500 sm:block inline text-lg">{{ info.curator }}</div>
         </div>
 
-        <div class="mb-20 sm:mb-10">
+        <div class="sm:mb-10 mb-20">
           <template v-for="i in info.info">
             <div :class="{ my: i === '' }" class="contentFont">{{ i }}</div>
           </template>
@@ -86,7 +92,7 @@ export default {
     </div>
 
     <div class="mb-20">
-      <div class="h-10 bg-bg-0-image"></div>
+      <div class="bg-bg-0-image h-10"></div>
       <div class="bg-bg-2-Color">
         <div class="wrap">
           <div class="title">策展人</div>
@@ -97,41 +103,47 @@ export default {
           <br /><br />
         </div>
       </div>
-      <div class="h-10 bg-bottom bg-bg-0-image"></div>
+      <div class="absolute bg-no-repeat bg-w100% w-36 bg-Leaves-image -translate-y-24 -scale-x-100 left-0 h-48"></div>
+      <div class="absolute bg-no-repeat bg-w100% w-36 bg-Boy-image right-60 h-36 rotate-180"></div>
+      <div class="bg-bg-0-image h-10 bg-bottom"></div>
     </div>
 
     <div class="wrap">
-      <div class="mb-20 sm:mb-10">
+      <div class="sm:mb-10 mb-20">
         <div class="title">策展團隊</div>
 
-        <div class="mx-auto mt-20 mb-12 bgCloud sm:mt-10 flex items-center justify-center">
-          <div class="w-3/5 text-lg sm:text-sm text text-center">
+        <div class="bgCloud sm:mt-10 relative flex items-center justify-center mx-auto mt-5 mb-5">
+          <div class="sm:text-sm text w-3/5 text-lg text-center">
             {{ aboutData.curatorialTeamTip }}
           </div>
+          <div class="absolute bg-no-repeat bg-w100% w-24 bg-Bear-image -right-8 bottom-5 h-36"></div>
         </div>
 
-        <AboutItem v-for="i in aboutData.curatorialTeam" :img="dir + i.image" :href="i.link" class="my-32 sm:my-20">
+        <AboutItem v-for="i in aboutData.curatorialTeam" :img="dir + i.image" :href="i.link" class="sm:my-20 my-32">
           <template #name>{{ i.name }}</template>
           <template #info>{{ i.info }}</template>
         </AboutItem>
       </div>
 
-      <div class="sm:mb-10" ref="target">
-        <div class="title">推廣團隊</div>
+      <div class="sm:mb-10">
+        <div class="title" ref="target">推廣團隊</div>
 
-        <div class="mx-auto mt-20 mb-12 bgCloud sm:mt-10 flex items-center justify-center">
-          <div class="w-3/5 text-lg sm:text-sm text text-center">
+        <div class="bgCloud sm:mt-10 relative flex items-center justify-center mx-auto mt-5 mb-5">
+          <div class="sm:text-sm text w-3/5 text-lg text-center">
             {{ aboutData.promotionTeamTip }}
           </div>
+          <div class="absolute bg-no-repeat bg-w100% w-24 bg-Rabbit-1-image right-0 bottom-5 h-36 -scale-x-100"></div>
         </div>
 
-        <AboutItem v-for="i in aboutData.promotionTeam" :img="dir + i.image" :href="i.link" class="my-32 sm:my-20">
+        <AboutItem v-for="i in aboutData.promotionTeam" :img="dir + i.image" :href="i.link" class="sm:my-20 my-32">
           <template #name>{{ i.name }}</template>
           <template #info>{{ i.info }}</template>
         </AboutItem>
       </div>
     </div>
-    <div class="absolute w-full bottom-0 -z-50">
+
+    <div class="-z-50 absolute bottom-0 w-full">
+      <div class="absolute bg-no-repeat bg-w100% w-36 bg-Horse-image left-20 h-36 bottom-0" ref="horse"></div>
       <div class="bg-bg-0-image h-8"></div>
       <div class="bg-bg-2-Color h-0" ref="bg"></div>
     </div>

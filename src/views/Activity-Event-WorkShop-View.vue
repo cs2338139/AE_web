@@ -63,7 +63,9 @@ export default {
     document.body.style.overflow = "scroll";
   },
   updated() {
-    this.GetTargetHeight();
+        setTimeout(() => {
+      this.GetTargetHeight();
+    }, 100);
     if (this.$refs.element) this.$refs.element.ReSet();
   },
 };
