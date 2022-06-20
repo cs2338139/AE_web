@@ -31,12 +31,15 @@ export default {
         switch (this.keyName) {
           case "About":
             this.pageComponent = "ElementAboutPage";
+          case "Exhibition":
+            this.pageComponent = "ElementExhibitionPage";
         }
       }
     },
   },
   components: {
     ElementAboutPage: defineAsyncComponent(() => import("./src/Element-About-Page.vue")),
+    ElementExhibitionPage: defineAsyncComponent(() => import("./src/Element-Exhibition-Page.vue")),
   },
   created() {
     this.SwitchElement();
