@@ -12,7 +12,6 @@ export default {
       let target = this.$refs.target;
       let foot = document.getElementById("foot");
       const h = foot.getBoundingClientRect().top + window.scrollY;
-      console.log(document.body.scrollHeight);
 
       for (let i = 0; i < target.childNodes.length; i++) {
         target.childNodes[i].style.display = "block";
@@ -30,11 +29,11 @@ export default {
   updated() {},
 };
 </script>
-<!-- rotate-45 -->
+
 <template>
   <div ref="target">
     <div class="image h-11 bg-Star-image right-16 top-280 w-8 rotate-45"></div>
-    <div class="image h-11 bg-Star-image right-80 top-300 w-10"></div>
+    <div class="image h-11 bg-Star-image right-104 top-300 w-10"></div>
     <div class="image h-11 bg-Star-image right-40 top-340 w-8 rotate-45"></div>
     <div class="image h-11 bg-Star-image right-124 top-360 w-10"></div>
     <div class="image h-11 bg-Star-image right-24 top-440 w-4"></div>
@@ -45,10 +44,6 @@ export default {
     <div class="image h-11 bg-Star-image right-60 top-640 w-10"></div>
     <div class="image h-11 bg-Star-image right-104 top-680 w-5"></div>
     <div class="image h-11 bg-Star-image right-40 top-700 w-7"></div>
-    <div class="image h-11 bg-Star-image right-116 top-760 w-8"></div>
-    <div class="image h-11 bg-Star-image right-56 top-800 w-6 rotate-45"></div>
-    <div class="image h-11 bg-Star-image right-162 top-820 w-5"></div>
-    <div class="image h-11 bg-Star-image right-16 top-860 w-6 rotate-45"></div>
 
     <div class="image h-11 bg-Star-image left-104 top-260 w-8"></div>
     <div class="image h-11 bg-Star-image left-56 top-340 w-7 rotate-45"></div>
@@ -63,15 +58,11 @@ export default {
     <div class="image h-11 bg-Star-image left-170 top-660 w-6"></div>
     <div class="image h-11 bg-Star-image left-112 top-680 w-7"></div>
     <div class="image h-11 bg-Star-image left-52 top-740 w-5"></div>
-    <div class="image h-11 bg-Star-image left-142 top-760 w-6 rotate-45"></div>
-    <div class="image h-11 bg-Star-image left-186 top-780 w-7"></div>
-    <div class="image h-11 bg-Star-image left-64 top-800 w-8 rotate-45"></div>
-    <div class="image h-11 bg-Star-image left-24 top-840 w-9"></div>
-    <div class="image h-11 bg-Star-image left-80 top-900 w-10 rotate-45"></div>
+
   </div>
 </template>
 
-<style scoped>
+<style>
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -79,7 +70,6 @@ export default {
 @layer components {
   .image {
     @apply absolute bg-no-repeat bg-w100%;
-    /* @apply border; */
   }
 }
 </style>

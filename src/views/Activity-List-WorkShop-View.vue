@@ -84,7 +84,7 @@ export default {
 </script>
 
 <template>
-  <ElementPanel ref="element" />
+  <ElementPanel ref="element" keyName="Activity"/>
   <div class="wrap mb-20">
     <Road class="mb-5">
       <RoadItem>推廣活動</RoadItem>
@@ -116,6 +116,7 @@ export default {
   </div>
   <div class="absolute w-full bottom-0 -z-10">
     <div class="bg-bg-0-image h-8"></div>
+    <div class="absolute bg-no-repeat bg-w100% h-40 bg-Boy-image left-72 translate-y-8 w-40"></div>
     <div class="bg-bg-2-Color h-80"></div>
   </div>
 </template>

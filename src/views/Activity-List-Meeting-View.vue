@@ -82,7 +82,7 @@ export default {
 </script>
 
 <template>
-  <ElementPanel ref="element" />
+  <ElementPanel ref="element"  keyName="Activity"/>
   <div class="wrap">
     <Road class="mb-5">
       <RoadItem>推廣活動</RoadItem>

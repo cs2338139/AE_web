@@ -24,14 +24,7 @@ export default {
           .get("Data/Exhibitions/" + exhibitionID + "/" + bookID + "/BookContent.json")
           .then((response) => {
             this.bookData = response.data;
-            switch (exhibitionID) {
-              case "GoodNight":
-                this.exhibitionsName = "晚安屋";
-                break;
-              case "Dream":
-                this.exhibitionsName = "夢境房";
-                break;
-            }
+            this.SwitchElement(exhibitionID, bookID);
           })
           .catch((response) => {
             console.log(response);
@@ -39,12 +32,47 @@ export default {
           });
       }
     },
+    SwitchElement(exhibitionID, bookID) {
+      switch (exhibitionID) {
+        case "GoodNight":
+          this.exhibitionsName = "晚安屋";
+          switch (bookID) {
+            case "0":
+              break;
+            case "1":
+              break;
+            case "2":
+              break;
+            case "3":
+              break;
+            case "4":
+              break;
+            case "5":
+              break;
+          }
+          break;
+        case "Dream":
+          this.exhibitionsName = "夢境房";
+          switch (bookID) {
+            case "0":
+              break;
+            case "1":
+              break;
+            case "2":
+              break;
+            case "3":
+              break;
+            case "4":
+              break;
+          }
+          break;
+      }
+    },
     GetTargetHeight() {
       if (this.bookData.author.length === 2) {
         const h = document.body.scrollHeight - (this.$refs.target[1].getBoundingClientRect().top + window.scrollY);
         const bg = this.$refs.bg;
         bg.style.height = h + "px";
-
       }
     },
     ToNotFound() {
@@ -63,7 +91,7 @@ export default {
     this.LoadJson();
   },
   updated() {
-        setTimeout(() => {
+    setTimeout(() => {
       this.GetTargetHeight();
     }, 100);
     if (this.$refs.element) this.$refs.element.ReSet();

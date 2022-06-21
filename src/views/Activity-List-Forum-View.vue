@@ -81,16 +81,16 @@ export default {
 </script>
 
 <template>
-  <ElementPanel ref="element" />
+  <ElementPanel ref="element" keyName="Activity" />
   <div class="wrap mb-20">
     <Road class="mb-5">
       <RoadItem>推廣活動</RoadItem>
       <RoadItem>分享會</RoadItem>
       <template #title>分享會</template>
     </Road>
-    <div class="text-center text-3xl  sm:text-xl">「夢境漫遊：繪本藝術」展之繪本美學分享會</div>
-    <div class="max-w-4xl mx-auto mt-8 mb-24 sm:mt-5">
-      <div class="text-base  sm:text-sm text-center">
+    <div class="sm:text-xl text-3xl text-center">「夢境漫遊：繪本藝術」展之繪本美學分享會</div>
+    <div class="sm:mt-5 max-w-4xl mx-auto mt-8 mb-24">
+      <div class="sm:text-sm text-base text-center">
         <div class="mb-3">
           可曾想過，孩子的夢，會有哪些？<br />做夢和探索世界的能力，<br />是孩子迎向未來和未知的勇氣。<br />
           透過與策展人面對面座談，藉由經驗分享一同探討繪本對兒童的影響，進而打開無限想像力和好奇心，啟發藝術興趣。
@@ -102,21 +102,17 @@ export default {
         </div>
       </div>
     </div>
-    <div class="flex flex-wrap justify-between xl:justify-around max-w-5xl mx-auto">
-      <ActivityItem
-        v-for="i in ForumList"
-        :href="'/activities/' + $route.params.activityID + '/' + i.index"
-        :img="'Data/Activities/' + $route.params.activityID + '/' + i.index + '/cover.jpg'"
-        :class="{ invisible: i.title === 'none' }"
-      >
+    <div class="xl:justify-around flex flex-wrap justify-between max-w-5xl mx-auto">
+      <ActivityItem v-for="i in ForumList" :href="'/activities/' + $route.params.activityID + '/' + i.index" :img="'Data/Activities/' + $route.params.activityID + '/' + i.index + '/cover.jpg'" :class="{ invisible: i.title === 'none' }">
         <template #title>{{ i.title }}</template>
         <template #title2>{{ i.title2 }}</template>
         <template #date>{{ i.date }}</template>
       </ActivityItem>
     </div>
   </div>
-  <div class="absolute w-full bottom-0 -z-10">
+  <div class="-z-10 absolute bottom-0 w-full">
     <div class="bg-bg-0-image h-8"></div>
+    <div class="absolute bg-no-repeat bg-w100% h-40 bg-Boy-image left-72 translate-y-8 w-40"></div>
     <div class="bg-bg-2-Color h-80"></div>
   </div>
 </template>

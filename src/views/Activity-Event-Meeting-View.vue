@@ -71,7 +71,7 @@ export default {
 
 <template>
   <template v-if="Data != null">
-    <ElementPanel ref="element" />
+    <ElementPanel ref="element" keyName="Meeting"/>
     <div class="wrap mb-20">
       <Road class="mb-10">
         <RoadItem>推廣活動</RoadItem>

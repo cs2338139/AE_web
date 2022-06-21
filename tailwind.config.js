@@ -912,6 +912,7 @@ module.exports = {
       6: "6deg",
       12: "12deg",
       45: "45deg",
+      60: "60deg",
       90: "90deg",
       180: "180deg",
       270: "270deg",
