@@ -1,7 +1,12 @@
 <script setup>
 import { defineAsyncComponent } from "vue";
+import ElementStar0 from "./src/Element-Star-0.vue";
+import ElementStar1 from "./src/Element-Star-1.vue";
 defineProps({
-  keyName: String,
+  keyName: {
+    default: "Star-0",
+    type: String,
+  },
 });
 </script>
 
@@ -25,35 +30,13 @@ export default {
 
         if (y > h) target.childNodes[i].style.display = "none";
       }
+      console.log(this.$refs.child);
+      this.$refs.child.ReSet();
     },
     SwitchElement() {
-      if (this.keyName != null) {
-        switch (this.keyName) {
-          case "About":
-            this.pageComponent = "ElementAboutPage";
-            break;
-          case "Exhibition":
-            this.pageComponent = "ElementExhibitionPage";
-            break;
-          case "Meeting":
-            this.pageComponent = "ElementMeetingPage";
-            break;
-          case "Animations":
-            this.pageComponent = "ElementAnimationsPage";
-            break;
-          case "Activity":
-            this.pageComponent = "ElementActivityPage";
-            break;
-        }
-      }
+      if (this.keyName === "Star-0") this.pageComponent = ElementStar0;
+      if (this.keyName === "Star-1") this.pageComponent = ElementStar1;
     },
-  },
-  components: {
-    ElementAboutPage: defineAsyncComponent(() => import("./src/Element-About-Page.vue")),
-    ElementExhibitionPage: defineAsyncComponent(() => import("./src/Element-Exhibition-Page.vue")),
-    ElementMeetingPage: defineAsyncComponent(() => import("./src/Element-Meeting-Page.vue")),
-    ElementAnimationsPage: defineAsyncComponent(() => import("./src/Element-Animations-Page.vue")),
-    ElementActivityPage: defineAsyncComponent(() => import("./src/Element-Activity-Page.vue")),
   },
   created() {
     this.SwitchElement();
@@ -62,7 +45,6 @@ export default {
     this.ReSet();
   },
   updated() {
-    this.SwitchElement();
   },
 };
 </script>
@@ -82,7 +64,7 @@ export default {
         <div class="image h-11 bg-Star-image left-28 top-202 w-8"></div>
         <div class="image h-11 bg-Star-image left-64 top-240 w-8"></div>
       </div>
-      <component :is="pageComponent"></component>
+      <component :is="pageComponent" ref="child"></component>
     </div>
   </div>
 </template>

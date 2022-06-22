@@ -61,7 +61,7 @@ export default {
     document.body.style.overflow = "scroll";
   },
   updated() {
-        setTimeout(() => {
+    setTimeout(() => {
       this.GetTargetHeight();
     }, 100);
     if (this.$refs.element) this.$refs.element.ReSet();
@@ -71,7 +71,12 @@ export default {
 
 <template>
   <template v-if="Data != null">
-    <ElementPanel ref="element" keyName="Meeting"/>
+    <ElementPanel ref="element"/>
+    <div class="absolute w-full dev">
+      <div class="image h-36 bg-Horse-image right-162 top-190 w-36"></div>
+      <div class="image h-52 bg-Boy-image right-108 top-260 w-52"></div>
+      <div class="image h-32 bg-Bear-image right-142 top-340 w-20 rotate-12"></div>
+    </div>
     <div class="wrap mb-20">
       <Road class="mb-10">
         <RoadItem>推廣活動</RoadItem>

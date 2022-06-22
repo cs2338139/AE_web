@@ -57,7 +57,7 @@ export default {
 
 <template>
   <template v-if="exhibitionData != null">
-    <ElementPanel keyName="Exhibition" ref="element" />
+    <ElementPanel ref="element" />
     <div class="wrap">
       <Road class="mb-10">
         <RoadItem>展覽介紹</RoadItem>

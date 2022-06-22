@@ -31,7 +31,7 @@ export default {
 };
 </script>
 <template>
-  <ElementPanel ref="element" keyName="Animations" />
+  <ElementPanel ref="element"/>
   <div class="wrap">
     <Road class="mb-10">
       <RoadItem>宣導影片</RoadItem>

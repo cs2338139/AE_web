@@ -4,6 +4,7 @@ defineProps({});
 
 <script>
 export default {
+  expose: ["ReSet"],
   data() {
     return {};
   },
@@ -12,6 +13,7 @@ export default {
       let target = this.$refs.target;
       let foot = document.getElementById("foot");
       const h = foot.getBoundingClientRect().top + window.scrollY;
+      console.log(document.body.scrollHeight);
 
       for (let i = 0; i < target.childNodes.length; i++) {
         target.childNodes[i].style.display = "block";
@@ -21,15 +23,9 @@ export default {
       }
     },
   },
-  components: {},
-  created() {},
-  mounted() {
-    this.ReSet();
-  },
-  updated() {},
 };
 </script>
-
+<!-- rotate-45 -->
 <template>
   <div ref="target">
     <div class="image h-11 bg-Star-image right-16 top-280 w-8 rotate-45"></div>
@@ -70,7 +66,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped>
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -78,6 +74,7 @@ export default {
 @layer components {
   .image {
     @apply absolute bg-no-repeat bg-w100%;
+    /* @apply border; */
   }
 }
 </style>

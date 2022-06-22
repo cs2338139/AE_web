@@ -4,6 +4,7 @@ defineProps({});
 
 <script>
 export default {
+  expose: ["ReSet"],
   data() {
     return {};
   },
@@ -21,12 +22,6 @@ export default {
       }
     },
   },
-  components: {},
-  created() {},
-  mounted() {
-    this.ReSet();
-  },
-  updated() {},
 };
 </script>
 
@@ -55,9 +50,6 @@ export default {
     <div class="image h-11 bg-Star-image left-40 top-980 w-8"></div>
     <div class="image h-11 bg-Star-image left-20 top-1040 w-8 rotate-45"></div>
     <div class="image h-11 bg-Star-image left-44 top-1160 w-8"></div>
-
-
-
   </div>
 </template>
 
