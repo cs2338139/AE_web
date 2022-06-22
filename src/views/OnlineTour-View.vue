@@ -15,7 +15,7 @@ export default {
     },
   },
   mounted() {
-    setInterval(() => {
+    interval=setInterval(() => {
       const h = document.body.scrollHeight - (this.$refs.target.getBoundingClientRect().top + window.scrollY);
       const bg = this.$refs.bg;
       if (bg.clientHeight != h) {

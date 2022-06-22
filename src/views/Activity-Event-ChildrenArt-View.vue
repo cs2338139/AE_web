@@ -61,7 +61,7 @@ export default {
     this.LoadJson();
   },
   updated() {
-    setInterval(() => {
+    interval=setInterval(() => {
       let target = null;
       if (this.$windowWidth > this.$lg) {
         // target = this.$refs.target.$refs.info;

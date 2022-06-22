@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     autoSlides() {
-      this.timeID = setInterval(() => {
+      this.timeID = interval=setInterval(() => {
         this.plusSlides(1);
       }, 3000);
     },

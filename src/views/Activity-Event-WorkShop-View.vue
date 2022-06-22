@@ -63,7 +63,7 @@ export default {
     document.body.style.overflow = "scroll";
   },
   updated() {
-    setInterval(() => {
+    interval=setInterval(() => {
       let target = null;
       if (this.$windowWidth > this.$lg) {
         // target = this.$refs.target.$refs.info;
