@@ -15,7 +15,7 @@ export default {};
       <template #title>預約導覽</template>
     </Road>
     <div class="left-0 right-0 max-w-2xl mx-auto mb-20">
-      <div class="mb-10 text-3xl font-bold text-red-500 sm:text-xl">-目前配合防疫措施，不開放預約導覽-</div>
+      <!-- <div class="mb-10 text-3xl font-bold text-red-500 sm:text-xl">-目前配合防疫措施，不開放預約導覽-</div> -->
 
       <div class="text-xl sm:text-base">看展資訊</div>
       <ul>
