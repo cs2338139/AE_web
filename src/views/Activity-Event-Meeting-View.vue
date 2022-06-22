@@ -61,17 +61,27 @@ export default {
     document.body.style.overflow = "scroll";
   },
   updated() {
-    setTimeout(() => {
-      this.GetTargetHeight();
+    setInterval(() => {
+      let target = null;
+      if (this.$windowWidth > this.$lg) {
+        target = document.getElementById("info");
+      } else {
+        target = document.getElementById("place");
+      }
+      const h = document.body.scrollHeight - (target.getBoundingClientRect().top + window.scrollY);
+      const bg = this.$refs.bg;
+      if (bg.clientHeight != h) {
+        this.GetTargetHeight();
+        if (this.$refs.element) this.$refs.element.ReSet();
+      }
     }, 100);
-    if (this.$refs.element) this.$refs.element.ReSet();
   },
 };
 </script>
 
 <template>
   <template v-if="Data != null">
-    <ElementPanel ref="element"/>
+    <ElementPanel ref="element" />
     <div class="absolute w-full dev">
       <div class="image h-36 bg-Horse-image right-162 top-190 w-36"></div>
       <div class="image h-52 bg-Boy-image right-108 top-260 w-52"></div>

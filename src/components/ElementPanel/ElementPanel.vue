@@ -30,7 +30,6 @@ export default {
 
         if (y > h) target.childNodes[i].style.display = "none";
       }
-      console.log(this.$refs.child);
       this.$refs.child.ReSet();
     },
     SwitchElement() {

@@ -14,8 +14,8 @@ export default {
       aboutData: null,
       infoState: "English",
       info: {
-        title: null,
-        curator: null,
+        title: "",
+        curator: "",
         info: [],
       },
     };
@@ -26,7 +26,6 @@ export default {
         .get("Data/About/about.json")
         .then((response) => {
           this.aboutData = response.data;
-          // console.log(this.aboutData);
           this.info = this.aboutData.info[0];
         })
         .catch(function (response) {
@@ -54,13 +53,15 @@ export default {
   created() {
     this.LoadJson();
   },
-  mounted() {},
   updated() {
-    setTimeout(() => {
-      this.GetTargetHeight();
+    setInterval(() => {
+      const h = document.body.scrollHeight - (this.$refs.target.getBoundingClientRect().top + window.scrollY);
+      const bg = this.$refs.bg;
+      if (bg.clientHeight != h) {
+        this.GetTargetHeight();
+        if (this.$refs.element) this.$refs.element.ReSet();
+      }
     }, 100);
-
-    if (this.$refs.element) this.$refs.element.ReSet();
   },
 };
 </script>

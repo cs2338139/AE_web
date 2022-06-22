@@ -61,10 +61,22 @@ export default {
     this.LoadJson();
   },
   updated() {
-        setTimeout(() => {
-      this.GetTargetHeight();
+    setInterval(() => {
+      let target = null;
+      if (this.$windowWidth > this.$lg) {
+        // target = this.$refs.target.$refs.info;
+        target = document.getElementById("info");
+      } else {
+        // target = this.$refs.target.$refs.place;
+        target = document.getElementById("place");
+      }
+      const h = document.body.scrollHeight - (target.getBoundingClientRect().top + window.scrollY);
+      const bg = this.$refs.bg;
+      if (bg.clientHeight != h) {
+        this.GetTargetHeight();
+        if (this.$refs.element) this.$refs.element.ReSet();
+      }
     }, 100);
-    if (this.$refs.element) this.$refs.element.ReSet();
   },
 };
 </script>

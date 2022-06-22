@@ -16,7 +16,7 @@ const homeImage = new URL("../../assets/Image/UI/Logo.png", import.meta.url).hre
       <div class="w-8 image h-11 bg-Star-image right-154 top-28"></div>
       <div class="w-8 rotate-45 image h-11 bg-Star-image left-80 top-32"></div>
       <div class="h-32 image w-36 bg-Spaceship-image right-24 top-24"></div>
-      <div class="h-48 image w-60 bg-Cloud-image left-0 top-16"></div>
+      <div class="h-48 image w-48 bg-Cloud-image left-0 top-16"></div>
     </div>
     <NavMenu _class="h-32">
       <template #logo>
