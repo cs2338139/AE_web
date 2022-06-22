@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     autoSlides() {
-      this.timeID = interval=setInterval(() => {
+      this.timeID = setInterval(() => {
         this.plusSlides(1);
       }, 3000);
     },
@@ -61,11 +61,14 @@ export default {
     },
   },
   mounted() {
-    this.showSlides(0);
+    if (this.props.img.length != 0) this.showSlides(0);
     this.$emitter.on("emitIndex", (msg) => {
       this.currentSlide(msg);
     });
   },
+  updated() {
+    if (this.props.img.length != 0) this.showSlides(0);
+  }
 };
 
 // showSlides(slideIndex);

@@ -13,7 +13,7 @@ export default {
       let target = this.$refs.target;
       let foot = document.getElementById("foot");
       const h = foot.getBoundingClientRect().top + window.scrollY;
-      console.log(document.body.scrollHeight);
+      // console.log(document.body.scrollHeight);
 
       for (let i = 0; i < target.childNodes.length; i++) {
         target.childNodes[i].style.display = "block";

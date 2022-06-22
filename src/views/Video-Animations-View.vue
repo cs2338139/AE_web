@@ -6,7 +6,9 @@ defineProps({});
 </script>
 <script>
 export default {
-  data() {},
+  data() {
+    interval: null;
+  },
   methods: {
     GetTargetHeight() {
       const h = document.body.scrollHeight - (this.$refs.target.getBoundingClientRect().top + window.scrollY);
@@ -21,7 +23,7 @@ export default {
     },
   },
   mounted() {
-    interval=setInterval(() => {
+    this.interval = setInterval(() => {
       const h = document.body.scrollHeight - (this.$refs.target.getBoundingClientRect().top + window.scrollY);
       const bg = this.$refs.bg;
       if (bg.clientHeight != h) {
@@ -31,11 +33,13 @@ export default {
   },
   updated() {
     if (this.$refs.element) this.$refs.element.ReSet();
+  },  unmounted() {
+    clearInterval(this.interval);
   },
 };
 </script>
 <template>
-  <ElementPanel ref="element"/>
+  <ElementPanel ref="element" />
   <div class="wrap">
     <Road class="mb-10">
       <RoadItem>宣導影片</RoadItem>

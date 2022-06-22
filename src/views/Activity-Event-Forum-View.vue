@@ -11,7 +11,18 @@ import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 export default {
   data() {
     return {
-      Data: null,
+      Data: {
+        title: "",
+        date: "",
+        time: "",
+        place: "",
+        link: "",
+        info: [],
+        teacher: "",
+        teacherInfo: [],
+        imgs: [],
+      },
+      interval: null,
     };
   },
   methods: {
@@ -59,7 +70,7 @@ export default {
     this.LoadJson();
   },
   updated() {
-    interval=setInterval(() => {
+    this.interval = setInterval(() => {
       let target = null;
       if (this.$windowWidth > this.$lg) {
         // target = this.$refs.target.$refs.info;
@@ -76,11 +87,13 @@ export default {
       }
     }, 100);
   },
+  unmounted() {
+    clearInterval(this.interval);
+  },
 };
 </script>
 
 <template>
-  <template v-if="Data != null">
     <ElementPanel ref="element" />
     <div class="wrap mb-20">
       <Road class="mb-10">
@@ -95,6 +108,7 @@ export default {
         target="參與對象｜對兒童教育有興趣民眾、學校藝文相關教師皆可報名。"
         :img="Data.imgs"
         :link="Data.link"
+
         :info="Data.info"
         :needLink="true"
         :teacherInfo="Data.teacherInfo"
@@ -111,7 +125,6 @@ export default {
       <div class="bg-bg-0-image h-8"></div>
       <div class="bg-bg-2-Color h-0" ref="bg"></div>
     </div>
-  </template>
 </template>
 
 <style>

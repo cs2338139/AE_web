@@ -14,6 +14,7 @@ export default {
       exhibitionData: null,
       infoState: "English",
       info: [],
+      interval: null,
     };
   },
   methods: {
@@ -47,7 +48,7 @@ export default {
     this.LoadJson();
   },
   updated() {
-    interval=setInterval(() => {
+    this.interval = setInterval(() => {
       const h = document.body.scrollHeight - (this.$refs.target.getBoundingClientRect().top + window.scrollY);
       const bg = this.$refs.bg;
       if (bg.clientHeight != h) {
@@ -55,6 +56,8 @@ export default {
         if (this.$refs.element) this.$refs.element.ReSet();
       }
     }, 100);
+  },  unmounted() {
+    clearInterval(this.interval);
   },
 };
 </script>
@@ -132,7 +135,7 @@ export default {
 
         <div class="mt-0 mb-2 sm:translate-x-1">
           <ExhibitionItem :img="dir + '5/cover.jpg'" :info="exhibitionData.books[5].info" :href="'GoodNight/' + 5">
-            <div class="w-32 h-32 bg-no-repeat bg-w100% bg-arrow-6-image absolute -top-8 right-16 "></div>
+            <div class="w-32 h-32 bg-no-repeat bg-w100% bg-arrow-6-image absolute -top-8 right-16"></div>
             <template #title>{{ exhibitionData.books[5].title }}</template>
           </ExhibitionItem>
         </div>

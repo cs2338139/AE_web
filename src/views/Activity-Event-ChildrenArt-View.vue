@@ -13,7 +13,18 @@ import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 export default {
   data() {
     return {
-      Data: null,
+      Data: {
+        title: "",
+        date: "",
+        time: "",
+        people: "",
+        place: "",
+        link: "",
+        info: [],
+        teacher: "",
+        imgs: [],
+      },
+      interval: null,
     };
   },
   methods: {
@@ -61,7 +72,7 @@ export default {
     this.LoadJson();
   },
   updated() {
-    interval=setInterval(() => {
+    this.interval = setInterval(() => {
       let target = null;
       if (this.$windowWidth > this.$lg) {
         // target = this.$refs.target.$refs.info;
@@ -78,11 +89,13 @@ export default {
       }
     }, 100);
   },
+  unmounted() {
+    clearInterval(this.interval);
+  },
 };
 </script>
 
 <template>
-  <template v-if="Data != null">
     <ElementPanel ref="element" />
     <div class="wrap mb-20">
       <Road class="mb-10">
@@ -117,7 +130,6 @@ export default {
       <div class="bg-bg-2-Color h-0" ref="bg"></div>
     </div>
     <EventModal></EventModal>
-  </template>
 </template>
 
 <style scoped>

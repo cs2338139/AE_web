@@ -10,8 +10,22 @@ import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 export default {
   data() {
     return {
+      interval: null,
       dir: "Data/About/image/",
-      aboutData: null,
+      aboutData: {
+        image: "",
+        info: [],
+        curator: {
+          image: "",
+          name: "",
+          info: "",
+          link: "",
+        },
+        curatorialTeamTip: "",
+        curatorialTeam: [],
+        promotionTeamTip: "",
+        promotionTeam: [],
+      },
       infoState: "English",
       info: {
         title: "",
@@ -54,7 +68,7 @@ export default {
     this.LoadJson();
   },
   updated() {
-    interval=setInterval(() => {
+    this.interval = setInterval(() => {
       const h = document.body.scrollHeight - (this.$refs.target.getBoundingClientRect().top + window.scrollY);
       const bg = this.$refs.bg;
       if (bg.clientHeight != h) {
@@ -63,11 +77,13 @@ export default {
       }
     }, 100);
   },
+  unmounted() {
+    clearInterval(this.interval);
+  },
 };
 </script>
 
 <template>
-  <template v-if="aboutData != null">
     <ElementPanel keyName="Star-1" ref="element" />
     <div class="wrap">
       <Road class="mb-10">
@@ -148,7 +164,6 @@ export default {
       <div class="bg-bg-0-image h-8"></div>
       <div class="bg-bg-2-Color h-0" ref="bg"></div>
     </div>
-  </template>
 </template>
 
 <style scoped>

@@ -13,6 +13,7 @@ export default {
   data() {
     return {
       Data: null,
+      interval: null,
     };
   },
   methods: {
@@ -61,9 +62,10 @@ export default {
   },
   unmounted() {
     document.body.style.overflow = "scroll";
+    clearInterval(this.interval);
   },
   updated() {
-    interval=setInterval(() => {
+    this.interval = setInterval(() => {
       let target = null;
       if (this.$windowWidth > this.$lg) {
         // target = this.$refs.target.$refs.info;

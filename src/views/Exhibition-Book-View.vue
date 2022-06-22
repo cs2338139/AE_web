@@ -14,6 +14,7 @@ export default {
       exhibitionsName: null,
       bookData: null,
       element: null,
+      interval: null,
     };
   },
   methods: {
@@ -103,7 +104,7 @@ export default {
     this.LoadJson();
   },
   updated() {
-    interval=setInterval(() => {
+    this.interval = setInterval(() => {
       const h = document.body.scrollHeight - (this.$refs.target.getBoundingClientRect().top + window.scrollY);
       const bg = this.$refs.bg;
       if (bg.clientHeight != h) {
@@ -111,6 +112,8 @@ export default {
         if (this.$refs.element) this.$refs.element.ReSet();
       }
     }, 100);
+  },  unmounted() {
+    clearInterval(this.interval);
   },
 };
 </script>
