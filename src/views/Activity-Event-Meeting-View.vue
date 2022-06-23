@@ -12,7 +12,22 @@ import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 export default {
   data() {
     return {
-      Data: null,
+      Data: {
+        date: "",
+        time: "",
+        place: "",
+        tip: "",
+        link: "",
+        teacher: "",
+        imgs: [""],
+        meeting: {
+          title: "",
+          target: "",
+          expect: [],
+          process: [],
+          teacher: [],
+        },
+      },
       interval: null,
     };
   },
@@ -82,46 +97,44 @@ export default {
 </script>
 
 <template>
-  <template v-if="Data != null">
-    <ElementPanel ref="element" />
-    <div class="absolute w-full dev">
-      <div class="image h-36 bg-Horse-image right-162 top-190 w-36"></div>
-      <div class="image h-52 bg-Boy-image right-108 top-260 w-52"></div>
-      <div class="image h-32 bg-Bear-image right-142 top-340 w-20 rotate-12"></div>
-    </div>
-    <div class="wrap mb-20">
-      <Road class="mb-10">
-        <RoadItem>推廣活動</RoadItem>
-        <RoadItem>研習營</RoadItem>
-        <template #title>研習營</template>
-      </Road>
-      <EventContentItem
-        howTo="報名方式｜採線上報名。"
-        :place="'活動地點｜' + Data.place + '。'"
-        target="參與對象｜公務員、教師、一般民眾。"
-        :tip="'研習時數｜' + Data.tip"
-        :img="Data.imgs"
-        :link="Data.link"
-        :needKnew="false"
-        :needLink="true"
-        :MExpect="Data.meeting.expect"
-        :MProcess="Data.meeting.process"
-        :MTeacher="Data.meeting.teacher"
-        ref="target"
-      >
-        <template #date>{{ Data.date }}</template>
-        <template #time>{{ Data.time }}</template>
+  <ElementPanel ref="element" />
+  <div class="absolute w-full dev">
+    <div class="image h-36 bg-Horse-image right-162 top-190 w-36"></div>
+    <div class="image h-52 bg-Boy-image right-108 top-260 w-52"></div>
+    <div class="image h-32 bg-Bear-image right-142 top-340 w-20 rotate-12"></div>
+  </div>
+  <div class="wrap mb-20">
+    <Road class="mb-10">
+      <RoadItem>推廣活動</RoadItem>
+      <RoadItem>研習營</RoadItem>
+      <template #title>研習營</template>
+    </Road>
+    <EventContentItem
+      howTo="報名方式｜採線上報名。"
+      :place="'活動地點｜' + Data.place + '。'"
+      target="參與對象｜公務員、教師、一般民眾。"
+      :tip="'研習時數｜' + Data.tip"
+      :img="Data.imgs"
+      :link="Data.link"
+      :needKnew="false"
+      :needLink="true"
+      :MExpect="Data.meeting.expect"
+      :MProcess="Data.meeting.process"
+      :MTeacher="Data.meeting.teacher"
+      ref="target"
+    >
+      <template #date>{{ Data.date }}</template>
+      <template #time>{{ Data.time }}</template>
 
-        <template #MTitle>研習營主題｜{{ Data.meeting.title }}</template>
-        <template #MTarget>{{ Data.meeting.target }}</template>
-      </EventContentItem>
-    </div>
+      <template #MTitle>研習營主題｜{{ Data.meeting.title }}</template>
+      <template #MTarget>{{ Data.meeting.target }}</template>
+    </EventContentItem>
+  </div>
 
-    <div class="absolute w-full bottom-0 -z-50">
-      <div class="bg-bg-0-image h-8"></div>
-      <div class="bg-bg-2-Color h-0" ref="bg"></div>
-    </div>
-  </template>
+  <div class="absolute w-full bottom-0 -z-50">
+    <div class="bg-bg-0-image h-8"></div>
+    <div class="bg-bg-2-Color h-0" ref="bg"></div>
+  </div>
 </template>
 
 <style scoped>

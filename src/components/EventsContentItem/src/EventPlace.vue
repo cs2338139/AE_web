@@ -34,6 +34,9 @@ export default {
   created() {
     this.Re();
   },
+  updated() {
+    this.Re();
+  }
 };
 </script>
 <template>

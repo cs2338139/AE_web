@@ -12,7 +12,10 @@ export default {
   data() {
     return {
       albumName: null,
-      albumEventData: null,
+      albumEventData: {
+        title: "",
+        imgsCount: 0,
+      },
       imgs: [],
       fixedCount: 0,
       path: "Albums/" + this.$route.params.albumID + "/" + this.$route.params.albumEventID,
@@ -99,33 +102,31 @@ export default {
 </script>
 
 <template>
-  <template v-if="albumEventData != null">
-    <ElementPanel ref="element" />
-    <div class="wrap">
-      <Road class="mb-10">
-        <RoadItem>活動花絮</RoadItem>
-        <RoadItemRouter :href="'/Albums/' + $route.params.albumID">{{ albumName }}</RoadItemRouter>
-        <RoadItem>{{ albumEventData.title }}</RoadItem>
-      </Road>
+  <ElementPanel ref="element" />
+  <div class="wrap">
+    <Road class="mb-10">
+      <RoadItem>活動花絮</RoadItem>
+      <RoadItemRouter :href="'/Albums/' + $route.params.albumID">{{ albumName }}</RoadItemRouter>
+      <RoadItem>{{ albumEventData.title }}</RoadItem>
+    </Road>
 
-      <div class="flex flex-wrap justify-between lg:justify-around">
-        <button v-for="(i, index) in imgs" @click="openModal(index)">
-          <img :src="'Data/' + path + '/Image/' + i" class="mb-10 w-80 lg:w-60 md:w-40" />
+    <div class="flex flex-wrap justify-between lg:justify-around">
+      <button v-for="(i, index) in imgs" @click="openModal(index)">
+        <img :src="'Data/' + path + '/Image/' + i" class="mb-10 w-80 lg:w-60 md:w-40" />
+      </button>
+
+      <div v-if="fixedCount > 0" v-for="i in fixedCount" class="mb-10 w-80 bg-slate-600 invisible"></div>
+    </div>
+
+    <div ref="Modal" class="fixed bottom-0 left-0 z-50 hidden w-full h-screen bg-black-05">
+      <div class="absolute top-0 bottom-0 left-0 right-0 max-w-5xl m-auto aspect-image">
+        <button @click="closeModal" class="absolute right-5 top-5 z-50">
+          <ion-icon name="close-outline" />
         </button>
-
-        <div v-if="fixedCount > 0" v-for="i in fixedCount" class="mb-10 w-80 bg-slate-600 invisible"></div>
-      </div>
-
-      <div ref="Modal" class="fixed bottom-0 left-0 z-50 hidden w-full h-screen bg-black-05">
-        <div class="absolute top-0 bottom-0 left-0 right-0 max-w-5xl m-auto aspect-image">
-          <button @click="closeModal" class="absolute right-5 top-5 z-50">
-            <ion-icon name="close-outline" />
-          </button>
-          <ImageBox :path="path" :img="imgs" :time="3000" :auto="false" :dot="false" :emitIndex="emitIndex"></ImageBox>
-        </div>
+        <ImageBox :path="path" :img="imgs" :time="3000" :auto="false" :dot="false" :emitIndex="emitIndex"></ImageBox>
       </div>
     </div>
-  </template>
+  </div>
 </template>
 
 <style scoped>

@@ -12,7 +12,12 @@ export default {
   data() {
     return {
       exhibitionsName: null,
-      bookData: null,
+      bookData: {
+        title: "",
+        title2: "",
+        author: [],
+        imgs: [],
+      },
       element: null,
       interval: null,
     };
@@ -112,54 +117,53 @@ export default {
         if (this.$refs.element) this.$refs.element.ReSet();
       }
     }, 100);
-  },  unmounted() {
+  },
+  unmounted() {
     clearInterval(this.interval);
   },
 };
 </script>
 
 <template>
-  <template v-if="bookData != null">
-    <ElementPanel ref="element" />
-    <div class="wrap">
-      <Road class="mb-10">
-        <RoadItem>展覽介紹</RoadItem>
-        <RoadItemRouter :href="'/exhibitions/' + $route.params.exhibitionID">{{ exhibitionsName }}</RoadItemRouter>
-        <RoadItem>{{ bookData.title }}</RoadItem>
-      </Road>
-      <div class="gap-x-16 grid grid-cols-5 mb-20">
-        <div class="xl:col-end-6 col-start-1 col-end-4">
-          <ImageBox :path="'Exhibitions/' + $route.params.exhibitionID + '/' + $route.params.bookID" :img="bookData.imgs" :time="3000" :auto="false" />
+  <ElementPanel ref="element" />
+  <div class="wrap">
+    <Road class="mb-10">
+      <RoadItem>展覽介紹</RoadItem>
+      <RoadItemRouter :href="'/exhibitions/' + $route.params.exhibitionID">{{ exhibitionsName }}</RoadItemRouter>
+      <RoadItem>{{ bookData.title }}</RoadItem>
+    </Road>
+    <div class="gap-x-16 grid grid-cols-5 mb-20">
+      <div class="xl:col-end-6 col-start-1 col-end-4">
+        <ImageBox :path="'Exhibitions/' + $route.params.exhibitionID + '/' + $route.params.bookID" :img="bookData.imgs" :time="3000" :auto="false" />
+      </div>
+
+      <div class="xl:col-start-1 col-start-4 col-end-6">
+        <div class="sm:text-lg text-text-1-Color text-3xl">
+          {{ bookData.title }}
         </div>
 
-        <div class="xl:col-start-1 col-start-4 col-end-6">
-          <div class="sm:text-lg text-text-1-Color text-3xl">
-            {{ bookData.title }}
-          </div>
+        <div class="image" :class="element"></div>
 
-          <div class="image" :class="element"></div>
-
-          <div class="sm:text-base text-text-1-Color text-xl">
-            {{ bookData.title2 }}
-          </div>
-          <div class="mt-3">
-            <div v-for="j in bookData.author" class="mb-10" ref="target">
-              <div class="sm:text-sm mb-3 text-xl">
-                {{ j.author }}
-              </div>
-              <template v-for="i in j.info">
-                <div :class="{ my: i === '' }" class="contentFont">{{ i }}</div>
-              </template>
+        <div class="sm:text-base text-text-1-Color text-xl">
+          {{ bookData.title2 }}
+        </div>
+        <div class="mt-3">
+          <div v-for="j in bookData.author" class="mb-10" ref="target">
+            <div class="sm:text-sm mb-3 text-xl">
+              {{ j.author }}
             </div>
+            <template v-for="i in j.info">
+              <div :class="{ my: i === '' }" class="contentFont">{{ i }}</div>
+            </template>
           </div>
         </div>
       </div>
     </div>
-    <div class="-z-50 absolute bottom-0 w-full">
-      <div class="bg-bg-0-image h-8"></div>
-      <div class="bg-bg-2-Color h-56" ref="bg"></div>
-    </div>
-  </template>
+  </div>
+  <div class="-z-50 absolute bottom-0 w-full">
+    <div class="bg-bg-0-image h-8"></div>
+    <div class="bg-bg-2-Color h-56" ref="bg"></div>
+  </div>
 </template>
 
 <style scoped>

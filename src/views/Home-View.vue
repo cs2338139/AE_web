@@ -11,7 +11,9 @@ import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 export default {
   data() {
     return {
-      homeData: null,
+      homeData: {
+        imgs: [],
+      },
       interval: null,
     };
   },
@@ -53,14 +55,14 @@ export default {
         if (this.$refs.element) this.$refs.element.ReSet();
       }
     }, 100);
-  },  unmounted() {
+  },
+  unmounted() {
     clearInterval(this.interval);
   },
 };
 </script>
 
 <template>
-  <template v-if="homeData != null">
     <ElementPanel ref="element" />
     <div>
       <div class="wrap">
@@ -85,7 +87,6 @@ export default {
       <div class="bg-bg-1-Color h-96" ref="bg"></div>
     </div>
   </template>
-</template>
 
 <style>
 @tailwind base;

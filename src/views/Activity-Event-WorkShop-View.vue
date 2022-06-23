@@ -12,7 +12,17 @@ import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 export default {
   data() {
     return {
-      Data: null,
+      Data: {
+        title: "",
+        date: "",
+        time: "",
+        people: "",
+        place: "",
+        link: "",
+        info: [],
+        teacher: "",
+        imgs: [],
+      },
       interval: null,
     };
   },
@@ -86,42 +96,40 @@ export default {
 </script>
 
 <template>
-  <template v-if="Data != null">
-    <ElementPanel ref="element" />
-    <div class="wrap mb-20">
-      <Road class="mb-10">
-        <RoadItem>推廣活動</RoadItem>
-        <RoadItemRouter href="/activities/WorkShops">工作坊</RoadItemRouter>
-        <RoadItem>{{ Data.title }}</RoadItem>
-      </Road>
-      <EventContentItem
-        howTo="報名方式｜採線上報名。"
-        :place="'活動地點｜' + Data.place + '。'"
-        target="參與對象｜國小以上學生、一般民眾（國小學生需家長陪同）。"
-        money="課程費用｜新臺幣200元整。"
-        :people="'參加人數｜正取' + Data.people + '人，備取5名，額滿為止。'"
-        :img="Data.imgs"
-        :link="Data.link"
-        :info="Data.info"
-        :needKnew="true"
-        :needLink="true"
-        :teacherInfo="Data.teacherInfo"
-        ref="target"
-      >
-        <template #date>{{ Data.date }}</template>
-        <template #time>{{ Data.time }}</template>
+  <ElementPanel ref="element" />
+  <div class="wrap mb-20">
+    <Road class="mb-10">
+      <RoadItem>推廣活動</RoadItem>
+      <RoadItemRouter href="/activities/WorkShops">工作坊</RoadItemRouter>
+      <RoadItem>{{ Data.title }}</RoadItem>
+    </Road>
+    <EventContentItem
+      howTo="報名方式｜採線上報名。"
+      :place="'活動地點｜' + Data.place + '。'"
+      target="參與對象｜國小以上學生、一般民眾（國小學生需家長陪同）。"
+      money="課程費用｜新臺幣200元整。"
+      :people="'參加人數｜正取' + Data.people + '人，備取5名，額滿為止。'"
+      :img="Data.imgs"
+      :link="Data.link"
+      :info="Data.info"
+      :needKnew="true"
+      :needLink="true"
+      :teacherInfo="Data.teacherInfo"
+      ref="target"
+    >
+      <template #date>{{ Data.date }}</template>
+      <template #time>{{ Data.time }}</template>
 
-        <template #title>{{ Data.title }}</template>
-        <template #teacher>授課講師｜{{ Data.teacher }}</template>
-      </EventContentItem>
-    </div>
+      <template #title>{{ Data.title }}</template>
+      <template #teacher>授課講師｜{{ Data.teacher }}</template>
+    </EventContentItem>
+  </div>
 
-    <div class="absolute w-full bottom-0 -z-50">
-      <div class="bg-bg-0-image h-8"></div>
-      <div class="bg-bg-2-Color h-0" ref="bg"></div>
-    </div>
-    <EventModal></EventModal>
-  </template>
+  <div class="absolute w-full bottom-0 -z-50">
+    <div class="bg-bg-0-image h-8"></div>
+    <div class="bg-bg-2-Color h-0" ref="bg"></div>
+  </div>
+  <EventModal></EventModal>
 </template>
 
 <style scoped>

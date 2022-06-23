@@ -10,7 +10,12 @@ import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 export default {
   data() {
     return {
-      newsData: null,
+      newsData: {
+        title: "",
+        date: "",
+        typeName: "",
+        content: [],
+      },
     };
   },
   methods: {
@@ -50,7 +55,6 @@ export default {
 </script>
 
 <template>
-  <template v-if="newsData != null">
     <ElementPanel ref="element" />
     <div class="wrap">
       <Road class="mb-10">
@@ -84,7 +88,6 @@ export default {
       </div>
     </div>
   </template>
-</template>
 
 <style scoped>
 @tailwind base;
