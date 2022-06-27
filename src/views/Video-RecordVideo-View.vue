@@ -10,25 +10,43 @@ export default {
     interval: null;
   },
   methods: {
-    GetTargetHeight() {
-      const h = document.body.scrollHeight - (this.$refs.target.getBoundingClientRect().top + window.scrollY);
-      const bg = this.$refs.bg;
-      bg.style.height = h + "px";
+    GetTargetHeight(target, elements, elements2) {
+      const h = Math.floor(document.body.scrollHeight - (target.getBoundingClientRect().top + window.scrollY));
+
+      if (elements[0].main.clientHeight != h) {
+        for (let i = 0; i < elements.length; i++) {
+          elements[i].main.style.height = h + elements[i].offset + "px";
+        }
+        for (let i = 0; i < elements2.length; i++) {
+          let offset;
+
+          if (elements2[i].offset != 0) {
+            offset = elements2[i].main.clientHeight / elements2[i].offset;
+          } else {
+            offset = 0;
+          }
+          elements2[i].main.style.bottom = h - offset + "px";
+        }
+        if (this.$refs.element) this.$refs.element.ReSet();
+      }
     },
   },
   mounted() {
+    let target = this.$refs.target;
+
+    let elements = [
+      {
+        main: this.$refs.bg,
+        offset: 0,
+      },
+    ];
+    let elements2 = [];
+
     this.interval = setInterval(() => {
-      const h = document.body.scrollHeight - (this.$refs.target.getBoundingClientRect().top + window.scrollY);
-      const bg = this.$refs.bg;
-      if (bg.clientHeight != h) {
-        this.GetTargetHeight();
-      }
+      this.GetTargetHeight(target, elements, elements2);
     }, 100);
   },
-
-  updated() {
-    if (this.$refs.element) this.$refs.element.ReSet();
-  },  unmounted() {
+  unmounted() {
     clearInterval(this.interval);
   },
 };

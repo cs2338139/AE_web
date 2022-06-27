@@ -42,18 +42,25 @@ export default {
           });
       }
     },
-    GetTargetHeight() {
-      let target = null;
-      if (this.$windowWidth > this.$lg) {
-        // target = this.$refs.target.$refs.info;
-        target = document.getElementById("info");
-      } else {
-        // target = this.$refs.target.$refs.place;
-        target = document.getElementById("place");
+    GetTargetHeight(target, elements, elements2) {
+      const h = Math.floor(document.body.scrollHeight - (target.getBoundingClientRect().top + window.scrollY));
+
+      if (elements[0].main.clientHeight != h) {
+        for (let i = 0; i < elements.length; i++) {
+          elements[i].main.style.height = h + elements[i].offset + "px";
+        }
+        for (let i = 0; i < elements2.length; i++) {
+          let offset;
+
+          if (elements2[i].offset != 0) {
+            offset = elements2[i].main.clientHeight / elements2[i].offset;
+          } else {
+            offset = 0;
+          }
+          elements2[i].main.style.bottom = h - offset + "px";
+        }
+        if (this.$refs.element) this.$refs.element.ReSet();
       }
-      const h = document.body.scrollHeight - (target.getBoundingClientRect().top + window.scrollY);
-      const bg = this.$refs.bg;
-      bg.style.height = h + "px";
     },
     ToNotFound() {
       this.$router.push({
@@ -70,27 +77,25 @@ export default {
   created() {
     this.LoadJson();
   },
+  mounted() {
+    let target = document.getElementById("place");
+    if (this.$windowWidth > this.$lg) target = document.getElementById("info");
+
+    let elements = [
+      {
+        main: this.$refs.bg,
+        offset: 0,
+      },
+    ];
+    let elements2 = [];
+
+    this.interval = setInterval(() => {
+      this.GetTargetHeight(target, elements, elements2);
+    }, 100);
+  },
   unmounted() {
     document.body.style.overflow = "scroll";
     clearInterval(this.interval);
-  },
-  updated() {
-    this.interval = setInterval(() => {
-      let target = null;
-      if (this.$windowWidth > this.$lg) {
-        // target = this.$refs.target.$refs.info;
-        target = document.getElementById("info");
-      } else {
-        // target = this.$refs.target.$refs.place;
-        target = document.getElementById("place");
-      }
-      const h = document.body.scrollHeight - (target.getBoundingClientRect().top + window.scrollY);
-      const bg = this.$refs.bg;
-      if (bg.clientHeight != h) {
-        this.GetTargetHeight();
-        if (this.$refs.element) this.$refs.element.ReSet();
-      }
-    }, 100);
   },
 };
 </script>
@@ -106,7 +111,7 @@ export default {
     <EventContentItem
       howTo="報名方式｜採線上報名。"
       :place="'活動地點｜' + Data.place + '。'"
-      target="參與對象｜國小以上學生、一般民眾（國小學生需家長陪同）。"
+      target="參與對象｜國小（含）以上學生（國小學生需家長陪同）、一般民眾。"
       money="課程費用｜新臺幣200元整。"
       :people="'參加人數｜正取' + Data.people + '人，備取5名，額滿為止。'"
       :img="Data.imgs"

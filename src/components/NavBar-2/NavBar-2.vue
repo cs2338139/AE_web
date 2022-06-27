@@ -1,6 +1,7 @@
 <script setup>
 import Logo from "./src/Logo.vue";
 import MenuListItem from "./src/MenuListItem.vue";
+import MenuListItemLink from "./src/MenuListItem-Link.vue";
 import NavMenuList from "./src/NavMenuList.vue";
 import NavMenuItem from "./src/NavMenuItem.vue";
 import NavMenu from "./src/NavMenu.vue";
@@ -16,7 +17,7 @@ const homeImage = new URL("../../assets/Image/UI/Logo.png", import.meta.url).hre
       <div class="w-8 image h-11 bg-Star-image right-154 top-28"></div>
       <div class="w-8 rotate-45 image h-11 bg-Star-image left-80 top-32"></div>
       <div class="h-32 image w-36 bg-Spaceship-image right-24 top-24"></div>
-      <div class="h-48 image w-48 bg-Cloud-image left-0 top-16"></div>
+      <div class="h-48 image w-48 bg-Cloud-image left-0 top-16 2xl:hidden"></div>
     </div>
     <NavMenu _class="h-32">
       <template #logo>
@@ -28,7 +29,7 @@ const homeImage = new URL("../../assets/Image/UI/Logo.png", import.meta.url).hre
 
       <NavMenuList menuListOffset="-translate-x-3">
         <template #menuName>展覽介紹+</template>
-        <MenuListItem href="/Exhibitions/GoodNight">晚安屋<template #en>Goodnight Rooms</template></MenuListItem>
+        <MenuListItem href="/Exhibitions/GoodNight">晚安屋<template #en>Goodnight Room</template></MenuListItem>
         <MenuListItem href="/Exhibitions/Dream">夢境房<template #en>Dreamland Room</template></MenuListItem>
       </NavMenuList>
 
@@ -36,7 +37,7 @@ const homeImage = new URL("../../assets/Image/UI/Logo.png", import.meta.url).hre
         <template #menuName>線上展覽+</template>
         <MenuListItem :enable="false" href="/OnlineTour">策展人導覽<template #en>Online Curator Tour</template></MenuListItem>
         <MenuListItem :enable="false" href="">虛擬實境<template #en>Virtual Reality Tours</template></MenuListItem>
-        <MenuListItem :enable="false" href="">導覽教育手冊<template #en>Brochure</template></MenuListItem>
+        <MenuListItemLink href="https://issuu.com/pixelight2020/docs/wanderinginthedreams_guidebook" target="_blank">導覽教育手冊<template #en>Brochure</template></MenuListItemLink>
       </NavMenuList>
 
       <NavMenuList menuListOffset="-translate-x-7">

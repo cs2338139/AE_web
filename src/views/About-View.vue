@@ -30,7 +30,7 @@ export default {
       info: {
         title: "",
         curator: "",
-        info: [],
+        info: "",
       },
     };
   },
@@ -80,6 +80,8 @@ export default {
     this.LoadJson();
   },
   mounted() {
+    let target = this.$refs.target;
+
     let elements = [
       {
         main: this.$refs.bg,
@@ -94,7 +96,7 @@ export default {
     ];
 
     this.interval = setInterval(() => {
-      this.GetTargetHeight(this.$refs.target, elements, elements2);
+      this.GetTargetHeight(target, elements, elements2);
     }, 100);
   },
   unmounted() {
@@ -119,12 +121,8 @@ export default {
         <div class="sm:text-xl sm:mr-2 sm:block inline mr-5 text-2xl">{{ info.title }}</div>
         <div class="sm:text-xs text-zinc-500 sm:block inline text-lg">{{ info.curator }}</div>
       </div>
-
-      <div class="sm:mb-10 mb-20">
-        <template v-for="i in info.info">
-          <div :class="{ my: i === '' }" class="contentFont">{{ i }}</div>
-        </template>
-      </div>
+      <!--  -->
+      <div class="sm:mb-10 mb-20" v-html="info.info"></div>
     </div>
   </div>
 

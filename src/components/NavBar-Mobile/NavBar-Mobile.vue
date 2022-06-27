@@ -1,6 +1,7 @@
 <script setup>
 import Logo from "./src/Logo.vue";
 import MenuListItem from "./src/MenuListItem.vue";
+import MenuListItemLink from "./src/MenuListItem-Link.vue";
 import NavMenuList from "./src/NavMenuList.vue";
 import NavMenuItem from "./src/NavMenuItem.vue";
 import NavMenuItemLink from "./src/NavMenuItem-Link.vue";
@@ -58,7 +59,7 @@ export default {
 
       <NavMenuList keyName="Exhibition">
         <template #menuName>展覽介紹</template>
-        <MenuListItem href="/Exhibitions/GoodNight">晚安屋<template #en>Goodnight Rooms</template></MenuListItem>
+        <MenuListItem href="/Exhibitions/GoodNight">晚安屋<template #en>Goodnight Room</template></MenuListItem>
         <MenuListItem href="/Exhibitions/Dream">夢境房<template #en>Dreamland Room</template></MenuListItem>
       </NavMenuList>
 
@@ -66,7 +67,7 @@ export default {
         <template #menuName>線上展覽</template>
         <MenuListItem :enable="false" href="/OnlineTour">策展人導覽<template #en>Online Curator Tour</template></MenuListItem>
         <MenuListItem :enable="false" href="">虛擬實境<template #en>Virtual Reality Tours</template></MenuListItem>
-        <MenuListItem :enable="false" href="">導覽教育手冊<template #en>Brochure</template></MenuListItem>
+        <MenuListItemLink href="https://issuu.com/pixelight2020/docs/wanderinginthedreams_guidebook" target="_blank">導覽教育手冊<template #en>Brochure</template></MenuListItemLink>
       </NavMenuList>
 
       <NavMenuList keyName="Activity">
