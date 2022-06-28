@@ -137,7 +137,7 @@ export default {
       <button class="px-5 py-1 rounded-full text-bg-0-Color bg-bg-1-Color hover:bg-text-1-Color" @click="ChangeLang()">{{ infoState }}</button>
     </div>
 
-    <div ref="target" class="relative">
+    <div ref="target" class="relative overflow-x-hidden">
       <div class="mt-32 -mb-10 sm:mb-0 -translate-x-72 xl:-translate-x-52 lg:-translate-x-20 sm:-translate-x-1">
         <ExhibitionItem :img="dir + '0/cover.jpg'" :info="exhibitionData.books[0].info" :href="'GoodNight/' + 0">
           <div class="w-11 h-14 bg-no-repeat bg-w100% bg-Rabbit-1-image absolute left-2 top-14"></div>
@@ -148,7 +148,7 @@ export default {
 
       <div class="w-20 h-32 bg-no-repeat sm:bg-h100% bg-w100% bg-arrow-1-image mx-auto sm:h-20 sm:translate-x-14"></div>
 
-      <div class="mt-0 mb-2 translate-x-24 sm:translate-x-1">
+      <div class="mt-0 mb-2 translate-x-24 sm:translate-x-1 ">
         <ExhibitionItem :img="dir + '1/cover.jpg'" :info="exhibitionData.books[1].info" :href="'GoodNight/' + 1">
           <div class="w-24 h-20 bg-no-repeat bg-w100% bg-Spaceship-image absolute right-10 top-5"></div>
           <template #title>{{ exhibitionData.books[1].title }}</template>

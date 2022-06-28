@@ -112,7 +112,7 @@ export default {
 </script>
 
 <template>
-  <ElementPanel ref="element" />
+  <!-- <ElementPanel ref="element" /> -->
   <div class="wrap">
     <Road class="mb-10">
       <RoadItem>展覽介紹</RoadItem>
@@ -133,7 +133,7 @@ export default {
       <button class="px-5 py-1 rounded-full text-bg-0-Color bg-bg-1-Color hover:bg-text-1-Color" @click="ChangeLang()">{{ infoState }}</button>
     </div>
 
-    <div ref="target" class="relative">
+    <div ref="target" class="relative  overflow-x-hidden">
       <div class="mt-32 -mb-10 sm:mb-0 -translate-x-72 xl:-translate-x-52 lg:-translate-x-20 sm:-translate-x-1">
         <ExhibitionItem :img="dir + '0/cover.jpg'" :info="exhibitionData.books[0].info" :href="'Dream/' + 0">
           <div class="w-28 h-28 bg-no-repeat bg-w100% bg-Ghost-image absolute -right-4 top-5"></div>
