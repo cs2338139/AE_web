@@ -1,1 +1,0 @@
-import{_ as a}from"./ElementPanel.7cca6596.js";import{o,c as t,a as n,F as s,b as e}from"./index.453eff0f.js";const _=e("div",{class:"wrap"},[e("div",null,"404 - Page not found"),e("div",null,"Go back home.")],-1),i={setup(r){return(l,c)=>(o(),t(s,null,[n(a,{ref:"element"},null,512),_],64))}};export{i as default};
