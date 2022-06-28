@@ -65,7 +65,8 @@ export default {
 
     <div v-if="info != null" class="mt-8 xl:mt-4 col-start-1 col-end-4 row-start-4 row-end-6 xl:row-start-4 lg:col-end-1 lg:row-start-5 lg:row-end-6 lg:pt-5 sm:pt-0" id="info">
       <EventInfo :info="info">
-        <slot name="title"></slot>
+        <template #title><slot name="title"></slot></template>
+        <template #ref><slot name="ref"></slot></template>
       </EventInfo>
       <hr class="my-8 border border-zinc-400 lg:border-0 sm:my-3" />
       <EventTeacher :teacherInfo="teacherInfo">

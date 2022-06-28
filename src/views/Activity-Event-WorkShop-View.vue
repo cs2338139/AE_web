@@ -126,6 +126,7 @@ export default {
       <template #time>{{ Data.time }}</template>
 
       <template #title>{{ Data.title }}</template>
+      <template #ref>{{ Data.ref }}</template>
       <template #teacher>授課講師｜{{ Data.teacher }}</template>
     </EventContentItem>
   </div>

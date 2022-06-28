@@ -176,6 +176,7 @@ export default {
             <template v-for="i in j.info">
               <div :class="{ my: i === '' }" class="contentFont">{{ i }}</div>
             </template>
+            <div class="mt-8 sm:text-xs">{{ bookData.copyright }}</div>
           </div>
         </div>
       </div>

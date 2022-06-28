@@ -1,5 +1,4 @@
 <script setup>
-import { defineAsyncComponent } from "vue";
 import ElementStar0 from "./src/Element-Star-0.vue";
 import ElementStar1 from "./src/Element-Star-1.vue";
 defineProps({
@@ -21,22 +20,29 @@ export default {
   },
   methods: {
     ReSet() {
-      if (this.enable) {
-        let target = this.$refs.target;
-        let foot = document.getElementById("foot");
-        const h = foot.getBoundingClientRect().top + window.scrollY;
+      // if (this.enable) {
+      let target = this.$refs.target;
+      let foot = document.getElementById("foot");
+      const h = foot.getBoundingClientRect().top + window.scrollY;
+      // let right = [];
+      // let left = [];
 
-        for (let i = 0; i < target.childNodes.length; i++) {
-          target.childNodes[i].style.display = "block";
-          const y = target.childNodes[i].getBoundingClientRect().top + window.scrollY;
+      for (let i = 0; i < target.childNodes.length; i++) {
+        target.childNodes[i].style.display = "block";
+        // if (getComputedStyle(target.childNodes[i]).right != "0px") {
+        //   console.log(getComputedStyle(target.childNodes[i]).background);
+        //   console.log(getComputedStyle(target.childNodes[i]).right);
+        //   target.childNodes[i].style.opacity = 0.4;
+        // }
+        const y = target.childNodes[i].getBoundingClientRect().top + window.scrollY;
 
-          if (y > h) target.childNodes[i].style.display = "none";
-        }
-        this.$refs.child.ReSet();
+        if (y > h) target.childNodes[i].style.display = "none";
       }
+      this.$refs.child.ReSet();
+      // }
     },
     SwitchElement() {
-      this.enable = this.$windowWidth > this.$2xl;
+      // this.enable = this.$windowWidth > this.$2xl;
       if (this.keyName === "Star-0") this.pageComponent = ElementStar0;
       if (this.keyName === "Star-1") this.pageComponent = ElementStar1;
     },
@@ -52,26 +58,26 @@ export default {
 </script>
 
 <template>
-  <template v-if="enable">
-    <div>
-      <div class="absolute w-full">
-        <div ref="target">
-          <div class="image h-11 bg-Star-image right-16 top-10 w-8"></div>
-          <div class="image h-11 bg-Star-image right-64 top-120 w-8 rotate-45"></div>
-          <div class="image h-11 bg-Star-image left-28 top-48 w-8"></div>
-          <div class="h-80 image bg-Rain-1-image right-24 top-64 w-48"></div>
-          <div class="h-96 image w-36 bg-Rain-image left-16 top-14"></div>
-          <div class="image w-36 bg-Leaves-image top-182 right-0 h-48"></div>
-          <div class="h-52 image bg-Truck-image left-8 top-146 -rotate-12 w-56"></div>
-          <div class="image h-11 bg-Star-image right-96 top-212 w-8"></div>
-          <div class="image h-11 bg-Star-image left-28 top-202 w-8"></div>
-          <div class="image h-11 bg-Star-image left-64 top-240 w-8"></div>
-        </div>
-        <component :is="pageComponent" ref="child"></component>
+  <!-- <template v-if="enable"> -->
+  <div>
+    <div class="absolute w-full">
+      <div ref="target">
+        <div class="star right-16 top-10  2xl:opacity-50"></div>
+        <div class="star right-64 top-120  rotate-45 2xl:opacity-50"></div>
+        <div class="star left-28 top-48  2xl:opacity-50"></div>
+        <div class="h-80 image bg-Rain-1-image right-24 top-64 w-48 2xl:opacity-0"></div>
+        <div class="h-96 image w-36 bg-Rain-image left-16 top-14 2xl:opacity-0"></div>
+        <div class="image w-36 bg-Leaves-image top-182 right-0 h-48 2xl:w-28 2xl:opacity-80"></div>
+        <div class="h-52 image bg-Truck-image left-8 top-146 -rotate-12 w-56 2xl:opacity-0"></div>
+        <div class="star right-96 top-212  2xl:opacity-50"></div>
+        <div class="star left-28 top-202  2xl:opacity-50"></div>
+        <div class="star left-64 top-240  2xl:opacity-50"></div>
       </div>
+      <component :is="pageComponent" ref="child"></component>
     </div>
-  </template>
+  </div>
 </template>
+<!-- </template> -->
 
 <style>
 @tailwind base;
@@ -81,6 +87,9 @@ export default {
 @layer components {
   .image {
     @apply absolute bg-no-repeat bg-w100%;
+  }
+  .star {
+    @apply bg-Star-image h-11 w-8 image;
   }
 }
 </style>

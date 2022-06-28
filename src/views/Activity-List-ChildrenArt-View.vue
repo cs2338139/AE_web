@@ -88,10 +88,10 @@ export default {
     <div class="text-center text-3xl  sm:text-xl">「夢境漫遊：繪本藝術」展之兒童美學活動</div>
     <div class="max-w-4xl mx-auto mt-8 mb-24 sm:mt-5">
       <div class="text-base  sm:text-sm text-center leading-8">
-        一、報名方式｜採預約報名(8/24-9/21)，每週三預約活動，共計5堂，額滿截止<br />
-        二、上課地點｜本館第2展覽廳翻玩色彩區（落地窗旁）<br />
-        三、參與對象｜兒童相關公益社團、組織、協會。身心障礙與弱勢團體優先受理報名<br />
-        四、參與人數｜10人（須團體報名）
+        報名方式｜採預約報名(8/24-9/21)，每週三預約活動，共計5堂，額滿截止<br />
+        上課地點｜本館第2展覽廳翻玩色彩區（落地窗旁）<br />
+        參與對象｜兒童相關公益社團、組織、協會。身心障礙與弱勢團體優先受理報名<br />
+        參與人數｜10人（須團體報名）
       </div>
     </div>
     <div class="flex flex-wrap justify-between xl:justify-around max-w-5xl mx-auto">

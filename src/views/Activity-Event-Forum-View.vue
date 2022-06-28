@@ -109,13 +109,14 @@ export default {
 
     <EventContentItem
       howTo="報名方式｜採線上報名。"
-      :place="'上課地點｜' + Data.place + '。'"
-      target="參與對象｜對兒童教育有興趣民眾、學校藝文相關教師皆可報名。"
+      :place="'上課地點｜' + Data.place"
+      target="參與對象｜公務人員、教師、學生及一般民眾。"
       :img="Data.imgs"
       :link="Data.link"
       :info="Data.info"
       :needLink="true"
       :teacherInfo="Data.teacherInfo"
+      :tip="'研習時數｜' + Data.tip"
       ref="target"
     >
       <template #date>{{ Data.date }}</template>

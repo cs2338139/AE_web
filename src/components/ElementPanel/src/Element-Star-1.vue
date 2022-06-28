@@ -27,29 +27,29 @@ export default {
 
 <template>
   <div ref="target">
-    <div class="image h-11 bg-Star-image left-24 top-440 w-8"></div>
-    <div class="image h-11 bg-Star-image right-16 top-280 w-8 rotate-45"></div>
-    <div class="image h-11 bg-Star-image right-40 top-340 w-8 rotate-45"></div>
-    <div class="image h-11 bg-Star-image right-10 top-360 w-8"></div>
-    <div class="image h-11 bg-Star-image right-44 top-420 w-8 rotate-45"></div>
-    <div class="image h-11 bg-Star-image right-56 top-720 w-8"></div>
-    <div class="image h-11 bg-Star-image right-16 top-760 w-8"></div>
-    <div class="image h-11 bg-Star-image right-64 top-840 w-8"></div>
-    <div class="image h-11 bg-Star-image right-36 top-960 w-8"></div>
-    <div class="image h-11 bg-Star-image right-64 top-1020 w-8 rotate-45"></div>
-    <div class="image h-11 bg-Star-image right-20 top-1080 w-8"></div>
-    <div class="image h-11 bg-Star-image right-44 top-1140 w-8 rotate-45"></div>
+    <div class="left-24 star top-440"></div>
+    <div class="right-16 star top-280 rotate-45"></div>
+    <div class="right-40 star top-340 rotate-45"></div>
+    <div class="right-10 star top-360"></div>
+    <div class="right-44 star top-420 rotate-45"></div>
+    <div class="right-56 star top-720"></div>
+    <div class="right-16 star top-760"></div>
+    <div class="right-64 star top-840"></div>
+    <div class="right-36 star top-960"></div>
+    <div class="right-64 star top-1020 rotate-45"></div>
+    <div class="right-20 star top-1080"></div>
+    <div class="right-44 star top-1140 rotate-45"></div>
 
-    <div class="image h-11 bg-Star-image left-16 top-260 w-8"></div>
-    <div class="image h-11 bg-Star-image left-48 top-360 w-8 rotate-45"></div>
-    <div class="image h-11 bg-Star-image left-24 top-440 w-8"></div>
-    <div class="image h-11 bg-Star-image left-10 top-580 w-8 rotate-45"></div>
-    <div class="image h-11 bg-Star-image left-16 top-740 w-8"></div>
-    <div class="image h-11 bg-Star-image left-64 top-800 w-8 rotate-45"></div>
-    <div class="image h-11 bg-Star-image left-36 top-860 w-8"></div>
-    <div class="image h-11 bg-Star-image left-40 top-980 w-8"></div>
-    <div class="image h-11 bg-Star-image left-20 top-1040 w-8 rotate-45"></div>
-    <div class="image h-11 bg-Star-image left-44 top-1160 w-8"></div>
+    <div class="left-16 star top-260"></div>
+    <div class="left-48 star top-360 rotate-45"></div>
+    <div class="left-24 star top-440"></div>
+    <div class="left-10 star top-580 rotate-45"></div>
+    <div class="left-16 star top-740"></div>
+    <div class="left-64 star top-800 rotate-45"></div>
+    <div class="left-36 star top-860"></div>
+    <div class="left-40 star top-980"></div>
+    <div class="left-20 star top-1040 rotate-45"></div>
+    <div class="left-44 star top-1160"></div>
   </div>
 </template>
 
@@ -61,6 +61,9 @@ export default {
 @layer components {
   .image {
     @apply absolute bg-no-repeat bg-w100%;
+  }
+  .star {
+    @apply bg-Star-image h-11  image;
   }
 }
 </style>

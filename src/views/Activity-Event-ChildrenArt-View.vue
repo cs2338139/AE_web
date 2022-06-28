@@ -110,11 +110,11 @@ export default {
     </Road>
 
     <EventContentItem
-      howTo="報名方式｜本項活動採團體預約報名(8/24-9/21)，每週三預約活動，共計5堂，額滿為止。"
+      howTo="報名方式｜採預約報名，8 / 24 － 9 / 21，每週三預約活動，共計 5 堂，額滿截止。"
       :place="'活動地點｜' + Data.place + '。'"
-      target="參與對象｜兒童相關公益社團、組織、協會。身心障礙與弱勢團體優先受理報名。"
+      target="參與對象｜兒童相關公益社團、組織、協會，以及身心障礙與弱勢團體優先受理報名。"
       money="課程費用｜新臺幣200元整。"
-      :people="'參加人數｜正取' + Data.people"
+      :people="'參加人數｜' + Data.people"
       :img="Data.imgs"
       :link="Data.link"
       :info="Data.info"
@@ -127,6 +127,7 @@ export default {
       <template #time>{{ Data.time }}</template>
 
       <template #title>{{ Data.title }}</template>
+      <template #ref>{{ Data.ref }}</template>
       <template #teacher>授課講師｜{{ Data.teacher }}</template>
     </EventContentItem>
   </div>

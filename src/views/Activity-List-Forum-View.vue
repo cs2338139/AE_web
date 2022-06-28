@@ -81,24 +81,22 @@ export default {
 </script>
 
 <template>
-  <ElementPanel ref="element"/>
+  <ElementPanel ref="element" />
   <div class="wrap mb-20">
     <Road class="mb-5">
       <RoadItem>推廣活動</RoadItem>
       <RoadItem>分享會</RoadItem>
       <template #title>分享會</template>
     </Road>
-    <div class="sm:text-xl text-3xl text-center">「夢境漫遊：繪本藝術」展之繪本美學分享會</div>
+    <div class="sm:text-xl text-3xl text-center">「夢境漫遊：繪本藝術」主題展之分享會系列活動</div>
     <div class="sm:mt-5 max-w-4xl mx-auto mt-8 mb-24">
       <div class="sm:text-sm text-base text-center">
-        <div class="mb-3">
-          可曾想過，孩子的夢，會有哪些？<br />做夢和探索世界的能力，<br />是孩子迎向未來和未知的勇氣。<br />
-          透過與策展人面對面座談，藉由經驗分享一同探討繪本對兒童的影響，進而打開無限想像力和好奇心，啟發藝術興趣。
-        </div>
+        <div class="mb-10 sm:mb-5">透過與策展人面對面座談，藉由經驗分享一同探討繪本對兒童的影響，<br />進而打開無限想像力和好奇心，啟發藝術興趣。</div>
         <div>
-          一、報名方式｜採線上報名<br />
-          二、上課地點｜本館第3會議室。<br />
-          三、參與對象｜公務人員、教師、學生、一般民眾
+          報名方式：採網路線上報名(詳各場次報名網址)，各場活動請分開報名。<br />
+          參與對象：公務人員、教師、學生、一般民眾，凡有興趣者皆可報名。<br />
+          研習時數：公務人員及教師全程參與者，分別核予終身學習認證時數。<br />
+          上課地點：本館第3會議室。
         </div>
       </div>
     </div>
