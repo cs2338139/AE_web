@@ -1,0 +1,1 @@
+import{_ as a,o as t,c as o,b as e,r as _,F as n}from"./index.b48421b1.js";const r={},c=e("span",{class:"mx-5"},"\u3009",-1),l={class:""};function d(s,m){return t(),o(n,null,[c,e("span",l,[_(s.$slots,"default")])],64)}var f=a(r,[["render",d]]);export{f as R};
