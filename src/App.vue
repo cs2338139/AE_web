@@ -10,7 +10,7 @@ export default {};
 </script>
 
 <template>
-  <div class="relative z-20">
+  <div class="relative z-30">
     <NavBarMobile v-if="$windowWidth < $2xl" />
 
     <NavBar2 v-if="$windowWidth >= $2xl" />

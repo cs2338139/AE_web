@@ -112,7 +112,7 @@ export default {
 </script>
 
 <template>
-  <!-- <ElementPanel ref="element" /> -->
+  <ElementPanel ref="element" />
   <div class="wrap">
     <Road class="mb-10">
       <RoadItem>展覽介紹</RoadItem>
@@ -133,7 +133,7 @@ export default {
       <button class="px-5 py-1 rounded-full text-bg-0-Color bg-bg-1-Color hover:bg-text-1-Color" @click="ChangeLang()">{{ infoState }}</button>
     </div>
 
-    <div ref="target" class="relative  overflow-x-hidden">
+    <div ref="target" class="relative overflow-x-hidden">
       <div class="mt-32 -mb-10 sm:mb-0 -translate-x-72 xl:-translate-x-52 lg:-translate-x-20 sm:-translate-x-1">
         <ExhibitionItem :img="dir + '0/cover.jpg'" :info="exhibitionData.books[0].info" :href="'Dream/' + 0">
           <div class="w-28 h-28 bg-no-repeat bg-w100% bg-Ghost-image absolute -right-4 top-5"></div>
@@ -145,7 +145,7 @@ export default {
 
       <div class="mt-0 mb-2 translate-x-24 sm:translate-x-1">
         <ExhibitionItem :img="dir + '1/cover.jpg'" :info="exhibitionData.books[1].info" :href="'Dream/' + 1">
-          <div class="w-28 h-28 bg-no-repeat bg-w100% bg-Leaf-1-image absolute -right-4 top-5"></div>
+          <div class="w-28 h-28 bg-no-repeat bg-w100% bg-Leaf-1-image absolute -right-4 top-5 sm:hidden"></div>
           <template #title>{{ exhibitionData.books[1].title }}</template>
         </ExhibitionItem>
       </div>
@@ -172,7 +172,7 @@ export default {
 
       <div class="mt-0 mb-2 -translate-x-28 sm:mb-8 md:-translate-x-20 sm:-translate-x-1">
         <ExhibitionItem :img="dir + '4/cover.jpg'" :info="exhibitionData.books[4].info" :href="'Dream/' + 4">
-          <div class="w-40 h-36 bg-no-repeat bg-w100% bg-Coral-1-image absolute right-2 top-2"></div>
+          <div class="w-40 h-36 bg-no-repeat bg-w100% bg-Coral-1-image absolute right-2 top-2 sm:hidden"></div>
           <template #title>{{ exhibitionData.books[4].title }}</template>
         </ExhibitionItem>
       </div>
@@ -194,7 +194,7 @@ export default {
     @apply my-5;
   }
   .contentFont {
-    @apply text-xl  leading-9 sm:text-base sm:my-2;
+    @apply text-xl  leading-9  sm:text-sm sm:my-2;
   }
 }
 

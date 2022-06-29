@@ -4,7 +4,10 @@ const props = defineProps({
   path: String,
   time: Number,
   auto: Boolean,
-  img: Array,
+  img: {
+    type: Array,
+    default: [],
+  },
   dot: {
     type: Boolean,
     default: true,
@@ -61,14 +64,14 @@ export default {
     },
   },
   mounted() {
-    if (this.props.img.length != 0) this.showSlides(0);
+    if (this.$props.img.length != 0) this.showSlides(0);
     this.$emitter.on("emitIndex", (msg) => {
       this.currentSlide(msg);
     });
   },
   updated() {
-    if (this.props.img.length != 0) this.showSlides(0);
-  }
+    if (this.$props.img.length != 0) this.showSlides(0);
+  },
 };
 
 // showSlides(slideIndex);

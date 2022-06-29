@@ -73,7 +73,7 @@ export default {
 
 @layer components {
   .image {
-    @apply absolute bg-no-repeat bg-w100%;
+    @apply absolute bg-no-repeat bg-w100%  sm:scale-50;;
     /* @apply border; */
   }
   .star {

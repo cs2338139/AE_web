@@ -138,8 +138,8 @@ export default {
         <br /><br />
       </div>
     </div>
-    <div class="absolute bg-no-repeat bg-w100% w-36 bg-Leaves-image -translate-y-24 -scale-x-100 left-0 h-48"></div>
-    <div class="absolute bg-no-repeat bg-w100% w-36 bg-Boy-image right-60 h-36 rotate-180"></div>
+    <div class="image w-36 bg-Leaves-image -translate-y-24 -scale-x-100 left-0 h-48 sm:hidden"></div>
+    <div class="image w-36 bg-Boy-image right-60 h-36 rotate-180  sm:hidden"></div>
     <div class="bg-bg-0-image h-10 bg-bottom"></div>
   </div>
 
@@ -151,7 +151,7 @@ export default {
         <div class="sm:text-sm text w-3/5 text-lg text-center">
           {{ aboutData.curatorialTeamTip }}
         </div>
-        <div class="absolute bg-no-repeat bg-w100% w-24 bg-Bear-image -right-8 bottom-5 h-36"></div>
+        <div class="image w-24 bg-Bear-image 2xl:right-20 md:-bottom-10 -right-8 bottom-5 h-36"></div>
       </div>
 
       <AboutItem v-for="i in aboutData.curatorialTeam" :img="dir + i.image" :href="i.link" class="sm:my-20 my-32">
@@ -167,7 +167,7 @@ export default {
         <div class="sm:text-sm text w-3/5 text-lg text-center">
           {{ aboutData.promotionTeamTip }}
         </div>
-        <div class="absolute bg-no-repeat bg-w100% w-24 bg-Rabbit-1-image right-0 bottom-5 h-36 -scale-x-100"></div>
+        <div class="image w-24 bg-Rabbit-1-image right-0 bottom-5 h-36 -scale-x-100 sm:hidden"></div>
       </div>
 
       <AboutItem v-for="i in aboutData.promotionTeam" :img="dir + i.image" :href="i.link" class="sm:my-20 my-32">
@@ -178,7 +178,7 @@ export default {
   </div>
 
   <div class="-z-50 absolute bottom-0 w-full">
-    <div class="absolute bg-no-repeat bg-w100% w-36 bg-Horse-image left-20 h-36 bottom-0" ref="horse"></div>
+    <div class="image w-36 bg-Horse-image left-20 2xl:left-60 h-36 bottom-0" ref="horse"></div>
     <div class="bg-bg-0-image h-8"></div>
     <div class="bg-bg-2-Color h-0" ref="bg"></div>
   </div>
@@ -221,6 +221,10 @@ export default {
     max-width: 1134px;
     height: 288px;
     @apply bg-bg-cloud-image sm:bg-bg-cloud-m-image sm:pt-2;
+  }
+
+  .image {
+    @apply absolute bg-no-repeat bg-w100% sm:scale-75;
   }
 }
 </style>

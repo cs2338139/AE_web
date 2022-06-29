@@ -18,7 +18,7 @@ export default {
         author: [],
         imgs: [],
       },
-      element: null,
+      elementObject: null,
       interval: null,
     };
   },
@@ -45,22 +45,22 @@ export default {
           this.exhibitionsName = "晚安屋";
           switch (bookID) {
             case "0":
-              this.element = "Rabbit";
+              this.elemenObjectt = "Rabbit";
               break;
             case "1":
-              this.element = "Spaceship";
+              this.elementObject = "Spaceship";
               break;
             case "2":
-              this.element = "Horse";
+              this.elementObject = "Horse";
               break;
             case "3":
-              this.element = "Robbers";
+              this.elementObject = "Robbers";
               break;
             case "4":
-              this.element = "Bear";
+              this.elementObject = "Bear";
               break;
             case "5":
-              this.element = "Moon";
+              this.elementObject = "Moon";
               break;
           }
           break;
@@ -68,19 +68,19 @@ export default {
           this.exhibitionsName = "夢境房";
           switch (bookID) {
             case "0":
-              this.element = "Ghost";
+              this.elementObject = "Ghost";
               break;
             case "1":
-              this.element = "Leaf";
+              this.elementObject = "Leaf";
               break;
             case "2":
-              this.element = "Leaf";
+              this.elementObject = "Leaf";
               break;
             case "3":
-              this.element = "Truck";
+              this.elementObject = "Truck";
               break;
             case "4":
-              this.element = "Coral";
+              this.elementObject = "Coral";
               break;
           }
           break;
@@ -163,7 +163,7 @@ export default {
           {{ bookData.title }}
         </div>
 
-        <div class="image" :class="element"></div>
+        <div class="image" :class="elementObject"></div>
 
         <div class="sm:text-base text-text-1-Color text-xl">
           {{ bookData.title2 }}
@@ -176,8 +176,9 @@ export default {
             <template v-for="i in j.info">
               <div :class="{ my: i === '' }" class="contentFont">{{ i }}</div>
             </template>
-            <div class="mt-8 sm:text-xs">{{ bookData.copyright }}</div>
           </div>
+
+          <div class="mt-8 sm:text-xs">{{ bookData.copyright }}</div>
         </div>
       </div>
     </div>
@@ -212,7 +213,7 @@ export default {
     @apply border border-solid box-border  border-red-500;
   }
   .image {
-    @apply absolute bg-no-repeat bg-w100% -z-10 right-40 -top-10;
+    @apply absolute bg-no-repeat bg-w100% -z-10 right-40 -top-10  sm:hidden;
   }
   .Rabbit {
     @apply w-40 bg-Rabbit-2-image  h-28 -top-0 right-32;

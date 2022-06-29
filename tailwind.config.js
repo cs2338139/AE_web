@@ -937,6 +937,8 @@ module.exports = {
       110: "1.1",
       125: "1.25",
       150: "1.5",
+      200: "2",
+      250: "2.5",
     },
     scrollMargin: ({ theme }) => ({
       ...theme("spacing"),
