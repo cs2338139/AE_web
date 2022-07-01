@@ -21,7 +21,7 @@ export default {
       _people: [],
     };
   },
-  methods: {
+  computed: {
     Re() {
       if (this.howTo != null) this._howTo = this.howTo.split("｜");
       if (this.place != null) this._place = this.place.split("｜");
@@ -32,10 +32,10 @@ export default {
     },
   },
   created() {
-    this.Re();
+    this.Re;
   },
   updated() {
-    this.Re();
+    this.Re;
   },
 };
 </script>
