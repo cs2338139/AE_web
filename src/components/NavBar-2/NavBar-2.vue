@@ -12,12 +12,12 @@ const homeImage = new URL("../../assets/Image/UI/Logo.png", import.meta.url).hre
 <template>
   <nav class="fixed top-0 z-10 w-full text-item">
     <div class="absolute z-10 w-full">
-      <div class="w-8 image h-11 bg-Star-image right-10 top-10 3xl:scale-150"></div>
-      <div class="w-8 image h-11 bg-Star-image left-32 top-8 3xl:scale-150 3xl:left-60"></div>
-      <div class="w-8 image h-11 bg-Star-image right-154 top-28 3xl:scale-150"></div>
-      <div class="w-8 rotate-45 image h-11 bg-Star-image left-80 top-32 3xl:scale-150  3xl:left-100"></div>
-      <div class="h-32 image w-36 bg-Spaceship-image right-24 top-24 3xl:scale-150 3xl:right-44"></div>
-      <div class="h-48 image w-48 bg-Cloud-image left-0 top-16 2xl:hidden 3xl:scale-150 3xl:origin-left"></div>
+      <div class="w-8 image h-11 bg-Star-image right-10 top-10 4xl:scale-150"></div>
+      <div class="w-8 image h-11 bg-Star-image left-32 top-8 4xl:scale-150 4xl:left-60 3xl:opacity-0"></div>
+      <div class="w-8 image h-11 bg-Star-image right-154 top-28 4xl:scale-150"></div>
+      <div class="w-8 rotate-45 image h-11 bg-Star-image left-80 top-32 4xl:scale-150  4xl:left-100"></div>
+      <div class="h-32 image w-36 bg-Spaceship-image right-24 top-24 4xl:scale-150 4xl:right-44"></div>
+      <div class="h-48 image w-48 bg-Cloud-image left-0 top-16 2xl:hidden 4xl:scale-150 4xl:origin-left"></div>
     </div>
     <NavMenu _class="h-32">
       <template #logo>

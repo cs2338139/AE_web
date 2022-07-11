@@ -84,7 +84,7 @@ export default {
 </script>
 
 <template>
-  <ElementPanel ref="element"/>
+  <ElementPanel ref="element" />
   <div class="wrap mb-20">
     <Road class="mb-5">
       <RoadItem>推廣活動</RoadItem>
@@ -97,7 +97,13 @@ export default {
         <div class="mb-3">
           這次帶來的工作坊從10本繪本發想，分成分程是「繪本與人文」、「科學與創造」兩個主軸。繪本與人文由流寓工作室與果實玩樂生活實驗室兩個教育推廣團隊， 以「自然接觸」、「童趣手作」為課程精神，帶領以自然界的材料或觀察，帶領孩子與大人們進行手作課程。
         </div>
-        <div>「科學與創造」則由光試所與Pixelight以「鏡面反射」 、 「電路電學」、「虛擬實境」為設計精神，帶領孩子與大人們進行科學與AR、VR的奇妙視覺體驗。</div>
+        <div class="mb-4">「科學與創造」則由光試所與Pixelight以「鏡面反射」 、 「電路電學」、「虛擬實境」為設計精神，帶領孩子與大人們進行科學與AR、VR的奇妙視覺體驗。</div>
+        <div>
+          <div class="mb-1">開放報名時間</div>
+          <div class="mb-1">7月份推廣活動自111年6月24日上午11：00開放網路報名。</div>
+          <div class="mb-1">8月份推廣活動自111年7月11日上午11：00開放網路報名。</div>
+          <div>9月份推廣活動自111年8月11日上午11：00開放網路報名。</div>
+        </div>
       </div>
     </div>
     <div class="flex flex-wrap justify-between xl:justify-around max-w-5xl mx-auto">
@@ -116,7 +122,7 @@ export default {
   </div>
   <div class="absolute w-full bottom-0 -z-10">
     <div class="bg-bg-0-image h-8"></div>
-    <div class="absolute bg-no-repeat bg-w100% h-40 bg-Boy-image left-72 translate-y-8 w-40"></div>
+    <div class="absolute bg-no-repeat bg-w100% h-40 bg-Boy-image left-72 translate-y-8 w-40 xl:hidden"></div>
     <div class="bg-bg-2-Color h-80"></div>
   </div>
 </template>

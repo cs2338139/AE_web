@@ -5,7 +5,9 @@ module.exports = {
   darkMode: "media", // or 'class'
   theme: {
     screens: {
-      "3xl": { min: "1981px" },
+      "4xl": { min: "1981px" },
+
+      "3xl": { max: "1900px" },
 
       "2xl": { max: "1440px" },
       /*Extra large devices (large laptops and desktops, 1200px and up) */
@@ -229,7 +231,6 @@ module.exports = {
       1580: "395rem",
       1600: "400rem",
     },
-
 
     animation: {
       none: "none",
