@@ -65,9 +65,9 @@ export default {
 
       <NavMenuList keyName="Online">
         <template #menuName>線上展覽</template>
-        <MenuListItem :enable="false" href="/OnlineTour">策展人導覽<template #en>Online Curator Tour</template></MenuListItem>
-        <MenuListItem :enable="false" href="">虛擬實境<template #en>Virtual Reality Tours</template></MenuListItem>
-        <MenuListItemLink href="https://issuu.com/pixelight2020/docs/wanderinginthedreams_guidebook" target="_blank">導覽教育手冊<template #en>Brochure</template></MenuListItemLink>
+        <MenuListItem href="/OnlineTour">策展人導覽<template #en>Online Curator Tour</template></MenuListItem>
+        <MenuListItemLink href="/3DWeb/3Dindex.html" target="_blank">虛擬實境<template #en>Virtual Reality Tours</template></MenuListItemLink>
+        <MenuListItemLink href="/「夢境漫遊：繪本藝術展」導覽教育手冊.pdf" target="_blank">導覽教育手冊<template #en>Brochure</template></MenuListItemLink>
       </NavMenuList>
 
       <NavMenuList keyName="Activity">

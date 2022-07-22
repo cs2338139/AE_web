@@ -63,7 +63,7 @@ export default {
 
     <div class="max-w-5xl mx-auto">
       <div class="relative w-full mb-20 aspect-video sm:mb-5">
-        <iframe src="https://www.youtube.com/embed/6kkuh11bDiyOw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/_xqLD6Po-ao" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="max-w-3xl pt-10 mx-auto mt-16" ref="target">
         <div class="mb-3 text-3xl sm:text-lg">夢境漫遊：繪本藝術展 線上導覽影片</div>
