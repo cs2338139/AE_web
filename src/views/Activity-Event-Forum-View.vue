@@ -105,6 +105,7 @@ export default {
       <RoadItem>推廣活動</RoadItem>
       <RoadItemRouter href="/activities/Forums">分享會</RoadItemRouter>
       <RoadItem>{{ Data.title }}</RoadItem>
+      <template #title>分享會</template>
     </Road>
 
     <EventContentItem

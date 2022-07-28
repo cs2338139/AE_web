@@ -9,6 +9,40 @@
 
     <script src="JS/highlight.js"></script>
     <script src="JS/info-panel.js"></script>
+
+    <script type="text/javascript">
+        function setCookie(cname, cvalue, exhour) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exhour * 60 * 60 * 1000));
+            var expires = "expires=" + d.toGMTString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+        } function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0)
+                    return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+        window.onload = function checkCookie() {
+            var cookiename = getCookie("Lastroom");
+                if(cookiename =="RoomP")
+                {
+                    document.querySelector('#root').object3D.rotation.set(0,9.5,0);;
+                }
+                else if(cookiename =="RoomJ")
+                {
+                    document.querySelector('#root').object3D.rotation.set(0,8,0);;
+                }
+                cookiename = "RoomI";
+                if (cookiename != "" && cookiename != null) {
+                    setCookie("Lastroom", cookiename, 1);
+                }
+            
+        }
+    </script>
 </head>
 
 <body>
@@ -27,7 +61,8 @@
             </a-mixin>
 
 
-            <img id="infobutton" src="material/infobut.png" crossorigin="anonymous" />
+            <img id="CHbutton" src="material/chinese.png" crossorigin="anonymous" />
+            <img id="ENbutton" src="material/english.png" crossorigin="anonymous" />
             <img id="exitbutton" src="material/xbut.png" crossorigin="anonymous" />
             <img id="arrowbutton" src="material/arrowbut.png" crossorigin="anonymous" />
 

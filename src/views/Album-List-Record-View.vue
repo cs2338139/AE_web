@@ -49,7 +49,7 @@ export default {
             if (mod === colCount) mod = 0;
             var template = {
               index: "0",
-            title: "none",
+              title: "none",
               date: "",
               typeName: "",
             };
@@ -83,13 +83,7 @@ export default {
     </Road>
     <template v-if="recordList.length != 0">
       <div class="flex flex-wrap justify-between xl:justify-around max-w-5xl mx-auto">
-        <AlbumItem
-          v-for="(i, index) in recordList"
-          :href="'/Albums/' + $route.params.albumID + '/' + index"
-          :img="'Data/Albums/' + $route.params.albumID + '/' + index + '/cover.jpg'"
-          :typeName="i.typeName"
-          :class="{ invisible: i.title === 'none' }"
-        >
+        <AlbumItem v-for="(i, index) in recordList" :href="'/Albums/' + $route.params.albumID + '/' + index" :img="'Data/Albums/' + $route.params.albumID + '/' + index + '/cover.jpg'" :class="{ invisible: i.title === 'none' }">
           <template #title>{{ i.title }}</template>
           <template #title2>{{ i.title2 }}</template>
           <template #date>{{ i.date }}</template>
@@ -97,7 +91,7 @@ export default {
       </div>
     </template>
     <template v-else>
-      <div class="my-40 text-center text-9xl text-text-1-Color  italic xl:text-6xl lg:text-3xl md:text-xl">Coming Soon...</div>
+      <div class="my-40 text-center text-9xl text-text-1-Color italic xl:text-6xl lg:text-3xl md:text-xl">Coming Soon...</div>
     </template>
   </div>
 </template>

@@ -8,6 +8,32 @@
 
   <script src="JS/highlight.js"></script>
   <script src="JS/info-panel.js"></script>
+
+  <script type="text/javascript">
+    function setCookie(cname, cvalue, exhour) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exhour * 60 * 60 * 1000));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+    } function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name) == 0)
+                return c.substring(name.length, c.length);
+        }
+        return "";
+    }
+    window.onload = function checkCookie() {
+        var cookiename = getCookie("Lastroom");
+           
+            cookiename = "3D";
+            if (cookiename != "" && cookiename != null) {
+                setCookie("Lastroom", cookiename, 1);
+            }
+        
+    }</script>
 </head>
 
 <body>

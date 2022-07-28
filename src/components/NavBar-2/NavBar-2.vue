@@ -15,7 +15,7 @@ const homeImage = new URL("../../assets/Image/UI/Logo.png", import.meta.url).hre
       <div class="w-8 image h-11 bg-Star-image right-10 top-10 4xl:scale-150"></div>
       <div class="w-8 image h-11 bg-Star-image left-32 top-8 4xl:scale-150 4xl:left-60 3xl:opacity-0"></div>
       <div class="w-8 image h-11 bg-Star-image right-154 top-28 4xl:scale-150"></div>
-      <div class="w-8 rotate-45 image h-11 bg-Star-image left-80 top-32 4xl:scale-150  4xl:left-100"></div>
+      <div class="w-8 rotate-45 image h-11 bg-Star-image left-80 top-32 4xl:scale-150 4xl:left-100"></div>
       <div class="h-32 image w-36 bg-Spaceship-image right-24 top-24 4xl:scale-150 4xl:right-44"></div>
       <div class="h-48 image w-48 bg-Cloud-image left-0 top-16 2xl:hidden 4xl:scale-150 4xl:origin-left"></div>
     </div>
@@ -50,8 +50,8 @@ const homeImage = new URL("../../assets/Image/UI/Logo.png", import.meta.url).hre
 
       <NavMenuList menuListOffset="-translate-x-4">
         <template #menuName>宣導影片+</template>
-        <MenuListItem :enable="false" href="/Videos/PreVideos">前導宣傳片<template #en>Teaser Trailer</template></MenuListItem>
-        <MenuListItem :enable="false" href="/Videos/RecordVideos">訪談紀錄片<template #en>Documentary</template></MenuListItem>
+        <MenuListItem href="/Videos/PreVideos">前導宣傳片<template #en>Teaser Trailer</template></MenuListItem>
+        <MenuListItem href="/Videos/RecordVideos">訪談紀錄片<template #en>Documentary</template></MenuListItem>
         <MenuListItem href="/Videos/Animations">繪本小動畫<template #en>Animated promo</template></MenuListItem>
       </NavMenuList>
 

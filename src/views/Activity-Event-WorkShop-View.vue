@@ -107,6 +107,7 @@ export default {
       <RoadItem>推廣活動</RoadItem>
       <RoadItemRouter href="/activities/WorkShops">工作坊</RoadItemRouter>
       <RoadItem>{{ Data.title }}</RoadItem>
+      <template #title>工作坊</template>
     </Road>
     <EventContentItem
       howTo="報名方式｜採線上報名。"

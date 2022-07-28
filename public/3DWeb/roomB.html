@@ -9,6 +9,39 @@
 
     <script src="JS/highlight.js"></script>
     <script src="JS/info-panel.js"></script>
+    <script type="text/javascript">
+        function setCookie(cname, cvalue, exhour) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exhour * 60 * 60 * 1000));
+            var expires = "expires=" + d.toGMTString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+        } function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0)
+                    return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+        window.onload = function checkCookie() {
+            var cookiename = getCookie("Lastroom");
+                if(cookiename =="RoomA")
+                {
+                    document.querySelector('#root').object3D.rotation.set(0,3.5,0);;
+                }
+                else if(cookiename =="RoomC")
+                {
+                    document.querySelector('#root').object3D.rotation.set(0,0,0);;
+                }
+                cookiename = "RoomB";
+                if (cookiename != "" && cookiename != null) {
+                    setCookie("Lastroom", cookiename, 1);
+                }
+            
+        }
+    </script>
 </head>
 
 <body>
@@ -19,9 +52,12 @@
         <a-assets>
             <img id="sky" src="Rooms/B/360.JPG">
 
-            <img id="infoA" src="Rooms/B/infoA.jpg" crossorigin="anonymous" />
-            <img id="infoB" src="Rooms/B/infoB.jpg" crossorigin="anonymous" />
-          
+            <img id="infoA" src="Rooms/B/W_CH.jpg" crossorigin="anonymous" />
+            <img id="infoB" src="Rooms/B/W_EN.jpg" crossorigin="anonymous" />
+            <img id="infoC" src="Rooms/B/S_CH.jpg" crossorigin="anonymous" />
+            <img id="infoD" src="Rooms/B/S_EN.jpg" crossorigin="anonymous" />
+
+
             <a-mixin id="infoframe" geometry="primitive: plane; width: 0.3; height: 0.3"
                 material="transparent: true; shader: flat;opacity:0"></a-mixin>
             <a-mixin id="infoimage" geometry="primitive: plane; width: 0.3; height: 0.3"
@@ -29,7 +65,8 @@
             </a-mixin>
 
 
-            <img id="infobutton" src="material/infobut.png" crossorigin="anonymous" />
+            <img id="CHbutton" src="material/chinese.png" crossorigin="anonymous" />
+            <img id="ENbutton" src="material/english.png" crossorigin="anonymous" />
             <img id="exitbutton" src="material/xbut.png" crossorigin="anonymous" />
             <img id="arrowbutton" src="material/arrowbut.png" crossorigin="anonymous" />
 
@@ -99,13 +136,19 @@
 
           
 
-            <a-entity id="i_infoA" position="6 0 8" rotation="0 180 0" mixin="frame" class="raycastable menu-button">
-                <a-entity material="src: #infobutton" mixin="poster"></a-entity>
+            <a-entity id="i_infoA" position="4.5 1.7 8" rotation="0 180 0" mixin="frame" class="raycastable menu-button">
+                <a-entity material="src: #CHbutton" mixin="poster"></a-entity>
+            </a-entity>
+            <a-entity id="i_infoB" position="4.5 1 8" rotation="0 180 0" mixin="frame" class="raycastable menu-button">
+                <a-entity material="src: #ENbutton" mixin="poster"></a-entity>
             </a-entity>
 
 
-            <a-entity id="i_infoB" position="-2 0 10" rotation="0 180 0" mixin="frame" class="raycastable menu-button">
-                <a-entity material="src: #infobutton" mixin="poster"></a-entity>
+            <a-entity id="i_infoD" position="-0.7 1 9" rotation="0 180 0" mixin="frame" class="raycastable menu-button">
+                <a-entity material="src: #ENbutton" mixin="poster"></a-entity>
+            </a-entity>
+            <a-entity id="i_infoC" position="-0.7 1.7 9" rotation="0 180 0" mixin="frame" class="raycastable menu-button">
+                <a-entity material="src: #CHbutton" mixin="poster"></a-entity>
             </a-entity>
         </a-entity>
 

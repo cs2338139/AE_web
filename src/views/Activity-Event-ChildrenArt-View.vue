@@ -96,40 +96,41 @@ export default {
 </script>
 
 <template>
-    <ElementPanel ref="element" />
-    <div class="wrap mb-20">
-      <Road class="mb-10">
-        <RoadItem>推廣活動</RoadItem>
-        <RoadItemRouter href="/activities/ChildrenArts">兒童美學活動</RoadItemRouter>
-        <RoadItem>{{ Data.title }}</RoadItem>
-      </Road>
+  <ElementPanel ref="element" />
+  <div class="wrap mb-20">
+    <Road class="mb-10">
+      <RoadItem>推廣活動</RoadItem>
+      <RoadItemRouter href="/activities/ChildrenArts">兒童美學活動</RoadItemRouter>
+      <RoadItem>{{ Data.title }}</RoadItem>
+      <template #title>兒童美學活動</template>
+    </Road>
 
-      <EventContentItem
-        howTo="報名方式｜本項活動採團體預約報名(8/24-9/21)，每週三預約活動，共計5堂，額滿為止。"
-        :place="'活動地點｜' + Data.place + '。'"
-        target="參與對象｜兒童相關公益社團、組織、協會。身心障礙與弱勢團體優先受理報名。"
-        money="課程費用｜新臺幣200元整。"
-        :people="'參加人數｜正取' + Data.people"
-        :img="Data.imgs"
-        :link="Data.link"
-        :info="Data.info"
-        :needKnew="false"
-        :needLink="false"
-        :teacherInfo="Data.teacherInfo"
-        ref="target"
-      >
-        <template #date>{{ Data.date }}</template>
-        <template #time>{{ Data.time }}</template>
+    <EventContentItem
+      howTo="報名方式｜本項活動採團體預約報名(8/24-9/21)，每週三預約活動，共計5堂，額滿為止。"
+      :place="'活動地點｜' + Data.place + '。'"
+      target="參與對象｜兒童相關公益社團、組織、協會。身心障礙與弱勢團體優先受理報名。"
+      money="課程費用｜新臺幣200元整。"
+      :people="'參加人數｜正取' + Data.people"
+      :img="Data.imgs"
+      :link="Data.link"
+      :info="Data.info"
+      :needKnew="false"
+      :needLink="false"
+      :teacherInfo="Data.teacherInfo"
+      ref="target"
+    >
+      <template #date>{{ Data.date }}</template>
+      <template #time>{{ Data.time }}</template>
 
-        <template #title>{{ Data.title }}</template>
-        <template #teacher>授課講師｜{{ Data.teacher }}</template>
-      </EventContentItem>
-    </div>
-    <div class="absolute w-full bottom-0 -z-50">
-      <div class="bg-bg-0-image h-8"></div>
-      <div class="bg-bg-2-Color h-0" ref="bg"></div>
-    </div>
-    <EventModal></EventModal>
+      <template #title>{{ Data.title }}</template>
+      <template #teacher>授課講師｜{{ Data.teacher }}</template>
+    </EventContentItem>
+  </div>
+  <div class="absolute w-full bottom-0 -z-50">
+    <div class="bg-bg-0-image h-8"></div>
+    <div class="bg-bg-2-Color h-0" ref="bg"></div>
+  </div>
+  <EventModal></EventModal>
 </template>
 
 <style scoped>

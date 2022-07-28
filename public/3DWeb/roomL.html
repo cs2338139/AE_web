@@ -9,6 +9,40 @@
 
     <script src="JS/highlight.js"></script>
     <script src="JS/info-panel.js"></script>
+
+    <script type="text/javascript">
+        function setCookie(cname, cvalue, exhour) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exhour * 60 * 60 * 1000));
+            var expires = "expires=" + d.toGMTString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+        } function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0)
+                    return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+        window.onload = function checkCookie() {
+            var cookiename = getCookie("Lastroom");
+                if(cookiename =="RoomK")
+                {
+                    document.querySelector('#root').object3D.rotation.set(0,0.5,0);;
+                }
+                else if(cookiename =="RoomM")
+                {
+                    document.querySelector('#root').object3D.rotation.set(0,9.5,0);;
+                }
+                cookiename = "RoomL";
+                if (cookiename != "" && cookiename != null) {
+                    setCookie("Lastroom", cookiename, 1);
+                }
+            
+        }
+    </script>
 </head>
 
 <body>
@@ -19,8 +53,12 @@
         <a-assets>
             <img id="sky" src="Rooms/L/360.JPG">
 
-            <img id="infoA" src="Rooms/L/infoA.jpg" crossorigin="anonymous" />
-            <img id="infoB" src="Rooms/L/infoB.jpg" crossorigin="anonymous" />
+            <img id="infoA" src="Rooms/L/W_CH_A.jpg" crossorigin="anonymous" />
+            <img id="infoB" src="Rooms/L/W_CH_B.jpg" crossorigin="anonymous" />
+            <img id="infoC" src="Rooms/L/W_EN_A.jpg" crossorigin="anonymous" />
+            <img id="infoD" src="Rooms/L/W_EN_B.jpg" crossorigin="anonymous" />
+            <img id="infoE" src="Rooms/L/S_CH.jpg" crossorigin="anonymous" />
+            <img id="infoF" src="Rooms/L/S_EN.jpg" crossorigin="anonymous" />
           
             
 
@@ -31,7 +69,8 @@
             </a-mixin>
 
 
-            <img id="infobutton" src="material/infobut.png" crossorigin="anonymous" />
+            <img id="CHbutton" src="material/chinese.png" crossorigin="anonymous" />
+            <img id="ENbutton" src="material/english.png" crossorigin="anonymous" />
             <img id="exitbutton" src="material/xbut.png" crossorigin="anonymous" />
             <img id="arrowbutton" src="material/arrowbut.png" crossorigin="anonymous" />
 
@@ -93,14 +132,26 @@
 
         </a-entity>
         <a-entity id="infomenu" position="0 -1.6 0" highlight>
-            <a-entity id="i_infoA" position="-9.5 0 -6" rotation="0 90 0" mixin="frame" class="raycastable menu-button">
-                <a-entity material="src: #infobutton" mixin="poster"></a-entity>
+            <a-entity id="i_infoA" position="-9.5 2.2 -4.5" rotation="0 90 0" mixin="frame" class="raycastable menu-button">
+                <a-entity material="src: #CHbutton" mixin="poster"></a-entity>
+            </a-entity>
+            <a-entity id="i_infoC" position="-9.5 1.2 -4.5" rotation="0 90 0" mixin="frame" class="raycastable menu-button">
+                <a-entity material="src: #ENbutton" mixin="poster"></a-entity>
+            </a-entity>
+            <a-entity id="i_infoB" position="-9.5 2.2 -7.5" rotation="0 90 0" mixin="frame" class="raycastable menu-button">
+                <a-entity material="src: #CHbutton" mixin="poster"></a-entity>
+            </a-entity>
+            <a-entity id="i_infoD" position="-9.5 1.2 -7.5" rotation="0 90 0" mixin="frame" class="raycastable menu-button">
+                <a-entity material="src: #ENbutton" mixin="poster"></a-entity>
             </a-entity>
 
-            <a-entity id="i_infoB" position="-6.5 0 10" rotation="0 180 0" mixin="frame" class="raycastable menu-button">
-                <a-entity material="src: #infobutton" mixin="poster"></a-entity>
-            </a-entity>
 
+            <a-entity id="i_infoE" position="-5 2.2 6.5" rotation="0 90 0" mixin="frame" class="raycastable menu-button">
+                <a-entity material="src: #CHbutton" mixin="poster"></a-entity>
+            </a-entity>
+            <a-entity id="i_infoF" position="-5 1.2 6.5" rotation="0 90 0" mixin="frame" class="raycastable menu-button">
+                <a-entity material="src: #ENbutton" mixin="poster"></a-entity>
+            </a-entity>
 
            
 

@@ -108,6 +108,7 @@ export default {
       <RoadItem>活動花絮</RoadItem>
       <RoadItemRouter :href="'/Albums/' + $route.params.albumID">{{ albumName }}</RoadItemRouter>
       <RoadItem>{{ albumEventData.title }}</RoadItem>
+      <template #title>{{ albumEventData.title }}</template>
     </Road>
 
     <div class="flex flex-wrap justify-between lg:justify-around">
@@ -119,11 +120,11 @@ export default {
     </div>
 
     <div ref="Modal" class="fixed bottom-0 left-0 z-50 hidden w-full h-screen bg-black-05">
-      <div class="absolute top-0 bottom-0 left-0 right-0 max-w-5xl m-auto aspect-image">
+      <div class="absolute top-0 bottom-0 left-0 right-0 max-w-5xl m-auto aspect-image bg-black">
         <button @click="closeModal" class="absolute right-5 top-5 z-50">
           <ion-icon name="close-outline" />
         </button>
-        <ImageBox :path="path" :img="imgs" :time="3000" :auto="false" :dot="false" :emitIndex="emitIndex"></ImageBox>
+        <ImageBox :path="path" :img="imgs" :time="3000" :auto="false" :dot="false" :emitIndex="emitIndex" class="absolute top-1/2 -translate-y-1/2"></ImageBox>
       </div>
     </div>
   </div>

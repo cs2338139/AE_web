@@ -55,39 +55,35 @@ export default {
 </script>
 
 <template>
-    <ElementPanel ref="element" />
-    <div class="wrap">
-      <Road class="mb-10">
-        <RoadItemRouter href="/news">最新消息</RoadItemRouter>
-        <template #title>最新消息</template>
-      </Road>
+  <ElementPanel ref="element" />
+  <div class="wrap">
+    <Road class="mb-10">
+      <RoadItemRouter href="/news">最新消息</RoadItemRouter>
+      <template #title>最新消息</template>
+    </Road>
 
-      <div class="left-0 right-0 max-w-2xl mx-auto mb-20">
-        <div class="mb-3">
-          <div class="inline-block sm:text-sm mr-8 text-xl">{{ newsData.date }}</div>
-          <div class="inline-block sm:text-sm text-xl">
-            <span class="px-4 py-1.5 border border-black rounded-full sm:px-1">{{ newsData.typeName }}</span>
-          </div>
-        </div>
-        <div class="mb-10 text-3xl sm:text-xl sm:my-5">{{ newsData.title }}</div>
-
-        <div class="mb-16" v-html="newsData.content"></div>
-        <!-- <div class="mb-16">
-
-        </div> -->
-
-        <!-- <template v-for="i in newsData.content">
-            <div :class="{ my: i === '' }" class="contentFont sm:text-sm">{{ i }}</div>
-          </template> -->
-
-        <div class="text-center hover:scale-110">
-          <RouterLink to="/news" class="">
-            <span class="bg-text-1-Color text-white px-3 py-2 rounded-full"> 回最新消息 </span>
-          </RouterLink>
+    <div class="left-0 right-0 max-w-2xl mx-auto mb-20">
+      <div class="mb-3">
+        <div class="inline-block sm:text-sm mr-8 text-xl">{{ newsData.date }}</div>
+        <div class="inline-block sm:text-sm text-xl">
+          <span class="px-4 py-1.5 border border-black rounded-full sm:px-1">{{ newsData.typeName }}</span>
         </div>
       </div>
+      <div class="mb-10 text-3xl sm:text-xl sm:my-5">{{ newsData.title }}</div>
+
+      <div class="mb-16" v-html="newsData.content"></div>
+
+      <!-- <div class="mb-16">
+      </div> -->
+
+      <div class="text-center hover:scale-110">
+        <RouterLink to="/news" class="">
+          <span class="bg-text-1-Color text-white px-3 py-2 rounded-full"> 回最新消息 </span>
+        </RouterLink>
+      </div>
     </div>
-  </template>
+  </div>
+</template>
 
 <style scoped>
 @tailwind base;

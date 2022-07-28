@@ -34,18 +34,19 @@ AFRAME.registerComponent('to-link', {
     }
     else if (evt.currentTarget.id == "SwitchtoTwo") {
       document.querySelector('#indexcam').object3D.position.set(0, 102.6, 0);
-
+        
         document.querySelector('#SwitchtoOne').object3D.position.set(0, 0.7, -1.5);
         document.querySelector('#SwitchtoTwo').object3D.position.set(100, 100, 100);
     }
     else if (evt.currentTarget.id == "SwitchtoOne") {
-
+       
       document.querySelector('#indexcam').object3D.position.set(0, 1.6, 0);
       document.querySelector('#SwitchtoTwo').object3D.position.set(0, 0.7, -1.5);
       document.querySelector('#SwitchtoOne').object3D.position.set(100, 100, 100);
   }
     else if (evt.currentTarget.id.substring(0, 1) == "r") {
 
+    //  window.location.href = evt.currentTarget.id.substring(2, 100) + ".html";
       window.location.href = "/3DWeb/" + evt.currentTarget.id.substring(2, 100) + ".html";
     }
 

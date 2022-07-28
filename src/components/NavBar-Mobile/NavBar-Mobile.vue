@@ -80,8 +80,8 @@ export default {
 
       <NavMenuList menuListOffset="-translate-x-3">
         <template #menuName>宣導影片</template>
-        <MenuListItem :enable="false" href="/Videos/PreVideos">前導宣傳片<template #en>Teaser Trailer</template></MenuListItem>
-        <MenuListItem :enable="false" href="/Videos/RecordVideos">訪談紀錄片<template #en>Documentary</template></MenuListItem>
+        <MenuListItem href="/Videos/PreVideos">前導宣傳片<template #en>Teaser Trailer</template></MenuListItem>
+        <MenuListItem href="/Videos/RecordVideos">訪談紀錄片<template #en>Documentary</template></MenuListItem>
         <MenuListItem href="/Videos/Animations">繪本小動畫<template #en>Animated promo</template></MenuListItem>
       </NavMenuList>
 
