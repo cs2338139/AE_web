@@ -60,8 +60,8 @@ const homeImage = new URL("../../assets/Image/UI/Logo.png", import.meta.url).hre
 
       <NavMenuList menuListOffset="-translate-x-4">
         <template #menuName>活動花絮+</template>
-        <MenuListItem href="/Albums/Records">活動紀錄<template #en>Exhibition Records</template></MenuListItem>
-        <MenuListItem href="/Albums/PreExhibitions">展覽花絮<template #en>Event Records</template></MenuListItem>
+        <MenuListItem href="/Albums/Activity">活動紀錄<template #en>Exhibition Records</template></MenuListItem>
+        <MenuListItem href="/Albums/Exhibition">展覽花絮<template #en>Event Records</template></MenuListItem>
       </NavMenuList>
 
       <NavMenuItemLink href="https://www.arte.gov.tw/" target="_blank">國立臺灣藝術教育館</NavMenuItemLink>

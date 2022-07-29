@@ -22,7 +22,6 @@ const router = createRouter({
         {
           path: "",
           component: () => import("../views/Type-Content-View.vue"),
-
         },
         {
           path: ":bookID",
@@ -73,7 +72,7 @@ const router = createRouter({
         {
           path: "",
           component: () => import("../views/Type-Content-View.vue"),
-        }
+        },
       ],
     },
     {
@@ -82,11 +81,23 @@ const router = createRouter({
       children: [
         {
           path: "",
-          component: () => import("../views/Type-Content-View.vue"),
+          component: () => import("../views/Album-Content-View.vue"),
         },
         {
-          path: ":albumEventID",
-          component: () => import("../views/Album-Event-View.vue"),
+          path: ":albumEventLv0ID",
+          component: () => import("../views/Album-Content-View.vue"),
+          children: [
+            {
+              path: ":albumEventLv1ID",
+              component: () => import("../views/Album-Content-View.vue"),
+              children: [
+                {
+                  path: ":albumEventLv2ID",
+                  component: () => import("../views/Album-Content-View.vue"),
+                },
+              ],
+            },
+          ],
         },
       ],
     },

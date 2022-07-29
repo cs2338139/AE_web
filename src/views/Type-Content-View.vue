@@ -15,9 +15,6 @@ export default {
     ActivityChildrenArtView: defineAsyncComponent(() => import("./Activity-List-ChildrenArt-View.vue")),
     ActivityMeetingView: defineAsyncComponent(() => import("./Activity-List-Meeting-View.vue")),
 
-    AlbumRecordView: defineAsyncComponent(() => import("./Album-List-Record-View.vue")),
-    AlbumPreExhibitionView: defineAsyncComponent(() => import("./Album-List-PreExhibition-View.vue")),
-
     ExhibitionDreamView: defineAsyncComponent(() => import("./Exhibition-List-Dream-View.vue")),
     ExhibitionGoodNightView: defineAsyncComponent(() => import("./Exhibition-List-GoodNight-View.vue")),
 
@@ -38,17 +35,6 @@ export default {
             this.current = "ActivityChildrenArtView";
           } else if (activityID === "Meetings") {
             this.current = "ActivityMeetingView";
-          } else {
-            this.ToNotFound();
-          }
-        }
-      } else if (this.$route.params.albumID != null) {
-        let albumID = this.$route.params.albumID;
-        if (albumID) {
-          if (albumID === "PreExhibitions") {
-            this.current = "AlbumPreExhibitionView";
-          } else if (albumID === "Records") {
-            this.current = "AlbumRecordView";
           } else {
             this.ToNotFound();
           }

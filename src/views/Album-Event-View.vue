@@ -5,6 +5,9 @@ import RoadItem from "../components/Road/src/RoadItem.vue";
 import RoadItemRouter from "../components/Road/src/RoadItemRouter.vue";
 import ImageBox from "../components/ImageBox/ImageBox.vue";
 import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
+defineProps({
+  path: String,
+});
 </script>
 
 <script>
@@ -18,54 +21,53 @@ export default {
       },
       imgs: [],
       fixedCount: 0,
-      path: "Albums/" + this.$route.params.albumID + "/" + this.$route.params.albumEventID,
+      _path: "Albums/" + this.$props.path,
     };
   },
+  expose: ["LoadJson"],
   methods: {
-    LoadJson() {
+    LoadJson(vi) {
+      if (vi) return;
       let albumID = this.$route.params.albumID;
-      let albumEventID = this.$route.params.albumEventID;
-      if (albumID && albumEventID) {
-        axios
-          .get("Data/Albums/" + albumID + "/" + albumEventID + "/albumEventContent.json")
-          .then((response) => {
-            this.albumEventData = response.data;
+      axios
+        .get("Data/Albums/" + this.$props.path + "/List.json")
+        .then((response) => {
+          this.albumEventData = response.data;
 
-            let colCount = 4;
+          let colCount = 4;
 
-            if (this.$windowWidth <= this.$sm) {
-              colCount = 2;
-            } else if (this.$windowWidth <= this.$md) {
-              colCount = 3;
-            } else if (this.$windowWidth <= this.$lg) {
-              colCount = 3;
-            } else if (this.$windowWidth <= this.$xl) {
-              colCount = 3;
-            } else if (this.$windowWidth <= this.$2xl) {
-              colCount = 4;
-            }
+          if (this.$windowWidth <= this.$sm) {
+            colCount = 2;
+          } else if (this.$windowWidth <= this.$md) {
+            colCount = 3;
+          } else if (this.$windowWidth <= this.$lg) {
+            colCount = 3;
+          } else if (this.$windowWidth <= this.$xl) {
+            colCount = 3;
+          } else if (this.$windowWidth <= this.$2xl) {
+            colCount = 4;
+          }
 
-            this.fixedCount = colCount - (this.albumEventData.imgsCount % colCount);
-            if (this.fixedCount === colCount) this.fixedCount = 0;
+          this.fixedCount = colCount - (this.albumEventData.imgsCount % colCount);
+          if (this.fixedCount === colCount) this.fixedCount = 0;
 
-            for (let i = 1; i <= this.albumEventData.imgsCount; i++) {
-              this.imgs.push("img (" + i + ").jpg");
-            }
+          for (let i = 1; i <= this.albumEventData.imgsCount; i++) {
+            this.imgs.push("img (" + i + ").jpg");
+          }
 
-            switch (albumID) {
-              case "Records":
-                this.albumName = "活動紀錄";
-                break;
-              case "PreExhibitions":
-                this.albumName = "展覽花絮";
-                break;
-            }
-          })
-          .catch((response) => {
-            console.log(response);
-            this.ToNotFound();
-          });
-      }
+          switch (albumID) {
+            case "Activity":
+              this.albumName = "活動紀錄";
+              break;
+            case "Exhibition":
+              this.albumName = "展覽花絮";
+              break;
+          }
+        })
+        .catch((response) => {
+          console.log(response);
+          this.ToNotFound();
+        });
     },
     ToNotFound() {
       this.$router.push({
@@ -89,9 +91,8 @@ export default {
     $route: "LoadJson",
   },
   created() {
-    this.LoadJson();
+    this.LoadJson("");
   },
-  mounted() {},
   updated() {
     if (this.$refs.element) this.$refs.element.ReSet();
   },
@@ -113,18 +114,19 @@ export default {
 
     <div class="flex flex-wrap justify-between lg:justify-around">
       <button v-for="(i, index) in imgs" @click="openModal(index)">
-        <img :src="'Data/' + path + '/Image/' + i" class="mb-10 w-80 lg:w-60 md:w-40" />
+        <img :src="'Data/' + _path + '/Image/' + i" class="mb-10 w-80 lg:w-60 md:w-40" />
       </button>
 
       <div v-if="fixedCount > 0" v-for="i in fixedCount" class="mb-10 w-80 bg-slate-600 invisible"></div>
     </div>
 
-    <div ref="Modal" class="fixed bottom-0 left-0 z-50 hidden w-full h-screen bg-black-05">
+    <div ref="Modal" class="fixed bottom-0 left-0 z-50 hidden w-full h-screen bg-black-05" @click.self="closeModal">
       <div class="absolute top-0 bottom-0 left-0 right-0 max-w-5xl m-auto aspect-image bg-black">
         <button @click="closeModal" class="absolute right-5 top-5 z-50">
-          <ion-icon name="close-outline" />
+          <ion-icon class="X_Icon sm:text-2xl" name="close-outline" />
         </button>
-        <ImageBox :path="path" :img="imgs" :time="3000" :auto="false" :dot="false" :emitIndex="emitIndex" class="absolute top-1/2 -translate-y-1/2"></ImageBox>
+        <ImageBox :path="_path" :img="imgs" :time="3000" :auto="false" :dot="false" :emitIndex="emitIndex"
+          class="absolute top-1/2 -translate-y-1/2"></ImageBox>
       </div>
     </div>
   </div>
@@ -135,12 +137,6 @@ export default {
 @tailwind components;
 @tailwind utilities;
 
-ion-icon {
-  color: white;
-  opacity: 0.5;
-  font-size: 48px;
-  @apply sm:text-2xl;
-}
 ion-icon:hover {
   opacity: 1;
 }
@@ -149,6 +145,7 @@ ion-icon:hover {
   .my {
     @apply my-5;
   }
+
   .contentFont {
     @apply text-lg;
   }
@@ -159,14 +156,16 @@ ion-icon:hover {
     @apply border border-solid box-border;
   }
 }
+
 @layer utilities {
   .bg-black-05 {
     background-color: rgba(0, 0, 0, 0.9);
   }
-}
-@layer components {
-  .dev {
-    @apply border border-solid box-border  border-red-500;
+
+  .X_Icon {
+    color: white;
+    opacity: 0.5;
+    font-size: 48px;
   }
 }
 </style>

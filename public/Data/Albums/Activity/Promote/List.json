@@ -1,0 +1,29 @@
+{
+  "title": "推廣活動",
+  "list": [
+    {
+      "title": "工作坊",
+      "date": "2022.06.30",
+      "href": "WorkShops",
+      "Enable": true
+    },
+    {
+      "title": "分享會",
+      "date": "2022.06.28-09.25",
+      "href": "Forums",
+      "Enable": false
+    },
+    {
+      "title": "兒童美學活動",
+      "date": "2022.06.28-09.25",
+      "href": "Child",
+      "Enable": false
+    },
+    {
+      "title": "「當右腦碰上左腦」研習營",
+      "date": "2022.09.16",
+      "href": "Meeting",
+      "Enable": false
+    }
+  ]
+}
