@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>-->
+    <script src="JS/aframe-master.js"></script>
+    <script
+        src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
+
+    <script src="JS/highlight.js"></script>
+    <script src="JS/info-panel.js"></script>
+    <script type="text/javascript">
+        function setCookie(cname, cvalue, exhour) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exhour * 60 * 60 * 1000));
+            var expires = "expires=" + d.toGMTString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+        } function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0)
+                    return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+        window.onload = function checkCookie() {
+            var cookiename = getCookie("Lastroom");
+                if(cookiename =="RoomN")
+                {
+                    document.querySelector('#root').object3D.rotation.set(0,8,0);;
+                }
+                else if(cookiename =="RoomP")
+                {
+                    document.querySelector('#root').object3D.rotation.set(0,6.5,0);;
+                }
+                cookiename = "RoomO";
+                if (cookiename != "" && cookiename != null) {
+                    setCookie("Lastroom", cookiename, 1);
+                }
+            
+        }
+    </script>
+</head>
+
+<body>
+
+    <a-scene background="color: #FFFFFF" cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
+        info-message="htmlSrc: #messageText" vr-mode-ui="enabled: false">
+
+        <a-assets>
+            <img id="sky" src="Rooms/O/360.JPG">
+
+            
+
+            <a-mixin id="infoframe" geometry="primitive: plane; width: 0.3; height: 0.3"
+                material="transparent: true; shader: flat;opacity:0"></a-mixin>
+            <a-mixin id="infoimage" geometry="primitive: plane; width: 0.3; height: 0.3"
+                material="color: white; shader: flat;transparent: true" material="shader: flat" position="0 0 0.005">
+            </a-mixin>
+
+
+            <img id="CHbutton" src="material/chinese.png" crossorigin="anonymous" />
+            <img id="ENbutton" src="material/english.png" crossorigin="anonymous" />
+            <img id="exitbutton" src="material/xbut.png" crossorigin="anonymous" />
+            <img id="arrowbutton" src="material/arrowbut.png" crossorigin="anonymous" />
+
+
+            <a-mixin id="frame" geometry="primitive: plane; width: 1; height: 1"
+                material="transparent: true; shader: flat;opacity:0"
+                animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
+                animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"></a-mixin>
+
+            <a-mixin id="poster" geometry="primitive: plane; width: 1; height: 1"
+                material="color: white; shader: flat;transparent: true" material="shader: flat" position="0 0 0.005">
+            </a-mixin>
+            <a-mixin id="exitframe" geometry="primitive: plane; width: 1; height: 1"
+                material="transparent: true; shader: flat;opacity:0"
+                animation__scale="property: scale; to: 0.04 0.04 0.04; dur: 200; startEvents: mouseenter"
+                animation__scale_reverse="property: scale; to: 0.03 0.03 0.03; dur: 200; startEvents: mouseleave">
+            </a-mixin>
+            <a-mixin id="infocard" geometry="primitive: plane; width: 1; height: 1"
+                material="color: white; shader: flat;transparent: true" position="0 0 0">
+            </a-mixin>
+
+        </a-assets>
+        <a-sky src="#sky"></a-sky>
+
+
+        <a-entity id="root" rotation="0 -85 0">
+            <a-entity camera
+                look-controls="magicWindowTrackingEnabled: false; touchEnabled: true; mouseEnabled: true;reverse-mouse-drag:false">
+
+                <a-entity id="infoui" position="100,100,100" material="src: #infoposterA" mixin="infoimage"
+                    visible="false">
+
+                    <a-entity id="exitbut" position="0 -0.22 0" scale="0.03 0.03 0.03" mixin="exitframe"
+                        class="raycastable menu-button">
+                        <a-entity material="src: #exitbutton" mixin="poster"></a-entity>
+
+                    </a-entity>
+
+                </a-entity>
+
+
+            </a-entity>
+
+
+        </a-entity>
+        <a-entity id="roadmenu" position="0 -1.6 0" highlight>
+
+            <a-entity id="r_roomA" position="-1 1 -6" rotation="0 0 120" mixin="frame" class="raycastable menu-button">
+                <a-entity material="src: #arrowbutton" mixin="poster"></a-entity>
+            </a-entity>
+
+            <a-entity id="r_roomP" position="-1 -1 6" rotation="0 180 0" mixin="frame" class="raycastable menu-button">
+                <a-entity material="src: #arrowbutton" mixin="poster"></a-entity>
+            </a-entity>
+            <a-entity id="r_roomN" position="7 -1 -1" rotation="0 -90 -0" mixin="frame" class="raycastable menu-button">
+                <a-entity material="src: #arrowbutton" mixin="poster"></a-entity>
+            </a-entity>
+
+
+        </a-entity>
+     
+
+        
+        <a-entity id="tolink" position="0 0 0.5" to-link visible="false" scale="0.001 0.001 0.001">
+        </a-entity>
+
+        <!-- Hand controls -->
+
+
+    </a-scene>
+</body>
+
+</html>

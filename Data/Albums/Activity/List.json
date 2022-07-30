@@ -1,0 +1,17 @@
+{
+  "title": "活動紀錄",
+  "list": [
+    {
+      "title": "開幕花絮",
+      "date": "2022.06.30",
+      "href": "Opening",
+      "Enable": true
+    },
+    {
+      "title": "推廣活動",
+      "date": "2022.06.28-09.25",
+      "href": "Promote",
+      "Enable": true
+    }
+  ]
+}

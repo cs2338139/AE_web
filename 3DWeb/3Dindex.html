@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>-->
+  <script src="JS/aframe-master.js"></script>
+  <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
+
+  <script src="JS/highlight.js"></script>
+  <script src="JS/info-panel.js"></script>
+
+  <script type="text/javascript">
+    function setCookie(cname, cvalue, exhour) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exhour * 60 * 60 * 1000));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+    } function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name) == 0)
+                return c.substring(name.length, c.length);
+        }
+        return "";
+    }
+    window.onload = function checkCookie() {
+        var cookiename = getCookie("Lastroom");
+           
+            cookiename = "3D";
+            if (cookiename != "" && cookiename != null) {
+                setCookie("Lastroom", cookiename, 1);
+            }
+        
+    }</script>
+</head>
+
+<body>
+  <script type="text/javascript">
+    AFRAME.registerComponent('drag-rotate-component', {
+      schema: { speed: { default: 1 } },
+      init: function () {
+        this.ifMouseDown = false;
+        this.x_cord = 0;
+        this.y_cord = 0;
+        document.addEventListener('mousedown', this.OnDocumentMouseDown.bind(this));
+        document.addEventListener('mouseup', this.OnDocumentMouseUp.bind(this));
+        document.addEventListener('mousemove', this.OnDocumentMouseMove.bind(this));
+      },
+      OnDocumentMouseDown: function (event) {
+        this.ifMouseDown = true;
+        this.x_cord = event.clientX;
+        this.y_cord = event.clientY;
+      },
+      OnDocumentMouseUp: function () {
+        this.ifMouseDown = false;
+      },
+      OnDocumentMouseMove: function (event) {
+        if (this.ifMouseDown) {
+          var temp_x = event.clientX - this.x_cord;
+          var temp_y = event.clientY - this.y_cord;
+          if (Math.abs(temp_y) < Math.abs(temp_x)) {
+            this.el.object3D.rotateY(temp_x * this.data.speed / 1000);
+          }
+          else {
+            // this.el.object3D.rotateX(temp_y*this.data.speed/1000);
+          }
+          this.x_cord = event.clientX;
+          this.y_cord = event.clientY;
+        }
+      }
+    });
+  </script>
+  <a-scene background="color: #333333" cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
+    info-message="htmlSrc: #messageText" vr-mode-ui="enabled: false">
+
+    <a-assets>
+      <img id="Aposter" src="material/locbut.png" crossorigin="anonymous" />
+      <img id="tofirst" src="material/switchbut.png" crossorigin="anonymous" />
+      <img id="tosecond" src="material/switchbut.png" crossorigin="anonymous" />
+      <img id="first" src="material/1F.png" crossorigin="anonymous" />
+      <img id="second" src="material/2F.png" crossorigin="anonymous" />
+      <a-mixin id="frame" geometry="primitive: plane; width: 1; height: 1"
+                material="transparent: true; shader: flat;opacity:0"
+                animation__scale="property: scale; to: 0.52 0.52 0.52; dur: 200; startEvents: mouseenter"
+                animation__scale_reverse="property: scale; to: 0.5 0.5 0.5; dur: 200; startEvents: mouseleave"></a-mixin>
+
+            <a-mixin id="poster" geometry="primitive: plane; width: 1; height: 1"
+                material="color: white; shader: flat;transparent: true" material="shader: flat" position="0 0 0.005">
+            </a-mixin>
+            <a-mixin id="longposter" geometry="primitive: plane; width: 2; height: 1"
+                material="color: white; shader: flat;transparent: true" material="shader: flat" position="0 0 0.005">
+            </a-mixin>
+    </a-assets>
+
+    <a-entity id="background" position="0 0 0" geometry="primitive: sphere; radius: 2.0"
+      material="color: red; side: back; shader: flat" scale="0.001 0.001 0.001" visible="false" class="raycastable">
+    </a-entity>
+
+    <a-gltf-model id="modellocA" src="fieldA.glb" position="0 -1 -3" scale = "0.4 0.4 0.4" rotation = "0 -90 0"drag-rotate-component></a-gltf-model>
+    <a-gltf-model id="modellocB" src="fieldB.glb" position="0 100 -3" scale = "0.4 0.4 0.4"rotation = "0 -90 0"drag-rotate-component></a-gltf-model>
+    <a-entity id = "indexcam" position="0 1.6 0" rotation='-30 0 0' camera look-controls="enabled = false">
+
+      <a-entity light="type: point; color: #FFF; intensity: 1" position ="2 0 0" ></a-entity>
+      <a-entity light="type: point; color: #FFF; intensity: 1" position ="-2 0 0" ></a-entity>
+      <a-entity id="fadeBackground" geometry="primitive: sphere; radius: 2.5"
+        material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6" visible="false">
+      </a-entity>
+      <a-entity id="SwitchtoOne" position="100 100 100" mixin="frame"scale = "0.5 0.5 0.5" class="raycastable menu-button">
+        <a-entity material="src: #tofirst" mixin="poster"></a-entity>
+        <a-entity material="src: #second" mixin="longposter"position = "0 -0.7 0"scale = "0.3 0.3 0.3"></a-entity>
+      </a-entity>
+      <a-entity id="SwitchtoTwo" position="0 0.7 -1.5" mixin="frame"scale = "0.5 0.5 0.5" class="raycastable menu-button">
+        <a-entity material="src: #tosecond" mixin="poster"></a-entity>
+        <a-entity material="src: #first" mixin="longposter" position = "0 -0.7 0"scale = "0.3 0.3 0.3"></a-entity>
+      </a-entity>
+    </a-entity>
+    <a-entity id="menu2" highlight>
+
+    </a-entity>
+
+
+    <!-- Hand controls -->
+    <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
+    <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E">
+    </a-entity>
+    <a-entity id="uiA" position="0 0 -2.5"rotation = "0 -90 0" drag-rotate-component>
+      <!-- Poster menu -->
+
+      <a-entity id="menu" highlight>
+
+        <a-entity id="r_roomA" position="0.9 0 0" mixin="frame" scale = "0.5 0.5 0.5"  rotation = "-90 0 0"class="raycastable menu-button">
+          <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+        </a-entity>
+        <a-entity id="r_roomB" position="0 0 0.85" mixin="frame"scale = "0.5 0.5 0.5" rotation = "-90 0 0" class="raycastable menu-button">
+          <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+        </a-entity>
+        <a-entity id="r_roomC" position="-0.9 0 0.85" mixin="frame"scale = "0.5 0.5 0.5" rotation = "-90 0 0" class="raycastable menu-button">
+          <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+        </a-entity>
+
+        <a-entity id="r_roomD" position="-0.9 0 0" mixin="frame"scale = "0.5 0.5 0.5" rotation = "-90 0 0" class="raycastable menu-button">
+          <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+        </a-entity>
+        <a-entity id="r_roomE" position="-0.9 0 -0.85" mixin="frame"scale = "0.5 0.5 0.5" rotation = "-90 0 0" class="raycastable menu-button">
+          <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+        </a-entity>
+        <a-entity id="r_roomF" position="0 0 -0.85" mixin="frame"scale = "0.5 0.5 0.5" rotation = "-90 0 0" class="raycastable menu-button">
+          <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+        </a-entity>
+        <a-entity id="r_roomG" position="0.3 0 0" mixin="frame"scale = "0.5 0.5 0.5" rotation = "-90 0 0" class="raycastable menu-button">
+          <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+        </a-entity>
+        <a-entity id="r_roomH" position="-0.3 0 0" mixin="frame"scale = "0.5 0.5 0.5" rotation = "-90 0 0" class="raycastable menu-button">
+          <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+        </a-entity>
+      </a-entity>
+
+      <a-entity id="tolink" position="0 0 0.5" to-link visible="false" scale="0.001 0.001 0.001">
+      </a-entity>
+
+    </a-entity>
+    <a-entity id="uiB" position="0 101 -2.5"rotation = "0 -90 0" drag-rotate-component>
+      <!-- Poster menu -->
+
+      <a-entity id="menu" highlight>
+
+        <a-entity id="r_roomP" position="0.9 0 0" mixin="frame" scale = "0.5 0.5 0.5"  rotation = "-90 0 0"class="raycastable menu-button">
+          <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+        </a-entity>
+        <a-entity id="r_roomN" position="0 0 0.85" mixin="frame"scale = "0.5 0.5 0.5" rotation = "-90 0 0" class="raycastable menu-button">
+          <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+        </a-entity>
+        <a-entity id="r_roomM" position="-0.9 0 0.85" mixin="frame"scale = "0.5 0.5 0.5" rotation = "-90 0 0" class="raycastable menu-button">
+          <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+        </a-entity>
+
+        <a-entity id="r_roomL" position="-0.9 0 0" mixin="frame"scale = "0.5 0.5 0.5" rotation = "-90 0 0" class="raycastable menu-button">
+          <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+        </a-entity>
+        <a-entity id="r_roomK" position="-0.9 0 -0.85" mixin="frame"scale = "0.5 0.5 0.5" rotation = "-90 0 0" class="raycastable menu-button">
+          <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+        </a-entity>
+        <a-entity id="r_roomJ" position="0 0 -0.85" mixin="frame"scale = "0.5 0.5 0.5" rotation = "-90 0 0" class="raycastable menu-button">
+          <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+        </a-entity>
+       
+      </a-entity>
+
+      <a-entity id="tolink" position="0 0 0.5" to-link visible="false" scale="0.001 0.001 0.001">
+      </a-entity>
+
+    </a-entity>
+  </a-scene>
+</body>
+
+</html>
