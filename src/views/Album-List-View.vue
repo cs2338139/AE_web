@@ -4,8 +4,9 @@ import Road from "../components/Road/Road.vue";
 import RoadItem from "../components/Road/src/RoadItem.vue";
 import AlbumItem from "../components/AlbumItem/AlbumItem.vue";
 import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
+import RoadItemRouter from "../components/Road/src/RoadItemRouter.vue";
 defineProps({
-  path: String,
+  dictionary: Array,
 });
 </script>
 
@@ -20,14 +21,31 @@ export default {
       },
       href: [],
       img: [],
+      path: [],
     };
   },
-  expose: ["LoadJson"],
   methods: {
-    LoadJson(vi) {
-      if ((!vi) && (this.flag)) return;
+    CheckPath() {
+      let temp = this.$route.fullPath.split("/");
+      let title = temp.slice(2, temp.length - 1);
+      for (let i = 0; i < title.length; i++) {
+        let href = "";
+        if (i != 0) {
+          href = this.path[i - 1].href + '/' + title[i];
+        }
+        else {
+          href = title[i];
+        }
+        var tempPath = {
+          title: this.$props.dictionary[title[i]],
+          href: href,
+        }
+        this.path.push(tempPath)
+      }
+    },
+    LoadJson() {
       axios
-        .get("Data/Albums/" + this.$props.path + "/List.json")
+        .get("Data" + this.$route.fullPath + "/List.json")
         .then((response) => {
           this.data = response.data;
           for (let i = 0; i < this.data.list.length; i++) {
@@ -35,8 +53,8 @@ export default {
               this.href[i] = "";
               this.img[i] = "Data/Other/ComingSoon.jpg";
             } else {
-              this.href[i] = "/Albums/" + this.$props.path + "/" + this.data.list[i].href;
-              this.img[i] = "Data/Albums/" + this.$props.path + "/" + this.data.list[i].href + "/cover.jpg";
+              this.href[i] = this.$route.fullPath + "/" + this.data.list[i].href;
+              this.img[i] = "Data" + this.$route.fullPath + "/" + this.data.list[i].href + "/cover.jpg";
             }
           }
 
@@ -76,11 +94,24 @@ export default {
             this.data.list.push(template);
             this.href.push("");
           }
+          this.CheckPath();
         })
-        .catch(function (response) {
+        .catch((response) => {
           console.log(response);
+          this.ToNotFound();
         });
     },
+    ToNotFound() {
+      this.$router.push({
+        name: "NotFound",
+        params: { pathMatch: this.$route.path.substring(1).split("/") },
+        query: this.$route.query,
+        hash: this.$route.hash,
+      });
+    },
+  },
+  watch: {
+    // $route: "LoadJson",
   },
   created() {
     this.LoadJson();
@@ -88,9 +119,6 @@ export default {
   updated() {
     if (this.$refs.element) this.$refs.element.ReSet();
   },
-  mounted() {
-    this.flag = true;
-  }
 };
 </script>
 
@@ -99,8 +127,11 @@ export default {
   <div class="wrap">
     <Road class="mb-10">
       <RoadItem>活動花絮</RoadItem>
-      <RoadItem>展覽花絮</RoadItem>
-      <template #title>展覽花絮</template>
+      <template v-for="i in path">
+        <RoadItemRouter :href="'/Albums/' + i.href">{{ i.title }}</RoadItemRouter>
+      </template>
+      <RoadItem>{{ data.title }}</RoadItem>
+      <template #title>{{ data.title }}</template>
     </Road>
 
     <div class="flex flex-wrap justify-between xl:justify-around max-w-5xl mx-auto">

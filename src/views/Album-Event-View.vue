@@ -6,7 +6,7 @@ import RoadItemRouter from "../components/Road/src/RoadItemRouter.vue";
 import ImageBox from "../components/ImageBox/ImageBox.vue";
 import ElementPanel from "../components/ElementPanel/ElementPanel.vue";
 defineProps({
-  path: String,
+  dictionary: Array,
 });
 </script>
 
@@ -21,19 +21,33 @@ export default {
       },
       imgs: [],
       fixedCount: 0,
-      _path: "Albums/" + this.$props.path,
+      path: [],
     };
   },
-  expose: ["LoadJson"],
   methods: {
-    LoadJson(vi) {
-      if (vi) return;
-      let albumID = this.$route.params.albumID;
+    CheckPath() {
+      let temp = this.$route.fullPath.split("/");
+      let title = temp.slice(2, temp.length - 1);
+      for (let i = 0; i < title.length; i++) {
+        let href = "";
+        if (i != 0) {
+          href = this.path[i - 1].href + '/' + title[i];
+        }
+        else {
+          href = title[i];
+        }
+        var tempPath = {
+          title: this.$props.dictionary[title[i]],
+          href: href,
+        }
+        this.path.push(tempPath)
+      }
+    },
+    LoadJson() {
       axios
-        .get("Data/Albums/" + this.$props.path + "/List.json")
+        .get("Data" + this.$route.fullPath + "/List.json")
         .then((response) => {
           this.albumEventData = response.data;
-
           let colCount = 4;
 
           if (this.$windowWidth <= this.$sm) {
@@ -54,15 +68,7 @@ export default {
           for (let i = 1; i <= this.albumEventData.imgsCount; i++) {
             this.imgs.push("img (" + i + ").jpg");
           }
-
-          switch (albumID) {
-            case "Activity":
-              this.albumName = "活動紀錄";
-              break;
-            case "Exhibition":
-              this.albumName = "展覽花絮";
-              break;
-          }
+          this.CheckPath();
         })
         .catch((response) => {
           console.log(response);
@@ -88,10 +94,10 @@ export default {
     },
   },
   watch: {
-    $route: "LoadJson",
+    // $route: "LoadJson",
   },
   created() {
-    this.LoadJson("");
+    this.LoadJson();
   },
   updated() {
     if (this.$refs.element) this.$refs.element.ReSet();
@@ -107,14 +113,16 @@ export default {
   <div class="wrap">
     <Road class="mb-10">
       <RoadItem>活動花絮</RoadItem>
-      <RoadItemRouter :href="'/Albums/' + $route.params.albumID">{{ albumName }}</RoadItemRouter>
+      <template v-for="i in path">
+        <RoadItemRouter :href="'/Albums/' + i.href">{{ i.title }}</RoadItemRouter>
+      </template>
       <RoadItem>{{ albumEventData.title }}</RoadItem>
       <template #title>{{ albumEventData.title }}</template>
     </Road>
 
     <div class="flex flex-wrap justify-between lg:justify-around">
       <button v-for="(i, index) in imgs" @click="openModal(index)">
-        <img :src="'Data/' + _path + '/Image/' + i" class="mb-10 w-80 lg:w-60 md:w-40" />
+        <img :src="'Data' + $route.fullPath + '/Image/' + i" class="mb-10 w-80 lg:w-60 md:w-40" />
       </button>
 
       <div v-if="fixedCount > 0" v-for="i in fixedCount" class="mb-10 w-80 bg-slate-600 invisible"></div>
@@ -125,7 +133,7 @@ export default {
         <button @click="closeModal" class="absolute right-5 top-5 z-50">
           <ion-icon class="X_Icon sm:text-2xl" name="close-outline" />
         </button>
-        <ImageBox :path="_path" :img="imgs" :time="3000" :auto="false" :dot="false" :emitIndex="emitIndex"
+        <ImageBox :path="$route.fullPath" :img="imgs" :time="3000" :auto="false" :dot="false" :emitIndex="emitIndex"
           class="absolute top-1/2 -translate-y-1/2"></ImageBox>
       </div>
     </div>
