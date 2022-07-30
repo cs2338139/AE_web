@@ -27,8 +27,6 @@ export default {
     };
   },
   components: {
-    // AlbumListView: defineAsyncComponent(() => import("./Album-List-View.vue")),
-    // AlbumEventView: defineAsyncComponent(() => import("./Album-Event-View.vue")),
   },
   methods: {
     SwitchViews() {
@@ -124,8 +122,8 @@ export default {
 
 <template>
   <!-- <component :is="current"></component> -->
-  <AlbumEventView v-if="current === 'AlbumEventView'" :key="this.path" :dictionary="dictionary" />
-  <AlbumListView v-if="current === 'AlbumListView'" :key="this.path" :dictionary="dictionary" />
+  <AlbumEventView v-if="current === 'AlbumEventView'" :key="path" :dictionary="dictionary" />
+  <AlbumListView v-if="current === 'AlbumListView'" :key="path" :dictionary="dictionary" />
 </template>
 
 <style>
